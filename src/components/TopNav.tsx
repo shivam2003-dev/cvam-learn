@@ -54,7 +54,7 @@ export function StatChips() {
 export function TopNav() {
   const pathname = usePathname();
   return (
-    <header className="sticky top-0 z-20 border-b border-line bg-ink/95 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b border-line bg-ink/95 backdrop-blur print:hidden">
       <div className="flex h-14 items-center gap-5 px-4">
         <Brand />
         <nav aria-label="Main" className="flex min-w-0 gap-1 overflow-x-auto text-sm">

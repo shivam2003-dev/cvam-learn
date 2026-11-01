@@ -1,7 +1,9 @@
+import * as inferenceExtras from "@/content/inference-engineering/extras";
 import { inferenceEngineering } from "@/content/inference-engineering/curriculum";
 import { lessons as inferenceLessons } from "@/content/inference-engineering/lessons";
 import inferenceReferences from "@/content/inference-engineering/references.json";
 import { mlops } from "@/content/mlops/curriculum";
+import * as mlopsExtras from "@/content/mlops/extras";
 import { lessons as mlopsLessons } from "@/content/mlops/lessons";
 import mlopsReferences from "@/content/mlops/references.json";
 import type { Course, Lesson, NavCourse, Reference } from "@/lib/types";
@@ -10,9 +12,13 @@ const registry: {
   course: Course;
   lessons: Record<string, Lesson>;
   references: Record<string, Reference[]>;
+  extras: {
+    moduleExtras: Record<string, Reference[]>;
+    lessonExtras: Record<string, Reference[]>;
+  };
 }[] = [
-  { course: inferenceEngineering, lessons: inferenceLessons, references: inferenceReferences },
-  { course: mlops, lessons: mlopsLessons, references: mlopsReferences },
+  { course: inferenceEngineering, lessons: inferenceLessons, references: inferenceReferences, extras: inferenceExtras },
+  { course: mlops, lessons: mlopsLessons, references: mlopsReferences, extras: mlopsExtras },
 ];
 
 export const courses = registry.map((entry) => entry.course);
@@ -21,7 +27,23 @@ export function getCourse(slug: string) {
   return registry.find((entry) => entry.course.slug === slug);
 }
 
-export function toNavCourse(slug: string): NavCourse | undefined {
+/** Curated picks first, then roadmap.sh links, with duplicates removed. */
+export function lessonResources(courseSlug: string, lessonSlug: string): Reference[] {
+  const entry = getCourse(courseSlug);
+  if (!entry) return [];
+  const owner = entry.course.modules.find((m) => m.lessons.some((l) => l.slug === lessonSlug));
+  const all = [
+    ...(entry.extras.lessonExtras[lessonSlug] ?? []),
+    ...(owner ? (entry.extras.moduleExtras[owner.id] ?? []) : []),
+    ...(entry.references[lessonSlug] ?? []),
+  ];
+  return all.filter((item, index) => all.findIndex((other) => other.url === item.url) === index);
+}
+
+export function toNavCourse(
+  slug: string,
+  { withResources = false } = {},
+): NavCourse | undefined {
   const entry = getCourse(slug);
   if (!entry) return undefined;
   return {
@@ -34,6 +56,7 @@ export function toNavCourse(slug: string): NavCourse | undefined {
         ready: lesson.slug in entry.lessons,
         minutes: entry.lessons[lesson.slug]?.minutes ?? null,
         difficulty: entry.lessons[lesson.slug]?.difficulty ?? null,
+        ...(withResources ? { resources: lessonResources(slug, lesson.slug) } : {}),
       })),
     })),
   };

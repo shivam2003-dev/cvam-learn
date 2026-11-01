@@ -38,7 +38,7 @@ export function References({
         ))}
       </ul>
       <p className="border-t border-line px-5 py-3 text-xs text-faint">
-        Links collected from the{" "}
+        Curated picks plus links from the{" "}
         <a href={roadmapUrl} className="underline underline-offset-2 hover:text-soft">
           roadmap.sh
         </a>{" "}

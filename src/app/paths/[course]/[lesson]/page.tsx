@@ -7,7 +7,7 @@ import { LessonTail } from "@/components/LessonTail";
 import { OnThisPage } from "@/components/OnThisPage";
 import { References } from "@/components/References";
 import { TopNav } from "@/components/TopNav";
-import { courses, getCourse, readyLessons, toNavCourse } from "@/lib/courses";
+import { courses, getCourse, lessonResources, readyLessons, toNavCourse } from "@/lib/courses";
 
 type Props = { params: Promise<{ course: string; lesson: string }> };
 
@@ -130,7 +130,7 @@ export default async function LessonPage({ params }: Props) {
             />
 
             <References
-              items={entry.references[slug] ?? []}
+              items={lessonResources(courseSlug, slug)}
               roadmapUrl={`https://roadmap.sh/${courseSlug}`}
             />
           </article>

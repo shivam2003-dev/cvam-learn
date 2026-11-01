@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function RoadmapPage({ params }: Props) {
   const { course: slug } = await params;
   const entry = getCourse(slug);
-  const nav = toNavCourse(slug);
+  const nav = toNavCourse(slug, { withResources: true });
   if (!entry || !nav) notFound();
 
   return (

@@ -60,6 +60,9 @@ export default async function CoursePage({ params }: Props) {
               <Link href={`/roadmaps/${slug}`} className="font-mono text-sm text-soft hover:text-text">
                 View as roadmap →
               </Link>
+              <Link href={`/paths/${slug}/certificate`} className="font-mono text-sm text-soft hover:text-text">
+                Certificate →
+              </Link>
             </div>
             <p className="mt-5 font-mono text-sm text-faint">
               {stats.modules} modules · {stats.ready} of {stats.lessons} lessons live

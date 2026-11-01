@@ -88,6 +88,7 @@ export type NavLesson = LessonMeta & {
   ready: boolean;
   minutes: number | null;
   difficulty: Difficulty | null;
+  resources?: Reference[];
 };
 export type NavModule = Omit<Module, "lessons"> & { lessons: NavLesson[] };
 export type NavCourse = {
