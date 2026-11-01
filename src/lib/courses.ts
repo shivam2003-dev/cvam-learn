@@ -1,3 +1,7 @@
+import { aiEngineer } from "@/content/ai-engineer/curriculum";
+import * as aiExtras from "@/content/ai-engineer/extras";
+import { lessons as aiLessons } from "@/content/ai-engineer/lessons";
+import aiReferences from "@/content/ai-engineer/references.json";
 import { cyberSecurity } from "@/content/cyber-security/curriculum";
 import * as cyberExtras from "@/content/cyber-security/extras";
 import { lessons as cyberLessons } from "@/content/cyber-security/lessons";
@@ -24,6 +28,7 @@ const registry: {
   { course: inferenceEngineering, lessons: inferenceLessons, references: inferenceReferences, extras: inferenceExtras },
   { course: mlops, lessons: mlopsLessons, references: mlopsReferences, extras: mlopsExtras },
   { course: cyberSecurity, lessons: cyberLessons, references: cyberReferences, extras: cyberExtras },
+  { course: aiEngineer, lessons: aiLessons, references: aiReferences, extras: aiExtras },
 ];
 
 export const courses = registry.map((entry) => entry.course);
