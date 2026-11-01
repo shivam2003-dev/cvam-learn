@@ -107,6 +107,60 @@ LESSONS = {
         "cost-estimation": ["Cost Estimation"],
         "observability": ["Observability"],
     },
+    "cyber-security": {
+        "what-is-cyber-security": ["Cyber Security", "Understand CIA Triad"],
+        "hardware-and-connections": ["Fundamental IT Skills", "Computer Hardware Components", "Connection Types and their function", "OS-Independent Troubleshooting", "NFC", "WiFi", "Bluetooth", "Infrared", "Understand Basics of Popular Suites", "iCloud", "Google Suite", "MS Office Suite"],
+        "practice-platforms-and-certs": ["HackTheBox", "TryHackMe", "VulnHub", "picoCTF", "pwn.college", "CompTIA A+", "CompTIA Linux+", "CompTIA Network+", "CCNA", "CompTIA Security+", "CEH", "CISA", "CISM", "GSEC", "GPEN", "GWAPT", "GIAC", "OSCP", "CREST", "CISSP"],
+        "linux-for-security": ["Linux", "Common Commands", "Navigating using GUI and CLI", "Performing CRUD on Files", "Installing Software and Applications", "Installation and Configuration", "Troubleshooting", "Kali Linux", "ParrotOS"],
+        "windows-for-security": ["Windows", "Different Versions and Differences", "Group Policy"],
+        "macos-basics": ["MacOS"],
+        "permissions-and-access": ["Understand Permissions", "Local Auth", "ACLs", "ACL", "MAC-based", "Authentication vs Authorization"],
+        "virtualization-and-labs": ["VMWare", "VirtualBox", "esxi", "proxmox", "Hypervisor", "GuestOS", "HostOS", "VM", "Understand Concept of Isolation", "Sandboxing"],
+        "osi-and-tcp-ip": ["Understand the OSI Model", "Basics of Computer Networking", "Networking Knowledge"],
+        "ip-addressing-subnetting": ["Basics of Subnetting", "Public vs Private IP Addresses", "CIDR", "subnet mask", "default gateway", "localhost", "loopback", "IP"],
+        "dns-dhcp-nat": ["DNS", "DHCP", "NAT", "NTP", "IPAM", "DNS Poisoning", "Sinkholes", "DNSSEC"],
+        "common-protocols-and-ports": ["Common Protocols and their Uses", "Common Ports and their Uses", "HTTP / HTTPS", "SSH", "RDP", "FTP", "SFTP", "FTP vs SFTP", "Basics of NAS and SAN"],
+        "network-devices-and-topologies": ["Router", "Switch", "VPN", "VLAN", "DMZ", "LAN", "WAN", "MAN", "WLAN", "Star", "Ring", "Mesh", "Bus", "Perimiter vs DMZ vs Segmentation"],
+        "network-tools": ["ping", "dig", "nslookup", "ipconfig", "netstat", "arp", "route", "tracert", "tcpdump", "nmap", "wireshark", "Packet Sniffers", "Port Scanners", "Protocol Analyzers", "hping", "curl", "iptables"],
+        "cia-triad": ["Understand CIA Triad"],
+        "risk-and-threat-modeling": ["Understand the Definition of Risk", "Known vs Unknown", "Stakeholders"],
+        "defense-in-depth-zero-trust": ["Understand Concept of Defense in Depth", "Core Concepts of Zero Trust"],
+        "authn-authz-mfa": ["Authentication vs Authorization", "MFA & 2FA", "Local Auth"],
+        "security-teams-and-frameworks": ["Blue / Red / Purple Teams", "Roles of Compliance and Auditors", "NIST", "ISO", "CIS", "RMF", "CSF", "Compliance", "Management", "HR", "Legal"],
+        "detection-metrics": ["False Negative / False Positive", "True Negative / True Positive"],
+        "hashing-and-salting": ["Hashing", "Salting", "Obfuscation"],
+        "symmetric-asymmetric-keys": ["Private vs Public Keys", "Key Exchange", "Understand Handshakes"],
+        "tls-and-certificates": ["SSL and TLS Basics", "SSL / TLS", "SSL vs TLS", "Certificates", "PKI"],
+        "secure-protocols": ["IPSEC", "LDAPS", "SRTP", "S/MIME", "SFTP", "DNSSEC"],
+        "kerberos-ldap-sso": ["Kerberos", "LDAP", "SSO"],
+        "radius-and-network-access": ["RADIUS", "NAC-based", "EAP vs PEAP"],
+        "attack-lifecycle": ["Cyber Kill Chain", "Kill Chain", "Diamond Model", "ATT&CK", "Reconnaissance"],
+        "social-engineering": ["Social Engineering", "Phishing", "Whaling", "Smishing", "Whishing", "Spam vs Spim", "Shoulder Surfing", "Tailgating", "Dumpster Diving", "Impersonation", "Watering Hole Attack", "Typo Squatting", "Drive by Attack"],
+        "malware-types": ["Learn how Malware works and Types", "Antivirus", "Antimalware"],
+        "network-attacks": ["DoS vs DDoS", "MITM", "Spoofing", "Evil Twin", "VLAN Hopping", "Deauth Attack", "Rogue Access Point", "Replay Attack", "WPS", "WPA vs WPA2 vs WPA3 vs WEP"],
+        "password-attacks": ["Brute Force vs Password Spray", "Pass the Hash"],
+        "privilege-escalation": ["Privilege Escalation", "LOLBAS", "GTFOBINS", "WADCOMS"],
+        "threat-actors": ["APT", "Zero day", "Zero Day"],
+        "owasp-top-10": ["Web Based Attacks and OWASP10", "Directory Traversal"],
+        "injection-and-xss": ["SQL Injection", "XSS"],
+        "csrf-and-session-security": ["CSRF"],
+        "firewalls-and-segmentation": ["Firewall & Nextgen Firewall", "Host Based Firewall", "Port Blocking", "Jump Server"],
+        "ids-ips-honeypots": ["Basics of IDS and IPS", "NIDS", "NIPS", "HIPS", "Honeypots"],
+        "endpoint-security": ["Endpoint Security", "EDR", "DLP", "Antivirus", "Antimalware"],
+        "os-hardening-and-patching": ["Operating System Hardening", "Patching", "Buffer Overflow", "Memory Leak"],
+        "backups-and-resilience": ["Understand Backups and Resiliency"],
+        "vulnerability-management": ["Basics of Vulnerability Management"],
+        "logs-and-siem": ["SIEM", "SOAR", "Event Logs", "syslogs", "netflow", "Packet Captures", "Firewall Logs"],
+        "threat-intel-and-hunting": ["Basics of Threat Intel, OSINT", "Basics and Concepts of Threat Hunting", "WHOIS"],
+        "incident-response": ["Understand Concept of Runbooks", "Preparation", "Identification", "Containment", "Eradication", "Recovery", "Lessons Learned"],
+        "digital-forensics": ["Understand Basics of Forensics", "autopsy", "FTK Imager", "memdump", "winhex", "dd", "cat", "head", "tail", "grep"],
+        "malware-analysis-basics": ["VirusTotal", "any.run", "urlscan", "Joe Sandbox", "urlvoid"],
+        "pentest-and-reverse-engineering": ["Penetration Testing Rules of Engagement", "Basics of Reverse Engineering", "Understand Common Hacking Tools", "Understand Common Exploit Frameworks"],
+        "cloud-models-and-responsibility": ["Understand the Concept of Security in the Cloud", "SaaS", "PaaS", "IaaS", "Understand the differences between cloud and on-premises", "Private", "Public", "Hybrid"],
+        "cloud-providers-and-storage": ["AWS", "Azure", "GCP", "S3", "Dropbox", "Box", "OneDrive", "Google Drive", "Understand the basics and general flow of deploying in the cloud"],
+        "infrastructure-as-code-and-serverless": ["Understand the concept of Infrastructure as Code", "Understand the Concept of Serverless"],
+        "scripting-for-security": ["Python", "Go", "JavaScript", "C++", "Bash", "Power Shell"],
+    },
     "mlops": {
         "what-is-mlops": ["What is MLOps?"],
         "mlops-principles": ["MLOps Principles"],
@@ -161,7 +215,11 @@ def normalize(label):
     return label.strip().casefold()
 
 
+import sys
+only = sys.argv[1:]
 for course, lessons in LESSONS.items():
+    if only and course not in only:
+        continue
     nodes = fetch(f"{API}/{course}")["nodes"]
     ids = {}
     for node in nodes:

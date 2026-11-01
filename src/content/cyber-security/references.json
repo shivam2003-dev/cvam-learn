@@ -1,0 +1,3341 @@
+{
+  "what-is-cyber-security": [
+    {
+      "type": "article",
+      "title": "The CIA Triad",
+      "url": "https://www.fortinet.com/resources/cyberglossary/cia-triad"
+    },
+    {
+      "type": "video",
+      "title": "The CIA Triad - Professor Messer",
+      "url": "https://www.youtube.com/watch?v=SBcDGb9l6yo"
+    }
+  ],
+  "hardware-and-connections": [
+    {
+      "type": "course",
+      "title": "Cisco Networking Academy: Introduction to Cybersecurity",
+      "url": "https://www.netacad.com/courses/introduction-to-cybersecurity?courseLang=en-US"
+    },
+    {
+      "type": "article",
+      "title": "8 In-Demand IT Skills to Boost Your Resume in 2025",
+      "url": "https://www.coursera.org/articles/key-it-skills-for-your-career"
+    },
+    {
+      "type": "article",
+      "title": "Top IT Skills in Demand",
+      "url": "https://www.comptia.org/en/blog/top-it-skills-in-demand"
+    },
+    {
+      "type": "article",
+      "title": "IT Skills: Definition and Examples",
+      "url": "https://www.indeed.com/career-advice/finding-a-job/it-skills"
+    },
+    {
+      "type": "article",
+      "title": "What is computer hardware?",
+      "url": "https://www.ibm.com/think/topics/hardware"
+    },
+    {
+      "type": "video",
+      "title": "Computer Components for Dummies",
+      "url": "https://www.youtube.com/watch?v=cZs6kh0WFRY"
+    },
+    {
+      "type": "article",
+      "title": "Network connection types explained",
+      "url": "https://nordvpn.com/blog/network-connection-types/"
+    },
+    {
+      "type": "article",
+      "title": "What is Ethernet?",
+      "url": "https://www.techtarget.com/searchnetworking/definition/Ethernet"
+    },
+    {
+      "type": "article",
+      "title": "What is WiFi and how does it work?",
+      "url": "https://computer.howstuffworks.com/wireless-network.htm"
+    },
+    {
+      "type": "article",
+      "title": "How bluetooth works",
+      "url": "https://electronics.howstuffworks.com/bluetooth.htm"
+    },
+    {
+      "type": "article",
+      "title": "OS-Independent Troubleshooting Flashcards",
+      "url": "https://quizlet.com/ph/837474114/os-independent-troubleshooting-flash-cards/"
+    },
+    {
+      "type": "article",
+      "title": "Troubleshooting Guide",
+      "url": "https://cdnsm5-ss6.sharpschool.com/userfiles/servers/server_20856499/file/teacher%20pages/lindsay%20dolezal/it%20essentials/5.6.pdf"
+    },
+    {
+      "type": "video",
+      "title": "Operating System Troubleshooting - CompTIA A+",
+      "url": "https://www.youtube.com/watch?v=6gainrNiypc"
+    },
+    {
+      "type": "article",
+      "title": "The Beginner's Guide to NFCs",
+      "url": "https://www.spiceworks.com/tech/networking/articles/what-is-near-field-communication/"
+    },
+    {
+      "type": "article",
+      "title": "NFC Guide: All You Need to Know About Near Field Communication",
+      "url": "https://squareup.com/us/en/the-bottom-line/managing-your-finances/nfc"
+    },
+    {
+      "type": "video",
+      "title": "NFC Explained: What is NFC? How NFC Works? Applications of NFC",
+      "url": "https://youtu.be/eWPtt2hLnJk"
+    },
+    {
+      "type": "video",
+      "title": "That's How Wi-Fi Works",
+      "url": "https://youtu.be/hePLDVbULZc"
+    },
+    {
+      "type": "video",
+      "title": "Wireless Networking Explained",
+      "url": "https://www.youtube.com/watch?v=Uz-RTurph3c"
+    },
+    {
+      "type": "article",
+      "title": "Bluetooth in Cyber Security",
+      "url": "https://www.zenarmor.com/docs/network-basics/what-is-bluetooth"
+    },
+    {
+      "type": "video",
+      "title": "Everything about Bluetooth Security",
+      "url": "https://www.youtube.com/watch?v=i9mzl51ammA"
+    },
+    {
+      "type": "article",
+      "title": "Infrared Definition",
+      "url": "https://nordvpn.com/cybersecurity/glossary/infrared/?srsltid=AfmBOop7r5E41gRA5itc1NmwrS9qpjfiFnW6UKBwVLuu_MifaKdLHoTe"
+    },
+    {
+      "type": "article",
+      "title": "Infrared",
+      "url": "https://www.larksuite.com/en_us/topics/cybersecurity-glossary/infrared"
+    },
+    {
+      "type": "official",
+      "title": "Microsoft Office",
+      "url": "https://www.office.com/"
+    },
+    {
+      "type": "official",
+      "title": "Google Workspace",
+      "url": "https://workspace.google.com"
+    },
+    {
+      "type": "official",
+      "title": "LibreOffice",
+      "url": "https://www.libreoffice.org/"
+    },
+    {
+      "type": "official",
+      "title": "iCloud",
+      "url": "https://www.icloud.com/"
+    },
+    {
+      "type": "official",
+      "title": "Google Workspace",
+      "url": "https://workspace.google.com/intl/en_uk/"
+    },
+    {
+      "type": "official",
+      "title": "Microsoft Office Suite Directory",
+      "url": "https://www.microsoft.com/en-gb/microsoft-365/products-apps-services"
+    },
+    {
+      "type": "video",
+      "title": "Every Office 365 App Explained",
+      "url": "https://www.youtube.com/watch?v=2W0T2qGZ9Dc"
+    }
+  ],
+  "practice-platforms-and-certs": [
+    {
+      "type": "official",
+      "title": "Hack The Box",
+      "url": "https://www.hackthebox.com/"
+    },
+    {
+      "type": "video",
+      "title": "I played HTB for 30 days, heres what I learnt",
+      "url": "https://www.youtube.com/watch?v=bPv5pb7AcYs"
+    },
+    {
+      "type": "official",
+      "title": "TryHackMe",
+      "url": "https://tryhackme.com/"
+    },
+    {
+      "type": "video",
+      "title": "Start Your Cybersecurity Career with TryHackMe",
+      "url": "https://www.youtube.com/watch?v=HPF8y_gDP7w"
+    },
+    {
+      "type": "official",
+      "title": "Vulnhub",
+      "url": "https://www.vulnhub.com/"
+    },
+    {
+      "type": "article",
+      "title": "A Beginners Guide to Vulnhub",
+      "url": "https://medium.com/@gavinloughridge/a-beginners-guide-to-vulnhub-part-1-52b06466635d"
+    },
+    {
+      "type": "official",
+      "title": "picoCTF",
+      "url": "https://picoctf.org/"
+    },
+    {
+      "type": "video",
+      "title": "BEGINNER Capture The Flag - PicoCTF 2021 001 \"Obedient Cat\"",
+      "url": "https://www.youtube.com/watch?v=P07NH5F-t3s"
+    },
+    {
+      "type": "official",
+      "title": "pwn.college",
+      "url": "https://pwn.college/"
+    },
+    {
+      "type": "course",
+      "title": "Free CompTIA A+ PBQ Practice (220-1201 and 220-1202)",
+      "url": "https://www.examwizardz.app/pbq-practice"
+    },
+    {
+      "type": "official",
+      "title": "CompTIA A+",
+      "url": "https://www.comptia.org/certifications/a"
+    },
+    {
+      "type": "video",
+      "title": "CompTIA A+ Course",
+      "url": "https://www.youtube.com/watch?v=1CZXXNKAY5o"
+    },
+    {
+      "type": "official",
+      "title": "CompTIA Linux+",
+      "url": "https://www.comptia.org/certifications/linux"
+    },
+    {
+      "type": "article",
+      "title": "CompTIA Linux+ Certification Training Labs",
+      "url": "https://github.com/labex-labs/comptia-linux-plus-training-labs"
+    },
+    {
+      "type": "video",
+      "title": "Linux+ Exam Prep",
+      "url": "https://www.youtube.com/watch?v=niPWk7tgD2Q&list=PL78ppT-_wOmuwT9idLvuoKOn6UYurFKCp"
+    },
+    {
+      "type": "official",
+      "title": "CompTIA Network+",
+      "url": "https://www.comptia.org/certifications/network"
+    },
+    {
+      "type": "video",
+      "title": "CompTIA Network+ Course",
+      "url": "https://www.youtube.com/watch?v=xmpYfyNmWbw"
+    },
+    {
+      "type": "official",
+      "title": "CCNA Certification",
+      "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html"
+    },
+    {
+      "type": "video",
+      "title": "Network Chuck Free CCNA Course",
+      "url": "https://www.youtube.com/playlist?list=PLIhvC56v63IJVXv0GJcl9vO5Z6znCVb1P"
+    },
+    {
+      "type": "video",
+      "title": "Jeremy's IT Lab",
+      "url": "https://www.youtube.com/@JeremysITLab"
+    },
+    {
+      "type": "course",
+      "title": "CompTIA SY0-701 Security+ Exam Course Playlist",
+      "url": "https://www.youtube.com/playlist?list=PLG49S3nxzAnl4QDVqK-hOnoqcSKEIDDuv"
+    },
+    {
+      "type": "course",
+      "title": "CompTIA Security+ Course",
+      "url": "https://www.youtube.com/watch?v=yLf2jRY39Rc&list=PLIhvC56v63IIyU0aBUed4qwP0nSCORAdB"
+    },
+    {
+      "type": "official",
+      "title": "CompTIA Security+ Website",
+      "url": "https://www.comptia.org/certifications/security"
+    },
+    {
+      "type": "official",
+      "title": "CEH",
+      "url": "https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/"
+    },
+    {
+      "type": "article",
+      "title": "Certified Ethical Hacker Online Training",
+      "url": "https://iclass.eccouncil.org/our-courses/certified-ethical-hacker-ceh/"
+    },
+    {
+      "type": "official",
+      "title": "CISA",
+      "url": "https://www.isaca.org/credentialing/cisa"
+    },
+    {
+      "type": "article",
+      "title": "What is a Certified Information Systems Auditor?",
+      "url": "https://www.investopedia.com/terms/c/certified-information-systems-auditor.asp"
+    },
+    {
+      "type": "official",
+      "title": "CISM",
+      "url": "https://www.isaca.org/credentialing/cism"
+    },
+    {
+      "type": "article",
+      "title": "Certified Information Security Manager (CISM)",
+      "url": "https://en.wikipedia.org/wiki/Certified_Information_Security_Manager"
+    },
+    {
+      "type": "official",
+      "title": "GSEC Certification",
+      "url": "https://www.giac.org/certifications/security-essentials-gsec/"
+    },
+    {
+      "type": "official",
+      "title": "GPEN Certification",
+      "url": "https://www.giac.org/certifications/penetration-tester-gpen/"
+    },
+    {
+      "type": "article",
+      "title": "What is the GPEN Certification?",
+      "url": "https://hackernoon.com/what-is-the-giac-penetration-tester-gpen-certification"
+    },
+    {
+      "type": "official",
+      "title": "GWAPT Certification",
+      "url": "https://www.giac.org/certifications/web-application-penetration-tester-gwapt/"
+    },
+    {
+      "type": "official",
+      "title": "GIAC",
+      "url": "https://www.giac.org/"
+    },
+    {
+      "type": "official",
+      "title": "Get Certified - GIAC",
+      "url": "https://www.giac.org/get-certified/?msc=main-nav"
+    },
+    {
+      "type": "official",
+      "title": "Offensive Security Certified Professional",
+      "url": "https://www.offsec.com/courses/pen-200/"
+    },
+    {
+      "type": "article",
+      "title": "How to Prepare for OSCP Exam",
+      "url": "https://cybersecurityguide.org/programs/cybersecurity-certifications/oscp/"
+    },
+    {
+      "type": "article",
+      "title": "How to Become an OSCP [Full Guide] - Geekflare",
+      "url": "https://geekflare.com/cybersecurity/oscp-certification/"
+    },
+    {
+      "type": "official",
+      "title": "CREST Certifications",
+      "url": "https://www.crest-approved.org/skills-certifications-careers/crest-certifications/"
+    },
+    {
+      "type": "video",
+      "title": "A brief overview of CREST",
+      "url": "https://www.youtube.com/watch?v=Cci5qrv8fHY"
+    },
+    {
+      "type": "official",
+      "title": "CISSP Certification",
+      "url": "https://www.isc2.org/certifications/cissp"
+    },
+    {
+      "type": "video",
+      "title": "CISSP Certification Course",
+      "url": "https://www.youtube.com/watch?v=M1_v5HBVHWo"
+    }
+  ],
+  "linux-for-security": [
+    {
+      "type": "roadmap",
+      "title": "Visit Linux Roadmap",
+      "url": "https://roadmap.sh/linux"
+    },
+    {
+      "type": "course",
+      "title": "Linux from scratch - Cisco",
+      "url": "https://www.netacad.com/courses/os-it/ndg-linux-unhatched"
+    },
+    {
+      "type": "article",
+      "title": "Linux Commands Cheat Sheet",
+      "url": "https://assets.hostinger.com/content/tutorials/pdf/Linux-Commands-Cheat-Sheet.pdf"
+    },
+    {
+      "type": "video",
+      "title": "Introduction to Linux",
+      "url": "https://youtu.be/sWbUDq4S6Y8"
+    },
+    {
+      "type": "article",
+      "title": "Essential Unix Commands",
+      "url": "https://www.geeksforgeeks.org/essential-linuxunix-commands/"
+    },
+    {
+      "type": "video",
+      "title": "60 Linux commands you must know",
+      "url": "https://www.youtube.com/watch?v=gd7BXuUQ91w"
+    },
+    {
+      "type": "video",
+      "title": "Top 40 Windows commands to know",
+      "url": "https://www.youtube.com/watch?v=Jfvg3CS1X3A"
+    },
+    {
+      "type": "article",
+      "title": "What is CRUD?",
+      "url": "https://www.crowdstrike.com/cybersecurity-101/observability/crud/"
+    },
+    {
+      "type": "article",
+      "title": "CRUD Operations",
+      "url": "https://www.freecodecamp.org/news/crud-operations-explained/"
+    },
+    {
+      "type": "video",
+      "title": "What is CRUD?",
+      "url": "https://www.youtube.com/watch?v=iNkspbIfcic"
+    },
+    {
+      "type": "article",
+      "title": "Problem Solve",
+      "url": "https://www.techtarget.com/searchsecurity/info/problemsolve"
+    },
+    {
+      "type": "video",
+      "title": "Steps for Network Troubleshooting",
+      "url": "https://www.youtube.com/watch?v=1i3XdhC2ZAs"
+    },
+    {
+      "type": "official",
+      "title": "Kali Linux",
+      "url": "https://www.kali.org/"
+    },
+    {
+      "type": "official",
+      "title": "Kali Tools",
+      "url": "https://www.kali.org/tools"
+    },
+    {
+      "type": "official",
+      "title": "Kali Docs",
+      "url": "https://www.kali.org/docs/"
+    },
+    {
+      "type": "official",
+      "title": "ParrotOS",
+      "url": "https://parrotsec.org/"
+    },
+    {
+      "type": "official",
+      "title": "ParrotOS Documentation",
+      "url": "https://parrotsec.org/docs"
+    },
+    {
+      "type": "official",
+      "title": "ParrotOS Downloads",
+      "url": "https://parrotsec.org/download"
+    }
+  ],
+  "windows-for-security": [
+    {
+      "type": "official",
+      "title": "Windows Security",
+      "url": "https://learn.microsoft.com/en-us/windows/security/"
+    },
+    {
+      "type": "video",
+      "title": "Windows 11 Full Tutorial - A 2 Hour Course to Learn and Master Windows 11",
+      "url": "https://www.youtube.com/watch?v=UKn-r3X2CLk"
+    },
+    {
+      "type": "official",
+      "title": "Group Policy overview",
+      "url": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831791%28v=ws.11%29"
+    },
+    {
+      "type": "video",
+      "title": "Learn Windows Group Policy the easy way!",
+      "url": "https://www.youtube.com/watch?v=rEhTzP-ScBo"
+    }
+  ],
+  "macos-basics": [
+    {
+      "type": "official",
+      "title": "macOS",
+      "url": "https://www.apple.com/macos/macos-sequoia/"
+    },
+    {
+      "type": "video",
+      "title": "Mac Tutorial for Beginners 2024",
+      "url": "https://www.youtube.com/watch?v=3jeeFc2Vo1U"
+    }
+  ],
+  "permissions-and-access": [
+    {
+      "type": "article",
+      "title": "Linux File Permissions (Linux Journey)",
+      "url": "https://linuxjourney.com/lesson/file-permissions"
+    },
+    {
+      "type": "video",
+      "title": "Linux Crash Course - Understanding File Permissions",
+      "url": "https://www.youtube.com/watch?v=4N4Q576i3zA"
+    },
+    {
+      "type": "video",
+      "title": "Managing Windows permissions with CLI (Icacls)",
+      "url": "https://www.youtube.com/watch?v=ddtc2rgtgAI"
+    },
+    {
+      "type": "article",
+      "title": "Local authentication, registration, and other settings",
+      "url": "https://learn.microsoft.com/en-us/power-pages/security/authentication/set-authentication-identity"
+    },
+    {
+      "type": "article",
+      "title": "Access Control List: Definition, Types & Usages",
+      "url": "https://www.okta.com/uk/identity-101/access-control-list/"
+    },
+    {
+      "type": "video",
+      "title": "Access Control Lists",
+      "url": "https://www.youtube.com/watch?v=IwLyr0mKK1w"
+    },
+    {
+      "type": "article",
+      "title": "What is Mandatory Access Control?",
+      "url": "https://nordlayer.com/learn/access-control/mandatory-access-control/"
+    },
+    {
+      "type": "video",
+      "title": "Mandatory Access Control (MAC) Models",
+      "url": "https://www.youtube.com/watch?v=mNN-fEboRAA"
+    },
+    {
+      "type": "article",
+      "title": "Two-factor authentication (2FA)",
+      "url": "https://authy.com/what-is-2fa/"
+    },
+    {
+      "type": "article",
+      "title": "Biometrics (fingerprint, facial recognition, etc.)",
+      "url": "https://me-en.kaspersky.com/resource-center/definitions/biometrics"
+    },
+    {
+      "type": "article",
+      "title": "Security tokens or certificates",
+      "url": "https://www.comodo.com/e-commerce/ssl-certificates/certificate.php"
+    },
+    {
+      "type": "article",
+      "title": "Role-based access control (RBAC)",
+      "url": "https://en.wikipedia.org/wiki/Role-based_access_control"
+    }
+  ],
+  "virtualization-and-labs": [
+    {
+      "type": "official",
+      "title": "VMWare",
+      "url": "https://www.vmware.com/"
+    },
+    {
+      "type": "video",
+      "title": "What is VMWare",
+      "url": "https://www.youtube.com/watch?v=zPNCp9AV-vA"
+    },
+    {
+      "type": "official",
+      "title": "VirtualBox",
+      "url": "https://www.virtualbox.org/"
+    },
+    {
+      "type": "official",
+      "title": "VirtualBox Documentation",
+      "url": "https://www.virtualbox.org/wiki/Documentation"
+    },
+    {
+      "type": "video",
+      "title": "How to use VirtualBox",
+      "url": "https://www.youtube.com/watch?v=nvdnQX9UkMY"
+    },
+    {
+      "type": "official",
+      "title": "What is ESXi?",
+      "url": "https://www.vmware.com/products/cloud-infrastructure/esxi-and-esx"
+    },
+    {
+      "type": "article",
+      "title": "What is VMWare ESXi?",
+      "url": "https://www.liquidweb.com/blog/what-is-vmware-esxi/"
+    },
+    {
+      "type": "official",
+      "title": "Proxmox",
+      "url": "https://www.proxmox.com/en/"
+    },
+    {
+      "type": "article",
+      "title": "Proxmox Virtual Environment",
+      "url": "https://en.wikipedia.org/wiki/Proxmox_Virtual_Environment"
+    },
+    {
+      "type": "video",
+      "title": "What is Proxmox virtualization?",
+      "url": "https://www.youtube.com/watch?v=GMAvmHEWAMU"
+    },
+    {
+      "type": "article",
+      "title": "What is a hypervisor?",
+      "url": "https://www.redhat.com/en/topics/virtualization/what-is-a-hypervisor"
+    },
+    {
+      "type": "video",
+      "title": "What is a Hypervisor?",
+      "url": "https://www.youtube.com/watch?v=LMAEbB2a50M"
+    },
+    {
+      "type": "article",
+      "title": "Guest Operating System - NIST Glossary",
+      "url": "https://csrc.nist.gov/glossary/term/guest_operating_system/"
+    },
+    {
+      "type": "article",
+      "title": "Guest Operating System",
+      "url": "https://nordvpn.com/cybersecurity/glossary/guest-operating-system/?srsltid=AfmBOop0L-VFCtuYvEBQgHy7dCIa3sfzNVa-Zn6l0SniAYDpftfOgH7N"
+    },
+    {
+      "type": "article",
+      "title": "Host Operating System Definition",
+      "url": "https://nordvpn.com/cybersecurity/glossary/host-operating-system/"
+    },
+    {
+      "type": "article",
+      "title": "Host vs Guest OS",
+      "url": "https://www.datto.com/blog/whats-the-difference-host-vs-guest-os/"
+    },
+    {
+      "type": "article",
+      "title": "What is a Virtual Machine and how does it work?",
+      "url": "https://azure.microsoft.com/en-gb/resources/cloud-computing-dictionary/what-is-a-virtual-machine"
+    },
+    {
+      "type": "video",
+      "title": "Virtualization Explained",
+      "url": "https://www.youtube.com/watch?v=UBVVq-xz5i0"
+    },
+    {
+      "type": "article",
+      "title": "The Power of Isolation in Cyber security",
+      "url": "https://peel-cyber.co.uk/the-power-of-isolation-in-cyber-security/"
+    },
+    {
+      "type": "video",
+      "title": "Bridging the Air Gap - Understanding Digital Isolation",
+      "url": "https://www.youtube.com/watch?v=0rv2996e3S0"
+    },
+    {
+      "type": "article",
+      "title": "What is Sandboxing?",
+      "url": "https://www.checkpoint.com/cyber-hub/threat-prevention/what-is-sandboxing/"
+    },
+    {
+      "type": "video",
+      "title": "Sandboxing in under 4 minutes",
+      "url": "https://www.youtube.com/watch?v=kn32PHG2wcU"
+    }
+  ],
+  "osi-and-tcp-ip": [
+    {
+      "type": "article",
+      "title": "What is OSI Model? - AWS",
+      "url": "https://aws.amazon.com/what-is/osi-model/"
+    },
+    {
+      "type": "video",
+      "title": "What is OSI Model?",
+      "url": "https://www.youtube.com/watch?v=Ilk7UXzV_Qc"
+    },
+    {
+      "type": "article",
+      "title": "Networking basics - What you need to know",
+      "url": "https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/networking-basics.html"
+    },
+    {
+      "type": "video",
+      "title": "Computer Networking in 100 seconds",
+      "url": "https://www.youtube.com/watch?v=keeqnciDVOo"
+    },
+    {
+      "type": "video",
+      "title": "Computer Networks: Crash Course Computer Science #28",
+      "url": "https://www.youtube.com/watch?v=3QhU9jd03a0"
+    },
+    {
+      "type": "article",
+      "title": "What are Network Protocols?",
+      "url": "https://www.solarwinds.com/resources/it-glossary/network-protocols"
+    }
+  ],
+  "ip-addressing-subnetting": [
+    {
+      "type": "article",
+      "title": "Networking Basics: What is IPv4 Subnetting?",
+      "url": "https://www.cbtnuggets.com/blog/technology/networking/networking-basics-what-is-ipv4-subnetting"
+    },
+    {
+      "type": "video",
+      "title": "Subnetting",
+      "url": "https://www.youtube.com/playlist?list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF"
+    },
+    {
+      "type": "article",
+      "title": "Public vs Private IP Addresses",
+      "url": "https://www.avast.com/c-ip-address-public-vs-private"
+    },
+    {
+      "type": "video",
+      "title": "What is the difference between public and private ip?",
+      "url": "https://www.youtube.com/watch?v=R6Czae6Iow4&t=1s"
+    },
+    {
+      "type": "article",
+      "title": "What is CIDR?",
+      "url": "https://aws.amazon.com/what-is/cidr/"
+    },
+    {
+      "type": "video",
+      "title": "What is Network CIDR Notation?",
+      "url": "https://www.youtube.com/watch?v=tpa9QSiiiUo"
+    },
+    {
+      "type": "article",
+      "title": "What Is a Subnet Mask?",
+      "url": "https://www.spiceworks.com/tech/networking/articles/what-is-subnet-mask/"
+    },
+    {
+      "type": "video",
+      "title": "What is a subnet mask?",
+      "url": "https://www.youtube.com/watch?v=s_Ntt6eTn94"
+    },
+    {
+      "type": "article",
+      "title": "What is a Default Gateway?",
+      "url": "https://nordvpn.com/blog/what-is-a-default-gateway/?srsltid=AfmBOoosi5g4acnT9Gv_B86FMGr72hWDhk8J-4jr1HvxPCSu96FikCyw"
+    },
+    {
+      "type": "video",
+      "title": "Routers and Default Gateways",
+      "url": "https://www.youtube.com/watch?v=JOomC1wFrbU"
+    },
+    {
+      "type": "article",
+      "title": "What is localhost?",
+      "url": "https://www.freecodecamp.org/news/what-is-localhost/"
+    },
+    {
+      "type": "video",
+      "title": "What is localhost? | Explained",
+      "url": "https://www.youtube.com/watch?v=m98GX51T5dI"
+    },
+    {
+      "type": "article",
+      "title": "Understanding the Loopback Address and Loopback Interfaces",
+      "url": "https://study-ccna.com/loopback-interface-loopback-address/"
+    },
+    {
+      "type": "article",
+      "title": "Check Your IP Address",
+      "url": "https://ipleak.net"
+    },
+    {
+      "type": "article",
+      "title": "What is an IP Address and What does it mean?",
+      "url": "https://www.kaspersky.com/resource-center/definitions/what-is-an-ip-address"
+    },
+    {
+      "type": "video",
+      "title": "What's an IP address?",
+      "url": "https://www.youtube.com/watch?v=6is6Gulh7qE"
+    }
+  ],
+  "dns-dhcp-nat": [
+    {
+      "type": "article",
+      "title": "What is DNS?",
+      "url": "https://www.cloudflare.com/en-gb/learning/dns/what-is-dns/"
+    },
+    {
+      "type": "video",
+      "title": "DNS Explained in 100 Seconds",
+      "url": "https://www.youtube.com/watch?v=UVR9lhUGAyU"
+    },
+    {
+      "type": "video",
+      "title": "What is DNS?",
+      "url": "https://www.youtube.com/watch?v=nyH0nYhMW9M"
+    },
+    {
+      "type": "article",
+      "title": "Dynamic Host Configuration Protocol (DHCP)",
+      "url": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-top"
+    },
+    {
+      "type": "video",
+      "title": "What is DHCP and how does it work?",
+      "url": "https://www.youtube.com/watch?v=ldtUSSZJCGg"
+    },
+    {
+      "type": "article",
+      "title": "What Is Network Address Translation (NAT)?",
+      "url": "https://www.cisco.com/site/us/en/learn/topics/networking/what-is-network-address-translation-nat.html"
+    },
+    {
+      "type": "video",
+      "title": "NAT explained",
+      "url": "https://www.youtube.com/watch?v=FTUV0t6JaDA"
+    },
+    {
+      "type": "article",
+      "title": "What is NTP?",
+      "url": "https://www.pubnub.com/learn/glossary/ntp-protocol/"
+    },
+    {
+      "type": "video",
+      "title": "Network Time Protocol (NTP)",
+      "url": "https://www.youtube.com/watch?v=BAo5C2qbLq8"
+    },
+    {
+      "type": "article",
+      "title": "What is IPAM?",
+      "url": "https://www.infoblox.com/glossary/ipam-ip-address-management/"
+    },
+    {
+      "type": "article",
+      "title": "IP Address Management",
+      "url": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/ipam/ipam-top"
+    },
+    {
+      "type": "article",
+      "title": "What is DNS Cache Poisoning? | DNS spoofing",
+      "url": "https://www.cloudflare.com/learning/dns/dns-cache-poisoning/"
+    },
+    {
+      "type": "article",
+      "title": "What Is DNS Poisoning?",
+      "url": "https://www.fortinet.com/resources/cyberglossary/dns-poisoning"
+    },
+    {
+      "type": "article",
+      "title": "DNS Poisoning (DNS Spoofing): Definition, Technique & Defense",
+      "url": "https://www.okta.com/identity-101/dns-poisoning/"
+    },
+    {
+      "type": "article",
+      "title": "DNS Sinkholes: What is it and how to start using",
+      "url": "https://www.threatintelligence.com/blog/dns-sinkhole"
+    },
+    {
+      "type": "article",
+      "title": "How DNSSEC works",
+      "url": "https://www.cloudflare.com/en-gb/dns/dnssec/how-dnssec-works/"
+    },
+    {
+      "type": "video",
+      "title": "What is DNSSEC?",
+      "url": "https://www.youtube.com/watch?v=Fk2oejzgSVQ"
+    }
+  ],
+  "common-protocols-and-ports": [
+    {
+      "type": "article",
+      "title": "What Is a Network Protocol?",
+      "url": "https://www.comptia.org/en-us/blog/what-is-a-network-protocol/"
+    },
+    {
+      "type": "video",
+      "title": "Networking For Hackers! (Common Network Protocols)",
+      "url": "https://www.youtube.com/watch?v=p3vaaD9pn9I"
+    },
+    {
+      "type": "article",
+      "title": "Common network ports you should know",
+      "url": "https://opensource.com/article/18/10/common-network-ports"
+    },
+    {
+      "type": "video",
+      "title": "Common Network Ports",
+      "url": "https://www.youtube.com/watch?v=dh8h-4u7Wak"
+    },
+    {
+      "type": "article",
+      "title": "An Overview of HTTP",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview"
+    },
+    {
+      "type": "article",
+      "title": "What is HTTPS?",
+      "url": "https://www.cloudflare.com/en-gb/learning/ssl/what-is-https/"
+    },
+    {
+      "type": "article",
+      "title": "What is SSH? | Secure Shell (SSH) protocol",
+      "url": "https://www.cloudflare.com/en-gb/learning/access-management/what-is-ssh/"
+    },
+    {
+      "type": "video",
+      "title": "How does SSH work",
+      "url": "https://www.youtube.com/watch?v=5JvLV2-ngCI"
+    },
+    {
+      "type": "article",
+      "title": "What is the Remote Desktop Protocol (RDP)?",
+      "url": "https://www.cloudflare.com/en-gb/learning/access-management/what-is-the-remote-desktop-protocol/"
+    },
+    {
+      "type": "video",
+      "title": "What is RDP and how to use it?",
+      "url": "https://www.youtube.com/watch?v=flPnBSz-lqw"
+    },
+    {
+      "type": "article",
+      "title": "File Transfer Protocol",
+      "url": "https://en.wikipedia.org/wiki/File_Transfer_Protocol"
+    },
+    {
+      "type": "article",
+      "title": "FTP meaning and uses",
+      "url": "https://www.investopedia.com/terms/f/ftp-file-transfer-protocol.asp"
+    },
+    {
+      "type": "video",
+      "title": "What is FTP?",
+      "url": "https://www.youtube.com/watch?v=HI0Oh4NJqcI"
+    },
+    {
+      "type": "article",
+      "title": "What is SFTP?",
+      "url": "https://www.precisely.com/glossary/sftp"
+    },
+    {
+      "type": "video",
+      "title": "How to use SFTP Commands to Copy Files to/from a Server",
+      "url": "https://www.youtube.com/watch?v=22lBJIfO9qQ&t=4s"
+    },
+    {
+      "type": "article",
+      "title": "FTP defined and explained",
+      "url": "https://www.fortinet.com/resources/cyberglossary/file-transfer-protocol-ftp-meaning"
+    },
+    {
+      "type": "video",
+      "title": "How to use SFTP commands",
+      "url": "https://www.youtube.com/watch?v=22lBJIfO9qQ"
+    },
+    {
+      "type": "article",
+      "title": "NAS vs SAN - What are the differences?",
+      "url": "https://www.backblaze.com/blog/whats-the-diff-nas-vs-san/"
+    },
+    {
+      "type": "video",
+      "title": "What is a NAS",
+      "url": "https://www.youtube.com/watch?v=ZwhT-KI16jo"
+    },
+    {
+      "type": "video",
+      "title": "What is a Storage Area Network",
+      "url": "https://www.youtube.com/watch?v=7eGw4vhyeTA"
+    }
+  ],
+  "network-devices-and-topologies": [
+    {
+      "type": "article",
+      "title": "What is a Router",
+      "url": "https://www.cloudflare.com/en-gb/learning/network-layer/what-is-a-router/"
+    },
+    {
+      "type": "video",
+      "title": "What is a router and How does it work?",
+      "url": "https://www.youtube.com/watch?v=UIJzHLpG9bM"
+    },
+    {
+      "type": "video",
+      "title": "Everything Routers do",
+      "url": "https://youtu.be/AzXys5kxpAM?si=nEsCH6jG2Lj6Ua8N"
+    },
+    {
+      "type": "video",
+      "title": "How Routers forward Packets?",
+      "url": "https://youtu.be/Ep-x_6kggKA?si=II5xBPoXjYEjLvWX"
+    },
+    {
+      "type": "article",
+      "title": "What is a Network Switch?",
+      "url": "https://www.cloudflare.com/en-gb/learning/network-layer/what-is-a-network-switch/"
+    },
+    {
+      "type": "video",
+      "title": "What is a Switch?",
+      "url": "https://www.youtube.com/watch?v=9eH16Fxeb9o"
+    },
+    {
+      "type": "article",
+      "title": "What is a VPN?",
+      "url": "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-vpn"
+    },
+    {
+      "type": "video",
+      "title": "VPN (Virtual Private Network) Explained",
+      "url": "https://www.youtube.com/watch?v=R-JUOpCgTZc"
+    },
+    {
+      "type": "video",
+      "title": "Virtual Private Networks - Professor Messer",
+      "url": "https://www.youtube.com/watch?v=YFyt8aY8PfI"
+    },
+    {
+      "type": "article",
+      "title": "What is a VLAN?",
+      "url": "https://www.solarwinds.com/resources/it-glossary/vlan"
+    },
+    {
+      "type": "video",
+      "title": "VLAN Explained",
+      "url": "https://www.youtube.com/watch?v=jC6MJTh9fRE"
+    },
+    {
+      "type": "article",
+      "title": "What is a DMZ Network?",
+      "url": "https://www.fortinet.com/resources/cyberglossary/what-is-dmz"
+    },
+    {
+      "type": "video",
+      "title": "DMZ explained",
+      "url": "https://www.youtube.com/watch?v=48QZfBeU4ps"
+    },
+    {
+      "type": "article",
+      "title": "What is a LAN?",
+      "url": "https://www.cisco.com/c/en_uk/products/switches/what-is-a-lan-local-area-network.html"
+    },
+    {
+      "type": "video",
+      "title": "LAN vs. WAN: What's the Difference?",
+      "url": "https://www.youtube.com/watch?v=5OoX_cRLaNM"
+    },
+    {
+      "type": "article",
+      "title": "What is a WAN?",
+      "url": "https://www.cloudflare.com/en-gb/learning/network-layer/what-is-a-wan/"
+    },
+    {
+      "type": "video",
+      "title": "WAN...it's not the internet!",
+      "url": "https://www.youtube.com/watch?v=xPi4uZu4uF0"
+    },
+    {
+      "type": "article",
+      "title": "What is a Metropolitan Area Network?",
+      "url": "https://www.cloudflare.com/en-gb/learning/network-layer/what-is-a-metropolitan-area-network/"
+    },
+    {
+      "type": "video",
+      "title": "Network Types: MAN",
+      "url": "https://youtu.be/4_zSIXb7tLQ?si=1jTQ5C9PT4WUOztP&t=183"
+    },
+    {
+      "type": "article",
+      "title": "What Is a Wireless LAN?",
+      "url": "https://www.cisco.com/c/en/us/products/wireless/wireless-lan.html"
+    },
+    {
+      "type": "video",
+      "title": "Wireless Networking Explained | Cisco CCNA 200-301",
+      "url": "https://www.youtube.com/watch?v=Uz-RTurph3c"
+    },
+    {
+      "type": "video",
+      "title": "Wireless Technologies",
+      "url": "https://www.youtube.com/watch?v=_VwpcLiBkAQ"
+    },
+    {
+      "type": "article",
+      "title": "Star Topology",
+      "url": "https://www.computerhope.com/jargon/s/startopo.htm"
+    },
+    {
+      "type": "video",
+      "title": "Star Topology",
+      "url": "https://www.youtube.com/watch?v=EQ3rW22-Py0"
+    },
+    {
+      "type": "article",
+      "title": "What is Ring Topology?",
+      "url": "https://www.lenovo.com/gb/en/glossary/what-is-ring-topology/"
+    },
+    {
+      "type": "video",
+      "title": "Network Topologies - Ring",
+      "url": "https://www.youtube.com/watch?v=hjeDN2xnc50"
+    },
+    {
+      "type": "article",
+      "title": "What is Mesh Topology?",
+      "url": "https://www.lenovo.com/gb/en/glossary/mesh-topology"
+    },
+    {
+      "type": "article",
+      "title": "Mesh Topology explained",
+      "url": "https://www.computerhope.com/jargon/m/mesh.htm"
+    },
+    {
+      "type": "article",
+      "title": "Bus in Computing",
+      "url": "https://en.wikipedia.org/wiki/Bus_%28computing%29"
+    },
+    {
+      "type": "article",
+      "title": "What is a Bus?",
+      "url": "https://www.lenovo.com/gb/en/glossary/bus/?srsltid=AfmBOoocoXVvqdupLu13XAm0FZMOHjRtjnnCCFxa59tEa-bQwhiVhac2"
+    },
+    {
+      "type": "video",
+      "title": "Computer Buses",
+      "url": "https://www.youtube.com/watch?v=aBCaCrC3z0k"
+    },
+    {
+      "type": "opensource",
+      "title": "Best practice for network segmentation",
+      "url": "https://github.com/sergiomarotco/Network-segmentation-cheat-sheet"
+    },
+    {
+      "type": "opensource",
+      "title": "OWASP Network segmentation Cheat Sheet",
+      "url": "https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Network_Segmentation_Cheat_Sheet.md#network-segmentation-cheat-sheet"
+    }
+  ],
+  "network-tools": [
+    {
+      "type": "article",
+      "title": "What is ping?",
+      "url": "https://www.solarwinds.com/resources/it-glossary/ping"
+    },
+    {
+      "type": "video",
+      "title": "Ping command explained",
+      "url": "https://www.youtube.com/watch?v=7sv5pL-XgSg"
+    },
+    {
+      "type": "video",
+      "title": "How to look up DNS records with dig",
+      "url": "https://www.youtube.com/watch?v=iESSCDnC74k"
+    },
+    {
+      "type": "article",
+      "title": "How to use Linux dig command",
+      "url": "https://www.google.com/search?client=firefox-b-d&q=linux+dig+command"
+    },
+    {
+      "type": "video",
+      "title": "How to look up DNS records with dig",
+      "url": "https://www.youtube.com/watch?v=3AOKomsmeUY"
+    },
+    {
+      "type": "article",
+      "title": "nslookup",
+      "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+    },
+    {
+      "type": "video",
+      "title": "What is Nslookup?",
+      "url": "https://www.youtube.com/watch?v=n6pT8lbyhog"
+    },
+    {
+      "type": "article",
+      "title": "ipconfig command",
+      "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+    },
+    {
+      "type": "article",
+      "title": "Understanding ipconfig",
+      "url": "https://www.whatismyip.com/ipconfig/"
+    },
+    {
+      "type": "article",
+      "title": "netstat command",
+      "url": "https://docs.oracle.com/cd/E19504-01/802-5753/6i9g71m3i/index.html"
+    },
+    {
+      "type": "video",
+      "title": "netstat Command Explained",
+      "url": "https://www.youtube.com/watch?v=8UZFpCQeXnM"
+    },
+    {
+      "type": "article",
+      "title": "ARP - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Address_Resolution_Protocol"
+    },
+    {
+      "type": "article",
+      "title": "What is Address Resolution Protocol?",
+      "url": "https://www.fortinet.com/resources/cyberglossary/what-is-arp"
+    },
+    {
+      "type": "video",
+      "title": "ARP Explained",
+      "url": "https://www.youtube.com/watch?v=cn8Zxh9bPio"
+    },
+    {
+      "type": "article",
+      "title": "route command",
+      "url": "https://www.man7.org/linux/man-pages/man8/route.8.html"
+    },
+    {
+      "type": "video",
+      "title": "route command explained",
+      "url": "https://www.youtube.com/watch?v=uOqBollh_x4"
+    },
+    {
+      "type": "article",
+      "title": "traceroute man page",
+      "url": "https://linux.die.net/man/8/traceroute"
+    },
+    {
+      "type": "article",
+      "title": "tracert",
+      "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tracert"
+    },
+    {
+      "type": "video",
+      "title": "Traceroute (tracert) Explained",
+      "url": "https://www.youtube.com/watch?v=up3bcBLZS74"
+    },
+    {
+      "type": "article",
+      "title": "tcpdump man page",
+      "url": "https://www.tcpdump.org/manpages/tcpdump.1.html"
+    },
+    {
+      "type": "video",
+      "title": "TCP Dump - What is it and how to use it?",
+      "url": "https://www.youtube.com/watch?v=e45Kt1IYdCI"
+    },
+    {
+      "type": "official",
+      "title": "NMAP Website",
+      "url": "https://nmap.org/"
+    },
+    {
+      "type": "article",
+      "title": "NMAP Cheat Sheet",
+      "url": "https://www.tutorialspoint.com/nmap-cheat-sheet"
+    },
+    {
+      "type": "video",
+      "title": "Nmap Tutorial to find Network Vulnerabilities",
+      "url": "https://www.youtube.com/watch?v=4t4kBkMsDbQ"
+    },
+    {
+      "type": "official",
+      "title": "Wireshark",
+      "url": "https://www.wireshark.org/"
+    },
+    {
+      "type": "article",
+      "title": "How to Use Wireshark: Comprehensive Tutorial + Tips",
+      "url": "https://www.varonis.com/blog/how-to-use-wireshark"
+    },
+    {
+      "type": "video",
+      "title": "How to use Wireshark",
+      "url": "https://www.youtube.com/watch?v=zWoHJ3oGRGY"
+    },
+    {
+      "type": "article",
+      "title": "Packet Sniffing Explained",
+      "url": "https://www.avast.com/c-packet-sniffing"
+    },
+    {
+      "type": "video",
+      "title": "What is Packet Sniffing?",
+      "url": "https://www.youtube.com/watch?v=5oioSbgBQ8I"
+    },
+    {
+      "type": "article",
+      "title": "Top 5 Free Open Port Check Tools in 2026",
+      "url": "https://www.upguard.com/blog/best-open-port-scanners"
+    },
+    {
+      "type": "video",
+      "title": "How To Use Nmap To Scan For Open Ports",
+      "url": "https://www.youtube.com/watch?v=ifbwTt3_oCg"
+    },
+    {
+      "type": "article",
+      "title": "What is a Protocol Analyzer?",
+      "url": "https://www.liveaction.com/glossary/protocol-analyzer/"
+    },
+    {
+      "type": "video",
+      "title": "Protocol Analyzers",
+      "url": "https://www.youtube.com/watch?v=hTMhlB-o0Ow"
+    },
+    {
+      "type": "official",
+      "title": "hping",
+      "url": "https://salsa.debian.org/debian/hping3"
+    },
+    {
+      "type": "article",
+      "title": "What is hping?",
+      "url": "https://www.okta.com/uk/identity-101/hping/"
+    },
+    {
+      "type": "article",
+      "title": "What is the cURL command?",
+      "url": "https://blog.hubspot.com/website/curl-command"
+    },
+    {
+      "type": "video",
+      "title": "You need to know how to use cURL",
+      "url": "https://www.youtube.com/watch?v=q2sqkvXzsw8"
+    },
+    {
+      "type": "article",
+      "title": "iptables man page",
+      "url": "https://linux.die.net/man/8/iptables"
+    },
+    {
+      "type": "video",
+      "title": "iptables complete guide",
+      "url": "https://www.youtube.com/watch?v=6Ra17Qpj68c"
+    }
+  ],
+  "cia-triad": [
+    {
+      "type": "article",
+      "title": "The CIA Triad",
+      "url": "https://www.fortinet.com/resources/cyberglossary/cia-triad"
+    },
+    {
+      "type": "video",
+      "title": "The CIA Triad - Professor Messer",
+      "url": "https://www.youtube.com/watch?v=SBcDGb9l6yo"
+    }
+  ],
+  "risk-and-threat-modeling": [
+    {
+      "type": "article",
+      "title": "What is Cybersecurity Risk?",
+      "url": "https://securityscorecard.com/blog/what-is-cybersecurity-risk-factors-to-consider/"
+    },
+    {
+      "type": "video",
+      "title": "Risk Analysis - Know Your Threat Tolerance",
+      "url": "https://www.youtube.com/watch?v=xt_Cdtvjbd4"
+    },
+    {
+      "type": "article",
+      "title": "From Known to Unknown",
+      "url": "https://securitysandman.com/2025/01/06/from-known-to-unknown-shifting-cybersecurity-to-proactive-ai-detection/"
+    },
+    {
+      "type": "article",
+      "title": "Catching all Threats - Known, Unknown, and Unknown Unknown",
+      "url": "https://www.scworld.com/perspective/catching-all-threats-known-unknown-and-unknown-unknown-before-they-can-harm-you"
+    },
+    {
+      "type": "video",
+      "title": "Detecting known threats",
+      "url": "https://www.youtube.com/watch?v=hOaHDVMQ9_s"
+    },
+    {
+      "type": "video",
+      "title": "How to deal with unknown threats",
+      "url": "https://www.youtube.com/watch?v=CH4tX_MVLh0"
+    },
+    {
+      "type": "course",
+      "title": "TryHackMe room on Cyber Governance and regulation",
+      "url": "https://tryhackme.com/r/room/cybergovernanceregulation"
+    },
+    {
+      "type": "official",
+      "title": "NIST Publication on Engineering Trustworthy Secure Systems",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-160v1r1.pdf"
+    },
+    {
+      "type": "official",
+      "title": "NIST Glossary",
+      "url": "https://csrc.nist.gov/glossary/term/stakeholder/"
+    }
+  ],
+  "defense-in-depth-zero-trust": [
+    {
+      "type": "article",
+      "title": "What is Defense in Depth?",
+      "url": "https://www.fortinet.com/resources/cyberglossary/defense-in-depth"
+    },
+    {
+      "type": "video",
+      "title": "Defense-in-Depth - CompTIA Security+",
+      "url": "https://www.youtube.com/watch?v=HLQ4wX8NxQY"
+    },
+    {
+      "type": "article",
+      "title": "What is a Zero Trust Network?",
+      "url": "https://www.cloudflare.com/en-gb/learning/security/glossary/what-is-zero-trust/"
+    },
+    {
+      "type": "video",
+      "title": "Zero Trust Explained in 4 minutes",
+      "url": "https://www.youtube.com/watch?v=yn6CPQ9RioA"
+    }
+  ],
+  "authn-authz-mfa": [
+    {
+      "type": "article",
+      "title": "Two-factor authentication (2FA)",
+      "url": "https://authy.com/what-is-2fa/"
+    },
+    {
+      "type": "article",
+      "title": "Biometrics (fingerprint, facial recognition, etc.)",
+      "url": "https://me-en.kaspersky.com/resource-center/definitions/biometrics"
+    },
+    {
+      "type": "article",
+      "title": "Security tokens or certificates",
+      "url": "https://www.comodo.com/e-commerce/ssl-certificates/certificate.php"
+    },
+    {
+      "type": "article",
+      "title": "Role-based access control (RBAC)",
+      "url": "https://en.wikipedia.org/wiki/Role-based_access_control"
+    },
+    {
+      "type": "course",
+      "title": "MFA Fatigue Attack: Interactive Exercise",
+      "url": "https://ransomleak.com/exercises/mfa-fatigue-attack/"
+    },
+    {
+      "type": "article",
+      "title": "What is MFA?",
+      "url": "https://www.onelogin.com/learn/what-is-mfa"
+    },
+    {
+      "type": "article",
+      "title": "What is 2FA?",
+      "url": "https://www.microsoft.com/en-gb/security/business/security-101/what-is-two-factor-authentication-2fa"
+    },
+    {
+      "type": "article",
+      "title": "Local authentication, registration, and other settings",
+      "url": "https://learn.microsoft.com/en-us/power-pages/security/authentication/set-authentication-identity"
+    }
+  ],
+  "security-teams-and-frameworks": [
+    {
+      "type": "article",
+      "title": "What is a Blue Team?",
+      "url": "https://www.checkpoint.com/cyber-hub/cyber-security/what-is-a-blue-team/"
+    },
+    {
+      "type": "article",
+      "title": "What is Red Teaming?",
+      "url": "https://www.ibm.com/think/topics/red-teaming"
+    },
+    {
+      "type": "article",
+      "title": "Purple Teaming Explained",
+      "url": "https://www.crowdstrike.com/cybersecurity-101/purple-teaming/"
+    },
+    {
+      "type": "article",
+      "title": "Red Team VS Blue Team: What's the Difference?",
+      "url": "https://www.crowdstrike.com/en-us/cybersecurity-101/advisory-services/red-team-vs-blue-team/"
+    },
+    {
+      "type": "article",
+      "title": "What is a Compliance Audit?",
+      "url": "https://www.auditboard.com/blog/compliance-audit/"
+    },
+    {
+      "type": "article",
+      "title": "Compliance Office and Internal Audit Roles and Responsibilities",
+      "url": "https://www.compliance.com/resources/compliance-office-and-internal-audit-roles-and-responsibilities/"
+    },
+    {
+      "type": "official",
+      "title": "NIST",
+      "url": "https://www.nist.gov/"
+    },
+    {
+      "type": "article",
+      "title": "What is NIST?",
+      "url": "https://www.encryptionconsulting.com/education-center/nist/"
+    },
+    {
+      "type": "official",
+      "title": "International Organization for Standardization",
+      "url": "https://www.iso.org/home.html"
+    },
+    {
+      "type": "article",
+      "title": "ISO/IEC 27001 - Information Security Management",
+      "url": "https://en.wikipedia.org/wiki/ISO/IEC_27001"
+    },
+    {
+      "type": "official",
+      "title": "CIS",
+      "url": "https://www.cisecurity.org/"
+    },
+    {
+      "type": "video",
+      "title": "CIS Overview",
+      "url": "https://www.youtube.com/watch?v=f-Z7h5dI6uQ"
+    },
+    {
+      "type": "official",
+      "title": "About the Risk Management Framework (RMF)",
+      "url": "https://csrc.nist.gov/projects/risk-management/about-rmf"
+    },
+    {
+      "type": "video",
+      "title": "RMF explained in 5 minutes",
+      "url": "https://www.youtube.com/watch?v=X5yqPFp__rc"
+    },
+    {
+      "type": "official",
+      "title": "NIST Cybersecurity Framework",
+      "url": "https://www.nist.gov/cyberframework"
+    },
+    {
+      "type": "video",
+      "title": "NIST Cybersecurity Framework Explained",
+      "url": "https://www.youtube.com/watch?v=_KXqDNVmpu8"
+    },
+    {
+      "type": "course",
+      "title": "GDPR and EU AI Act Compliance Exercises",
+      "url": "https://ransomleak.com/catalogue/privacy-compliance/"
+    },
+    {
+      "type": "article",
+      "title": "What is Cyber Security Compliance?",
+      "url": "https://www.comptia.org/content/articles/what-is-cybersecurity-compliance"
+    },
+    {
+      "type": "article",
+      "title": "Cyber Security Compliance 101",
+      "url": "https://sprinto.com/blog/cyber-security-compliance/"
+    },
+    {
+      "type": "article",
+      "title": "Who Holds the Ultimate Responsibility for Cyber Security?",
+      "url": "https://resolutionit.com/news/who-holds-the-ultimate-responsibility-for-cyber-security/"
+    },
+    {
+      "type": "article",
+      "title": "Cybersecurity – a responsibility of top management",
+      "url": "https://www.valmet.com/insights/articles/experts-voice/cybersecurity--a-responsibility-of-top-management/"
+    },
+    {
+      "type": "article",
+      "title": "What is HR?",
+      "url": "https://www.investopedia.com/terms/h/humanresources.asp"
+    },
+    {
+      "type": "article",
+      "title": "What does HR actually do?",
+      "url": "https://www.lucidchart.com/blog/what-does-hr-do"
+    },
+    {
+      "type": "article",
+      "title": "Key Functions of a Legal Team",
+      "url": "https://uk.practicallaw.thomsonreuters.com/w-009-3932?transitionType=Default&contextData=%28sc.Default%29&firstPage=true"
+    },
+    {
+      "type": "article",
+      "title": "The Legal Team’s Responsibility in Corporate Cybersecurity",
+      "url": "https://www.trustwave.com/en-us/resources/blogs/trustwave-blog/expert-insight-the-legal-teams-responsibility-in-corporate-cybersecurity/"
+    }
+  ],
+  "detection-metrics": [
+    {
+      "type": "article",
+      "title": "Difference Between False Positive and False Negative",
+      "url": "https://www.differencebetween.net/science/difference-between-false-positive-and-false-negative/"
+    },
+    {
+      "type": "video",
+      "title": "What is a false positive virus?",
+      "url": "https://www.youtube.com/watch?v=WrcAGBvIT14"
+    },
+    {
+      "type": "video",
+      "title": "False positives and false negatives",
+      "url": "https://www.youtube.com/watch?v=bUNBzMnfHLw"
+    },
+    {
+      "type": "article",
+      "title": "False Positives and False Negatives in Information Security",
+      "url": "https://www.guardrails.io/blog/false-positives-and-false-negatives-in-information-security/"
+    }
+  ],
+  "hashing-and-salting": [
+    {
+      "type": "article",
+      "title": "What is hashing and how does it work?",
+      "url": "https://www.techtarget.com/searchdatamanagement/definition/hashing"
+    },
+    {
+      "type": "article",
+      "title": "Hashing Algorithm Overview: Types, Methodologies & Usage",
+      "url": "https://www.okta.com/identity-101/hashing-algorithms/"
+    },
+    {
+      "type": "article",
+      "title": "Understanding Cryptography Types:",
+      "url": "https://geekflare.com/cybersecurity/cryptography-types/"
+    },
+    {
+      "type": "video",
+      "title": "Hashing Explained",
+      "url": "https://www.youtube.com/watch?v=EOe1XUykdP4"
+    },
+    {
+      "type": "article",
+      "title": "OWASP Password Storage Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"
+    },
+    {
+      "type": "article",
+      "title": "Salt (Cryptography)",
+      "url": "https://en.wikipedia.org/wiki/Salt_%28cryptography%29"
+    },
+    {
+      "type": "article",
+      "title": "How does Obfuscation work?",
+      "url": "https://www.hypr.com/security-encyclopedia/obfuscation"
+    },
+    {
+      "type": "video",
+      "title": "Obfuscation - CompTIA Security+",
+      "url": "https://www.youtube.com/watch?v=LfuTMzZke4g"
+    }
+  ],
+  "symmetric-asymmetric-keys": [
+    {
+      "type": "article",
+      "title": "SSH Keys Explained",
+      "url": "https://www.sectigo.com/resource-library/what-is-an-ssh-key"
+    },
+    {
+      "type": "article",
+      "title": "Public Key vs Private Key: How are they Different?",
+      "url": "https://venafi.com/blog/what-difference-between-public-key-and-private-key/"
+    },
+    {
+      "type": "article",
+      "title": "Key Exchange",
+      "url": "https://nordvpn.com/cybersecurity/glossary/key-exchange/?srsltid=AfmBOoocoykou-7M3OHUQq7APIsGDVjOR8P6wIcIvNA2fgOt1620RZwG"
+    },
+    {
+      "type": "video",
+      "title": "Secret Key Exchange",
+      "url": "https://www.youtube.com/watch?v=NmM9HA2MQGI"
+    },
+    {
+      "type": "video",
+      "title": "TLS Handshake Explained",
+      "url": "https://www.youtube.com/watch?v=86cQJ0MMses"
+    }
+  ],
+  "tls-and-certificates": [
+    {
+      "type": "article",
+      "title": "What’s the Difference Between SSL and TLS?",
+      "url": "https://aws.amazon.com/compare/the-difference-between-ssl-and-tls/"
+    },
+    {
+      "type": "video",
+      "title": "TLS vs SSL - What's the Difference?",
+      "url": "https://www.youtube.com/watch?v=J7fI_jH7L84"
+    },
+    {
+      "type": "article",
+      "title": "What is SSL? | SSL definition",
+      "url": "https://www.cloudflare.com/en-gb/learning/ssl/what-is-ssl/"
+    },
+    {
+      "type": "article",
+      "title": "TLS Basics",
+      "url": "https://www.internetsociety.org/deploy360/tls/basics/"
+    },
+    {
+      "type": "article",
+      "title": "What is an SSL Certificate?",
+      "url": "https://www.cloudflare.com/en-gb/learning/ssl/what-is-an-ssl-certificate/"
+    },
+    {
+      "type": "article",
+      "title": "What is a Certificate Authority",
+      "url": "https://www.ssl.com/article/what-is-a-certificate-authority-ca/"
+    },
+    {
+      "type": "article",
+      "title": "What is PKI?",
+      "url": "https://cpl.thalesgroup.com/faq/public-key-infrastructure-pki/what-public-key-infrastructure-pki"
+    },
+    {
+      "type": "article",
+      "title": "What Is Public Key Infrastructure (PKI) & How Does It Work?",
+      "url": "https://www.okta.com/identity-101/public-key-infrastructure/"
+    }
+  ],
+  "secure-protocols": [
+    {
+      "type": "article",
+      "title": "What is IPSec?",
+      "url": "https://www.cloudflare.com/en-gb/learning/network-layer/what-is-ipsec/"
+    },
+    {
+      "type": "video",
+      "title": "IP Sec VPN Fundamentals",
+      "url": "https://www.youtube.com/watch?v=15amNny_kKI"
+    },
+    {
+      "type": "article",
+      "title": "How to enable LDAPS",
+      "url": "https://www.dell.com/support/kbdoc/en-uk/000212661/how-to-enable-secure-lightweight-directory-access-protocol-ldaps-on-an-active-directory-domain-controller"
+    },
+    {
+      "type": "video",
+      "title": "LDAP vs LDAPS - What's the difference?",
+      "url": "https://www.youtube.com/watch?v=J2qtayKzMmA"
+    },
+    {
+      "type": "article",
+      "title": "SRTP (Secure RTP)",
+      "url": "https://developer.mozilla.org/en-US/docs/Glossary/RTP"
+    },
+    {
+      "type": "article",
+      "title": "Implementing Secure SIP Communications",
+      "url": "https://www.ictfax.com/implementing-secure-sip-communications-in-ictfax/"
+    },
+    {
+      "type": "article",
+      "title": "S/MIME for message signing and encryption in Exchange Online",
+      "url": "https://learn.microsoft.com/en-us/exchange/security-and-compliance/smime-exo/smime-exo"
+    },
+    {
+      "type": "video",
+      "title": "S/MIME - Secure MIME protocol - Functions, Services",
+      "url": "https://www.youtube.com/watch?v=0hzmoB7yYfw"
+    },
+    {
+      "type": "article",
+      "title": "What is SFTP?",
+      "url": "https://www.precisely.com/glossary/sftp"
+    },
+    {
+      "type": "video",
+      "title": "How to use SFTP Commands to Copy Files to/from a Server",
+      "url": "https://www.youtube.com/watch?v=22lBJIfO9qQ&t=4s"
+    },
+    {
+      "type": "article",
+      "title": "How DNSSEC works",
+      "url": "https://www.cloudflare.com/en-gb/dns/dnssec/how-dnssec-works/"
+    },
+    {
+      "type": "video",
+      "title": "What is DNSSEC?",
+      "url": "https://www.youtube.com/watch?v=Fk2oejzgSVQ"
+    }
+  ],
+  "kerberos-ldap-sso": [
+    {
+      "type": "article",
+      "title": "What is Kerberos?",
+      "url": "https://www.fortinet.com/resources/cyberglossary/kerberos-authentication"
+    },
+    {
+      "type": "video",
+      "title": "Kerberos Authentication Explained",
+      "url": "https://www.youtube.com/watch?v=5N242XcKAsM"
+    },
+    {
+      "type": "article",
+      "title": "What Is LDAP & How Does It Work?",
+      "url": "https://www.okta.com/uk/identity-101/what-is-ldap/"
+    },
+    {
+      "type": "video",
+      "title": "What is LDAP",
+      "url": "https://www.youtube.com/watch?v=vy3e6ekuqqg"
+    },
+    {
+      "type": "article",
+      "title": "What is SSO? | How single sign-on works",
+      "url": "https://www.cloudflare.com/en-gb/learning/access-management/what-is-sso/"
+    },
+    {
+      "type": "video",
+      "title": "What Is Single Sign-on (SSO)? How It Works",
+      "url": "https://www.youtube.com/watch?v=O1cRJWYF-g4"
+    }
+  ],
+  "radius-and-network-access": [
+    {
+      "type": "official",
+      "title": "Remote Authentication Dial In User Service (RADIUS) - RFC 2865",
+      "url": "https://datatracker.ietf.org/doc/html/rfc2865"
+    },
+    {
+      "type": "video",
+      "title": "How RADIUS Authentication Works",
+      "url": "https://www.youtube.com/watch?v=LLrb3em-_po"
+    },
+    {
+      "type": "article",
+      "title": "What is Network Access Control",
+      "url": "https://www.fortinet.com/resources/cyberglossary/what-is-network-access-control"
+    },
+    {
+      "type": "video",
+      "title": "Network Access Control",
+      "url": "https://www.youtube.com/watch?v=hXeFJ05J4pQ"
+    },
+    {
+      "type": "article",
+      "title": "Extensible Authentication Protocol (EAP) for network access",
+      "url": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/extensible-authentication-protocol/network-access?tabs=eap-tls%2Cserveruserprompt-eap-tls%2Ceap-sim"
+    },
+    {
+      "type": "article",
+      "title": "Protected Extensible Authentication Protocol (PEAP)",
+      "url": "https://en.wikipedia.org/wiki/Protected_Extensible_Authentication_Protocol"
+    }
+  ],
+  "attack-lifecycle": [
+    {
+      "type": "official",
+      "title": "Cyber Kill Chain",
+      "url": "https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html"
+    },
+    {
+      "type": "video",
+      "title": "Learn the Cyber Kill Chain",
+      "url": "https://www.youtube.com/watch?v=oCUrkc_0tmw"
+    },
+    {
+      "type": "article",
+      "title": "The Diamond Model: Simple Intelligence-Driven Intrusion Analysis",
+      "url": "https://kravensecurity.com/diamond-model-analysis/"
+    },
+    {
+      "type": "video",
+      "title": "The Diamond Model for Intrusion Detection",
+      "url": "https://www.youtube.com/watch?v=3AOKomsmeUY"
+    },
+    {
+      "type": "official",
+      "title": "MITRE ATT&CK®",
+      "url": "https://attack.mitre.org/"
+    },
+    {
+      "type": "video",
+      "title": "MITRE ATT&CK Framework",
+      "url": "https://www.youtube.com/watch?v=Yxv1suJYMI8"
+    },
+    {
+      "type": "video",
+      "title": "Introduction To The MITRE ATT&CK Framework",
+      "url": "https://www.youtube.com/watch?v=LCec9K0aAkM"
+    },
+    {
+      "type": "article",
+      "title": "What is Cyber Reconnaissance",
+      "url": "https://www.sentinelone.com/cybersecurity-101/threat-intelligence/what-is-cyber-reconnaissance/"
+    },
+    {
+      "type": "article",
+      "title": "What is Cybersecurity Reconnaissance?",
+      "url": "https://cymulate.com/cybersecurity-glossary/cyber-reconnaissance/"
+    }
+  ],
+  "social-engineering": [
+    {
+      "type": "course",
+      "title": "Social Engineering: Interactive Pretexting Exercise",
+      "url": "https://ransomleak.com/exercises/social-engineering/"
+    },
+    {
+      "type": "article",
+      "title": "What Is Social Engineering?",
+      "url": "https://www.cisco.com/c/en/us/products/security/what-is-social-engineering.html"
+    },
+    {
+      "type": "video",
+      "title": "Social Engineering Explained",
+      "url": "https://www.youtube.com/shorts/DdCSraNCxhs"
+    },
+    {
+      "type": "course",
+      "title": "Phishing: Hands-on Exercise in a Simulated Inbox",
+      "url": "https://ransomleak.com/exercises/phishing/"
+    },
+    {
+      "type": "article",
+      "title": "How to Recognize and Avoid Phishing Scams",
+      "url": "https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams"
+    },
+    {
+      "type": "article",
+      "title": "Recognize and Report Phishing",
+      "url": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+    },
+    {
+      "type": "video",
+      "title": "Protect yourself from phishing",
+      "url": "https://support.microsoft.com/en-us/windows/protect-yourself-from-phishing-0c7ea947-ba98-3bd9-7184-430e1f860a44"
+    },
+    {
+      "type": "video",
+      "title": "Phishing attacks are SCARY easy to do!! (let me show you!)",
+      "url": "https://www.youtube.com/watch?v=u9dBGWVwMMA"
+    },
+    {
+      "type": "article",
+      "title": "What is a Whaling Attack?",
+      "url": "https://usa.kaspersky.com/resource-center/definitions/what-is-a-whaling-attack"
+    },
+    {
+      "type": "video",
+      "title": "What is a whaling attack and how to stay protected",
+      "url": "https://www.youtube.com/watch?v=jQONycdUOAA"
+    },
+    {
+      "type": "article",
+      "title": "What is smishing (SMS phishing)?",
+      "url": "https://www.ibm.com/topics/smishing"
+    },
+    {
+      "type": "video",
+      "title": "What is smishing? How phishing via text message works",
+      "url": "https://www.youtube.com/watch?v=ZOZGQeG8avQ"
+    },
+    {
+      "type": "article",
+      "title": "Wi-fi Phishing Explained",
+      "url": "https://it-explained.com/words/wi-fi-phishing-explained-explained"
+    },
+    {
+      "type": "article",
+      "title": "What Is Spam?",
+      "url": "https://www.proofpoint.com/us/threat-reference/spam"
+    },
+    {
+      "type": "article",
+      "title": "What Is Spim?",
+      "url": "https://www.brosix.com/blog/what-is-spim/"
+    },
+    {
+      "type": "course",
+      "title": "Clean Desk Basics: Interactive Office Exercise",
+      "url": "https://ransomleak.com/exercises/clean-desk-basics/"
+    },
+    {
+      "type": "article",
+      "title": "What is Shoulder Surfing, and How can you avoid it?",
+      "url": "https://nordvpn.com/blog/shoulder-surfing/?srsltid=AfmBOorl5NPpW_Tnhas9gB2HiblorqwXyK0NJae7uaketrnDwbjJmiYV"
+    },
+    {
+      "type": "article",
+      "title": "What is Shoulder Surfing?",
+      "url": "https://www.mcafee.com/learn/what-is-shoulder-surfing/"
+    },
+    {
+      "type": "article",
+      "title": "What is Shoulder Surfing? 9 ways to protect yourself",
+      "url": "https://www.bigrock.in/blog/products/security/what-is-shoulder-surfing-9-ways-to-protect-yourself-from-shoulder-surfing/"
+    },
+    {
+      "type": "article",
+      "title": "Tailgating attacks",
+      "url": "https://www.proofpoint.com/us/threat-reference/tailgating-attacks-cybersecurity"
+    },
+    {
+      "type": "video",
+      "title": "Tailgating and Piggybacking - Social Engineering Tactics Explained",
+      "url": "https://www.youtube.com/watch?v=4SpvulRcVQ0"
+    },
+    {
+      "type": "course",
+      "title": "Secure Document Disposal: Interactive Office Exercise",
+      "url": "https://ransomleak.com/exercises/secure-document-disposal/"
+    },
+    {
+      "type": "article",
+      "title": "Dumpster Diving",
+      "url": "https://www.techtarget.com/searchsecurity/definition/dumpster-diving"
+    },
+    {
+      "type": "article",
+      "title": "What is Dumpster Diving",
+      "url": "https://powerdmarc.com/dumpster-diving-in-cybersecurity/"
+    },
+    {
+      "type": "video",
+      "title": "Dumpster Diving for Sensitive Information",
+      "url": "https://www.youtube.com/watch?v=Pom86gq4mk4"
+    },
+    {
+      "type": "article",
+      "title": "What is an Impersonation Attack?",
+      "url": "https://www.upguard.com/blog/impersonation-attack"
+    },
+    {
+      "type": "article",
+      "title": "Watering Hole Attack",
+      "url": "https://en.wikipedia.org/wiki/Watering_hole_attack"
+    },
+    {
+      "type": "video",
+      "title": "Watering Hole Attacks",
+      "url": "https://www.youtube.com/watch?v=uBoVWqkfZjk"
+    },
+    {
+      "type": "article",
+      "title": "What is Typosquatting",
+      "url": "https://www.mcafee.com/learn/what-is-typosquatting/#:~:text=Typosquatting%2C%20also%20known%20as%20URL,%E2%80%9CGoogle.com%E2%80%9D"
+    },
+    {
+      "type": "article",
+      "title": "What is a Drive-By Attack?",
+      "url": "https://www.ericom.com/glossary/what-is-a-drive-by-attack/"
+    },
+    {
+      "type": "video",
+      "title": "Drive-By Download attack",
+      "url": "https://www.youtube.com/watch?v=xL4DyblbnKg"
+    }
+  ],
+  "malware-types": [
+    {
+      "type": "course",
+      "title": "Ransomware: Interactive Attack Walkthrough",
+      "url": "https://ransomleak.com/exercises/ransomware/"
+    },
+    {
+      "type": "article",
+      "title": "What is Antivirus Software?",
+      "url": "https://www.webroot.com/gb/en/resources/tips-articles/what-is-anti-virus-software"
+    },
+    {
+      "type": "video",
+      "title": "What is an Antivirus and how does it keep us safe?",
+      "url": "https://www.youtube.com/watch?v=jW626WMWNAE"
+    },
+    {
+      "type": "article",
+      "title": "Anti-malware Definition",
+      "url": "https://www.computertechreviews.com/definition/anti-malware/"
+    },
+    {
+      "type": "article",
+      "title": "Understanding Anti-Virus Software",
+      "url": "https://www.cisa.gov/news-events/news/understanding-anti-virus-software"
+    },
+    {
+      "type": "video",
+      "title": "How Does Antivirus and Antimalware Software Work?",
+      "url": "https://www.youtube.com/watch?v=bTU1jbVXlmM"
+    }
+  ],
+  "network-attacks": [
+    {
+      "type": "article",
+      "title": "DoS vs DDoS",
+      "url": "https://www.fortinet.com/resources/cyberglossary/dos-vs-ddos"
+    },
+    {
+      "type": "video",
+      "title": "What is Denial-of-Service attack?",
+      "url": "https://www.youtube.com/watch?v=Z7xG3b0aL_I"
+    },
+    {
+      "type": "video",
+      "title": "What is a DDoS attack?",
+      "url": "https://www.youtube.com/watch?v=z503nLsfe5s"
+    },
+    {
+      "type": "article",
+      "title": "Man-in-the-middle attack",
+      "url": "https://en.wikipedia.org/wiki/Man-in-the-middle_attack"
+    },
+    {
+      "type": "article",
+      "title": "Definition and Explanation of Spoofing",
+      "url": "https://www.kaspersky.com/resource-center/definitions/spoofing"
+    },
+    {
+      "type": "video",
+      "title": "What is spoofing?",
+      "url": "https://www.youtube.com/watch?v=jIS9XUC4TB4"
+    },
+    {
+      "type": "article",
+      "title": "Evil Twin (Wireless Networks)",
+      "url": "https://en.wikipedia.org/wiki/Evil_twin_%28wireless_networks%29"
+    },
+    {
+      "type": "video",
+      "title": "How Hackers Can Grab Your Passwords Over Wi-Fi with Evil Twin Attacks",
+      "url": "https://www.youtube.com/watch?v=HyxQqDq3qs4"
+    },
+    {
+      "type": "article",
+      "title": "What is VLAN Hopping?",
+      "url": "https://www.packetlabs.net/posts/what-is-vlan-hopping/"
+    },
+    {
+      "type": "video",
+      "title": "VLAN Hopping",
+      "url": "https://www.youtube.com/watch?v=pDumMKDK4Wc"
+    },
+    {
+      "type": "article",
+      "title": "Wi-Fi Deauthentication Attack",
+      "url": "https://medium.com/@balaramapunna123/wi-fi-deauthentication-attack-76cdd91d5fc"
+    },
+    {
+      "type": "article",
+      "title": "Deauthentication Attacks",
+      "url": "https://www.baeldung.com/cs/deauthentication-attacks"
+    },
+    {
+      "type": "article",
+      "title": "Rogue Access Points",
+      "url": "https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:online-data-security/xcae6f4a7ff015e7d:cyber-attacks/a/rogue-access-points-mitm-attacks"
+    },
+    {
+      "type": "article",
+      "title": "What is Rogue Access Point",
+      "url": "https://pentescope.com/rogue-access-point-detection-and-prevention/"
+    },
+    {
+      "type": "article",
+      "title": "What Is a Replay Attack?",
+      "url": "https://usa.kaspersky.com/resource-center/definitions/replay-attack"
+    },
+    {
+      "type": "article",
+      "title": "WPS – What is it, and how does it work?",
+      "url": "https://passwork.pro/blog/what-is-wps/"
+    },
+    {
+      "type": "article",
+      "title": "Wi-Fi Protected Setup",
+      "url": "https://en.wikipedia.org/wiki/Wi-Fi_Protected_Setup"
+    },
+    {
+      "type": "video",
+      "title": "What is WPS in WiFi",
+      "url": "https://www.youtube.com/watch?v=pO1r4PWf2yg"
+    },
+    {
+      "type": "article",
+      "title": "What Is Wi-Fi Security? WEP, WPA, WPA2 & WPA3 Differences",
+      "url": "https://nilesecure.com/network-security/what-is-wi-fi-security-wep-wpa-wpa2-wpa3-differences"
+    },
+    {
+      "type": "video",
+      "title": "WiFi Security: What is WEP, WPA, and WPA2",
+      "url": "https://www.youtube.com/watch?v=jErjdGfbgoE"
+    }
+  ],
+  "password-attacks": [
+    {
+      "type": "article",
+      "title": "Brute-force vs. Password Spray Attack",
+      "url": "https://www.inspark.nl/brute-force-vs-password-spray-attack-in-azure-sentinel/"
+    },
+    {
+      "type": "article",
+      "title": "What is Password Spraying?",
+      "url": "https://www.techtarget.com/whatis/definition/password-spraying"
+    },
+    {
+      "type": "article",
+      "title": "What is a Brute-force Attack?",
+      "url": "https://www.fortinet.com/resources/cyberglossary/brute-force-attack"
+    },
+    {
+      "type": "article",
+      "title": "What is a pass-the-hash attack?",
+      "url": "https://www.crowdstrike.com/cybersecurity-101/pass-the-hash/"
+    },
+    {
+      "type": "article",
+      "title": "Pass the Hash Attack",
+      "url": "https://www.netwrix.com/pass_the_hash_attack_explained.html"
+    }
+  ],
+  "privilege-escalation": [
+    {
+      "type": "article",
+      "title": "What is Privilege Escalation?",
+      "url": "https://www.crowdstrike.com/cybersecurity-101/privilege-escalation/"
+    },
+    {
+      "type": "video",
+      "title": "Privilege Escalation",
+      "url": "https://www.youtube.com/watch?v=ksjU3Iu195Q"
+    },
+    {
+      "type": "official",
+      "title": "LOLBAS Project",
+      "url": "https://lolbas-project.github.io/#"
+    },
+    {
+      "type": "article",
+      "title": "Understanding the risks of LOLBAS in security",
+      "url": "https://pentera.io/blog/the-lol-isnt-so-funny-when-it-bites-you-in-the-bas/"
+    },
+    {
+      "type": "video",
+      "title": "LOLBAS T1105, MS Process Abuse",
+      "url": "https://www.youtube.com/watch?v=fq2_VvAU29g"
+    },
+    {
+      "type": "opensource",
+      "title": "GTFOBins/GTFOBins.github.io",
+      "url": "https://gtfobins.github.io/"
+    },
+    {
+      "type": "video",
+      "title": "Mastering Privilege Escalation: A Comprehensive Guide on GTFOBins",
+      "url": "https://www.youtube.com/watch?v=gx6CTtWohLQ"
+    },
+    {
+      "type": "opensource",
+      "title": "WADComs/WADComs.github.io",
+      "url": "https://wadcoms.github.io/"
+    },
+    {
+      "type": "article",
+      "title": "WADComs: Windows/Active Directory Interactive Cheat Sheet",
+      "url": "https://john-woodman.com/research/wadcoms/"
+    }
+  ],
+  "threat-actors": [
+    {
+      "type": "article",
+      "title": "Advanced Persistent Threat (APT)",
+      "url": "https://www.crowdstrike.com/cybersecurity-101/advanced-persistent-threat-apt/"
+    },
+    {
+      "type": "video",
+      "title": "What is an Advanced Persistent Threat?",
+      "url": "https://www.youtube.com/watch?v=sGthMsDlqew"
+    },
+    {
+      "type": "article",
+      "title": "What is a Zero-day Attack?",
+      "url": "https://www.kaspersky.com/resource-center/definitions/zero-day-exploit"
+    },
+    {
+      "type": "video",
+      "title": "What is a Zero Day Threat?",
+      "url": "https://www.youtube.com/watch?v=w5MV1Jeo76g"
+    }
+  ],
+  "owasp-top-10": [
+    {
+      "type": "course",
+      "title": "OWASP Top 10 Exploit-then-Fix Labs",
+      "url": "https://ransomleak.com/catalogue/application-security/"
+    },
+    {
+      "type": "official",
+      "title": "OWASP Top Ten",
+      "url": "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      "type": "official",
+      "title": "OWASP Vulnerable Web Applications Directory (VWAD)",
+      "url": "https://vwad.owasp.org/"
+    },
+    {
+      "type": "video",
+      "title": "OWASP Top Ten",
+      "url": "https://youtube.com/playlist?list=PLyqga7AXMtPOguwtCCXGZUKvd2CDCmUgQ&si=ZYRbcDSRvqTOnDOo"
+    },
+    {
+      "type": "course",
+      "title": "TryHackMe's room on Path Traversal & File Inclusion",
+      "url": "https://tryhackme.com/r/room/filepathtraversal"
+    },
+    {
+      "type": "course",
+      "title": "HackTheBox Academy's module on File Inclusion & Path Traversal",
+      "url": "https://academy.hackthebox.com/course/preview/file-inclusion"
+    },
+    {
+      "type": "official",
+      "title": "OWASP's article on Path Traversal",
+      "url": "https://owasp.org/www-community/attacks/Path_Traversal"
+    },
+    {
+      "type": "article",
+      "title": "Portswigger's guide on File Path Traversal",
+      "url": "https://portswigger.net/web-security/file-path-traversal"
+    }
+  ],
+  "injection-and-xss": [
+    {
+      "type": "article",
+      "title": "PortSwigger - SQL Injection",
+      "url": "https://portswigger.net/web-security/sql-injection"
+    },
+    {
+      "type": "video",
+      "title": "SQL Injections are scary",
+      "url": "https://www.youtube.com/watch?v=2OPVViV-GQk"
+    },
+    {
+      "type": "article",
+      "title": "Cross Site Scripting (XSS) - OWASP",
+      "url": "https://owasp.org/www-community/attacks/xss/"
+    },
+    {
+      "type": "article",
+      "title": "Cross Site Scripting Prevention Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+    },
+    {
+      "type": "video",
+      "title": "Cross-site Scripting",
+      "url": "https://www.youtube.com/watch?v=PKgw0CLZIhE"
+    }
+  ],
+  "csrf-and-session-security": [
+    {
+      "type": "article",
+      "title": "Cross-Site Request Forgery",
+      "url": "https://owasp.org/www-community/attacks/csrf"
+    },
+    {
+      "type": "video",
+      "title": "Cross-Site Request Forgery Explained",
+      "url": "https://www.youtube.com/watch?v=eWEgUcHPle0"
+    }
+  ],
+  "firewalls-and-segmentation": [
+    {
+      "type": "article",
+      "title": "What is a Firewall?",
+      "url": "https://www.kaspersky.com/resource-center/definitions/firewall"
+    },
+    {
+      "type": "article",
+      "title": "What is a next-generation firewall (NGFW)?",
+      "url": "https://www.cloudflare.com/en-gb/learning/security/what-is-next-generation-firewall-ngfw/"
+    },
+    {
+      "type": "article",
+      "title": "What is a host-based firewall?",
+      "url": "https://www.paloaltonetworks.com/cyberpedia/what-is-a-host-based-firewall"
+    },
+    {
+      "type": "video",
+      "title": "Host-based Firewalls",
+      "url": "https://www.youtube.com/watch?v=aRHhm980oaE"
+    },
+    {
+      "type": "article",
+      "title": "What is Port Blocking?",
+      "url": "https://cyberpedia.reasonlabs.com/EN/port%20blocking.html"
+    },
+    {
+      "type": "article",
+      "title": "Is Your Router Blocking Your Ports? Here's How to Find Out?",
+      "url": "https://softhandtech.com/how-can-i-tell-if-a-port-is-blocked-on-my-router/"
+    },
+    {
+      "type": "article",
+      "title": "What is a Jump Server?",
+      "url": "https://www.ssh.com/academy/iam/jump-server"
+    },
+    {
+      "type": "video",
+      "title": "What is a Bastion Host and Why is it so important?",
+      "url": "https://www.youtube.com/watch?v=pI6glWVEkcY"
+    }
+  ],
+  "ids-ips-honeypots": [
+    {
+      "type": "article",
+      "title": "What is an Intrusion Prevention System?",
+      "url": "https://www.paloaltonetworks.com/cyberpedia/what-is-an-intrusion-prevention-system-ips"
+    },
+    {
+      "type": "article",
+      "title": "What is Intrusion Detection Systems (IDS)",
+      "url": "https://www.fortinet.com/resources/cyberglossary/intrusion-detection-system"
+    },
+    {
+      "type": "video",
+      "title": "Intrusion Prevention System (IPS)",
+      "url": "https://www.youtube.com/watch?v=7QuYupuic3Q"
+    },
+    {
+      "type": "article",
+      "title": "What is an Intrusion Detection System?",
+      "url": "https://www.paloaltonetworks.com/cyberpedia/what-is-an-intrusion-detection-system-ids"
+    },
+    {
+      "type": "article",
+      "title": "What is a Network Intrusion Detection system (NIDS)?",
+      "url": "https://bunny.net/academy/security/what-is-network-intrusion-detection-nids/"
+    },
+    {
+      "type": "article",
+      "title": "What is an Intrusion Prevention System?",
+      "url": "https://www.paloaltonetworks.co.uk/cyberpedia/what-is-an-intrusion-prevention-system-ips"
+    },
+    {
+      "type": "video",
+      "title": "Intrusion Prevention - SY0-601 CompTIA Security+",
+      "url": "https://www.youtube.com/watch?v=WPPSsFnWOYg"
+    },
+    {
+      "type": "article",
+      "title": "What is Host intrusion prevention system (HIPS)?",
+      "url": "https://cyberpedia.reasonlabs.com/EN/host%20intrusion%20prevention%20system%20%28hips%29.html"
+    },
+    {
+      "type": "article",
+      "title": "How Honeypots help security",
+      "url": "https://www.kaspersky.com/resource-center/threats/what-is-a-honeypot"
+    },
+    {
+      "type": "video",
+      "title": "What is a Honeypot?",
+      "url": "https://www.youtube.com/watch?v=FtR9sFJlkSA"
+    }
+  ],
+  "endpoint-security": [
+    {
+      "type": "article",
+      "title": "What is Endpoint Security?",
+      "url": "https://www.crowdstrike.com/cybersecurity-101/endpoint-security/"
+    },
+    {
+      "type": "video",
+      "title": "Endpoints are the IT Frontdoor - Guard them!",
+      "url": "https://www.youtube.com/watch?v=Njqid_JpqTs"
+    },
+    {
+      "type": "article",
+      "title": "What is Endpoint Detection and Response?",
+      "url": "https://www.crowdstrike.com/cybersecurity-101/endpoint-security/endpoint-detection-and-response-edr/"
+    },
+    {
+      "type": "video",
+      "title": "What is Endpoint Detection and Response (EDR)? - IBM",
+      "url": "https://www.youtube.com/watch?v=55GaIolVVqI"
+    },
+    {
+      "type": "article",
+      "title": "What is DLP (data loss prevention)?",
+      "url": "https://www.cloudflare.com/en-gb/learning/access-management/what-is-dlp/"
+    },
+    {
+      "type": "article",
+      "title": "What is Data Loss Prevention (DLP)?",
+      "url": "https://www.techtarget.com/whatis/definition/data-loss-prevention-DLP"
+    },
+    {
+      "type": "article",
+      "title": "What is Antivirus Software?",
+      "url": "https://www.webroot.com/gb/en/resources/tips-articles/what-is-anti-virus-software"
+    },
+    {
+      "type": "video",
+      "title": "What is an Antivirus and how does it keep us safe?",
+      "url": "https://www.youtube.com/watch?v=jW626WMWNAE"
+    },
+    {
+      "type": "article",
+      "title": "Anti-malware Definition",
+      "url": "https://www.computertechreviews.com/definition/anti-malware/"
+    },
+    {
+      "type": "article",
+      "title": "Understanding Anti-Virus Software",
+      "url": "https://www.cisa.gov/news-events/news/understanding-anti-virus-software"
+    },
+    {
+      "type": "video",
+      "title": "How Does Antivirus and Antimalware Software Work?",
+      "url": "https://www.youtube.com/watch?v=bTU1jbVXlmM"
+    }
+  ],
+  "os-hardening-and-patching": [
+    {
+      "type": "article",
+      "title": "OS Hardening: 15 Best Practices",
+      "url": "https://perception-point.io/guides/os-isolation/os-hardening-10-best-practices/"
+    },
+    {
+      "type": "article",
+      "title": "Operating System (OS) Hardening: Pros, Cons, and Importance",
+      "url": "https://linfordco.com/blog/operating-system-hardening/"
+    },
+    {
+      "type": "video",
+      "title": "Hardening Techniques",
+      "url": "https://www.youtube.com/watch?v=wXoC46Qr_9Q"
+    },
+    {
+      "type": "article",
+      "title": "What is Patch Management?",
+      "url": "https://www.ibm.com/topics/patch-management"
+    },
+    {
+      "type": "video",
+      "title": "What Is Patch Management, and Why Does Your Company Need It?",
+      "url": "https://www.youtube.com/watch?v=O5XXlJear0w"
+    },
+    {
+      "type": "article",
+      "title": "What Is Buffer Overflow?",
+      "url": "https://www.fortinet.com/resources/cyberglossary/buffer-overflow"
+    },
+    {
+      "type": "article",
+      "title": "Buffer Overflow Attack",
+      "url": "https://www.imperva.com/learn/application-security/buffer-overflow/"
+    },
+    {
+      "type": "video",
+      "title": "Buffer Overflows Made Easy",
+      "url": "https://www.youtube.com/watch?v=qSnPayW6F7U"
+    },
+    {
+      "type": "article",
+      "title": "What are memory leaks?",
+      "url": "https://learn.snyk.io/lesson/memory-leaks/"
+    },
+    {
+      "type": "video",
+      "title": "What are memory leaks?",
+      "url": "https://www.youtube.com/watch?v=00Kdpgl6fsY"
+    }
+  ],
+  "backups-and-resilience": [
+    {
+      "type": "article",
+      "title": "Backup & Restore",
+      "url": "https://aws.amazon.com/solutions/resilience/backup-restore/"
+    },
+    {
+      "type": "video",
+      "title": "Why backup should be a part of your cyber resilience plan?",
+      "url": "https://www.youtube.com/watch?v=S8BIkoHlU_0"
+    },
+    {
+      "type": "video",
+      "title": "AWS re:Invent 2023 - Backup and disaster recovery strategies for increased resilience",
+      "url": "https://www.youtube.com/watch?v=E073XISxrSU"
+    }
+  ],
+  "vulnerability-management": [
+    {
+      "type": "article",
+      "title": "What is Vulnerability Management? - Rapid7",
+      "url": "https://www.rapid7.com/fundamentals/vulnerability-management-and-scanning/"
+    },
+    {
+      "type": "article",
+      "title": "What is Vulnerability Management? - CrowdStrike",
+      "url": "https://www.crowdstrike.com/cybersecurity-101/vulnerability-management/"
+    },
+    {
+      "type": "video",
+      "title": "Vulnerability Management explained by experts",
+      "url": "https://www.youtube.com/watch?v=RE6_Lo2wSIg"
+    }
+  ],
+  "logs-and-siem": [
+    {
+      "type": "article",
+      "title": "Security 101: What is a SIEM? - Microsoft",
+      "url": "https://www.microsoft.com/security/business/security-101/what-is-siem"
+    },
+    {
+      "type": "video",
+      "title": "SIEM Explained - Professor Messer",
+      "url": "https://www.youtube.com/watch?v=JEcETdy5WxU"
+    },
+    {
+      "type": "video",
+      "title": "Wazuh | Open source SIEM",
+      "url": "https://www.youtube.com/watch?v=3CaG2GI1kn0"
+    },
+    {
+      "type": "article",
+      "title": "What is SOAR?",
+      "url": "https://www.paloaltonetworks.co.uk/cyberpedia/what-is-soar"
+    },
+    {
+      "type": "video",
+      "title": "What is SOAR (Security, Orchestration, Automation & Response)",
+      "url": "https://www.youtube.com/watch?v=k7ju95jDxFA"
+    },
+    {
+      "type": "article",
+      "title": "What is an Event Log?",
+      "url": "https://www.crowdstrike.com/cybersecurity-101/observability/event-log/"
+    },
+    {
+      "type": "article",
+      "title": "What are event logs and why do they matter?",
+      "url": "https://www.blumira.com/blog/what-are-event-logs-and-why-do-they-matter"
+    },
+    {
+      "type": "article",
+      "title": "What is syslog?",
+      "url": "https://www.solarwinds.com/resources/it-glossary/syslog"
+    },
+    {
+      "type": "video",
+      "title": "Free CCNA | Syslog",
+      "url": "https://www.youtube.com/watch?v=RaQPSKQ4J5A"
+    },
+    {
+      "type": "official",
+      "title": "Cisco NetFlow",
+      "url": "https://www.cisco.com/c/en/us/products/ios-nx-os-software/ios-netflow/index.html"
+    },
+    {
+      "type": "video",
+      "title": "What is NetFlow?",
+      "url": "https://www.youtube.com/watch?v=aqTpUmUibB8"
+    },
+    {
+      "type": "article",
+      "title": "Packet Capture: What is it and What You Need to Know",
+      "url": "https://www.varonis.com/blog/packet-capture"
+    },
+    {
+      "type": "video",
+      "title": "Wireshark Tutorial for Beginners",
+      "url": "https://www.youtube.com/watch?v=qTaOZrDnMzQ"
+    },
+    {
+      "type": "article",
+      "title": "What is Firewall Logging and Why is it Important?",
+      "url": "https://cybriant.com/what-is-firewall-logging-and-why-is-it-important/"
+    },
+    {
+      "type": "video",
+      "title": "Reviewing Firewall Logs",
+      "url": "https://www.youtube.com/watch?v=XiJ30f8V_T4"
+    }
+  ],
+  "threat-intel-and-hunting": [
+    {
+      "type": "course",
+      "title": "Open-Source Intelligence (OSINT) in 5 Hours",
+      "url": "https://www.youtube.com/watch?v=qwA6MmbeGNo&t=457s"
+    },
+    {
+      "type": "official",
+      "title": "OSINT Framework",
+      "url": "https://osintframework.com/"
+    },
+    {
+      "type": "article",
+      "title": "Threat Intelligence",
+      "url": "https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/"
+    },
+    {
+      "type": "article",
+      "title": "What is Threat Hunting",
+      "url": "https://www.ibm.com/topics/threat-hunting"
+    },
+    {
+      "type": "article",
+      "title": "What is Threat Hunting? Threat Hunting Types and Techniques",
+      "url": "https://www.fortinet.com/resources/cyberglossary/threat-hunting"
+    },
+    {
+      "type": "video",
+      "title": "Cyber Security Threat Hunting Explained",
+      "url": "https://www.youtube.com/watch?v=VNp35Uw_bSM"
+    },
+    {
+      "type": "article",
+      "title": "How to use the whois command on Linux",
+      "url": "https://www.howtogeek.com/680086/how-to-use-the-whois-command-on-linux/"
+    },
+    {
+      "type": "article",
+      "title": "Whois lookup",
+      "url": "https://www.whois.com/whois/"
+    },
+    {
+      "type": "video",
+      "title": "Passive Reconnaissance - Whois Lookup Tutorial",
+      "url": "https://www.youtube.com/watch?v=12MITs5KK40"
+    }
+  ],
+  "incident-response": [
+    {
+      "type": "article",
+      "title": "What is a runbook?",
+      "url": "https://www.pagerduty.com/resources/learn/what-is-a-runbook/"
+    },
+    {
+      "type": "video",
+      "title": "Create Automation Runbooks with AWS Systems Manager",
+      "url": "https://www.youtube.com/watch?v=fQ_KahCPBeU"
+    },
+    {
+      "type": "article",
+      "title": "What is Incident Response",
+      "url": "https://www.microsoft.com/en-gb/security/business/security-101/what-is-incident-response"
+    },
+    {
+      "type": "video",
+      "title": "Cyber Security Incident Response Explained",
+      "url": "https://www.youtube.com/watch?v=ePZGqlcB1O8"
+    },
+    {
+      "type": "article",
+      "title": "How to identify Cybersecurity vulnerabilities",
+      "url": "https://fieldeffect.com/blog/how-to-identify-cybersecurity-vulnerabilities"
+    },
+    {
+      "type": "article",
+      "title": "What is an Intrusion Detection System",
+      "url": "https://www.ibm.com/topics/intrusion-detection-system"
+    },
+    {
+      "type": "article",
+      "title": "Microsoft Security Incident Management: Containment, Eradication, and Recovery",
+      "url": "https://learn.microsoft.com/en-us/compliance/assurance/assurance-sim-containment-eradication-recovery"
+    },
+    {
+      "type": "article",
+      "title": "Containment - AWS",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/containment.html"
+    },
+    {
+      "type": "article",
+      "title": "Eradication - AWS",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/eradication.html"
+    },
+    {
+      "type": "article",
+      "title": "What is eradication in Cybersecurity?",
+      "url": "https://heimdalsecurity.com/blog/what-is-eradication-in-cybersecurity/"
+    },
+    {
+      "type": "article",
+      "title": "Incident Response Plan: Framework and Steps",
+      "url": "https://www.crowdstrike.com/cybersecurity-101/incident-response/incident-response-steps/"
+    },
+    {
+      "type": "video",
+      "title": "Incident Response Process",
+      "url": "https://www.youtube.com/watch?v=fU_w8Ou9RVg"
+    }
+  ],
+  "digital-forensics": [
+    {
+      "type": "article",
+      "title": "Introduction to Digital Forensics (TryHackMe)",
+      "url": "https://tryhackme.com/room/introdigitalforensics"
+    },
+    {
+      "type": "video",
+      "title": "Digital Forensics",
+      "url": "https://www.youtube.com/watch?v=UtDWApdO8Zk"
+    },
+    {
+      "type": "official",
+      "title": "Autopsy",
+      "url": "https://www.autopsy.com/"
+    },
+    {
+      "type": "video",
+      "title": "Disk analysis with Autopsy",
+      "url": "https://www.youtube.com/watch?v=o6boK9dG-Lc&t=236s"
+    },
+    {
+      "type": "official",
+      "title": "Create Forensic Images with Exterro FTK Imager",
+      "url": "https://www.exterro.com/digital-forensics-software/ftk-imager"
+    },
+    {
+      "type": "video",
+      "title": "Imaging a Directory Using FTK Imager",
+      "url": "https://www.youtube.com/watch?v=trWDlPif84o"
+    },
+    {
+      "type": "official",
+      "title": "memdump",
+      "url": "https://www.kali.org/tools/memdump/"
+    },
+    {
+      "type": "opensource",
+      "title": "memdump - GitHub",
+      "url": "https://github.com/tchebb/memdump"
+    },
+    {
+      "type": "official",
+      "title": "WinHex",
+      "url": "https://x-ways.net/winhex/"
+    },
+    {
+      "type": "article",
+      "title": "What is WinHex?",
+      "url": "https://www.lenovo.com/in/en/glossary/winhex/"
+    },
+    {
+      "type": "article",
+      "title": "When and how to use the dd command",
+      "url": "https://www.baeldung.com/linux/dd-command"
+    },
+    {
+      "type": "video",
+      "title": "How to use the dd command in Linux",
+      "url": "https://www.youtube.com/watch?v=hsDxcJhCRLI"
+    },
+    {
+      "type": "article",
+      "title": "Cat Command in Linux",
+      "url": "https://linuxize.com/post/linux-cat-command/"
+    },
+    {
+      "type": "article",
+      "title": "Linux cat command",
+      "url": "https://phoenixnap.com/kb/linux-cat-command"
+    },
+    {
+      "type": "video",
+      "title": "The cat command",
+      "url": "https://www.youtube.com/shorts/lTOje2weu_o?app=desktop"
+    },
+    {
+      "type": "article",
+      "title": "The Head and Tail commands in Linux",
+      "url": "https://www.baeldung.com/linux/head-tail-commands"
+    },
+    {
+      "type": "video",
+      "title": "Head and Tail commands",
+      "url": "https://www.youtube.com/watch?v=5EqL6Fc7NNw"
+    },
+    {
+      "type": "article",
+      "title": "tail man page",
+      "url": "https://man7.org/linux/man-pages/man1/tail.1.html"
+    },
+    {
+      "type": "video",
+      "title": "Linux Tail Command",
+      "url": "https://www.youtube.com/watch?v=7Y6Ho9JUxTE"
+    },
+    {
+      "type": "article",
+      "title": "grep command in Linux",
+      "url": "https://www.digitalocean.com/community/tutorials/grep-command-in-linux-unix"
+    },
+    {
+      "type": "video",
+      "title": "The grep command",
+      "url": "https://www.youtube.com/watch?v=Tc_jntovCM0"
+    }
+  ],
+  "malware-analysis-basics": [
+    {
+      "type": "official",
+      "title": "VirusTotal",
+      "url": "https://www.virustotal.com"
+    },
+    {
+      "type": "official",
+      "title": "How VirusTotal Works",
+      "url": "https://docs.virustotal.com/docs/how-it-works"
+    },
+    {
+      "type": "article",
+      "title": "CISA's definition of VirusTotal",
+      "url": "https://www.cisa.gov/resources-tools/services/virustotal"
+    },
+    {
+      "type": "video",
+      "title": "Walkthrough VirusTotal Intelligence Interface",
+      "url": "https://www.youtube.com/watch?v=WoHVM8pCfsQ"
+    },
+    {
+      "type": "official",
+      "title": "Any.run",
+      "url": "https://any.run/"
+    },
+    {
+      "type": "video",
+      "title": "Malware analysis with ANY.RUN",
+      "url": "https://www.youtube.com/watch?v=QH_u7DHKzzI"
+    },
+    {
+      "type": "official",
+      "title": "urlscan.io",
+      "url": "https://urlscan.io/"
+    },
+    {
+      "type": "video",
+      "title": "Cybersecurity Tool for Beginner Security Analysts - URLScan",
+      "url": "https://www.youtube.com/watch?v=tA60bJstrQQ"
+    },
+    {
+      "type": "official",
+      "title": "Joe Sandbox",
+      "url": "https://www.joesandbox.com/#windows"
+    },
+    {
+      "type": "video",
+      "title": "Cybersecurity Sandbox for Security Analysts",
+      "url": "https://www.youtube.com/watch?v=FJGmRzY1igY"
+    },
+    {
+      "type": "official",
+      "title": "UrlVoid",
+      "url": "https://www.urlvoid.com/"
+    },
+    {
+      "type": "video",
+      "title": "How to Check a Suspicious Web Link Without Clicking It",
+      "url": "https://www.youtube.com/watch?v=C1D0tNnTDe4"
+    }
+  ],
+  "pentest-and-reverse-engineering": [
+    {
+      "type": "article",
+      "title": "Why are Rules of Engagement Important to a Penetration Test?",
+      "url": "https://www.triaxiomsecurity.com/rules-of-engagement-important-to-penetration-test/"
+    },
+    {
+      "type": "video",
+      "title": "CompTIA Pentest+ : Rules of Engagement",
+      "url": "https://www.youtube.com/watch?v=Rt-4j8k6J2U"
+    },
+    {
+      "type": "course",
+      "title": "Reverse Engineering for Everyone!",
+      "url": "https://0xinfection.github.io/reversing/"
+    },
+    {
+      "type": "video",
+      "title": "What is reverse engineering?",
+      "url": "https://www.youtube.com/watch?v=gh2RXE9BIN8"
+    },
+    {
+      "type": "article",
+      "title": "100 Top Hacking Tools and Ethical Hacking Tools",
+      "url": "https://www.eccouncil.org/cybersecurity-exchange/ethical-hacking/best-ethical-hacking-tools/"
+    },
+    {
+      "type": "video",
+      "title": "I Tried 100+ Hacking Tools",
+      "url": "https://www.youtube.com/watch?v=4WqymtvuWZQ"
+    },
+    {
+      "type": "official",
+      "title": "Metasploit Framework",
+      "url": "https://www.metasploit.com/"
+    },
+    {
+      "type": "official",
+      "title": "Core Impact",
+      "url": "https://www.coresecurity.com/"
+    },
+    {
+      "type": "video",
+      "title": "Metasploit for Beginners",
+      "url": "https://www.youtube.com/watch?v=8lR27r8Y_ik"
+    }
+  ],
+  "cloud-models-and-responsibility": [
+    {
+      "type": "course",
+      "title": "Cloud Security Labs: S3, IAM, Metadata, Containers",
+      "url": "https://ransomleak.com/catalogue/cloud-security/"
+    },
+    {
+      "type": "article",
+      "title": "What Is Cloud Security? - Google Cloud",
+      "url": "https://cloud.google.com/learn/what-is-cloud-security"
+    },
+    {
+      "type": "article",
+      "title": "Cloud Security",
+      "url": "https://www.checkpoint.com/cyber-hub/cloud-security/what-is-cloud-security/"
+    },
+    {
+      "type": "video",
+      "title": "What is cloud security",
+      "url": "https://www.youtube.com/watch?v=jI8IKpjiCSM"
+    },
+    {
+      "type": "article",
+      "title": "Software as a Service?",
+      "url": "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-saas"
+    },
+    {
+      "type": "video",
+      "title": "What is SaaS?",
+      "url": "https://www.youtube.com/watch?v=UEHdYNXiIUU"
+    },
+    {
+      "type": "article",
+      "title": "What is PaaS?",
+      "url": "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-paas"
+    },
+    {
+      "type": "video",
+      "title": "PaaS Explained",
+      "url": "https://www.youtube.com/watch?v=QAbqJzd0PEE"
+    },
+    {
+      "type": "article",
+      "title": "What is IaaS?",
+      "url": "https://azure.microsoft.com/en-gb/resources/cloud-computing-dictionary/what-is-iaas"
+    },
+    {
+      "type": "video",
+      "title": "IaaS Explained",
+      "url": "https://www.youtube.com/watch?v=XRdmfo4M_YA"
+    },
+    {
+      "type": "article",
+      "title": "What is On-Premises Data Centers vs. Cloud Computing?",
+      "url": "https://www.hpe.com/uk/en/what-is/on-premises-vs-cloud.html"
+    },
+    {
+      "type": "video",
+      "title": "On Premise vs Cloud : Is Cloud Computing the future?",
+      "url": "https://www.youtube.com/watch?v=FuPh2o-GMDA"
+    },
+    {
+      "type": "article",
+      "title": "What is a Private Cloud?",
+      "url": "https://aws.amazon.com/what-is/private-cloud/"
+    },
+    {
+      "type": "video",
+      "title": "Private Cloud Rules",
+      "url": "https://www.youtube.com/watch?v=Tzqy8lW0bk4"
+    },
+    {
+      "type": "article",
+      "title": "A Public Cloud?",
+      "url": "https://azure.microsoft.com/en-gb/resources/cloud-computing-dictionary/what-is-a-public-cloud"
+    },
+    {
+      "type": "video",
+      "title": "What is a Public Cloud",
+      "url": "https://www.youtube.com/watch?v=KaCyfQ7luVY"
+    },
+    {
+      "type": "article",
+      "title": "What is a Hybrid Cloud?",
+      "url": "https://cloud.google.com/learn/what-is-hybrid-cloud"
+    },
+    {
+      "type": "video",
+      "title": "What is Hybrid cloud?",
+      "url": "https://www.youtube.com/watch?v=3kGFBBy3Lyg"
+    }
+  ],
+  "cloud-providers-and-storage": [
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated AWS Roadmap",
+      "url": "https://roadmap.sh/aws"
+    },
+    {
+      "type": "course",
+      "title": "AWS Complete Tutorial",
+      "url": "https://www.youtube.com/watch?v=B8i49C8fC3E"
+    },
+    {
+      "type": "official",
+      "title": "AWS",
+      "url": "https://aws.amazon.com"
+    },
+    {
+      "type": "video",
+      "title": "AWS Overview",
+      "url": "https://www.youtube.com/watch?v=a9__D53WsUs"
+    },
+    {
+      "type": "official",
+      "title": "Azure",
+      "url": "https://azure.microsoft.com"
+    },
+    {
+      "type": "video",
+      "title": "Azure DevOps Tutorial for Beginners",
+      "url": "https://www.youtube.com/watch?v=4BibQ69MD8c"
+    },
+    {
+      "type": "official",
+      "title": "Google Cloud Platform",
+      "url": "https://cloud.google.com"
+    },
+    {
+      "type": "official",
+      "title": "Cloud Computing, Hosting Services, and APIs",
+      "url": "https://cloud.google.com/gcp"
+    },
+    {
+      "type": "video",
+      "title": "Google Cloud Platform Video Course",
+      "url": "https://www.youtube.com/watch?v=fZOz13joN0o"
+    },
+    {
+      "type": "official",
+      "title": "Amazon Web Services S3",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html"
+    },
+    {
+      "type": "official",
+      "title": "Amazon Simple Storage Service Documentation",
+      "url": "https://docs.aws.amazon.com/s3/"
+    },
+    {
+      "type": "video",
+      "title": "Getting started with AWS S3",
+      "url": "https://www.youtube.com/watch?v=e6w9LwZJFIA"
+    },
+    {
+      "type": "official",
+      "title": "Dropbox",
+      "url": "https://dropbox.com"
+    },
+    {
+      "type": "official",
+      "title": "How to Use Dropbox - a guide to your account",
+      "url": "https://learn.dropbox.com/self-guided-learning/dropbox-fundamentals-course/how-to-use-dropbox"
+    },
+    {
+      "type": "video",
+      "title": "Dropbox Tutorial for Beginners",
+      "url": "https://www.youtube.com/watch?v=b0Nk9muiUcQ"
+    },
+    {
+      "type": "official",
+      "title": "Box",
+      "url": "https://www.box.com/en-gb/home"
+    },
+    {
+      "type": "video",
+      "title": "Box Cloud Storage Review 2024",
+      "url": "https://www.youtube.com/watch?v=ktNDLO1T96c"
+    },
+    {
+      "type": "official",
+      "title": "Microsoft OneDrive",
+      "url": "https://onedrive.live.com"
+    },
+    {
+      "type": "video",
+      "title": "Microsoft OneDrive Tutorial",
+      "url": "https://www.youtube.com/watch?v=qgw01w0iYjA"
+    },
+    {
+      "type": "official",
+      "title": "Google Drive",
+      "url": "https://drive.google.com"
+    },
+    {
+      "type": "article",
+      "title": "What is Cloud Deployment?",
+      "url": "https://www.cognizant.com/us/en/glossary/cloud-deployment"
+    },
+    {
+      "type": "video",
+      "title": "Deploying a Website to AWS in Under 1 Minute",
+      "url": "https://www.youtube.com/watch?v=goiW0g7A0WE"
+    }
+  ],
+  "infrastructure-as-code-and-serverless": [
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated Terraform Roadmap",
+      "url": "https://roadmap.sh/terraform"
+    },
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated AWS Roadmap",
+      "url": "https://roadmap.sh/aws"
+    },
+    {
+      "type": "article",
+      "title": "What is Infrastructure as Code? - IaC Explained - AWS",
+      "url": "https://aws.amazon.com/what-is/iac/"
+    },
+    {
+      "type": "article",
+      "title": "What is infrastructure as code (IaC)? - Azure DevOps",
+      "url": "https://learn.microsoft.com/en-us/devops/deliver/what-is-infrastructure-as-code"
+    },
+    {
+      "type": "article",
+      "title": "What is Serverless Computing?",
+      "url": "https://www.cloudflare.com/en-gb/learning/serverless/what-is-serverless/"
+    },
+    {
+      "type": "video",
+      "title": "What is serverless?",
+      "url": "https://www.youtube.com/watch?v=vxJobGtqKVM"
+    }
+  ],
+  "scripting-for-security": [
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated Python Roadmap",
+      "url": "https://roadmap.sh/python"
+    },
+    {
+      "type": "course",
+      "title": "Python Full Course for Beginners",
+      "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ"
+    },
+    {
+      "type": "video",
+      "title": "Python in 100 Seconds",
+      "url": "https://www.youtube.com/watch?v=x7X9w_GIm1s"
+    },
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated Go Roadmap",
+      "url": "https://roadmap.sh/golang"
+    },
+    {
+      "type": "video",
+      "title": "Go in 100 seconds",
+      "url": "https://www.youtube.com/watch?v=446E-r0rXHI"
+    },
+    {
+      "type": "video",
+      "title": "Go Tutorial for beginners",
+      "url": "https://www.youtube.com/watch?v=yyUHQIec83I"
+    },
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated JavaScript Roadmap",
+      "url": "https://roadmap.sh/javascript"
+    },
+    {
+      "type": "article",
+      "title": "What is JavaScript?",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript"
+    },
+    {
+      "type": "video",
+      "title": "100 JavaScript concepts you need to know",
+      "url": "https://www.youtube.com/watch?v=lkIFF4maKMU"
+    },
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated C++ Roadmap",
+      "url": "https://roadmap.sh/cpp"
+    },
+    {
+      "type": "article",
+      "title": "C++ Introduction",
+      "url": "https://www.w3schools.com/cpp/cpp_intro.asp"
+    },
+    {
+      "type": "video",
+      "title": "C++ Full Course - BroCode",
+      "url": "https://www.youtube.com/watch?v=-TkoO8Z07hI"
+    },
+    {
+      "type": "roadmap",
+      "title": "Visit the Dedicated Shell/Bash Roadmap",
+      "url": "https://roadmap.sh/shell-bash"
+    },
+    {
+      "type": "course",
+      "title": "Beginners Guide To The Bash Terminal",
+      "url": "https://www.youtube.com/watch?v=oxuRxtrO2Ag"
+    },
+    {
+      "type": "course",
+      "title": "Start learning bash",
+      "url": "https://linuxhandbook.com/bash/"
+    },
+    {
+      "type": "official",
+      "title": "Bash",
+      "url": "https://www.gnu.org/software/bash/"
+    },
+    {
+      "type": "official",
+      "title": "PowerShell.org",
+      "url": "https://powershell.org/"
+    },
+    {
+      "type": "opensource",
+      "title": "PowerShell for beginners",
+      "url": "https://gist.github.com/devops-school/43dfcd57c0c807e83d01fc6a9639d3d9"
+    },
+    {
+      "type": "article",
+      "title": "Microsoft's PowerShell Documentation",
+      "url": "https://docs.microsoft.com/en-us/powershell/"
+    },
+    {
+      "type": "video",
+      "title": "PowerShell Course",
+      "url": "https://www.youtube.com/watch?v=ZOoCaWyifmI"
+    }
+  ]
+}
