@@ -106,6 +106,31 @@ export function markSolved(slug: string) {
   });
 }
 
+export function getProgress() {
+  return read();
+}
+
+export const subscribeProgress = subscribe;
+
+export function clearProgress() {
+  write(EMPTY);
+}
+
+/** Combines two progress records without losing either side's work. */
+export function mergeProgress(saved: Partial<Progress>) {
+  const local = read();
+  const activity = { ...local.activity };
+  for (const [day, count] of Object.entries(saved.activity ?? {})) {
+    activity[day] = Math.max(activity[day] ?? 0, count);
+  }
+  write({
+    done: { ...local.done, ...saved.done },
+    quiz: { ...local.quiz, ...saved.quiz },
+    solved: { ...local.solved, ...saved.solved },
+    activity,
+  });
+}
+
 export function useProgress() {
   return useSyncExternalStore(subscribe, read, () => EMPTY);
 }

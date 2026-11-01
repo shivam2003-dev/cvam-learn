@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AccountButton } from "@/components/AccountButton";
 import { levelOf, streakOf, useProgress, xpOf } from "@/lib/progress";
 
 const links = [
@@ -71,8 +72,11 @@ export function TopNav() {
             );
           })}
         </nav>
-        <div className="ml-auto hidden sm:block">
-          <StatChips />
+        <div className="ml-auto flex items-center gap-2">
+          <div className="hidden sm:block">
+            <StatChips />
+          </div>
+          <AccountButton />
         </div>
       </div>
     </header>
