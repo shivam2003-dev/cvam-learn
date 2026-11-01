@@ -1,5 +1,6 @@
 import type { Lesson } from "@/lib/types";
 import { lesson as aiNativeConsumerB2b } from "./ai-native-consumer-b2b";
+import { lesson as arithmeticIntensity } from "./arithmetic-intensity";
 import { lesson as attentionMechanism } from "./attention-mechanism";
 import { lesson as attentionVariants } from "./attention-variants";
 import { lesson as cacheAwareRouting } from "./cache-aware-routing";
@@ -9,6 +10,7 @@ import { lesson as coldStarts } from "./cold-starts";
 import { lesson as continuousBatching } from "./continuous-batching";
 import { lesson as costEstimation } from "./cost-estimation";
 import { lesson as dependencyManagement } from "./dependency-management";
+import { lesson as desktopInference } from "./desktop-inference";
 import { lesson as diffusionModels } from "./diffusion-models";
 import { lesson as draftTargetDecoding } from "./draft-target-decoding";
 import { lesson as eagleNgram } from "./eagle-ngram";
@@ -25,16 +27,20 @@ import { lesson as gpuProcurement } from "./gpu-procurement";
 import { lesson as graceVera } from "./grace-vera";
 import { lesson as imageGenerationArchitectures } from "./image-generation-architectures";
 import { lesson as imageGenerationInference } from "./image-generation-inference";
+import { lesson as imageVideoBottlenecks } from "./image-video-bottlenecks";
 import { lesson as independentComponentScaling } from "./independent-component-scaling";
 import { lesson as inferenceVsTraining } from "./inference-vs-training";
 import { lesson as instancesInterconnects } from "./instances-interconnects";
+import { lesson as kernelSelectionFusion } from "./kernel-selection-fusion";
 import { lesson as kvCache } from "./kv-cache";
 import { lesson as kvCacheStorage } from "./kv-cache-storage";
 import { lesson as latencyVsThroughput } from "./latency-vs-throughput";
+import { lesson as llmBottlenecks } from "./llm-bottlenecks";
 import { lesson as longContextHandling } from "./long-context-handling";
 import { lesson as loraAwareRouting } from "./lora-aware-routing";
 import { lesson as measuringQualityImpact } from "./measuring-quality-impact";
 import { lesson as mixtureOfExperts } from "./mixture-of-experts";
+import { lesson as mobileInference } from "./mobile-inference";
 import { lesson as modelSelectionEvaluation } from "./model-selection-evaluation";
 import { lesson as modelopt } from "./modelopt";
 import { lesson as multiNodeInference } from "./multi-node-inference";
@@ -45,6 +51,7 @@ import { lesson as observability } from "./observability";
 import { lesson as omniModalModels } from "./omni-modal-models";
 import { lesson as onlineOfflineAsync } from "./online-offline-async";
 import { lesson as openVsClosedModels } from "./open-vs-closed-models";
+import { lesson as opsByteRatio } from "./ops-byte-ratio";
 import { lesson as otherAccelerators } from "./other-accelerators";
 import { lesson as pagedattention } from "./pagedattention";
 import { lesson as percentilesAndEndToEnd } from "./percentiles-and-end-to-end";
@@ -57,6 +64,7 @@ import { lesson as pytorchForInference } from "./pytorch-for-inference";
 import { lesson as quantizationAwareTraining } from "./quantization-aware-training";
 import { lesson as reasoningModels } from "./reasoning-models";
 import { lesson as requestQueueing } from "./request-queueing";
+import { lesson as rooflineModel } from "./roofline-model";
 import { lesson as routingLoadBalancing } from "./routing-load-balancing";
 import { lesson as safetensors } from "./safetensors";
 import { lesson as scaleToZero } from "./scale-to-zero";
@@ -82,10 +90,12 @@ import { lesson as videoProcessingVlms } from "./video-processing-vlms";
 import { lesson as visionLanguageModels } from "./vision-language-models";
 import { lesson as vllm } from "./vllm";
 import { lesson as voiceActivityDetection } from "./voice-activity-detection";
+import { lesson as writingCustomKernels } from "./writing-custom-kernels";
 import { lesson as zeroDowntimeDeployment } from "./zero-downtime-deployment";
 
 export const lessons: Record<string, Lesson> = {
   "ai-native-consumer-b2b": aiNativeConsumerB2b,
+  "arithmetic-intensity": arithmeticIntensity,
   "attention-mechanism": attentionMechanism,
   "attention-variants": attentionVariants,
   "cache-aware-routing": cacheAwareRouting,
@@ -95,6 +105,7 @@ export const lessons: Record<string, Lesson> = {
   "continuous-batching": continuousBatching,
   "cost-estimation": costEstimation,
   "dependency-management": dependencyManagement,
+  "desktop-inference": desktopInference,
   "diffusion-models": diffusionModels,
   "draft-target-decoding": draftTargetDecoding,
   "eagle-ngram": eagleNgram,
@@ -111,16 +122,20 @@ export const lessons: Record<string, Lesson> = {
   "grace-vera": graceVera,
   "image-generation-architectures": imageGenerationArchitectures,
   "image-generation-inference": imageGenerationInference,
+  "image-video-bottlenecks": imageVideoBottlenecks,
   "independent-component-scaling": independentComponentScaling,
   "inference-vs-training": inferenceVsTraining,
   "instances-interconnects": instancesInterconnects,
+  "kernel-selection-fusion": kernelSelectionFusion,
   "kv-cache": kvCache,
   "kv-cache-storage": kvCacheStorage,
   "latency-vs-throughput": latencyVsThroughput,
+  "llm-bottlenecks": llmBottlenecks,
   "long-context-handling": longContextHandling,
   "lora-aware-routing": loraAwareRouting,
   "measuring-quality-impact": measuringQualityImpact,
   "mixture-of-experts": mixtureOfExperts,
+  "mobile-inference": mobileInference,
   "model-selection-evaluation": modelSelectionEvaluation,
   "modelopt": modelopt,
   "multi-node-inference": multiNodeInference,
@@ -131,6 +146,7 @@ export const lessons: Record<string, Lesson> = {
   "omni-modal-models": omniModalModels,
   "online-offline-async": onlineOfflineAsync,
   "open-vs-closed-models": openVsClosedModels,
+  "ops-byte-ratio": opsByteRatio,
   "other-accelerators": otherAccelerators,
   "pagedattention": pagedattention,
   "percentiles-and-end-to-end": percentilesAndEndToEnd,
@@ -143,6 +159,7 @@ export const lessons: Record<string, Lesson> = {
   "quantization-aware-training": quantizationAwareTraining,
   "reasoning-models": reasoningModels,
   "request-queueing": requestQueueing,
+  "roofline-model": rooflineModel,
   "routing-load-balancing": routingLoadBalancing,
   "safetensors": safetensors,
   "scale-to-zero": scaleToZero,
@@ -168,5 +185,6 @@ export const lessons: Record<string, Lesson> = {
   "vision-language-models": visionLanguageModels,
   "vllm": vllm,
   "voice-activity-detection": voiceActivityDetection,
+  "writing-custom-kernels": writingCustomKernels,
   "zero-downtime-deployment": zeroDowntimeDeployment,
 };

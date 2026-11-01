@@ -159,6 +159,32 @@ export function LessonTail({
   );
 }
 
+const PINNED_LAST = /^(all|none) of (the|these|them)|^neither|^both/i;
+
+/**
+ * Lessons are written with the answer in a few fixed slots, so options are
+ * reordered per question. The seed is the question text, which keeps the
+ * order identical between server and client.
+ */
+function shuffled(question: McqQuestion) {
+  let seed = 2166136261;
+  for (const char of question.q) seed = Math.imul(seed ^ char.charCodeAt(0), 16777619);
+  const next = () => {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  const entries = question.options.map((text, original) => ({ text, original }));
+  const movable = entries.filter((entry) => !PINNED_LAST.test(entry.text));
+  const pinned = entries.filter((entry) => PINNED_LAST.test(entry.text));
+  for (let i = movable.length - 1; i > 0; i--) {
+    const j = Math.floor(next() * (i + 1));
+    [movable[i], movable[j]] = [movable[j], movable[i]];
+  }
+  return [...movable, ...pinned];
+}
+
 function Mcq({
   question,
   onSettle,
@@ -168,13 +194,14 @@ function Mcq({
 }) {
   const [chosen, setChosen] = useState<number | null>(null);
   const locked = chosen !== null;
+  const ordered = shuffled(question);
 
   return (
     <>
       <div className="mt-3 grid gap-2">
-        {question.options.map((option, index) => {
-          const isAnswer = index === question.answer;
-          const isChosen = index === chosen;
+        {ordered.map(({ text: option, original }, index) => {
+          const isAnswer = original === question.answer;
+          const isChosen = original === chosen;
           let tone = "border-line hover:border-soft";
           if (locked && isAnswer) tone = "border-lime bg-lime/10";
           else if (locked && isChosen) tone = "border-rose bg-rose/10";
@@ -185,7 +212,7 @@ function Mcq({
               type="button"
               disabled={locked}
               onClick={() => {
-                setChosen(index);
+                setChosen(original);
                 onSettle(isAnswer ? "correct" : "wrong");
               }}
               className={`flex items-start gap-3 rounded-lg border px-3 py-2 text-left text-[0.95rem] ${tone}`}
