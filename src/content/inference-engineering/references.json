@@ -1,0 +1,2538 @@
+{
+  "inference-vs-training": [
+    {
+      "type": "article",
+      "title": "Language Models Are Few-Shot Learners",
+      "url": "https://arxiv.org/abs/2005.14165"
+    },
+    {
+      "type": "article",
+      "title": "Inference vs Training",
+      "url": "https://www.cloudflare.com/learning/ai/inference-vs-training/"
+    },
+    {
+      "type": "article",
+      "title": "What is Machine Learning Inference?",
+      "url": "https://hazelcast.com/glossary/machine-learning-inference/"
+    },
+    {
+      "type": "video",
+      "title": "Why Inference is hard..",
+      "url": "https://www.youtube.com/watch?v=B18zBnjZKmc"
+    },
+    {
+      "type": "book",
+      "title": "Inference Engineering",
+      "url": "https://www.baseten.co/inference-engineering/digital-download/"
+    },
+    {
+      "type": "article",
+      "title": "What Is Inference Engineering? The 2026 GPU Cloud Guide",
+      "url": "https://www.spheron.network/blog/inference-engineering-guide-2026/"
+    },
+    {
+      "type": "article",
+      "title": "A Guide to AI Inference Engineering",
+      "url": "https://blog.bytebytego.com/p/a-guide-to-ai-inference-engineering"
+    },
+    {
+      "type": "video",
+      "title": "AI Inference: The Secret to AI's Superpowers",
+      "url": "https://www.youtube.com/watch?v=XtT5i0ZeHHE&t=19s"
+    }
+  ],
+  "open-vs-closed-models": [
+    {
+      "type": "book",
+      "title": "AI Engineering: Building Applications with Foundation Models",
+      "url": "https://www.oreilly.com/library/view/ai-engineering/9781098166298/"
+    },
+    {
+      "type": "article",
+      "title": "Open-source Models vs. Closed-Source Models: A Simple Guide",
+      "url": "https://koat.ai/blog/open-source-models-vs-closed-source-models-a-simple-guide"
+    },
+    {
+      "type": "article",
+      "title": "Open-Source vs. Closed LLMs: A Guide",
+      "url": "https://hatchworks.com/blog/gen-ai/open-source-vs-closed-llms-guide/"
+    },
+    {
+      "type": "video",
+      "title": "Open Source vs Closed AI: LLMs, Agents & the AI Stack Explained",
+      "url": "https://www.youtube.com/watch?v=_QfxGZGITGw"
+    }
+  ],
+  "shared-vs-dedicated-inference": [
+    {
+      "type": "article",
+      "title": "Dedicated vs shared LLM inference: when reserved capacity makes sense",
+      "url": "https://www.freestyle.sh/blog/engineering/dedicated-vs-shared-llm-inference"
+    },
+    {
+      "type": "article",
+      "title": "Serverless vs. Self-Hosted LLM Inference",
+      "url": "https://bentoml.com/llm/llm-inference-basics/serverless-vs-self-hosted-llm-inference"
+    },
+    {
+      "type": "article",
+      "title": "Self-Hosted LLM: A Practical Guide for DevOps",
+      "url": "https://www.plural.sh/blog/self-hosting-large-language-models/"
+    },
+    {
+      "type": "article",
+      "title": "When shared inference is not enough: the case for dedicated AI endpoints",
+      "url": "https://www.gmicloud.ai/en/blog/when-shared-inference-is-not-enough-the-case-for-dedicated-ai-endpoints"
+    }
+  ],
+  "the-inference-stack": [
+    {
+      "type": "book",
+      "title": "Inference Engineering",
+      "url": "https://www.baseten.co/inference-engineering/digital-download/"
+    },
+    {
+      "type": "article",
+      "title": "What Is Inference Engineering? The 2026 GPU Cloud Guide",
+      "url": "https://www.spheron.network/blog/inference-engineering-guide-2026/"
+    },
+    {
+      "type": "article",
+      "title": "A Guide to AI Inference Engineering",
+      "url": "https://blog.bytebytego.com/p/a-guide-to-ai-inference-engineering"
+    },
+    {
+      "type": "video",
+      "title": "AI Inference: The Secret to AI's Superpowers",
+      "url": "https://www.youtube.com/watch?v=XtT5i0ZeHHE&t=19s"
+    }
+  ],
+  "ttft-tps-itl": [
+    {
+      "type": "article",
+      "title": "What is time to first token (TTFT)?",
+      "url": "https://www.ibm.com/think/topics/time-to-first-token"
+    },
+    {
+      "type": "article",
+      "title": "What Is Time to First Token?",
+      "url": "https://www.cerebras.ai/glossary/what-is-time-to-first-token"
+    },
+    {
+      "type": "video",
+      "title": "Most devs don't understand how LLM tokens work",
+      "url": "https://www.youtube.com/watch?v=nKSk_TiR8YA"
+    },
+    {
+      "type": "article",
+      "title": "What Are Tokens per Second?",
+      "url": "https://www.cerebras.ai/glossary/what-are-tokens-per-second"
+    },
+    {
+      "type": "article",
+      "title": "Tokens Per Second",
+      "url": "https://www.taskade.com/wiki/ai/tokens-per-second"
+    },
+    {
+      "type": "video",
+      "title": "LLM Speed Tiers Explained: What TPS (Token Per Second) Actually Feels Like",
+      "url": "https://www.youtube.com/watch?v=EZE-2xYpvOw"
+    },
+    {
+      "type": "article",
+      "title": "Inter-Token Latency - NVIDIA",
+      "url": "https://docs.nvidia.com/nim/benchmarking/llm/latest/metrics.html#inter-token-latency"
+    },
+    {
+      "type": "article",
+      "title": "Inter-Token Latency",
+      "url": "https://nhimg.org/glossary/inter-token-latency/"
+    }
+  ],
+  "latency-vs-throughput": [
+    {
+      "type": "article",
+      "title": "The LLM Inference Trilemma: Throughput, Latency, Cost",
+      "url": "https://www.digitalocean.com/blog/llm-inference-tradeoffs"
+    },
+    {
+      "type": "article",
+      "title": "LLM inference latency: TTFT, tokens per second, and what to measure",
+      "url": "https://clickhouse.com/resources/engineering/llm-inference-latency"
+    },
+    {
+      "type": "article",
+      "title": "⚖️ Latency vs Throughput: Deep Dive into System Performance Trade‑Offs",
+      "url": "https://medium.com/@shivanimutke2501/%EF%B8%8F-latency-vs-throughput-deep-dive-into-system-performance-trade-offs-adcd5860dc56"
+    },
+    {
+      "type": "video",
+      "title": "Latency vs Throughput in 60 Seconds",
+      "url": "https://www.youtube.com/watch?v=azUdQ9bme9g"
+    }
+  ],
+  "percentiles-and-end-to-end": [
+    {
+      "type": "article",
+      "title": "Percentiles vs averages: why your latency dashboard lies",
+      "url": "https://clickhouse.com/resources/engineering/percentiles-vs-averages"
+    },
+    {
+      "type": "article",
+      "title": "Latency percentiles for load testing analysis",
+      "url": "https://gatling.io/blog/latency-percentiles-for-load-testing-analysis"
+    },
+    {
+      "type": "video",
+      "title": "Mastering Latency Metrics: P90, P95, P99 | System Design",
+      "url": "https://www.youtube.com/watch?v=lJ4NEMNBeS4"
+    },
+    {
+      "type": "article",
+      "title": "10 LLM Inference Metrics Every AI Engineer Must Know",
+      "url": "https://www.intoai.pub/p/llm-inference-metrics"
+    },
+    {
+      "type": "article",
+      "title": "What is RTF (Real-Time Factor) in ASR?    Copied from: https://www.futurebeeai.com/knowledge-hub/real-time-factor-asr",
+      "url": "https://www.futurebeeai.com/knowledge-hub/real-time-factor-asr"
+    },
+    {
+      "type": "article",
+      "title": "Whisper Real-Time Factor by GPU",
+      "url": "https://gigagpu.com/whisper-rtf-by-gpu/"
+    },
+    {
+      "type": "article",
+      "title": "RTF — Real-Time Factor Explained",
+      "url": "https://transcript.you/glossary/rtf"
+    }
+  ],
+  "online-offline-async": [
+    {
+      "type": "article",
+      "title": "Production ML systems: Static versus dynamic inference",
+      "url": "https://developers.google.com/machine-learning/crash-course/production-ml-systems/static-vs-dynamic-inference"
+    },
+    {
+      "type": "article",
+      "title": "Trade-offs in Online vs Offline Model Inference",
+      "url": "https://bugfree.ai/knowledge-hub/trade-offs-online-vs-offline-model-inference"
+    },
+    {
+      "type": "video",
+      "title": "Offline Recurrence for Improved Online Inference",
+      "url": "https://www.youtube.com/watch?v=bwvE1KvLzLQ"
+    },
+    {
+      "type": "article",
+      "title": "Using asynchronous inference in production",
+      "url": "https://www.baseten.co/blog/using-asynchronous-inference-in-production/"
+    },
+    {
+      "type": "article",
+      "title": "Asynchronous Inference: Methods & Applications",
+      "url": "https://www.emergentmind.com/topics/asynchronous-inference"
+    }
+  ],
+  "ai-native-consumer-b2b": [
+    {
+      "type": "roadmap",
+      "title": "Visit the Dedicated AI Product Builder Roadmap",
+      "url": "https://roadmap.sh/ai-product-builder"
+    },
+    {
+      "type": "article",
+      "title": "What is AI native?",
+      "url": "https://www.ibm.com/think/topics/ai-native"
+    },
+    {
+      "type": "article",
+      "title": "Guide to Building AI-Native Applications",
+      "url": "https://talkdev.com/learning-center/guide-to-building-ai-native-applications"
+    },
+    {
+      "type": "video",
+      "title": "How to Build an AI-Native Services Company",
+      "url": "https://www.youtube.com/watch?v=gSNFJbgoaHI"
+    },
+    {
+      "type": "article",
+      "title": "Consumer vs. B2B",
+      "url": "https://www.baseten.co/inference-engineering/book/01-prerequisites/about-your-app/#consumer-versus-b2b"
+    }
+  ],
+  "reasoning-models": [
+    {
+      "type": "article",
+      "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "url": "https://arxiv.org/abs/2201.11903"
+    },
+    {
+      "type": "article",
+      "title": "What is a reasoning model?",
+      "url": "https://www.ibm.com/think/topics/reasoning-model"
+    },
+    {
+      "type": "video",
+      "title": "What Are Large Reasoning Models (LRMs)? Smarter AI Beyond LLMs",
+      "url": "https://www.youtube.com/watch?v=enLbj0igyx4"
+    },
+    {
+      "type": "video",
+      "title": "How do thinking and reasoning models work?",
+      "url": "https://www.youtube.com/watch?v=xCRvOUykOX0"
+    }
+  ],
+  "model-selection-evaluation": [
+    {
+      "type": "article",
+      "title": "Choosing the Right Model",
+      "url": "https://bentoml.com/llm/getting-started/choosing-the-right-model"
+    },
+    {
+      "type": "article",
+      "title": "Beyond Vibes: How to Properly Select the Right LLM for the Right Task",
+      "url": "https://aws.amazon.com/blogs/machine-learning/beyond-vibes-how-to-properly-select-the-right-llm-for-the-right-task/"
+    },
+    {
+      "type": "video",
+      "title": "How to Pick the Right AI Foundation Model",
+      "url": "https://www.youtube.com/watch?v=pePAAGfh-IU"
+    },
+    {
+      "type": "video",
+      "title": "How to Choose Large Language Models: A Developer’s Guide to LLMs",
+      "url": "https://www.youtube.com/watch?v=pYax2rupKEY"
+    },
+    {
+      "type": "article",
+      "title": "LLM Evaluation: A Beginner's Guide",
+      "url": "https://www.evidentlyai.com/llm-guide/llm-evaluation"
+    },
+    {
+      "type": "article",
+      "title": "LLM Evaluation Metrics and Methods, Explained Simply",
+      "url": "https://www.evidentlyai.com/llm-guide/llm-evaluation-metrics"
+    },
+    {
+      "type": "article",
+      "title": "Automated Regression Testing: The Complete 2026 Guide",
+      "url": "https://roadmap.sh/ai-engineer/automated-regression-testing"
+    },
+    {
+      "type": "video",
+      "title": "LLM as a Judge: Scaling AI Evaluation Strategies",
+      "url": "https://www.youtube.com/watch?v=trfUBIDeI1Y"
+    }
+  ],
+  "fine-tuning-distillation": [
+    {
+      "type": "article",
+      "title": "What is Fine-Tuning?",
+      "url": "https://www.ibm.com/think/topics/fine-tuning"
+    },
+    {
+      "type": "article",
+      "title": "How I Fine-Tuned Granite-Vision 2B to Beat a 90B Model",
+      "url": "https://towardsdatascience.com/how-i-fine-tuned-granite-vision-2b-to-beat-a-90b-model-insights-and-lessons-learned/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Is Fine-Tuning Still Needed? LLMs, RAG, & LoRA",
+      "url": "https://www.youtube.com/watch?v=-W2JdSl1v48"
+    },
+    {
+      "type": "article",
+      "title": "Adversarial Diffusion Distillation",
+      "url": "https://arxiv.org/abs/2311.17042"
+    },
+    {
+      "type": "article",
+      "title": "How Knowledge Distillation Works and When to Use It",
+      "url": "https://www.arcee.ai/blog/how-knowledge-distillation-works-and-when-to-use-it"
+    },
+    {
+      "type": "article",
+      "title": "Introduction to model distillation: Efficient knowledge transfer for AI applications",
+      "url": "https://nebius.com/blog/posts/model-distillation-intro"
+    },
+    {
+      "type": "video",
+      "title": "Model Distillation: How to Steal a Billion-Dollar AI",
+      "url": "https://www.youtube.com/watch?v=QBG6bXiOq40"
+    },
+    {
+      "type": "video",
+      "title": "Knowledge Distillation - Explained",
+      "url": "https://www.youtube.com/watch?v=Pwo1bLDB-jA"
+    }
+  ],
+  "encoder-decoder": [
+    {
+      "type": "book",
+      "title": "Deep Learning",
+      "url": "https://www.deeplearningbook.org/"
+    },
+    {
+      "type": "book",
+      "title": "Deep Learning with Python",
+      "url": "https://www.manning.com/books/deep-learning-with-python-second-edition"
+    },
+    {
+      "type": "article",
+      "title": "What is deep learning?",
+      "url": "https://www.ibm.com/think/topics/deep-learning"
+    },
+    {
+      "type": "video",
+      "title": "But what is a neural network?",
+      "url": "https://www.youtube.com/watch?v=aircAruvnKk"
+    },
+    {
+      "type": "course",
+      "title": "Encoder-Decoder Architecture",
+      "url": "https://www.skills.google/course_templates/543"
+    },
+    {
+      "type": "article",
+      "title": "What is an encoder-decoder model?",
+      "url": "https://www.ibm.com/think/topics/encoder-decoder-model"
+    },
+    {
+      "type": "video",
+      "title": "Encoder-decoder architecture: Overview",
+      "url": "https://www.youtube.com/watch?v=zbdong_h-x4"
+    },
+    {
+      "type": "video",
+      "title": "Sequence-to-Sequence (seq2seq) Encoder-Decoder Neural Networks,",
+      "url": "https://www.youtube.com/watch?v=L8HKweZIOmg"
+    }
+  ],
+  "transformer-blocks": [
+    {
+      "type": "article",
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762"
+    },
+    {
+      "type": "article",
+      "title": "What Are Transformer Models and How Do They Work?",
+      "url": "https://cohere.com/llmu/what-are-transformer-models"
+    },
+    {
+      "type": "article",
+      "title": "A Simplified Explanation of the Transformer Block",
+      "url": "https://medium.com/@akhileshkapse/a-simplified-explanation-of-the-transformer-block-must-read-blog-for-nlp-enthusiasts-12ef240a62ac"
+    },
+    {
+      "type": "video",
+      "title": "Transformers, the tech behind LLMs",
+      "url": "https://www.youtube.com/watch?v=wjZofJX0v4M&t=183s"
+    },
+    {
+      "type": "book",
+      "title": "Build a Large Language Model From Scratch",
+      "url": "https://dl.tehrandata.org/book/Build-a-large-language-models.pdf"
+    },
+    {
+      "type": "article",
+      "title": "What is a Large Language Model (LLM)?",
+      "url": "https://www.cloudflare.com/en-gb/learning/ai/what-is-large-language-model/"
+    },
+    {
+      "type": "article",
+      "title": "New to LLMs? Start Here",
+      "url": "https://towardsdatascience.com/new-to-llms-start-here/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "How Large Language Models Work",
+      "url": "https://www.youtube.com/watch?v=5sLYAQS9sWQ"
+    }
+  ],
+  "attention-mechanism": [
+    {
+      "type": "article",
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762"
+    },
+    {
+      "type": "article",
+      "title": "What is an attention mechanism?",
+      "url": "https://www.ibm.com/think/topics/attention-mechanism"
+    },
+    {
+      "type": "video",
+      "title": "Attention mechanism: Overview",
+      "url": "https://www.youtube.com/watch?v=fjJOgb-E41w&t=1s"
+    },
+    {
+      "type": "video",
+      "title": "Attention in transformers, step-by-step",
+      "url": "https://www.youtube.com/watch?v=eMlx5fFNoYc"
+    }
+  ],
+  "kv-cache": [
+    {
+      "type": "article",
+      "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180"
+    },
+    {
+      "type": "article",
+      "title": "KV Caching Explained: Optimizing Transformer Inference Efficiency",
+      "url": "https://huggingface.co/blog/not-lain/kv-caching"
+    },
+    {
+      "type": "video",
+      "title": "How KV Cache Speeds Up LLMs for Faster AI Models on GPUs",
+      "url": "https://www.youtube.com/watch?v=o0gkdZBtwEg"
+    },
+    {
+      "type": "video",
+      "title": "The KV Cache: Memory Usage in Transformers",
+      "url": "https://www.youtube.com/watch?v=80bIUggRJf4"
+    }
+  ],
+  "mixture-of-experts": [
+    {
+      "type": "article",
+      "title": "Mixture of Experts Explained",
+      "url": "https://huggingface.co/blog/moe"
+    },
+    {
+      "type": "article",
+      "title": "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",
+      "url": "https://arxiv.org/abs/1701.06538"
+    },
+    {
+      "type": "video",
+      "title": "What is Mixture of Experts?",
+      "url": "https://www.youtube.com/watch?v=sYDlVVyJYn4"
+    },
+    {
+      "type": "video",
+      "title": "A Visual Guide to Mixture of Experts (MoE) in LLMs",
+      "url": "https://www.youtube.com/watch?v=sOPDGQjFcuM"
+    }
+  ],
+  "diffusion-models": [
+    {
+      "type": "article",
+      "title": "What are diffusion models?",
+      "url": "https://www.ibm.com/think/topics/diffusion-models"
+    },
+    {
+      "type": "video",
+      "title": "Diffusion Models for AI Image Generation",
+      "url": "https://www.youtube.com/watch?v=x2GRE-RzmD8"
+    },
+    {
+      "type": "video",
+      "title": "How AI Image Generators Work (Stable Diffusion / DALL-E)",
+      "url": "https://www.youtube.com/watch?v=1CIpzeNxIhU"
+    },
+    {
+      "type": "article",
+      "title": "Understanding AI Image Generation: Models, Tools, and Techniques",
+      "url": "https://www.digitalocean.com/community/tutorials/understanding-ai-image-generation-models-tools-and-techniques"
+    },
+    {
+      "type": "article",
+      "title": "How do AI models generate videos?",
+      "url": "https://www.technologyreview.com/2025/09/12/1123562/how-do-ai-models-generate-videos/"
+    },
+    {
+      "type": "video",
+      "title": "What Are Vision Language Models? How AI Sees & Understands Images",
+      "url": "https://www.youtube.com/watch?v=lOD_EE96jhM"
+    },
+    {
+      "type": "video",
+      "title": "But how do AI images and videos actually work?",
+      "url": "https://www.youtube.com/watch?v=iv-5mZ_9CPY"
+    }
+  ],
+  "image-generation-architectures": [
+    {
+      "type": "article",
+      "title": "Image Generation Guide",
+      "url": "https://ai-guide.future.mozilla.org/content/image-models/"
+    },
+    {
+      "type": "video",
+      "title": "How AI Image Generators Work (Stable Diffusion / Dall-E)",
+      "url": "https://www.youtube.com/watch?v=1CIpzeNxIhU"
+    }
+  ],
+  "few-step-image-generation": [
+    {
+      "type": "article",
+      "title": "Latent Consistency Models: Synthesizing High-Resolution Images with Few-Step Inference",
+      "url": "https://arxiv.org/abs/2310.04378"
+    },
+    {
+      "type": "article",
+      "title": "Few-Step Diffusion Models",
+      "url": "https://www.emergentmind.com/topics/few-step-diffusion-model"
+    }
+  ],
+  "video-generation-models": [
+    {
+      "type": "article",
+      "title": "Video Diffusion Models",
+      "url": "https://arxiv.org/abs/2204.03458"
+    },
+    {
+      "type": "article",
+      "title": "How do AI models generate videos?",
+      "url": "https://www.technologyreview.com/2025/09/12/1123562/how-do-ai-models-generate-videos/"
+    },
+    {
+      "type": "article",
+      "title": "Demystifying Video Generation Models",
+      "url": "https://adityang5.medium.com/demystifying-video-generation-models-cfac8dbe1913"
+    },
+    {
+      "type": "video",
+      "title": "How do AI video generation models work?",
+      "url": "https://www.youtube.com/watch?v=Y5zHHoLrvAE"
+    }
+  ],
+  "ops-byte-ratio": [
+    {
+      "type": "article",
+      "title": "A guide to LLM inference and performance",
+      "url": "https://www.baseten.co/blog/llm-transformer-inference-guide/"
+    },
+    {
+      "type": "article",
+      "title": "Understanding Performance",
+      "url": "https://docs.nvidia.com/deeplearning/performance/dl-performance-gpu-background/index.html#understand-perf"
+    }
+  ],
+  "arithmetic-intensity": [
+    {
+      "type": "article",
+      "title": "A guide to LLM inference and performance",
+      "url": "https://www.baseten.co/blog/llm-transformer-inference-guide/"
+    },
+    {
+      "type": "article",
+      "title": "Arithmetic Intensity : Understand Op limits — Memory or Compute",
+      "url": "https://medium.com/better-ml/arithmetic-intensity-understand-op-limits-memory-or-compute-342fd15342bb"
+    },
+    {
+      "type": "article",
+      "title": "Arithmetic Intensity Explained: The Formula and Why It Predicts GPU Speedup",
+      "url": "https://ayoob.ai/blog/webgpu-matrix-multiplication-gemm-arithmetic-intensity"
+    },
+    {
+      "type": "video",
+      "title": "Compute-Bound or Memory-Bound? Arithmetic Intensity Explained",
+      "url": "https://www.youtube.com/watch?v=jCUWDXVohTY"
+    }
+  ],
+  "roofline-model": [
+    {
+      "type": "article",
+      "title": "What is the roofline model?",
+      "url": "https://modal.com/gpu-glossary/perf/roofline-model"
+    },
+    {
+      "type": "article",
+      "title": "Calculating inference bottlenecks",
+      "url": "https://learn-inference.com/chapters/models/bottlenecks"
+    },
+    {
+      "type": "video",
+      "title": "A very short intro to the Roofline model",
+      "url": "https://www.youtube.com/watch?v=IrkNZG8MJ64"
+    },
+    {
+      "type": "article",
+      "title": "The Next AI Bottleneck Isn’t the Model: It’s the Inference System",
+      "url": "https://towardsdatascience.com/the-next-ai-bottleneck-isnt-the-model-its-the-inference-system/"
+    },
+    {
+      "type": "article",
+      "title": "Performance Analysis and Bottleneck Identification in AI Workflows",
+      "url": "https://multicorewareinc.com/performance-analysis-and-bottleneck-identification-in-ai-workflows/"
+    },
+    {
+      "type": "article",
+      "title": "Distributed AI Inference: Why Placement Is the New Bottleneck",
+      "url": "https://www.akamai.com/blog/cloud/distributed-ai-inference-why-placement-new-bottleneck"
+    },
+    {
+      "type": "video",
+      "title": "Inference Optimization Course",
+      "url": "https://www.youtube.com/playlist?list=PLXV1pCewfApE"
+    }
+  ],
+  "llm-bottlenecks": [
+    {
+      "type": "book",
+      "title": "AI Systems Performance Engineering",
+      "url": "https://www.oreilly.com/library/view/ai-systems-performance/9781098170202/"
+    },
+    {
+      "type": "article",
+      "title": "Common Bottlenecks in LLM Inference at Scale (And How to Fix Them)",
+      "url": "https://www.yottalabs.ai/post/common-bottlenecks-in-llm-inference-at-scale-and-how-to-fix-them"
+    },
+    {
+      "type": "article",
+      "title": "GPU Glossary",
+      "url": "https://modal.com/gpu-glossary"
+    },
+    {
+      "type": "article",
+      "title": "The Hidden Bottlenecks in LLM Inference and How to Fix Them",
+      "url": "https://www.digitalocean.com/community/conceptual-articles/bottlenecks-llm-inference-optimization"
+    },
+    {
+      "type": "article",
+      "title": "Prefill vs Decode: LLM Inference Phases Explained",
+      "url": "https://redis.io/blog/prefill-vs-decode/"
+    },
+    {
+      "type": "article",
+      "title": "Understanding the Two Key Stages of LLM Inference: Prefill and Decode(Part-1)",
+      "url": "https://medium.com/@sailakkshmiallada/understanding-the-two-key-stages-of-llm-inference-prefill-and-decode-29ec2b468114"
+    },
+    {
+      "type": "video",
+      "title": "Why LLMs Read Fast but Write Slowly - Prefill vs Decode",
+      "url": "https://www.youtube.com/watch?v=hmMgTgQpO38"
+    }
+  ],
+  "image-video-bottlenecks": [
+    {
+      "type": "article",
+      "title": "How to Overcome Visual Data Bottlenecks in GenAI Development",
+      "url": "https://wirestock.io/gen-ai-resources/how-to-overcome-visual-data-bottlenecks-in-genai-development"
+    },
+    {
+      "type": "article",
+      "title": "6 Limitations of Current AI Video Generation Technology and Workarounds",
+      "url": "https://kling.ai/blog/limitations-of-current-ai-video-generation-technology"
+    },
+    {
+      "type": "article",
+      "title": "The biggest bottleneck in AI video generation is not the model, but the cost.",
+      "url": "https://en.eeworld.com.cn/news/wltx/eic737186.html"
+    },
+    {
+      "type": "video",
+      "title": "But how do AI images and videos actually work?",
+      "url": "https://www.youtube.com/watch?v=iv-5mZ_9CPY&t=315s"
+    }
+  ],
+  "flashattention": [
+    {
+      "type": "opensource",
+      "title": "Dao-AILab/flash-attention",
+      "url": "https://github.com/Dao-AILab/flash-attention"
+    },
+    {
+      "type": "article",
+      "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135"
+    },
+    {
+      "type": "video",
+      "title": "Flash Attention: The Fastest Attention Mechanism?",
+      "url": "https://www.youtube.com/watch?v=eJn6zsbrqUM"
+    },
+    {
+      "type": "video",
+      "title": "FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning",
+      "url": "https://www.youtube.com/playlist?list=PLBWdTDczuFNrxnetcH-5CVLRP1u4Ua87m"
+    },
+    {
+      "type": "article",
+      "title": "Attention Mechanism Innovation: Next-Generation Focus",
+      "url": "https://translated.com/resources/attention-mechanism-innovation-next-generation-focus"
+    },
+    {
+      "type": "article",
+      "title": "Advanced Attention Mechanisms in Transformer LLMs",
+      "url": "https://pub.towardsai.net/advanced-attention-mechanisms-in-transformer-llms-44cac04ec356?gi=22c6a00772a8"
+    },
+    {
+      "type": "article",
+      "title": "​Sequential Attention: Making AI models leaner and faster without sacrificing accuracy",
+      "url": "https://research.google/blog/sequential-attention-making-ai-models-leaner-and-faster-without-sacrificing-accuracy/"
+    }
+  ],
+  "pagedattention": [
+    {
+      "type": "article",
+      "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180"
+    },
+    {
+      "type": "article",
+      "title": "PagedAttention",
+      "url": "https://handbook.modular.com/inference-optimization/pagedattention/"
+    },
+    {
+      "type": "video",
+      "title": "PagedAttention: Behind vLLM's Insane Speed",
+      "url": "https://www.youtube.com/watch?v=6uPnLkCiy5g"
+    }
+  ],
+  "attention-variants": [
+    {
+      "type": "article",
+      "title": "Longformer: The Long-Document Transformer",
+      "url": "https://arxiv.org/abs/2004.05150"
+    },
+    {
+      "type": "article",
+      "title": "Reformer: The Efficient Transformer",
+      "url": "https://arxiv.org/abs/2001.04451"
+    },
+    {
+      "type": "article",
+      "title": "Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation",
+      "url": "https://arxiv.org/abs/2108.12409"
+    },
+    {
+      "type": "article",
+      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "url": "https://arxiv.org/abs/2312.00752"
+    }
+  ],
+  "gpu-compute-memory": [
+    {
+      "type": "article",
+      "title": "Understanding GPU Architecture: Structure, Layers, and Performance Explained",
+      "url": "https://www.scalecomputing.com/resources/understanding-gpu-architecture"
+    },
+    {
+      "type": "article",
+      "title": "What Is GPU Computing and How Does It Work? A Complete Guide",
+      "url": "https://factory.fpt.ai/ai-insights/what-is-gpu-computing"
+    },
+    {
+      "type": "video",
+      "title": "Understanding NVIDIA GPU Hardware as a CUDA C Programmer",
+      "url": "https://www.youtube.com/watch?v=1Goq8Yc3dfo"
+    },
+    {
+      "type": "video",
+      "title": "Fundamentals of GPU Architecture",
+      "url": "https://www.youtube.com/playlist?list=PLxNPSjHT5qvscDTMaIAY9boOOXAJAS7y4"
+    },
+    {
+      "type": "article",
+      "title": "What is GPU Memory and Why it Matters for LLM Inference",
+      "url": "https://www.bentoml.com/blog/what-is-gpu-memory-and-why-it-matters-for-llm-inference"
+    },
+    {
+      "type": "article",
+      "title": "What is GPU Memory (VRAM)?",
+      "url": "https://www.ertas.ai/glossary/gpu-memory"
+    },
+    {
+      "type": "video",
+      "title": "NPU vs. CPU vs. GPU vs. TPU: AI Hardware Compared",
+      "url": "https://www.youtube.com/watch?v=d3SqH0UBLEY&t=58s"
+    },
+    {
+      "type": "video",
+      "title": "Memory Hierarchy | GPU Programming",
+      "url": "https://www.youtube.com/watch?v=Zrbw0zajhJM"
+    },
+    {
+      "type": "book",
+      "title": "Programming Massively Parallel Processors",
+      "url": "https://www.goodreads.com/work/editions/10244675"
+    },
+    {
+      "type": "article",
+      "title": "Intro to GPUs",
+      "url": "https://max.modular.com/gpu/architecture/"
+    },
+    {
+      "type": "article",
+      "title": "GPU Glossary",
+      "url": "https://modal.com/gpu-glossary"
+    },
+    {
+      "type": "video",
+      "title": "How do Graphics Cards Work? Exploring GPU Architecture",
+      "url": "https://www.youtube.com/watch?v=h9Z4oGN89MU"
+    }
+  ],
+  "instances-interconnects": [
+    {
+      "type": "official",
+      "title": "NVLink and NVSwitch",
+      "url": "https://www.nvidia.com/en-us/data-center/nvlink/"
+    },
+    {
+      "type": "official",
+      "title": "NVIDIA InfiniBand",
+      "url": "https://www.nvidia.com/en-us/networking/products/infiniband/"
+    },
+    {
+      "type": "article",
+      "title": "Instances",
+      "url": "https://www.baseten.co/inference-engineering/book/03-hardware/instances/"
+    },
+    {
+      "type": "video",
+      "title": "GPUs: Explained",
+      "url": "https://www.youtube.com/watch?v=LfdK-v0SbGI"
+    }
+  ],
+  "sizing-procurement": [
+    {
+      "type": "book",
+      "title": "Designing Data-Intensive Applications",
+      "url": "https://dataintensive.net/"
+    },
+    {
+      "type": "book",
+      "title": "Site Reliability Engineering",
+      "url": "https://sre.google/books/"
+    },
+    {
+      "type": "article",
+      "title": "SemiAnalysis",
+      "url": "https://semianalysis.com/"
+    },
+    {
+      "type": "article",
+      "title": "GPU Requirements for LLM Inference: Memory, Throughput, and Sizing",
+      "url": "https://www.onesourcecloud.net/cms/gpu-requirements-llm-inference-sizing.html"
+    },
+    {
+      "type": "article",
+      "title": "Inference Is the New Bottleneck: How to Plan GPU Capacity for Production AI",
+      "url": "https://clear.ml/blog/inference-is-the-new-bottleneck-how-to-plan-gpu-capacity-for-production-ai"
+    }
+  ],
+  "nvidia-hopper-blackwell": [
+    {
+      "type": "article",
+      "title": "Top 12 NVIDIA GPUs for AI Training & Inference in 2026",
+      "url": "https://www.atlantic.net/gpu-server-hosting/top-nvidia-gpus-for-ai-training-and-inference/"
+    },
+    {
+      "type": "video",
+      "title": "Every Nvidia Graphics Card Explained as Simply as Possible",
+      "url": "https://www.youtube.com/watch?v=UwPezhj2zoY"
+    },
+    {
+      "type": "official",
+      "title": "NVIDIA H100 Tensor Core GPU Architecture",
+      "url": "https://resources.nvidia.com/en-us-hopper-architecture/nvidia-h100-tensor-c"
+    },
+    {
+      "type": "official",
+      "title": "NVIDIA Hopper Architecture",
+      "url": "https://www.nvidia.com/en-us/data-center/technologies/hopper-architecture/"
+    },
+    {
+      "type": "article",
+      "title": "What is a Hopper GPU?",
+      "url": "https://www.ionos.com/digitalguide/server/know-how/hopper-gpu/"
+    },
+    {
+      "type": "article",
+      "title": "Nvidia Hopper Explained: Why a 2022 GPU Is Still the Smart Money in 2026",
+      "url": "https://www.moduledge.com/blog/nvidia-hopper"
+    },
+    {
+      "type": "official",
+      "title": "NVIDIA Blackwell Architecture Technical Brief",
+      "url": "https://resources.nvidia.com/en-us-blackwell-architecture"
+    },
+    {
+      "type": "official",
+      "title": "NVIDIA Blackwell Architecture",
+      "url": "https://www.nvidia.com/en-us/data-center/technologies/blackwell-architecture/"
+    },
+    {
+      "type": "article",
+      "title": "NVIDIA Blackwell GPUs: Architecture, Features, Specs",
+      "url": "https://www.nexgencloud.com/blog/performance-benchmarks/nvidia-blackwell-gpus-architecture-features-specs"
+    },
+    {
+      "type": "article",
+      "title": "12 best GPUs for AI and machine learning in 2026",
+      "url": "https://northflank.com/blog/best-gpu-for-ai"
+    },
+    {
+      "type": "article",
+      "title": "GPU machine types",
+      "url": "https://docs.cloud.google.com/compute/docs/gpus"
+    },
+    {
+      "type": "video",
+      "title": "Every 2026 GPU Brand Explained: What’s the Real Difference?",
+      "url": "https://www.youtube.com/watch?v=namWLTrbA1A"
+    }
+  ],
+  "grace-vera": [
+    {
+      "type": "official",
+      "title": "NVIDIA Grace CPU",
+      "url": "https://www.nvidia.com/en-us/data-center/grace-cpu/"
+    },
+    {
+      "type": "official",
+      "title": "NVIDIA Vera CPU",
+      "url": "https://www.nvidia.com/en-us/data-center/vera-cpu/"
+    },
+    {
+      "type": "article",
+      "title": "NVIDIA Vera/Rubin",
+      "url": "https://cb4uhost.com/gpus/vera-rubin"
+    },
+    {
+      "type": "article",
+      "title": "NVIDIA Vera Rubin: What is it, what's new, and when you can get it",
+      "url": "https://www.civo.com/blog/nvidia-vera-rubin"
+    }
+  ],
+  "other-accelerators": [
+    {
+      "type": "article",
+      "title": "On-Device AI Without NVIDIA",
+      "url": "https://www.buildmvpfast.com/blog/on-device-ai-without-nvidia-apple-silicon-intel-alternatives-2026"
+    },
+    {
+      "type": "article",
+      "title": "Top 12 Cloud GPU Providers for AI and Machine Learning in 2026",
+      "url": "https://www.runpod.io/articles/guides/top-cloud-gpu-providers"
+    },
+    {
+      "type": "video",
+      "title": "Every 2026 GPU Brand Explained: What’s the Real Difference?",
+      "url": "https://www.youtube.com/watch?v=namWLTrbA1A"
+    }
+  ],
+  "desktop-inference": [
+    {
+      "type": "official",
+      "title": "Ollama",
+      "url": "https://ollama.com/"
+    },
+    {
+      "type": "official",
+      "title": "LM Studio",
+      "url": "https://lmstudio.ai/"
+    },
+    {
+      "type": "opensource",
+      "title": "ComfyUI",
+      "url": "https://github.com/comfyanonymous/ComfyUI"
+    },
+    {
+      "type": "article",
+      "title": "What Is Local AI Inference — and Why It Might Change How You Use AI",
+      "url": "https://www.merciaai.com/post/what-is-local-ai-inference-and-why-it-might-change-how-you-use-ai"
+    },
+    {
+      "type": "article",
+      "title": "What Is Edge Inference?",
+      "url": "https://aws.amazon.com/what-is/edge-inference/"
+    },
+    {
+      "type": "article",
+      "title": "AI-Focused Edge Inference: Use Cases And Guide for Enterprise",
+      "url": "https://www.mirantis.com/blog/ai-focused-edge-inference-use-cases-and-guide-for-enterprise/"
+    },
+    {
+      "type": "article",
+      "title": "What Is Local Inference? Definition & Requirements",
+      "url": "https://ltx.io/glossary/local-inference"
+    },
+    {
+      "type": "video",
+      "title": "What is Edge AI?",
+      "url": "https://www.youtube.com/watch?v=QXuvUW4B7jU&t=232s"
+    }
+  ],
+  "mobile-inference": [
+    {
+      "type": "article",
+      "title": "Shifting AI inference from the cloud to your phone can reduce AI costs",
+      "url": "https://www.qualcomm.com/news/onq/2025/09/shifting-ai-inference-from-the-cloud-to-your-phone-can-reduce-ai-costs"
+    },
+    {
+      "type": "article",
+      "title": "LLM Inference guide for Android",
+      "url": "https://developers.google.com/edge/mediapipe/solutions/genai/llm_inference/android"
+    },
+    {
+      "type": "article",
+      "title": "Cactus: High-Performance AI Inference on Any Smartphone",
+      "url": "https://huggingface.co/blog/rshemet/cactus-on-device-inference"
+    }
+  ],
+  "kernel-selection-fusion": [
+    {
+      "type": "article",
+      "title": "What Is a CUDA Kernel? A Visual Explainer",
+      "url": "https://llm-stats.com/blog/research/what-is-a-cuda-kernel"
+    },
+    {
+      "type": "article",
+      "title": "From Zero to GPU: A Guide to Building and Scaling Production-Ready CUDA Kernels",
+      "url": "https://huggingface.co/blog/kernel-builder"
+    },
+    {
+      "type": "video",
+      "title": "How to profile CUDA kernels in PyTorch",
+      "url": "https://www.youtube.com/watch?v=LuhJEEJQgUM"
+    },
+    {
+      "type": "video",
+      "title": "Master Cuda Programming: Zero to Hero",
+      "url": "https://www.youtube.com/playlist?list=PLVVBQldz3m5v1VDhlCyB1DhPfjREsJWmf"
+    },
+    {
+      "type": "official",
+      "title": "CUDA Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/"
+    },
+    {
+      "type": "official",
+      "title": "cuBLAS Documentation",
+      "url": "https://docs.nvidia.com/cuda/cublas/"
+    },
+    {
+      "type": "official",
+      "title": "An Even Easier Introduction to CUDA (Updated)",
+      "url": "https://developer.nvidia.com/blog/even-easier-introduction-cuda/"
+    },
+    {
+      "type": "video",
+      "title": "CUDA Programming Course – High-Performance Computing with GPUs",
+      "url": "https://www.youtube.com/watch?v=86FAWCzIe_4"
+    }
+  ],
+  "writing-custom-kernels": [
+    {
+      "type": "book",
+      "title": "CUDA by Example: An Introduction to General-Purpose GPU Programming",
+      "url": "https://developer.nvidia.com/cuda-example"
+    },
+    {
+      "type": "official",
+      "title": "cuBLAS Documentation",
+      "url": "https://docs.nvidia.com/cuda/cublas/"
+    },
+    {
+      "type": "official",
+      "title": "Introduction to CUDA",
+      "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/part1.html"
+    },
+    {
+      "type": "opensource",
+      "title": "NVIDIA/cutlass",
+      "url": "https://github.com/NVIDIA/cutlass"
+    }
+  ],
+  "pytorch-for-inference": [
+    {
+      "type": "official",
+      "title": "PyTorch Performance Tuning Guide",
+      "url": "https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html"
+    },
+    {
+      "type": "official",
+      "title": "Learn the Basics",
+      "url": "https://docs.pytorch.org/tutorials/beginner/basics/intro.html"
+    },
+    {
+      "type": "video",
+      "title": "Creating a conda Environment for Pytorch and Cuda",
+      "url": "https://www.youtube.com/watch?v=_z6WPasIK8U"
+    },
+    {
+      "type": "video",
+      "title": "How to profile CUDA kernels in PyTorch",
+      "url": "https://www.youtube.com/watch?v=LuhJEEJQgUM"
+    }
+  ],
+  "transformers-diffusers": [
+    {
+      "type": "course",
+      "title": "Hugging Face Course",
+      "url": "https://www.youtube.com/playlist?list=PLo2EIpI_JMQvWfQndUesu0nPBAtZ9gP1o"
+    },
+    {
+      "type": "official",
+      "title": "Hugging Face Diffusers",
+      "url": "https://huggingface.co/docs/diffusers/index"
+    },
+    {
+      "type": "official",
+      "title": "Hugging Face Transformers",
+      "url": "https://huggingface.co/docs/transformers/index"
+    },
+    {
+      "type": "video",
+      "title": "Getting Started With Hugging Face in 15 Minutes",
+      "url": "https://www.youtube.com/watch?v=QEaBAZQCtwE"
+    }
+  ],
+  "safetensors": [
+    {
+      "type": "official",
+      "title": "Safetensors",
+      "url": "https://huggingface.co/docs/safetensors/index"
+    },
+    {
+      "type": "opensource",
+      "title": "safetensors",
+      "url": "https://github.com/safetensors/safetensors"
+    },
+    {
+      "type": "article",
+      "title": "SafeTensors: Efficient Serialization Format for Deep Learning",
+      "url": "https://medium.com/@nishthakukreti.01/safetensors-efficient-serialization-format-for-deep-learning-57364317be43"
+    },
+    {
+      "type": "video",
+      "title": "Hugging Face SafeTensors LLMs in Ollama",
+      "url": "https://www.youtube.com/watch?v=DSLwboFJJK4&t=2s"
+    },
+    {
+      "type": "article",
+      "title": "Common AI Model Formats",
+      "url": "https://huggingface.co/blog/ngxson/common-ai-model-formats"
+    },
+    {
+      "type": "article",
+      "title": "Model Weights File Formats in Machine Learning",
+      "url": "https://learnopencv.com/model-weights-file-formats-in-machine-learning/"
+    }
+  ],
+  "tensorrt-onnx-runtime": [
+    {
+      "type": "official",
+      "title": "TensorRT Documentation",
+      "url": "https://docs.nvidia.com/deeplearning/tensorrt/"
+    },
+    {
+      "type": "opensource",
+      "title": "TensorRT",
+      "url": "https://github.com/nvidia/tensorrt"
+    },
+    {
+      "type": "video",
+      "title": "Inference Optimization with NVIDIA TensorRT",
+      "url": "https://www.youtube.com/watch?v=UnIuMXGylfY&list=PLDvBZlLoGspySJggUWsdB40SyGjIcxaxp"
+    },
+    {
+      "type": "official",
+      "title": "ONNX Runtime",
+      "url": "https://onnxruntime.ai/"
+    },
+    {
+      "type": "official",
+      "title": "ONNX Runtime Tutorials",
+      "url": "https://onnxruntime.ai/docs/tutorials/"
+    },
+    {
+      "type": "video",
+      "title": "ONNX – open format for machine learning models​",
+      "url": "https://www.youtube.com/watch?v=0t2jOBZSd6s"
+    }
+  ],
+  "continuous-batching": [
+    {
+      "type": "article",
+      "title": "Continuous batching",
+      "url": "https://huggingface.co/blog/continuous_batching"
+    },
+    {
+      "type": "article",
+      "title": "Continuous Batching: Optimizing LLM Inference Throughput",
+      "url": "https://mbrenndoerfer.com/writing/continuous-batching"
+    },
+    {
+      "type": "video",
+      "title": "How to Scale LLM Applications With Continuous Batching!",
+      "url": "https://www.youtube.com/watch?v=PqHVpvvHLpE"
+    },
+    {
+      "type": "video",
+      "title": "Continuous Batching - How LLM Servers Keep the GPU Full",
+      "url": "https://www.youtube.com/watch?v=X8CwAqYxH1E"
+    }
+  ],
+  "vllm": [
+    {
+      "type": "official",
+      "title": "vLLM Docs",
+      "url": "https://docs.vllm.ai/en/latest/getting_started/quickstart/"
+    },
+    {
+      "type": "opensource",
+      "title": "vllm-project/vllm",
+      "url": "https://github.com/vllm-project/vllm"
+    },
+    {
+      "type": "video",
+      "title": "vLLM Course",
+      "url": "https://www.youtube.com/playlist?list=PLUBL8w2KtS3M2if8k6-Om_7_sIV_swKRA"
+    },
+    {
+      "type": "video",
+      "title": "What is vLLM? Efficient AI Inference for Large Language Models",
+      "url": "https://www.youtube.com/watch?v=McLdlg5Gc9s"
+    },
+    {
+      "type": "article",
+      "title": "What is an Inference Engine & Why it’s Essential for Scalable AI",
+      "url": "https://inference.net/content/inference-engine/"
+    },
+    {
+      "type": "article",
+      "title": "The AI Engineer's Guide to Inference Engines and Frameworks",
+      "url": "https://read.theaimerge.com/p/the-ai-engineers-guide-to-inference"
+    },
+    {
+      "type": "video",
+      "title": "Why so many inference engines..?",
+      "url": "https://www.youtube.com/watch?v=_xM8scs4_x4"
+    }
+  ],
+  "sglang": [
+    {
+      "type": "official",
+      "title": "sglang Docs",
+      "url": "https://docs.sglang.io/docs/get-started/quickstart"
+    },
+    {
+      "type": "opensource",
+      "title": "sgl-project/sglang",
+      "url": "https://github.com/sgl-project/sglang"
+    },
+    {
+      "type": "video",
+      "title": "SGLang vs vLLM: Which LLM Inference Framework Should You Use?",
+      "url": "https://www.youtube.com/watch?v=18AkpuX3vkY"
+    },
+    {
+      "type": "video",
+      "title": "Open-source inference with vLLM + SGLang",
+      "url": "https://www.youtube.com/watch?v=R74kx7GKEbs"
+    }
+  ],
+  "tensorrt-llm": [
+    {
+      "type": "official",
+      "title": "TensorRT-LLM",
+      "url": "https://developer.nvidia.com/tensorrt#inference"
+    },
+    {
+      "type": "opensource",
+      "title": "NVIDIA/TensorRT-LLM",
+      "url": "https://github.com/NVIDIA/TensorRT-LLM"
+    },
+    {
+      "type": "video",
+      "title": "TensorRT-LLM is Game Changer",
+      "url": "https://www.youtube.com/watch?v=FWhK4O1RXxs"
+    },
+    {
+      "type": "video",
+      "title": "TensorRT LLM 1.0 Livestream: New Easy-To-Use Pythonic Runtime",
+      "url": "https://www.youtube.com/watch?v=sTpQQSbta1k"
+    }
+  ],
+  "nvidia-dynamo": [
+    {
+      "type": "official",
+      "title": "NVIDIA Dynamo Documentation",
+      "url": "https://docs.nvidia.com/dynamo/latest/index.html"
+    },
+    {
+      "type": "official",
+      "title": "NVIDIA Dynamo",
+      "url": "https://www.nvidia.com/en-us/ai/dynamo/"
+    },
+    {
+      "type": "video",
+      "title": "Distributed Inference 101: Getting Started with NVIDIA Dynamo",
+      "url": "https://www.youtube.com/watch?v=1bRmskFCnqY"
+    },
+    {
+      "type": "video",
+      "title": "NVIDIA Dynamo in 5 Minutes: What Is It and Why Now?",
+      "url": "https://www.youtube.com/watch?v=mXYFcz27eDw"
+    },
+    {
+      "type": "official",
+      "title": "Disaggregated Serving",
+      "url": "https://docs.nvidia.com/dynamo/kubernetes/disaggregated-serving/overview"
+    },
+    {
+      "type": "article",
+      "title": "NVIDIA Dynamo 1.0: Disaggregated LLM Inference Deployment Guide (2026)",
+      "url": "https://www.spheron.network/blog/nvidia-dynamo-disaggregated-inference-guide/"
+    },
+    {
+      "type": "video",
+      "title": "NVIDIA Dynamo in 5 Minutes: What Is It and Why Now?",
+      "url": "https://www.youtube.com/watch?v=mXYFcz27eDw&t=7s"
+    }
+  ],
+  "performance-benchmarking": [
+    {
+      "type": "article",
+      "title": "LLM Inference Benchmarking: Fundamental Concepts",
+      "url": "https://developer.nvidia.com/blog/llm-benchmarking-fundamental-concepts/"
+    },
+    {
+      "type": "article",
+      "title": "AI Inference Performance Benchmarks",
+      "url": "https://developer.nvidia.com/deep-learning-performance-training-inference/ai-inference"
+    },
+    {
+      "type": "official",
+      "title": "Locust",
+      "url": "https://locust.cloud/"
+    },
+    {
+      "type": "opensource",
+      "title": "locust",
+      "url": "https://github.com/locustio/locust"
+    },
+    {
+      "type": "article",
+      "title": "LLM Locust: A Tool for Benchmarking LLM Performance",
+      "url": "https://www.truefoundry.com/blog/llm-locust-a-tool-for-benchmarking-llm-performance"
+    },
+    {
+      "type": "official",
+      "title": "GenAI Bench",
+      "url": "https://sgl-project.github.io/genai-bench/"
+    },
+    {
+      "type": "opensource",
+      "title": "genai-bench",
+      "url": "https://github.com/sgl-project/genai-bench"
+    },
+    {
+      "type": "article",
+      "title": "Benchmarking AI Inference Providers: How to Compare Performance Fairly",
+      "url": "https://www.gmicloud.ai/en/blog/benchmarking-ai-inference-providers"
+    },
+    {
+      "type": "article",
+      "title": "Benchmarking AI inference on CPUs: A transparent blueprint for the enterprise",
+      "url": "https://next.redhat.com/2026/05/28/benchmarking-ai-inference-on-cpus-a-transparent-blueprint-for-the-enterprise/"
+    }
+  ],
+  "profiling-performance": [
+    {
+      "type": "official",
+      "title": "PyTorch Profiler",
+      "url": "https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html"
+    },
+    {
+      "type": "official",
+      "title": "NVIDIA Nsight Systems",
+      "url": "https://developer.nvidia.com/nsight-systems"
+    }
+  ],
+  "post-training-quantization": [
+    {
+      "type": "opensource",
+      "title": "AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration",
+      "url": "https://github.com/mit-han-lab/llm-awq"
+    },
+    {
+      "type": "opensource",
+      "title": "bitsandbytes",
+      "url": "https://github.com/TimDettmers/bitsandbytes"
+    },
+    {
+      "type": "opensource",
+      "title": "SmoothQuant",
+      "url": "https://github.com/mit-han-lab/smoothquant"
+    },
+    {
+      "type": "article",
+      "title": "Optimizing LLMs for Performance and Accuracy with Post-Training Quantization",
+      "url": "https://developer.nvidia.com/blog/optimizing-llms-for-performance-and-accuracy-with-post-training-quantization/"
+    },
+    {
+      "type": "article",
+      "title": "Post-training quantization",
+      "url": "https://developers.google.com/edge/litert/conversion/tensorflow/quantization/post_training_quantization"
+    },
+    {
+      "type": "article",
+      "title": "Reverse-engineering GGUF | Post-Training Quantization",
+      "url": "https://www.youtube.com/watch?v=vW30o4U9BFE"
+    },
+    {
+      "type": "article",
+      "title": "What is quantization?",
+      "url": "https://www.ibm.com/think/topics/quantization"
+    },
+    {
+      "type": "video",
+      "title": "How LLMs survive in low precision | Quantization Fundamentals",
+      "url": "https://www.youtube.com/watch?v=qoQJq5UwV1c"
+    }
+  ],
+  "quantization-aware-training": [
+    {
+      "type": "article",
+      "title": "What is quantization aware training?",
+      "url": "https://www.ibm.com/think/topics/quantization-aware-training"
+    },
+    {
+      "type": "article",
+      "title": "How Quantization Aware Training Enables Low-Precision Accuracy Recovery",
+      "url": "https://developer.nvidia.com/blog/how-quantization-aware-training-enables-low-precision-accuracy-recovery/"
+    },
+    {
+      "type": "video",
+      "title": "Quantization Aware Training (QAT) With a Custom DataLoader",
+      "url": "https://www.youtube.com/watch?v=s3tqqBaRuHE"
+    }
+  ],
+  "measuring-quality-impact": [
+    {
+      "type": "article",
+      "title": "Perplexity for LLM Evaluation",
+      "url": "https://www.comet.com/site/blog/perplexity-for-llm-evaluation/"
+    },
+    {
+      "type": "article",
+      "title": "AI Benchmarks Explained: MMLU, ARC-AGI, and SWE-bench",
+      "url": "https://lumichats.com/blog/ai-benchmarks-explained-mmlu-arc-agi-swe-bench-2026"
+    },
+    {
+      "type": "video",
+      "title": "What is perplexity?",
+      "url": "https://www.youtube.com/watch?v=NURcDHhYe98&t=10s"
+    },
+    {
+      "type": "video",
+      "title": "What do AI Benchmarks Actually Mean?! A Fast Breakdown (MMLU, SWE-bench, & More Explained)",
+      "url": "https://www.youtube.com/watch?v=fSWg4HAJjBo"
+    }
+  ],
+  "modelopt": [
+    {
+      "type": "official",
+      "title": "Optimize Models with NVIDIA Model Optimizer",
+      "url": "https://www.jetson-ai-lab.com/tutorials/modelopt-on-jetson/"
+    },
+    {
+      "type": "official",
+      "title": "Model Quantization: Post-Training Quantization Using NVIDIA Model Optimizer",
+      "url": "https://developer.nvidia.com/blog/model-quantization-post-training-quantization-using-nvidia-model-optimizer/"
+    },
+    {
+      "type": "opensource",
+      "title": "Model-Optimizer",
+      "url": "https://github.com/NVIDIA/Model-Optimizer"
+    },
+    {
+      "type": "article",
+      "title": "NVIDIA ModelOpt",
+      "url": "https://huggingface.co/docs/diffusers/en/quantization/modelopt"
+    }
+  ],
+  "draft-target-decoding": [
+    {
+      "type": "article",
+      "title": "Fast Inference from Transformers via Speculative Decoding",
+      "url": "https://arxiv.org/abs/2211.17192"
+    },
+    {
+      "type": "article",
+      "title": "An Introduction to Speculative Decoding for Reducing Latency in AI Inference",
+      "url": "https://developer.nvidia.com/blog/an-introduction-to-speculative-decoding-for-reducing-latency-in-ai-inference/"
+    },
+    {
+      "type": "article",
+      "title": "Draft-Target Speculative Decoding Simulation",
+      "url": "https://www.deep-ml.com/problems/430"
+    },
+    {
+      "type": "article",
+      "title": "Speculative Decoding - vLLM",
+      "url": "https://docs.vllm.ai/en/latest/features/speculative_decoding/"
+    },
+    {
+      "type": "video",
+      "title": "Faster LLMs: Accelerate Inference with Speculative Decoding",
+      "url": "https://www.youtube.com/watch?v=VkWlLSTdHs8"
+    },
+    {
+      "type": "video",
+      "title": "Speculative Decoding: When Two LLMs are Faster than One",
+      "url": "https://www.youtube.com/watch?v=S-8yr_RibJ4"
+    }
+  ],
+  "eagle-ngram": [
+    {
+      "type": "article",
+      "title": "EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty",
+      "url": "https://arxiv.org/abs/2401.15077"
+    },
+    {
+      "type": "article",
+      "title": "EAGLE-2: Faster Inference of Language Models with Dynamic Draft Trees",
+      "url": "https://arxiv.org/abs/2406.16858"
+    },
+    {
+      "type": "article",
+      "title": "EAGLE-3: Scaling up Inference Acceleration of Large Language Models via Training-Time Test",
+      "url": "https://arxiv.org/abs/2503.01840"
+    },
+    {
+      "type": "video",
+      "title": "EAGLE and EAGLE-2: Lossless Inference Acceleration for LLMs - Hongyang Zhang",
+      "url": "https://www.youtube.com/watch?v=oXRSorx-Llg"
+    },
+    {
+      "type": "video",
+      "title": "Speculative Decoding, Explained: Why EAGLE-3 Finally Scales | 20-Min Deep Dive",
+      "url": "https://www.youtube.com/watch?v=aXdQ3JbRb98"
+    },
+    {
+      "type": "article",
+      "title": "Introducing N-gram Speculative Decoding: Faster Inference for Structured Tasks",
+      "url": "https://friendli.ai/blog/n-gram-speculative-decoding"
+    },
+    {
+      "type": "article",
+      "title": "What is N-gram Speculation in LLMs and How Does It Speed Up Generation?",
+      "url": "https://outcomeschool.com/blog/n-gram-speculation-in-llms"
+    },
+    {
+      "type": "article",
+      "title": "Break the Sequential Dependency of LLM Inference Using Lookahead Decoding",
+      "url": "https://arxiv.org/abs/2402.02057"
+    }
+  ],
+  "structured-outputs": [
+    {
+      "type": "official",
+      "title": "vLLM Structured Outputs",
+      "url": "https://docs.vllm.ai/en/latest/features/structured_outputs.html"
+    },
+    {
+      "type": "official",
+      "title": "SGlang Structured Outputs",
+      "url": "https://docs.sglang.ai/advanced_features/structured_outputs.html"
+    },
+    {
+      "type": "opensource",
+      "title": "Outlines: structured generation",
+      "url": "https://github.com/dottxt-ai/outlines"
+    },
+    {
+      "type": "opensource",
+      "title": "Guidance: guided generation",
+      "url": "https://github.com/guidance-ai/guidance"
+    },
+    {
+      "type": "article",
+      "title": "Structured Output Engineering for Production LLMs: Beyond JSON Mode",
+      "url": "https://www.bigyan.dev/blog/structured-output-engineering-production-llm/"
+    },
+    {
+      "type": "article",
+      "title": "A Guide to Structured Generation Using Constrained Decoding",
+      "url": "https://www.aidancooper.co.uk/constrained-decoding/"
+    },
+    {
+      "type": "article",
+      "title": "Constrained decoding definition",
+      "url": "https://www.sanity.io/glossary/constrained-decoding"
+    }
+  ],
+  "caching-approaches": [
+    {
+      "type": "opensource",
+      "title": "LMCache",
+      "url": "https://github.com/LMCache/LMCache"
+    },
+    {
+      "type": "article",
+      "title": "What is Prompt Caching?",
+      "url": "https://www.ibm.com/think/topics/prompt-caching"
+    },
+    {
+      "type": "video",
+      "title": "What is Prompt Caching? Optimize LLM Latency with AI Transformers",
+      "url": "https://www.youtube.com/watch?v=u57EnkQaUTY"
+    },
+    {
+      "type": "video",
+      "title": "How KV Cache Speeds Up LLMs for Faster AI Models on GPUs",
+      "url": "https://www.youtube.com/watch?v=o0gkdZBtwEg&t=1s"
+    },
+    {
+      "type": "article",
+      "title": "KV Caching Explained: Optimizing Transformer Inference Efficiency",
+      "url": "https://huggingface.co/blog/not-lain/kv-caching"
+    },
+    {
+      "type": "article",
+      "title": "KV Caching in LLMs: A Guide for Developers",
+      "url": "https://machinelearningmastery.com/kv-caching-in-llms-a-guide-for-developers/"
+    },
+    {
+      "type": "video",
+      "title": "KV Cache: The Trick That Makes LLMs Faster",
+      "url": "https://www.youtube.com/watch?v=gpp57x_z_Jg"
+    },
+    {
+      "type": "video",
+      "title": "The KV Cache: Memory Usage in Transformers",
+      "url": "https://www.youtube.com/watch?v=80bIUggRJf4&t=247s"
+    }
+  ],
+  "kv-cache-storage": [
+    {
+      "type": "opensource",
+      "title": "LMCache",
+      "url": "https://github.com/LMCache/LMCache"
+    },
+    {
+      "type": "article",
+      "title": "KV Cache Storage Is the New AI Inference Bottleneck",
+      "url": "https://xinnor.io/blog/kv-cache-storage-is-the-new-ai-inference-bottleneck-how-lustre-ro-pcc-and-xiraid-make-shared-storage-competitive-with-local-nvme-for-long-context-llm-serving/"
+    },
+    {
+      "type": "article",
+      "title": "Stop Calling It KV Cache: It’s Something Much Bigger",
+      "url": "https://blog.lmcache.ai/en/2026/04/28/stop-calling-it-kv-cache-its-something-much-bigger/"
+    },
+    {
+      "type": "article",
+      "title": "CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion",
+      "url": "https://arxiv.org/abs/2405.16444"
+    }
+  ],
+  "cache-aware-routing": [
+    {
+      "type": "article",
+      "title": "Why Agentic Inference Needs Prefix-Aware Routing Infrastructure",
+      "url": "https://www.coreweave.com/blog/why-agentic-inference-needs-prefix-aware-routing-infrastructure"
+    },
+    {
+      "type": "article",
+      "title": "Enabling inference at massive scale with hybrid storage for KV cache offloading.",
+      "url": "https://www.seagate.com/es/es/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading/"
+    },
+    {
+      "type": "article",
+      "title": "KV Cache Aware Routing",
+      "url": "https://docs.vllm.ai/projects/production-stack/en/vllm-stack-0.1.5/tutorials/kvaware.html"
+    },
+    {
+      "type": "article",
+      "title": "Prefix-Cache Aware Routing",
+      "url": "https://llm-d.ai/docs/architecture/advanced/kv-management/prefix-cache-aware-routing"
+    }
+  ],
+  "long-context-handling": [
+    {
+      "type": "article",
+      "title": "Ring Attention with Blockwise Transformers for Near-Infinite Context",
+      "url": "https://arxiv.org/abs/2310.01889"
+    },
+    {
+      "type": "article",
+      "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+      "url": "https://arxiv.org/abs/2104.09864"
+    },
+    {
+      "type": "article",
+      "title": "What is Long Context and Why Does it Matter for AI?",
+      "url": "https://cloud.google.com/transform/the-prompt-what-are-long-context-windows-and-why-do-they-matter"
+    },
+    {
+      "type": "article",
+      "title": "Long-Context LLM Infrastructure: Building Systems for Million-Token Windows",
+      "url": "https://introl.com/blog/long-context-llm-infrastructure-million-token-windows-guide"
+    },
+    {
+      "type": "video",
+      "title": "Deep Dive into Long Context",
+      "url": "https://www.youtube.com/watch?v=NHMJ9mqKeMQ"
+    }
+  ],
+  "tensor-parallelism": [
+    {
+      "type": "opensource",
+      "title": "NVIDIA/Megatron-LM",
+      "url": "https://github.com/NVIDIA/Megatron-LM"
+    },
+    {
+      "type": "article",
+      "title": "Tensor Parallelism",
+      "url": "https://huggingface.co/docs/text-generation-inference/en/conceptual/tensor_parallelism"
+    },
+    {
+      "type": "article",
+      "title": "Demystifying Tensor Parallelism",
+      "url": "https://robotchinwag.com/posts/demystifying-tensor-parallelism/"
+    },
+    {
+      "type": "article",
+      "title": "What Is Tensor Parallelism and How to Apply It",
+      "url": "https://www.newline.co/@Dipen/what-is-tensor-parallelism-and-how-to-apply-it--b4633fa4"
+    },
+    {
+      "type": "article",
+      "title": "Model Parallelism",
+      "url": "https://huggingface.co/docs/transformers/v4.13.0/en/parallelism"
+    },
+    {
+      "type": "video",
+      "title": "LLM Model Parallelism",
+      "url": "https://www.youtube.com/watch?v=DryXbg48bLc"
+    },
+    {
+      "type": "video",
+      "title": "How LLMs use multiple GPUs",
+      "url": "https://www.youtube.com/watch?v=4i76hmmnJEo"
+    }
+  ],
+  "pipeline-parallelism": [
+    {
+      "type": "opensource",
+      "title": "NVIDIA/Megatron-LM",
+      "url": "https://github.com/NVIDIA/Megatron-LM"
+    },
+    {
+      "type": "article",
+      "title": "LLM Training — Fundamentals of Pipeline Parallelism",
+      "url": "https://medium.com/byte-sized-ai/pipeline-parallelism-explained-in-2-mins-6bdf1ab29053"
+    },
+    {
+      "type": "article",
+      "title": "Pipeline Parallelism",
+      "url": "https://docs.pytorch.org/docs/2.14/distributed.pipelining.html"
+    },
+    {
+      "type": "article",
+      "title": "What Is Pipeline Parallelism and How to Use It",
+      "url": "https://www.newline.co/@Dipen/what-is-pipeline-parallelism-and-how-to-use-it--8db3dd11"
+    }
+  ],
+  "expert-parallelism": [
+    {
+      "type": "article",
+      "title": "Expert parallelism",
+      "url": "https://huggingface.co/docs/transformers/en/expert_parallelism"
+    },
+    {
+      "type": "article",
+      "title": "Expert Parallelism: Scaling Mixture-of-Experts Models",
+      "url": "https://www.digitalocean.com/community/tutorials/expert-parallelism-in-deep-learning"
+    },
+    {
+      "type": "article",
+      "title": "Expert Parallelism: Distributing Experts Across Devices",
+      "url": "https://apxml.com/courses/mixture-of-experts/chapter-4-scaling-moe-distributed-training/expert-parallelism-moe"
+    }
+  ],
+  "multi-node-inference": [
+    {
+      "type": "article",
+      "title": "How multi-node inference works for massive LLMs like DeepSeek-R1",
+      "url": "https://www.baseten.co/blog/how-multi-node-inference-works-llms-deepseek-r1/#from-single-node-to-multi-node-infrastructure"
+    },
+    {
+      "type": "video",
+      "title": "AI Models Are Huge, but Your GPUs Aren’t: Mastering Multi-Node Distributed Inference",
+      "url": "https://www.youtube.com/watch?v=MQR8jyTR5QE&xstg=CAMSEBUJ_b-oH-PhF0yjBgb_zzE%3D"
+    }
+  ],
+  "prefill-decode-disaggregation": [
+    {
+      "type": "article",
+      "title": "Beyond the Buzz: A Pragmatic Take on Inference Disaggregation",
+      "url": "https://arxiv.org/abs/2506.05508"
+    },
+    {
+      "type": "article",
+      "title": "Disaggregated Serving",
+      "url": "https://llm-d.ai/docs/architecture/advanced/disaggregation"
+    },
+    {
+      "type": "article",
+      "title": "Disaggregated Serving in LLM Inference, Explained",
+      "url": "https://handbook.modular.com/inference-optimization/prefill-decode-disaggregation/"
+    },
+    {
+      "type": "video",
+      "title": "Why Separating Prefill and Decode Makes LLMs Faster | vLLM, LLM-D and NIXL",
+      "url": "https://www.youtube.com/watch?v=BaD3CTYf6V0"
+    },
+    {
+      "type": "article",
+      "title": "Prefill vs Decode: LLM Inference Phases Explained",
+      "url": "https://redis.io/blog/prefill-vs-decode/"
+    },
+    {
+      "type": "article",
+      "title": "Understanding the Two Key Stages of LLM Inference: Prefill and Decode(Part-1)",
+      "url": "https://medium.com/@sailakkshmiallada/understanding-the-two-key-stages-of-llm-inference-prefill-and-decode-29ec2b468114"
+    },
+    {
+      "type": "video",
+      "title": "Why LLMs Read Fast but Write Slowly - Prefill vs Decode",
+      "url": "https://www.youtube.com/watch?v=hmMgTgQpO38"
+    }
+  ],
+  "vision-language-models": [
+    {
+      "type": "course",
+      "title": "A Multimodal World - Hugging Face Computer Vision Course",
+      "url": "https://huggingface.co/learn/computer-vision-course/en/unit4/multimodal-models/a_multimodal_world"
+    },
+    {
+      "type": "article",
+      "title": "Vision Language Models Explained",
+      "url": "https://huggingface.co/blog/vlms"
+    },
+    {
+      "type": "video",
+      "title": "What Are Vision Language Models? How AI Sees & Understands Images",
+      "url": "https://www.youtube.com/watch?v=lOD_EE96jhM"
+    },
+    {
+      "type": "video",
+      "title": "Vision Language Models (VLMs)",
+      "url": "https://www.youtube.com/playlist?list=PLg9z7TXgYiH3ZOyOENDy72vLMLrmD50Ze"
+    }
+  ],
+  "video-processing-vlms": [
+    {
+      "type": "opensource",
+      "title": "Awesome LLMs for Video Understanding",
+      "url": "https://github.com/yunlong10/Awesome-LLMs-for-Video-Understanding"
+    },
+    {
+      "type": "article",
+      "title": "Vision Language Model Prompt Engineering Guide for Image and Video Understanding",
+      "url": "https://developer.nvidia.com/blog/vision-language-model-prompt-engineering-guide-for-image-and-video-understanding/"
+    },
+    {
+      "type": "article",
+      "title": "Exploring the Limits of VLMs: A Dataset for Evaluating Text-to-Video Generation",
+      "url": "https://dl.acm.org/doi/full/10.1145/3702250.3702298"
+    },
+    {
+      "type": "article",
+      "title": "Vision Language Models",
+      "url": "https://www.baseten.co/inference-engineering/book/06-modalities/vision-language-models/"
+    },
+    {
+      "type": "video",
+      "title": "Vision Transformer",
+      "url": "https://www.youtube.com/watch?v=vJF3TBI8esQ"
+    }
+  ],
+  "omni-modal-models": [
+    {
+      "type": "article",
+      "title": "What Is an Omni-Model?",
+      "url": "https://www.nvidia.com/en-us/glossary/omni-model/"
+    },
+    {
+      "type": "article",
+      "title": "Omni-Modal Models",
+      "url": "https://www.baseten.co/inference-engineering/book/06-modalities/vision-language-models/#omni-modal-models"
+    },
+    {
+      "type": "article",
+      "title": "OmniModels: The Unified Architecture for Intelligence",
+      "url": "https://medium.com/@frinktyler1445/omnimodels-the-unified-architecture-for-intelligence-89856a63e975"
+    },
+    {
+      "type": "video",
+      "title": "Qwen3 Omni | Multimodality, Grounding, LLM",
+      "url": "https://www.youtube.com/watch?v=tRqEAN61qpk"
+    }
+  ],
+  "embedding-models": [
+    {
+      "type": "official",
+      "title": "Hugging Face Embedding Models",
+      "url": "https://huggingface.co/models?pipeline_tag=feature-extraction"
+    },
+    {
+      "type": "article",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "url": "https://arxiv.org/abs/1810.04805"
+    },
+    {
+      "type": "article",
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084"
+    },
+    {
+      "type": "article",
+      "title": "Matryoshka Representation Learning",
+      "url": "https://arxiv.org/abs/2205.13147"
+    },
+    {
+      "type": "article",
+      "title": "What Are Embedding Models? Benefits and Best Practices",
+      "url": "https://cohere.com/blog/embedding-models"
+    },
+    {
+      "type": "video",
+      "title": "What is an embedding model?",
+      "url": "https://www.youtube.com/watch?v=0U1S0WSsPuE"
+    },
+    {
+      "type": "official",
+      "title": "SentenceTransformers Documentation",
+      "url": "https://sbert.net/"
+    },
+    {
+      "type": "official",
+      "title": "Using Sentence Transformers at Hugging Face",
+      "url": "https://huggingface.co/docs/hub/sentence-transformers"
+    },
+    {
+      "type": "article",
+      "title": "LLM Embeddings Explained: A Visual and Intuitive Guide",
+      "url": "https://huggingface.co/spaces/hesamation/primer-llm-embedding?section=what_are_embeddings?"
+    },
+    {
+      "type": "article",
+      "title": "LLMs are Also Effective Embedding Models: An In-depth Overview",
+      "url": "https://arxiv.org/abs/2412.12591"
+    },
+    {
+      "type": "article",
+      "title": "Understanding Embedding Models in the Context of Large Language Models",
+      "url": "https://medium.com/about-ai/understanding-embedding-models-in-the-context-of-large-language-models-02da706ee9b3"
+    }
+  ],
+  "embedding-model-inference": [
+    {
+      "type": "article",
+      "title": "High-performance embedding model inference",
+      "url": "https://www.baseten.co/resources/guide/high-performance-embedding-model-inference/#high-performance-embedding-model-inference-how-to-scale-semantic-search-rag-and-agents"
+    },
+    {
+      "type": "article",
+      "title": "What Actually Makes Embedding Model Inference Fast?",
+      "url": "https://filipmakraduli.substack.com/p/what-actually-makes-embedding-model"
+    },
+    {
+      "type": "article",
+      "title": "Text Embeddings Inference - HuggingFace",
+      "url": "https://huggingface.co/docs/text-embeddings-inference/en/index"
+    }
+  ],
+  "voice-activity-detection": [
+    {
+      "type": "article",
+      "title": "Voice Activity Detection (VAD): The Complete 2026 Guide to Speech Detection",
+      "url": "https://picovoice.ai/blog/complete-guide-voice-activity-detection-vad/"
+    },
+    {
+      "type": "article",
+      "title": "What is voice activity detection (VAD)?",
+      "url": "https://soniox.com/wiki/voice-activity-detection"
+    },
+    {
+      "type": "video",
+      "title": "Voice Activity Detection | The key to realtime voice chat",
+      "url": "https://www.youtube.com/watch?v=HUbYXGeR8_c"
+    },
+    {
+      "type": "article",
+      "title": "TTS Models",
+      "url": "https://www.baseten.co/inference-engineering/book/06-modalities/tts-models/"
+    },
+    {
+      "type": "video",
+      "title": "How streaming ASR inference differs from LLM serving",
+      "url": "https://www.youtube.com/watch?v=8HJWwD5Uacc"
+    },
+    {
+      "type": "video",
+      "title": "Speech LLMs: Models that listen and talk back",
+      "url": "https://www.youtube.com/watch?v=MyxgEx4_Moo"
+    }
+  ],
+  "speech-recognition": [
+    {
+      "type": "official",
+      "title": "OpenAI Whisper Models on Hugging Face",
+      "url": "https://huggingface.co/openai"
+    },
+    {
+      "type": "article",
+      "title": "What is automatic speech recognition (ASR)?",
+      "url": "https://www.ionos.com/digitalguide/websites/web-development/automatic-speech-recognition/"
+    },
+    {
+      "type": "article",
+      "title": "What is Automatic Speech Recognition? A Comprehensive Overview of ASR Technology",
+      "url": "https://www.assemblyai.com/blog/what-is-asr"
+    },
+    {
+      "type": "video",
+      "title": "How streaming ASR inference differs from LLM serving",
+      "url": "https://www.youtube.com/watch?v=8HJWwD5Uacc"
+    },
+    {
+      "type": "video",
+      "title": "Automatic Speech Recognition - An Overview",
+      "url": "https://www.youtube.com/watch?v=q67z7PTGRi8"
+    }
+  ],
+  "text-to-speech": [
+    {
+      "type": "article",
+      "title": "What is text to speech?",
+      "url": "https://www.ibm.com/think/topics/text-to-speech"
+    },
+    {
+      "type": "article",
+      "title": "Text-to-Speech",
+      "url": "https://huggingface.co/tasks/text-to-speech"
+    },
+    {
+      "type": "article",
+      "title": "TTS Models",
+      "url": "https://www.baseten.co/inference-engineering/book/06-modalities/tts-models/"
+    },
+    {
+      "type": "video",
+      "title": "Create your own voices with Gemini 3.8 text-to-speech",
+      "url": "https://www.youtube.com/watch?v=FL6mI_Br-mc"
+    }
+  ],
+  "streaming-tts": [
+    {
+      "type": "article",
+      "title": "Streaming TTS",
+      "url": "https://soniox.com/wiki/streaming-tts"
+    },
+    {
+      "type": "article",
+      "title": "Streaming Text-to-Speech",
+      "url": "https://www.emergentmind.com/topics/streaming-text-to-speech-tts"
+    },
+    {
+      "type": "video",
+      "title": "Streaming Speech to Text Models - Kyutai vs Whisper",
+      "url": "https://www.youtube.com/watch?v=TTx6M4CCbXk"
+    }
+  ],
+  "speech-to-speech": [
+    {
+      "type": "article",
+      "title": "What Is Speech-to-Speech? Uses, Benefits & How It Works",
+      "url": "https://deepgram.com/learn/what-is-speech-to-speech"
+    },
+    {
+      "type": "article",
+      "title": "Speech-to-Speech LLMs",
+      "url": "https://www.emergentmind.com/topics/speech-to-speech-large-language-models-sllms"
+    },
+    {
+      "type": "article",
+      "title": "Best Speech-to-Speech Model",
+      "url": "https://inworld.ai/resources/best-speech-to-speech-model"
+    },
+    {
+      "type": "video",
+      "title": "Speech-to-Speech Model Research at Google DeepMind",
+      "url": "https://www.youtube.com/watch?v=18Um2VjMM_g"
+    }
+  ],
+  "image-generation-inference": [
+    {
+      "type": "opensource",
+      "title": "Image Generation Inference Mechanics",
+      "url": "https://github.com/comfyanonymous/ComfyUI"
+    },
+    {
+      "type": "article",
+      "title": "What Is Inference in Generative AI: How It Differs From Traditional Model Inference",
+      "url": "https://www.gmicloud.ai/en/blog/what-is-inference-in-generative-ai"
+    },
+    {
+      "type": "video",
+      "title": "Diffusion Models for AI Image Generation",
+      "url": "https://www.youtube.com/watch?v=x2GRE-RzmD8"
+    },
+    {
+      "type": "video",
+      "title": "Why Does Diffusion Work Better than Auto-Regression?",
+      "url": "https://www.youtube.com/watch?v=zc5NTeJbk-k"
+    },
+    {
+      "type": "article",
+      "title": "Understanding AI Image Generation: Models, Tools, and Techniques",
+      "url": "https://www.digitalocean.com/community/tutorials/understanding-ai-image-generation-models-tools-and-techniques"
+    },
+    {
+      "type": "article",
+      "title": "Understanding AI Video Generation History: Key Concepts and Impact",
+      "url": "https://blog.prodia.com/post/understanding-ai-video-generation-history-key-concepts-and-impact"
+    }
+  ],
+  "video-generation-inference": [
+    {
+      "type": "opensource",
+      "title": "Cache-DiT",
+      "url": "https://github.com/vipshop/cache-dit"
+    },
+    {
+      "type": "opensource",
+      "title": "TeaCache: Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model",
+      "url": "https://github.com/ali-vilab/TeaCache"
+    },
+    {
+      "type": "article",
+      "title": "Video Generation Models",
+      "url": "https://www.baseten.co/inference-engineering/book/06-modalities/video-generation-models/"
+    },
+    {
+      "type": "article",
+      "title": "Video generation - HuggingFace",
+      "url": "https://huggingface.co/docs/diffusers/en/using-diffusers/text-img2vid"
+    },
+    {
+      "type": "video",
+      "title": "How do AI video generation models work?",
+      "url": "https://www.youtube.com/watch?v=Y5zHHoLrvAE"
+    }
+  ],
+  "dependency-management": [
+    {
+      "type": "official",
+      "title": "Kubernetes Documentation",
+      "url": "https://kubernetes.io/docs/home/"
+    },
+    {
+      "type": "article",
+      "title": "Dependency Management",
+      "url": "https://www.baseten.co/inference-engineering/book/07-production/containerization/#dependency-management"
+    },
+    {
+      "type": "article",
+      "title": "Production in Inference Engineering",
+      "url": "https://inferenceengineering.tech/chapters/production/"
+    },
+    {
+      "type": "official",
+      "title": "Docker Documentation",
+      "url": "https://docs.docker.com/"
+    },
+    {
+      "type": "article",
+      "title": "What is containerization?",
+      "url": "https://www.ibm.com/think/topics/containerization"
+    },
+    {
+      "type": "video",
+      "title": "Containerization Explained",
+      "url": "https://www.youtube.com/watch?v=0qotVMX-J5s"
+    }
+  ],
+  "nims": [
+    {
+      "type": "official",
+      "title": "NVIDIA NIM for Developers",
+      "url": "https://developer.nvidia.com/nim"
+    },
+    {
+      "type": "official",
+      "title": "NVIDIA NIM Microservices",
+      "url": "https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/"
+    },
+    {
+      "type": "official",
+      "title": "NVIDIA NIM in Docker",
+      "url": "https://docs.docker.com/ai/docker-agent/providers/nvidia/"
+    },
+    {
+      "type": "video",
+      "title": "How to Self-Host LLMs and Multi-Modal AI Models with NVIDIA NIM in 5 Minutes",
+      "url": "https://www.youtube.com/watch?v=087spL8hMvM&t=59s"
+    }
+  ],
+  "cold-starts": [
+    {
+      "type": "article",
+      "title": "Autoscaling endpoints for LLM inference",
+      "url": "https://www.together.ai/blog/autoscaling-endpoints-for-llm-inference"
+    },
+    {
+      "type": "article",
+      "title": "Autoscaling for LLM Inference Serving and Cold Starts",
+      "url": "https://www.onesourcecloud.net/cms/autoscaling-llm-inference-serving-cold-starts.html"
+    },
+    {
+      "type": "article",
+      "title": "GPU Cold Start on Serverless LLM Inference: 4 Fixes That Actually Work (2026)",
+      "url": "https://www.spheron.network/blog/gpu-cold-start-llm-inference-2026/"
+    },
+    {
+      "type": "article",
+      "title": "Autoscaling Inference Endpoints",
+      "url": "https://apxml.com/courses/mlops-for-large-models-llmops/chapter-4-llm-deployment-serving-optimization/autoscaling-inference-endpoints"
+    },
+    {
+      "type": "article",
+      "title": "Best practices for autoscaling large language model (LLM) inference workloads",
+      "url": "https://docs.cloud.google.com/kubernetes-engine/docs/best-practices/machine-learning/inference/autoscaling"
+    },
+    {
+      "type": "video",
+      "title": "Autoscaling your AI agent under load",
+      "url": "https://www.youtube.com/watch?v=ESIL0Rzl5VQ&t=91s"
+    }
+  ],
+  "request-queueing": [
+    {
+      "type": "article",
+      "title": "Efficient Request Queueing – Optimizing LLM Performance",
+      "url": "https://huggingface.co/blog/tngtech/llm-performance-request-queueing"
+    },
+    {
+      "type": "article",
+      "title": "LLM Request Queuing",
+      "url": "https://gigagpu.com/llm-request-queuing-concurrent-users/"
+    },
+    {
+      "type": "video",
+      "title": "Why Do AI Requests Queue? | Inside vLLM",
+      "url": "https://www.youtube.com/watch?v=MmRalL3oHMM"
+    }
+  ],
+  "scale-to-zero": [
+    {
+      "type": "article",
+      "title": "Should LLM Serving Scale to Zero for Cost",
+      "url": "https://www.onesourcecloud.net/cms/should-llm-serving-scale-to-zero-cost.html"
+    },
+    {
+      "type": "article",
+      "title": "Runpod Secrets: Scaling LLM Inference to Zero Cost During Downtime",
+      "url": "https://www.runpod.io/articles/guides/runpod-secrets-scale-llm-inference-zero-cost"
+    },
+    {
+      "type": "article",
+      "title": "Zero Redundancy Optimizer (ZeRO): Scaling LLM Training Without Breaking the Bank",
+      "url": "https://medium.com/@adilmaqsood501/zero-redundancy-optimizer-zero-scaling-llm-training-without-breaking-the-bank-ba045b6a805e"
+    }
+  ],
+  "routing-load-balancing": [
+    {
+      "type": "article",
+      "title": "LLM Inference Serving: Architecture, Routing & Auto-Scaling",
+      "url": "https://mbrenndoerfer.com/writing/llm-inference-serving-architecture-scaling-optimization"
+    },
+    {
+      "type": "article",
+      "title": "LLM Model Routing: Route Queries to the Right Model Automatically",
+      "url": "https://neuraltrust.ai/blog/llm-model-routing"
+    },
+    {
+      "type": "article",
+      "title": "LLM Load Balancing: Concepts, Strategies & Best Practices",
+      "url": "https://www.truefoundry.com/blog/llm-load-balancing"
+    },
+    {
+      "type": "video",
+      "title": "Auto Routing Fully Explained",
+      "url": "https://www.youtube.com/watch?v=2M47nZbyhac"
+    }
+  ],
+  "lora-aware-routing": [
+    {
+      "type": "article",
+      "title": "Unsupervised LoRA Routing",
+      "url": "https://www.emergentmind.com/topics/unsupervised-lora-routing"
+    },
+    {
+      "type": "article",
+      "title": "Intelligent LoRA Routing",
+      "url": "https://vllm-sr.ai/docs/v0.1/tutorials/intelligent-route/lora-routing/"
+    },
+    {
+      "type": "video",
+      "title": "What is Low-Rank Adaptation (LoRA)",
+      "url": "https://www.youtube.com/watch?v=DhRoTONcyZE"
+    }
+  ],
+  "independent-component-scaling": [
+    {
+      "type": "official",
+      "title": "Autoscaling Workloads",
+      "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/"
+    },
+    {
+      "type": "article",
+      "title": "Autoscaling endpoints for LLM inference",
+      "url": "https://www.together.ai/blog/autoscaling-endpoints-for-llm-inference"
+    },
+    {
+      "type": "article",
+      "title": "Intro to Kubernetes Autoscaling and Best Practices for Implementations",
+      "url": "https://www.cloudbolt.io/kubernetes-autoscaling/"
+    }
+  ],
+  "gpu-procurement": [
+    {
+      "type": "article",
+      "title": "Multi-Cloud GPU Strategy: How to Avoid AI Infrastructure Vendor Lock-In",
+      "url": "https://lyceum.technology/magazine/multi-cloud-gpu-avoid-vendor-lock-in/"
+    },
+    {
+      "type": "article",
+      "title": "Multi-Cloud GPU Strategy: Definition, Benefits, and Implementation",
+      "url": "https://compux.net/docs/concepts/multi-cloud-gpu-strategy/"
+    },
+    {
+      "type": "article",
+      "title": "How to Do Agentic AI Inference in a Multicloud, Multi-Model World",
+      "url": "https://blog.equinix.com/blog/2025/03/19/how-to-do-agentic-ai-inference-in-a-multicloud-multi-model-world/"
+    },
+    {
+      "type": "article",
+      "title": "What is multicloud?",
+      "url": "https://cloud.google.com/learn/what-is-multicloud?hl=en"
+    },
+    {
+      "type": "video",
+      "title": "What is Multicloud? How Do You Manage It?",
+      "url": "https://www.youtube.com/watch?v=AjtdZ3gFRjU"
+    }
+  ],
+  "capacity-management": [
+    {
+      "type": "article",
+      "title": "How we built Multi-cloud Capacity Management (MCM)",
+      "url": "https://www.baseten.co/blog/how-we-built-multi-cloud-capacity-management/"
+    },
+    {
+      "type": "article",
+      "title": "Multi-cloud capacity management",
+      "url": "https://learn-inference.com/chapters/production/multi-cloud"
+    }
+  ],
+  "geo-aware-load-balancing": [
+    {
+      "type": "article",
+      "title": "How Geographic Load Balancing Improves Performance",
+      "url": "https://www.serverion.com/uncategorized/how-geographic-load-balancing-improves-performance/"
+    },
+    {
+      "type": "article",
+      "title": "Geo-aware load balancing",
+      "url": "https://www.baseten.co/resources/guide/the-baseten-inference-stack/#geo-aware-load-balancing"
+    }
+  ],
+  "zero-downtime-deployment": [
+    {
+      "type": "article",
+      "title": "Zero-Downtime Deployments: A Practical Guide for Busy Engineers",
+      "url": "https://medium.com/codetodeploy/zero-downtime-deployments-a-practical-guide-for-busy-engineers-2d7b43f1a2bc"
+    },
+    {
+      "type": "article",
+      "title": "How do software systems achieve zero downtime on new deploys?",
+      "url": "https://www.youtube.com/watch?v=BiuQ-sVbWGU"
+    },
+    {
+      "type": "article",
+      "title": "Zero Downtime Deployments in Kubernetes Explained",
+      "url": "https://www.youtube.com/watch?v=Tb1x1KtyVww"
+    },
+    {
+      "type": "article",
+      "title": "Testing and Deployment AI Models",
+      "url": "https://www.baseten.co/inference-engineering/book/07-production/testing-and-deployment/"
+    }
+  ],
+  "security-compliance": [
+    {
+      "type": "article",
+      "title": "Inference security: How to protect APIs in production AI systems",
+      "url": "https://www.gmicloud.ai/zh-tw/blog/inference-security-how-to-protect-apis-in-production-ai-systems"
+    },
+    {
+      "type": "article",
+      "title": "How to achieve compliance and security in AI inference",
+      "url": "https://gcore.com/blog/compliance-and-security-in-ai-inference"
+    },
+    {
+      "type": "article",
+      "title": "Are your AI Inference and GenAI Environments Secure? These Five Essentials Will Help",
+      "url": "https://www.a10networks.com/blog/are-your-ai-inference-and-genai-environments-secure/"
+    }
+  ],
+  "cost-estimation": [
+    {
+      "type": "article",
+      "title": "The Hidden Economics of LLM Inference",
+      "url": "https://www.hebbia.com/blog/the-hidden-economics-of-llm-inference"
+    },
+    {
+      "type": "article",
+      "title": "LLM Inference Benchmarking: How Much Does Your LLM Inference Cost?",
+      "url": "https://developer.nvidia.com/blog/llm-inference-benchmarking-how-much-does-your-llm-inference-cost/"
+    },
+    {
+      "type": "article",
+      "title": "LLM inference cost: what drives it and how to lower it",
+      "url": "https://www.cloudzero.com/blog/inference-cost/"
+    },
+    {
+      "type": "article",
+      "title": "LLM Cost Calculation Guide for Enterprise AI Teams in 2026",
+      "url": "https://www.digitalocean.com/resources/articles/llm-cost-calculation-guide"
+    }
+  ],
+  "observability": [
+    {
+      "type": "official",
+      "title": "NVIDIA Nsight Systems",
+      "url": "https://developer.nvidia.com/nsight-systems"
+    },
+    {
+      "type": "article",
+      "title": "LLM Observability: A Complete Guide to Monitoring Production Deployments",
+      "url": "https://inference.net/content/llm-observability-monitoring-production-deployments/"
+    },
+    {
+      "type": "article",
+      "title": "What is LLM Observability? The Ultimate Guide for AI Developers",
+      "url": "https://www.comet.com/site/blog/llm-observability/"
+    },
+    {
+      "type": "article",
+      "title": "Understanding LLM Observability",
+      "url": "https://clickhouse.com/resources/engineering/llm-observability"
+    }
+  ]
+}

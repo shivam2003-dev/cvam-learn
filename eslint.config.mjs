@@ -5,6 +5,11 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  // Lesson files are long prose written as JSX; plain apostrophes stay readable.
+  {
+    files: ["src/content/**/*.tsx"],
+    rules: { "react/no-unescaped-entities": "off" },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

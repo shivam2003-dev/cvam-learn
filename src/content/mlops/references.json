@@ -1,0 +1,1410 @@
+{
+  "what-is-mlops": [
+    {
+      "type": "article",
+      "title": "What is MLOps?",
+      "url": "https://aws.amazon.com/what-is/mlops/"
+    },
+    {
+      "type": "article",
+      "title": "Machine Learning Operations (MLOps) For Beginners",
+      "url": "https://towardsdatascience.com/machine-learning-operations-mlops-for-beginners-a5686bfe02b2/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "article",
+      "title": "MLOps: What It Is, Why It Matters, and How to Implement It",
+      "url": "https://web.archive.org/web/20251126053103/https://neptune.ai/blog/mlops"
+    },
+    {
+      "type": "video",
+      "title": "What is MLOps?",
+      "url": "https://www.youtube.com/watch?v=OejCJL2EC3k"
+    }
+  ],
+  "mlops-principles": [
+    {
+      "type": "article",
+      "title": "MLOps Principles",
+      "url": "https://ml-ops.org/content/mlops-principles"
+    }
+  ],
+  "mlops-components": [
+    {
+      "type": "article",
+      "title": "MLOps Workflow, Components, and Key Practices",
+      "url": "https://mlops.tv/p/understanding-ml-pipelines-through"
+    },
+    {
+      "type": "article",
+      "title": "MLOps Lifecycle",
+      "url": "https://www.moontechnolabs.com/blog/mlops-lifecycle/"
+    },
+    {
+      "type": "roadmap",
+      "title": "Visit the Dedicated Git & GitHub Roadmpa",
+      "url": "https://roadmap.sh/git-github"
+    },
+    {
+      "type": "official",
+      "title": "Git",
+      "url": "https://git-scm.com/"
+    },
+    {
+      "type": "official",
+      "title": "Git Documentation",
+      "url": "https://git-scm.com/docs"
+    },
+    {
+      "type": "article",
+      "title": "What is Version Control?",
+      "url": "https://www.atlassian.com/git/tutorials/what-is-version-control"
+    },
+    {
+      "type": "article",
+      "title": "Getting Started with Git and GitHub: A Complete Tutorial for Beginner",
+      "url": "https://towardsdatascience.com/learn-basic-git-commands-for-your-data-science-works-2a75396d530d/"
+    },
+    {
+      "type": "article",
+      "title": "A Complete Guide to Understanding Data Orchestration",
+      "url": "https://towardsdatascience.com/a-complete-guide-to-understanding-data-orchestration-87a20b46297c/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "article",
+      "title": "Data Orchestration Tools (Quick Reference Guide)",
+      "url": "https://www.montecarlodata.com/blog-11-data-orchestration-tools"
+    },
+    {
+      "type": "video",
+      "title": "What is Data Orchestration?",
+      "url": "https://www.youtube.com/watch?v=iyw9puEmTrA"
+    },
+    {
+      "type": "article",
+      "title": "What is orchestration?",
+      "url": "https://www.redhat.com/en/topics/automation/what-is-orchestration"
+    },
+    {
+      "type": "article",
+      "title": "Experiment Tracking",
+      "url": "https://madewithml.com/courses/mlops/experiment-tracking/#dashboard"
+    },
+    {
+      "type": "article",
+      "title": "ML Flow Model Registry",
+      "url": "https://mlflow.org/docs/latest/model-registry.html"
+    },
+    {
+      "type": "article",
+      "title": "What is Data Lineage?",
+      "url": "https://www.ibm.com/topics/data-lineage"
+    },
+    {
+      "type": "article",
+      "title": "What is a Feature Store",
+      "url": "https://www.snowflake.com/guides/what-feature-store-machine-learning/"
+    },
+    {
+      "type": "opensource",
+      "title": "What is model training?",
+      "url": "https://www.ibm.com/think/topics/model-training"
+    },
+    {
+      "type": "article",
+      "title": "What Is AI Model Training & Why Is It Important?",
+      "url": "https://www.oracle.com/uk/artificial-intelligence/ai-model-training/"
+    },
+    {
+      "type": "article",
+      "title": "KServe Tutorial",
+      "url": "https://towardsdatascience.com/kserve-highly-scalable-machine-learning-deployment-with-kubernetes-aa7af0b71202/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Five Steps to Create a New AI Model",
+      "url": "https://www.youtube.com/watch?v=jcgaNrC4ElU&t=172s"
+    },
+    {
+      "type": "article",
+      "title": "ML Monitoring vs ML Observability",
+      "url": "https://medium.com/marvelous-mlops/ml-monitoring-vs-ml-observability-understanding-the-differences-fff574a8974f"
+    },
+    {
+      "type": "article",
+      "title": "Building a Robust Data Observability Framework to Ensure Data Quality and Integrity",
+      "url": "https://towardsdatascience.com/building-a-robust-data-observability-framework-to-ensure-data-quality-and-integrity-07ff6cffdf69/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "ML Observability vs ML Monitoring: What's the difference?",
+      "url": "https://www.youtube.com/watch?v=k1Reed3QIYE"
+    },
+    {
+      "type": "article",
+      "title": "What’s the Difference Between Observability and Monitoring?",
+      "url": "https://aws.amazon.com/compare/the-difference-between-monitoring-and-observability/"
+    },
+    {
+      "type": "article",
+      "title": "Observability and Instrumentation: What They Are and Why They Matter",
+      "url": "https://newrelic.com/blog/best-practices/observability-instrumentation"
+    },
+    {
+      "type": "video",
+      "title": "What is observability?",
+      "url": "https://www.youtube.com/watch?v=--17See0KHs"
+    },
+    {
+      "type": "video",
+      "title": "Monitoring vs Observability",
+      "url": "https://www.youtube.com/watch?v=b6yWa3V2iBQ"
+    }
+  ],
+  "python-for-mlops": [
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated Python Roadmap",
+      "url": "https://roadmap.sh/python"
+    },
+    {
+      "type": "official",
+      "title": "Python",
+      "url": "https://www.python.org/"
+    },
+    {
+      "type": "article",
+      "title": "Real Python",
+      "url": "https://realpython.com/"
+    },
+    {
+      "type": "article",
+      "title": "Automate the Boring Stuff with Python",
+      "url": "https://automatetheboringstuff.com/"
+    }
+  ],
+  "bash-for-mlops": [
+    {
+      "type": "roadmap",
+      "title": "Visit the Dedicated Shell-Bash Roadmap",
+      "url": "https://roadmap.sh/shell-bash"
+    },
+    {
+      "type": "opensource",
+      "title": "bash-guide",
+      "url": "https://github.com/Idnan/bash-guide"
+    },
+    {
+      "type": "article",
+      "title": "Bash Reference Manual",
+      "url": "https://www.gnu.org/software/bash/manual/bashref.html"
+    },
+    {
+      "type": "video",
+      "title": "Bash Scripting Course",
+      "url": "https://www.youtube.com/watch?v=tK9Oc6AEnR4"
+    }
+  ],
+  "sql-for-mlops": [
+    {
+      "type": "course",
+      "title": "Premium SQL Course - Roadmap",
+      "url": "https://roadmap.sh/courses/sql"
+    },
+    {
+      "type": "official",
+      "title": "Visit the Dedicated SQL Roadmap",
+      "url": "https://roadmap.sh/sql"
+    },
+    {
+      "type": "article",
+      "title": "SQL Tutorial",
+      "url": "https://www.w3schools.com/sql/"
+    },
+    {
+      "type": "article",
+      "title": "How I Learned SQL In 2 Weeks (From Scratch)",
+      "url": "https://towardsdatascience.com/how-i-learned-sql-in-2-weeks-from-scratch-b78040f4e2c1/"
+    },
+    {
+      "type": "video",
+      "title": "Full SQL Crash Course - Learn SQL in 90 Minutes",
+      "url": "https://www.youtube.com/watch?v=7cIG41gjHB4"
+    }
+  ],
+  "go-for-mlops": [
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated Go Roadmap",
+      "url": "https://roadmap.sh/golang"
+    },
+    {
+      "type": "official",
+      "title": "A Tour of Go – Go Basics",
+      "url": "https://go.dev/tour/welcome/1"
+    },
+    {
+      "type": "official",
+      "title": "Go Reference Documentation",
+      "url": "https://go.dev/doc/"
+    },
+    {
+      "type": "article",
+      "title": "Making a RESTful JSON API in Go",
+      "url": "https://thenewstack.io/make-a-restful-json-api-go/"
+    },
+    {
+      "type": "article",
+      "title": "Go, the Programming Language of the Cloud",
+      "url": "https://thenewstack.io/go-the-programming-language-of-the-cloud/"
+    },
+    {
+      "type": "video",
+      "title": "Go Programming Course",
+      "url": "https://www.youtube.com/watch?v=un6ZyFkqFKo"
+    }
+  ],
+  "git-basics": [
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated Git & GitHub Roadmap",
+      "url": "https://roadmap.sh/git-github"
+    },
+    {
+      "type": "article",
+      "title": "Learn Git with Tutorials, News and Tips - Atlassian",
+      "url": "https://www.atlassian.com/git"
+    },
+    {
+      "type": "article",
+      "title": "Getting Started with Git and GitHub: A Complete Tutorial for Beginner",
+      "url": "https://towardsdatascience.com/learn-basic-git-commands-for-your-data-science-works-2a75396d530d/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "article",
+      "title": "Git Cheat Sheet",
+      "url": "https://cs.fyi/guide/git-cheatsheet"
+    },
+    {
+      "type": "video",
+      "title": "Git & GitHub Crash Course For Beginners",
+      "url": "https://www.youtube.com/watch?v=SWYqp7iY_Tc"
+    },
+    {
+      "type": "official",
+      "title": "Git Documentation",
+      "url": "https://git-scm.com/docs"
+    },
+    {
+      "type": "video",
+      "title": "hat is a Version Control System and why you should always use it",
+      "url": "https://www.youtube.com/watch?v=IeXhYROClZk"
+    }
+  ],
+  "github-collaboration": [
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated Git & GitHub Roadmap",
+      "url": "https://roadmap.sh/git-github"
+    },
+    {
+      "type": "official",
+      "title": "GitHub",
+      "url": "https://github.com"
+    },
+    {
+      "type": "official",
+      "title": "GitHub Documentation",
+      "url": "https://docs.github.com/en/get-started/quickstart"
+    },
+    {
+      "type": "article",
+      "title": "Comprehensive Guide to GitHub for Data Scientists",
+      "url": "https://towardsdatascience.com/comprehensive-guide-to-github-for-data-scientist-d3f71bd320da/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "What is GitHub?",
+      "url": "https://www.youtube.com/watch?v=w3jLJU7DT5E"
+    }
+  ],
+  "dvc": [
+    {
+      "type": "official",
+      "title": "DVC",
+      "url": "https://dvc.org/"
+    },
+    {
+      "type": "official",
+      "title": "Get Started with DVC",
+      "url": "https://doc.dvc.org/start"
+    },
+    {
+      "type": "article",
+      "title": "The Complete Guide to Data Version Control With DVC",
+      "url": "https://www.datacamp.com/tutorial/data-version-control-dvc"
+    },
+    {
+      "type": "article",
+      "title": "Data and Machine Learning Model Versioning with DVC",
+      "url": "https://towardsdatascience.com/data-and-machine-learning-model-versioning-with-dvc-34fdadd06b15/"
+    },
+    {
+      "type": "video",
+      "title": "Versioning Data with DVC (Hands-On Tutorial!)",
+      "url": "https://www.youtube.com/watch?v=kLKBcPonMYw"
+    }
+  ],
+  "cicd-for-ml": [
+    {
+      "type": "article",
+      "title": "What is CI/CD? - GitLab",
+      "url": "https://about.gitlab.com/topics/ci-cd/"
+    },
+    {
+      "type": "article",
+      "title": "What is CI/CD? - Redhat",
+      "url": "https://www.redhat.com/en/topics/devops/what-is-ci-cd"
+    },
+    {
+      "type": "video",
+      "title": "CI/CD In 5 Minutes",
+      "url": "https://www.youtube.com/watch?v=42UP1fxi2SY"
+    },
+    {
+      "type": "article",
+      "title": "A Primer: Continuous Integration and Continuous Delivery (CI/CD)",
+      "url": "https://thenewstack.io/a-primer-continuous-integration-and-continuous-delivery-ci-cd/"
+    },
+    {
+      "type": "article",
+      "title": "DevOps CI/CD Explained in 100 Seconds",
+      "url": "https://thenewstack.io/category/ci-cd/"
+    },
+    {
+      "type": "video",
+      "title": "Automate your Workflows with GitHub Actions",
+      "url": "https://www.youtube.com/watch?v=scEDHsr3APg"
+    }
+  ],
+  "github-actions": [
+    {
+      "type": "official",
+      "title": "GitHub Actions Documentation",
+      "url": "https://docs.github.com/en/actions"
+    },
+    {
+      "type": "article",
+      "title": "GitHub Actions Guide",
+      "url": "https://octopus.com/devops/github-actions/?utm_source=roadmap&utm_medium=link&utm_campaign=devops-ci-cd-github-actions"
+    },
+    {
+      "type": "video",
+      "title": "What is GitHub Actions?",
+      "url": "https://www.youtube.com/watch?v=URmeTqglS58"
+    },
+    {
+      "type": "video",
+      "title": "Automate your Workflow with GitHub Actions",
+      "url": "https://www.youtube.com/watch?v=nyKZTKQS_EQ"
+    }
+  ],
+  "gitlab-jenkins": [
+    {
+      "type": "official",
+      "title": "GitLab Website",
+      "url": "https://gitlab.com/"
+    },
+    {
+      "type": "official",
+      "title": "GitLab Docs",
+      "url": "https://docs.gitlab.com/"
+    },
+    {
+      "type": "article",
+      "title": "Read articles about Gitlab",
+      "url": "https://towardsdatascience.com/tag/gitlab/"
+    },
+    {
+      "type": "video",
+      "title": "GitLab Explained: What is GitLab and Why Use It?",
+      "url": "https://www.youtube.com/watch?v=bnF7f1zGpo4"
+    },
+    {
+      "type": "official",
+      "title": "Jenkins Website",
+      "url": "https://www.jenkins.io/"
+    },
+    {
+      "type": "official",
+      "title": "Jenkins Getting Started Guide",
+      "url": "https://www.jenkins.io/doc/pipeline/tour/getting-started/"
+    },
+    {
+      "type": "article",
+      "title": "Jenkins Tutorial",
+      "url": "https://octopus.com/devops/jenkins/jenkins-tutorial/?utm_source=roadmap&utm_medium=link&utm_campaign=devops-ci-cd-gitlab-ci"
+    },
+    {
+      "type": "article",
+      "title": "From DevOps to MLOPS: Integrate Machine Learning Models using Jenkins and Docker",
+      "url": "https://towardsdatascience.com/from-devops-to-mlops-integrate-machine-learning-models-using-jenkins-and-docker-79034dbedf1/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Learn Jenkins! Complete Jenkins Course - Zero to Hero",
+      "url": "https://www.youtube.com/watch?v=6YZvp2GwT0A"
+    }
+  ],
+  "cml": [
+    {
+      "type": "official",
+      "title": "CML",
+      "url": "https://cml.dev/"
+    },
+    {
+      "type": "official",
+      "title": "Get Started with CML",
+      "url": "https://cml.dev/doc/start"
+    },
+    {
+      "type": "article",
+      "title": "Continuous Machine Learning",
+      "url": "https://towardsdatascience.com/continuous-machine-learning-e1ffb847b8da/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    }
+  ],
+  "maths-statistics": [
+    {
+      "type": "book",
+      "title": "Introductory Statistics",
+      "url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductoryStatistics-OP_i6tAI7e.pdf"
+    },
+    {
+      "type": "article",
+      "title": "Computer Science 70, 001 - Spring 2015 - Discrete Mathematics and Probability Theory",
+      "url": "http://www.infocobuild.com/education/audio-video-courses/computer-science/cs70-spring2015-berkeley.html"
+    },
+    {
+      "type": "article",
+      "title": "Discrete Mathematics By IIT Ropar NPTEL",
+      "url": "https://nptel.ac.in/courses/106106183"
+    },
+    {
+      "type": "article",
+      "title": "Introduction to Statistics",
+      "url": "https://imp.i384100.net/3eRv4v"
+    },
+    {
+      "type": "article",
+      "title": "How to Learn the Math Needed for Data Science",
+      "url": "https://towardsdatascience.com/how-to-learn-the-math-needed-for-data-science-86c6643b0c59/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Lec 1 | MIT 6.042J Mathematics for Computer Science, Fall 2010",
+      "url": "https://www.youtube.com/watch?v=L3LMbpZIKhQ&list=PLB7540DEDD482705B"
+    },
+    {
+      "type": "video",
+      "title": "Discrete Mathematics by Shai Simonson (19 videos)",
+      "url": "https://www.youtube.com/playlist?list=PLWX710qNZo_sNlSWRMVIh6kfTjolNaZ8t"
+    },
+    {
+      "type": "video",
+      "title": "tatistics - A Full University Course on Data Science Basics",
+      "url": "https://www.youtube.com/watch?v=xxpc-HPKN28"
+    }
+  ],
+  "machine-learning-basics": [
+    {
+      "type": "roadmap",
+      "title": "Visit the Dedicated Machine Learning Roadmap",
+      "url": "https://roadmap.sh/machine-learning"
+    },
+    {
+      "type": "book",
+      "title": "Machine Learning: The Basics",
+      "url": "https://github.com/alexjungaalto/MachineLearningTheBasics/blob/master/MLBasicsBook.pdf"
+    },
+    {
+      "type": "article",
+      "title": "What is Machine Learning (ML)?",
+      "url": "https://www.ibm.com/topics/machine-learning"
+    },
+    {
+      "type": "video",
+      "title": "What is Machine Learning?",
+      "url": "https://www.youtube.com/watch?v=9gGnTQTYNaE"
+    },
+    {
+      "type": "video",
+      "title": "Complete Machine Learning in One Video | Machine Learning Tutorial For Beginners 2025 | Simplilearn",
+      "url": "https://www.youtube.com/watch?v=PtYRUoJRE9s"
+    },
+    {
+      "type": "course",
+      "title": "Fundamentals of Machine Learning - Microsoft",
+      "url": "https://learn.microsoft.com/en-us/training/modules/fundamentals-machine-learning/"
+    },
+    {
+      "type": "course",
+      "title": "MLCourse.ai",
+      "url": "https://mlcourse.ai/"
+    },
+    {
+      "type": "course",
+      "title": "Fast.ai",
+      "url": "https://course.fast.ai"
+    },
+    {
+      "type": "article",
+      "title": "Everything I Studied to Become a Machine Learning Engineer (No CS Background)",
+      "url": "https://towardsdatascience.com/everything-i-studied-to-become-a-machine-learning-engineer-no-cs-background/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    }
+  ],
+  "deep-learning-basics": [
+    {
+      "type": "roadmap",
+      "title": "Visit the Dedicated Machine Learning Roadmap",
+      "url": "https://roadmap.sh/machine-learning"
+    },
+    {
+      "type": "book",
+      "title": "Deep Learning Book",
+      "url": "https://www.deeplearningbook.org/"
+    },
+    {
+      "type": "course",
+      "title": "Practical Deep Learning",
+      "url": "https://course.fast.ai/"
+    },
+    {
+      "type": "article",
+      "title": "Introduction to Deep Learning",
+      "url": "https://www.ibm.com/topics/deep-learning"
+    },
+    {
+      "type": "video",
+      "title": "What is a Neural Network?",
+      "url": "https://www.youtube.com/watch?v=aircAruvnKk"
+    }
+  ],
+  "model-evaluation": [
+    {
+      "type": "article",
+      "title": "What is Model Evaluation",
+      "url": "https://domino.ai/data-science-dictionary/model-evaluation"
+    },
+    {
+      "type": "article",
+      "title": "Model Evaluation Metrics",
+      "url": "https://www.markovml.com/blog/model-evaluation-metrics"
+    },
+    {
+      "type": "article",
+      "title": "How to Evaluate the Performance of Your ML/ AI Models",
+      "url": "https://towardsdatascience.com/how-to-evaluate-the-performance-of-your-ml-ai-models-ba1debc6f2fa/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "How to evaluate ML models | Evaluation metrics for machine learning",
+      "url": "https://www.youtube.com/watch?v=LbX4X71-TFI"
+    }
+  ],
+  "ml-frameworks": [
+    {
+      "type": "official",
+      "title": "scikit-learn: machine learning in Python",
+      "url": "https://scikit-learn.org/"
+    },
+    {
+      "type": "opensource",
+      "title": "scikit-learn",
+      "url": "https://github.com/scikit-learn/scikit-learn"
+    },
+    {
+      "type": "article",
+      "title": "What is Scikit-Learn (Sklearn)?",
+      "url": "https://www.ibm.com/think/topics/scikit-learn"
+    },
+    {
+      "type": "video",
+      "title": "How to train and test a neural network using scikit-learn and Keras in Jupyter Notebook",
+      "url": "https://www.youtube.com/watch?v=_JG71FIP1rk"
+    },
+    {
+      "type": "video",
+      "title": "Scikit-learn Crash Course - Machine Learning Library for Python",
+      "url": "https://www.youtube.com/watch?v=0B5eIE_1vpU"
+    },
+    {
+      "type": "official",
+      "title": "Tensorflow",
+      "url": "https://www.tensorflow.org/"
+    },
+    {
+      "type": "official",
+      "title": "Tensorflow Documentation",
+      "url": "https://www.tensorflow.org/learn"
+    },
+    {
+      "type": "article",
+      "title": "Mastering Deep Learning with TensorFlow: From Beginner to Expert",
+      "url": "https://towardsdatascience.com/an-introduction-to-tensorflow-fa5b17051f6b/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Tensorflow in 100 seconds",
+      "url": "https://www.youtube.com/watch?v=i8NETqtGHms"
+    },
+    {
+      "type": "video",
+      "title": "Python TensorFlow for Machine Learning – Neural Network Text Classification Tutorial",
+      "url": "https://www.youtube.com/watch?v=VtRLrQ3Ev-U"
+    },
+    {
+      "type": "official",
+      "title": "PyTorch",
+      "url": "https://pytorch.org/"
+    },
+    {
+      "type": "official",
+      "title": "PyTorch Docs",
+      "url": "https://pytorch.org/docs/stable/index.html"
+    },
+    {
+      "type": "article",
+      "title": "What is PyTorc? | IBM",
+      "url": "https://www.ibm.com/think/topics/pytorch"
+    },
+    {
+      "type": "article",
+      "title": "PyTorch Explained: From Automatic Differentiation to Training Custom Neural Networks",
+      "url": "https://towardsdatascience.com/the-basics-of-deep-learning-with-pytorch-in-1-hour/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "PyTorch in 100 seconds",
+      "url": "https://www.youtube.com/watch?v=ORMx45xqWkA"
+    },
+    {
+      "type": "video",
+      "title": "PyTorch for Deep Learning & Machine Learning – Full Course",
+      "url": "https://www.youtube.com/watch?v=V_xro1bcAuA"
+    }
+  ],
+  "mlflow": [
+    {
+      "type": "official",
+      "title": "MLFlow",
+      "url": "https://mlflow.org/"
+    },
+    {
+      "type": "official",
+      "title": "MLFlow Docs",
+      "url": "https://mlflow.org/docs/latest/"
+    },
+    {
+      "type": "opensource",
+      "title": "mlflow",
+      "url": "https://github.com/mlflow/mlflow"
+    },
+    {
+      "type": "article",
+      "title": "Streamline Your Machine Learning Workflow with MLFlow",
+      "url": "https://www.datacamp.com/tutorial/mlflow-streamline-machine-learning-workflow"
+    },
+    {
+      "type": "article",
+      "title": "Comprehensive Guide to MlFlow",
+      "url": "https://towardsdatascience.com/comprehensive-guide-to-mlflow-b84086b002ae/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "MLFlow Tutorial | ML Ops Tutorial",
+      "url": "https://www.youtube.com/watch?v=6ngxBkx05Fs"
+    },
+    {
+      "type": "video",
+      "title": "MLflow for Machine Learning Development - Video Introduction",
+      "url": "https://www.youtube.com/watch?v=5pPflDSdFLg&list=PLQqR_3C2fhUUOmaeowgv4WquvH515zVmo"
+    }
+  ],
+  "aws-azure-gcp": [
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated AWS Roadmap",
+      "url": "https://roadmap.sh/aws"
+    },
+    {
+      "type": "official",
+      "title": "Microsoft Azure",
+      "url": "https://docs.microsoft.com/en-us/learn/azure/"
+    },
+    {
+      "type": "official",
+      "title": "Google Cloud Platform",
+      "url": "https://cloud.google.com/"
+    },
+    {
+      "type": "official",
+      "title": "GCP Learning Resources",
+      "url": "https://cloud.google.com/training"
+    },
+    {
+      "type": "roadmap",
+      "title": "Visit the Dedicated Cloud Computing Roadmap",
+      "url": "https://roadmap.sh/cloud-computing"
+    },
+    {
+      "type": "article",
+      "title": "Cloud Computing - IBM",
+      "url": "https://www.ibm.com/think/topics/cloud-computing"
+    },
+    {
+      "type": "article",
+      "title": "What is Cloud Computing? - Azure",
+      "url": "https://azure.microsoft.com/en-gb/resources/cloud-computing-dictionary/what-is-cloud-computing"
+    },
+    {
+      "type": "video",
+      "title": "What is Cloud Computing? - Amazon Web Services",
+      "url": "https://www.youtube.com/watch?v=mxT233EdY5c"
+    }
+  ],
+  "cloud-native-ml-services": [
+    {
+      "type": "official",
+      "title": "AWS Sage Maker",
+      "url": "https://aws.amazon.com/sagemaker/"
+    },
+    {
+      "type": "official",
+      "title": "Azure ML",
+      "url": "https://azure.microsoft.com/en-gb/products/machine-learning"
+    },
+    {
+      "type": "official",
+      "title": "Vertex AI Platform",
+      "url": "https://cloud.google.com/vertex-ai?hl=en"
+    },
+    {
+      "type": "article",
+      "title": "What is cloud native?",
+      "url": "https://cloud.google.com/learn/what-is-cloud-native?hl=en"
+    },
+    {
+      "type": "article",
+      "title": "Azure ML vs. AWS SageMaker: A Deep Dive into Model Training — Part 1",
+      "url": "https://towardsdatascience.com/azure-ml-vs-aws-sagemaker-a-deep-dive-into-scalable-model-training-part-1/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "article",
+      "title": "AWS vs. Azure: A Deep Dive into Model Training – Part 2",
+      "url": "https://towardsdatascience.com/aws-vs-azure-a-deep-dive-into-model-training-part-2/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "What is Cloud Native?",
+      "url": "https://www.youtube.com/watch?v=fp9_ubiKqFU"
+    }
+  ],
+  "docker-for-ml": [
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated Docker Roadmap",
+      "url": "https://roadmap.sh/docker"
+    },
+    {
+      "type": "official",
+      "title": "Docker Documentation",
+      "url": "https://docs.docker.com/"
+    },
+    {
+      "type": "article",
+      "title": "A Data Scientist’s Guide to Docker Containers",
+      "url": "https://towardsdatascience.com/a-data-scientists-guide-to-docker-containers/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Docker Tutorial",
+      "url": "https://www.youtube.com/watch?v=RqTEHSBrYFw"
+    },
+    {
+      "type": "video",
+      "title": "Docker Simplified in 55 Seconds",
+      "url": "https://youtu.be/vP_4DlOH1G4"
+    },
+    {
+      "type": "article",
+      "title": "What are Containers? - Google Cloud",
+      "url": "https://cloud.google.com/learn/what-are-containers"
+    },
+    {
+      "type": "article",
+      "title": "What is a Container? - Docker",
+      "url": "https://www.docker.com/resources/what-container/"
+    },
+    {
+      "type": "article",
+      "title": "Articles about Containers - The New Stack",
+      "url": "https://thenewstack.io/category/containers/"
+    },
+    {
+      "type": "video",
+      "title": "What are Containers?",
+      "url": "https://www.youtube.com/playlist?list=PLawsLZMfND4nz-WDBZIj8-nbzGFD4S9oz"
+    }
+  ],
+  "kubernetes-for-ml": [
+    {
+      "type": "roadmap",
+      "title": "Visit Dedicated Kubernetes Roadmap",
+      "url": "https://roadmap.sh/kubernetes"
+    },
+    {
+      "type": "official",
+      "title": "Kubernetes",
+      "url": "https://kubernetes.io/"
+    },
+    {
+      "type": "official",
+      "title": "Kubernetes Documentation",
+      "url": "https://kubernetes.io/docs/home/"
+    },
+    {
+      "type": "article",
+      "title": "Kubernetes: An Overview",
+      "url": "https://thenewstack.io/kubernetes-an-overview/"
+    },
+    {
+      "type": "video",
+      "title": "Kubernetes Crash Course for Absolute Beginners",
+      "url": "https://www.youtube.com/watch?v=s_o8dwzRlu4"
+    }
+  ],
+  "data-pipelines": [
+    {
+      "type": "article",
+      "title": "What is a Data Pipeline? - IBM",
+      "url": "https://www.ibm.com/topics/data-pipeline"
+    },
+    {
+      "type": "article",
+      "title": "How to Build Data Pipelines for Machine Learning",
+      "url": "https://towardsdatascience.com/how-to-build-data-pipelines-for-machine-learning-b97bbef050a5/"
+    },
+    {
+      "type": "article",
+      "title": "Read Articles about Data Pipelines",
+      "url": "https://towardsdatascience.com/tag/data-pipeline/"
+    },
+    {
+      "type": "video",
+      "title": "What are Data Pipelines?",
+      "url": "https://www.youtube.com/watch?v=oKixNpz6jNo"
+    },
+    {
+      "type": "roadmap",
+      "title": "Visit the Dedicated Data Engineer Roadmap",
+      "url": "https://roadmap.sh/data-engineer"
+    },
+    {
+      "type": "article",
+      "title": "Data Engineering 101",
+      "url": "https://www.redpanda.com/guides/fundamentals-of-data-engineering"
+    },
+    {
+      "type": "article",
+      "title": "How to Become a Data Engineer",
+      "url": "https://towardsdatascience.com/how-to-become-a-data-engineer-c0319cb226c2/"
+    },
+    {
+      "type": "video",
+      "title": "Fundamentals of Data Engineering",
+      "url": "https://www.youtube.com/watch?v=mPSzL8Lurs0"
+    }
+  ],
+  "data-lakes-warehouses": [
+    {
+      "type": "article",
+      "title": "Data Lake Definition",
+      "url": "https://azure.microsoft.com/en-gb/resources/cloud-computing-dictionary/what-is-a-data-lake"
+    },
+    {
+      "type": "article",
+      "title": "Data Lake VS Data Warehouse",
+      "url": "https://towardsdatascience.com/data-lake-vs-data-warehouse-2e3df551b800/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "What is a Data Lake?",
+      "url": "https://www.youtube.com/watch?v=LxcH6z8TFpI"
+    },
+    {
+      "type": "video",
+      "title": "What is a Data Warehouse?",
+      "url": "https://www.youtube.com/watch?v=k4tK2ttdSDg"
+    },
+    {
+      "type": "video",
+      "title": "Data Lake VS Data Warehouse VS Data Marts",
+      "url": "https://www.youtube.com/watch?v=w9-WoReNKHk"
+    }
+  ],
+  "data-ingestion-architectures": [
+    {
+      "type": "article",
+      "title": "Data Ingestion Patterns",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-cloud-data-ingestion-patterns-practices/data-ingestion-patterns.html"
+    },
+    {
+      "type": "article",
+      "title": "Data pipeline design patterns",
+      "url": "https://towardsdatascience.com/data-pipeline-design-patterns-100afa4b93e3/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "article",
+      "title": "How to Build an AI-Powered Weather ETL Pipeline with Databricks and GPT-4o: From API To Dashboard",
+      "url": "https://towardsdatascience.com/how-to-build-an-ai-powered-weather-etl-pipeline-with-databricks-and-gpt-4o-from-api-to-dashboard/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "What is a data pipeline?",
+      "url": "https://www.youtube.com/watch?v=kGT4PcTEPP8"
+    }
+  ],
+  "spark": [
+    {
+      "type": "official",
+      "title": "ApacheSpark",
+      "url": "https://spark.apache.org/documentation.html"
+    },
+    {
+      "type": "article",
+      "title": "Spark By Examples",
+      "url": "https://sparkbyexamples.com"
+    },
+    {
+      "type": "article",
+      "title": "First Steps in Machine Learning with Apache Spark",
+      "url": "https://towardsdatascience.com/first-steps-in-machine-learning-with-apache-spark-672fe31799a3/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "article",
+      "title": "Complete Guide to Spark and PySpark Setup for Data Science",
+      "url": "https://towardsdatascience.com/complete-guide-to-spark-and-pyspark-setup-for-data-science-374ecd8d1eea/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Apache Spark Architecture - EXPLAINED!",
+      "url": "https://www.youtube.com/watch?v=iXVIPQEGZ9Y"
+    }
+  ],
+  "kafka-flink": [
+    {
+      "type": "official",
+      "title": "Apache Kafka Quickstart",
+      "url": "https://kafka.apache.org/quickstart"
+    },
+    {
+      "type": "article",
+      "title": "What is Apache Kafka?",
+      "url": "https://aws.amazon.com/what-is/apache-kafka/"
+    },
+    {
+      "type": "article",
+      "title": "End-to-End Data Engineering System on Real Data with Kafka, Spark, Airflow, Postgres, and Docker",
+      "url": "https://towardsdatascience.com/end-to-end-data-engineering-system-on-real-data-with-kafka-spark-airflow-postgres-and-docker-a70e18df4090/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Apache Kafka Fundamentals",
+      "url": "https://www.youtube.com/watch?v=B5j3uNBH8X4"
+    },
+    {
+      "type": "official",
+      "title": "Apache Flink Documentation",
+      "url": "https://flink.apache.org/"
+    },
+    {
+      "type": "article",
+      "title": "Apache Flink",
+      "url": "https://www.tutorialspoint.com/apache_flink/apache_flink_introduction.htm"
+    },
+    {
+      "type": "article",
+      "title": "An Introduction to Stream Processing with Apache Flink",
+      "url": "https://towardsdatascience.com/an-introduction-to-stream-processing-with-apache-flink-b4acfa58f14d/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Introduction | Apache Flink 101",
+      "url": "https://www.youtube.com/watch?v=3cg5dABA6mo&list=PLa7VYi0yPIH1UdmQcnUr8lvjbUV8JriK0"
+    }
+  ],
+  "terraform": [
+    {
+      "type": "roadmap",
+      "title": "Visit the Dedicated Terraform Roadmap",
+      "url": "https://roadmap.sh/terraform"
+    },
+    {
+      "type": "official",
+      "title": "Terraform",
+      "url": "https://developer.hashicorp.com/terraform"
+    },
+    {
+      "type": "article",
+      "title": "What is Terraform?",
+      "url": "https://www.ibm.com/think/topics/terraform"
+    },
+    {
+      "type": "article",
+      "title": "Automatically Managing Data Pipeline Infrastructures With Terraform",
+      "url": "https://towardsdatascience.com/automatically-managing-data-pipeline-infrastructures-with-terraform-323fd1808a47/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Terraform Course - Automate your AWS cloud infrastructure",
+      "url": "https://www.youtube.com/watch?v=SLB_c_ayRMo"
+    },
+    {
+      "type": "article",
+      "title": "What is Infrastructure as Code?",
+      "url": "https://www.redhat.com/en/topics/automation/what-is-infrastructure-as-code-iac"
+    },
+    {
+      "type": "video",
+      "title": "8 Terraform Best Practices",
+      "url": "https://www.youtube.com/watch?v=gxPykhPxRW0"
+    }
+  ],
+  "ansible": [
+    {
+      "type": "official",
+      "title": "Ansible Website",
+      "url": "https://www.ansible.com/"
+    },
+    {
+      "type": "article",
+      "title": "What is Ansible? A Tool to Automate Parts of Your Job",
+      "url": "https://www.freecodecamp.org/news/what-is-ansible/"
+    },
+    {
+      "type": "video",
+      "title": "Ansible in 100 Seconds",
+      "url": "https://www.youtube.com/watch?v=xRMPKQweySE"
+    },
+    {
+      "type": "video",
+      "title": "Ansible Full Course for Beginners",
+      "url": "https://www.youtube.com/watch?v=9Ua2b06oAr4"
+    },
+    {
+      "type": "video",
+      "title": "Ansible Full Course to Zero to Hero",
+      "url": "https://www.youtube.com/watch?v=GROqwFFLl3s"
+    }
+  ],
+  "airflow": [
+    {
+      "type": "official",
+      "title": "Airflow",
+      "url": "https://airflow.apache.org/"
+    },
+    {
+      "type": "official",
+      "title": "Airflow Docs",
+      "url": "https://airflow.apache.org/docs"
+    },
+    {
+      "type": "opensource",
+      "title": "airflow",
+      "url": "https://github.com/apache/airflow"
+    },
+    {
+      "type": "article",
+      "title": "Building Pipelines In Apache Airflow – For Beginners",
+      "url": "https://towardsdatascience.com/building-pipelines-in-apache-airflow-for-beginners-58f87a1512d5/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "What is Apache Airflow? For beginners",
+      "url": "https://www.youtube.com/watch?v=CGxxVj13sOs"
+    },
+    {
+      "type": "video",
+      "title": "Apache Airflow Tutorial for Data Engineers",
+      "url": "https://www.youtube.com/watch?v=y5rYZLBZ_Fw"
+    }
+  ],
+  "kubeflow": [
+    {
+      "type": "official",
+      "title": "Kubeflow",
+      "url": "https://www.kubeflow.org/"
+    },
+    {
+      "type": "opensource",
+      "title": "kubeflow",
+      "url": "https://github.com/kubeflow/kubeflow"
+    },
+    {
+      "type": "article",
+      "title": "What is Kubeflow?",
+      "url": "https://cloud.google.com/discover/what-is-kubeflow?hl=en"
+    },
+    {
+      "type": "article",
+      "title": "Tutorial – Basic Kubeflow Pipeline From Scratch",
+      "url": "https://towardsdatascience.com/tutorial-basic-kubeflow-pipeline-from-scratch-5f0350dc1905/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Kubeflow Explained for Beginners",
+      "url": "https://www.youtube.com/watch?v=hvzEPlRdJ2Q"
+    },
+    {
+      "type": "video",
+      "title": "Intro to Kubeflow Pipelines",
+      "url": "https://www.youtube.com/watch?v=_AY8mmbR1o4&list=PLIivdWyY5sqLS4lN75RPDEyBgTro_YX7x"
+    }
+  ],
+  "model-monitoring": [
+    {
+      "type": "article",
+      "title": "ML Monitoring vs ML Observability",
+      "url": "https://medium.com/marvelous-mlops/ml-monitoring-vs-ml-observability-understanding-the-differences-fff574a8974f"
+    },
+    {
+      "type": "article",
+      "title": "Building a Robust Data Observability Framework to Ensure Data Quality and Integrity",
+      "url": "https://towardsdatascience.com/building-a-robust-data-observability-framework-to-ensure-data-quality-and-integrity-07ff6cffdf69/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "ML Observability vs ML Monitoring: What's the difference?",
+      "url": "https://www.youtube.com/watch?v=k1Reed3QIYE"
+    },
+    {
+      "type": "article",
+      "title": "What’s the Difference Between Observability and Monitoring?",
+      "url": "https://aws.amazon.com/compare/the-difference-between-monitoring-and-observability/"
+    },
+    {
+      "type": "article",
+      "title": "Observability and Instrumentation: What They Are and Why They Matter",
+      "url": "https://newrelic.com/blog/best-practices/observability-instrumentation"
+    },
+    {
+      "type": "video",
+      "title": "What is observability?",
+      "url": "https://www.youtube.com/watch?v=--17See0KHs"
+    },
+    {
+      "type": "video",
+      "title": "Monitoring vs Observability",
+      "url": "https://www.youtube.com/watch?v=b6yWa3V2iBQ"
+    }
+  ],
+  "prometheus-grafana": [
+    {
+      "type": "official",
+      "title": "Prometheus Website",
+      "url": "https://prometheus.io/"
+    },
+    {
+      "type": "official",
+      "title": "Prometheus Docs",
+      "url": "https://prometheus.io/docs/introduction/overview/"
+    },
+    {
+      "type": "official",
+      "title": "Getting Started with Prometheus",
+      "url": "https://prometheus.io/docs/tutorials/getting_started/"
+    },
+    {
+      "type": "video",
+      "title": "Introduction to the Prometheus Monitoring System | Key Concepts and Features",
+      "url": "https://www.youtube.com/watch?v=STVMGrYIlfg&t=16s"
+    },
+    {
+      "type": "official",
+      "title": "Grafana",
+      "url": "https://grafana.com/"
+    },
+    {
+      "type": "official",
+      "title": "Grafana Docs",
+      "url": "https://grafana.com/docs/"
+    },
+    {
+      "type": "official",
+      "title": "Grafana Webinars and Videos",
+      "url": "https://grafana.com/videos/"
+    },
+    {
+      "type": "article",
+      "title": "What is Grafana?",
+      "url": "https://www.redhat.com/en/topics/data-services/what-is-grafana"
+    },
+    {
+      "type": "video",
+      "title": "Grafana Explained in Under 5 Minutes ⏲",
+      "url": "https://www.youtube.com/watch?v=lILY8eSspEo"
+    },
+    {
+      "type": "video",
+      "title": "Grafana for Beginners Ep. 1",
+      "url": "https://www.youtube.com/watch?v=TQur9GJHIIQ&list=PLDGkOdUX1Ujo27m6qiTPPCpFHVfyKq9jT"
+    }
+  ],
+  "tflite-pytorch-mobile": [
+    {
+      "type": "official",
+      "title": "Welcome to the ExecuTorch Documentation",
+      "url": "https://docs.pytorch.org/executorch/stable/index.html"
+    },
+    {
+      "type": "opensource",
+      "title": "executorch",
+      "url": "https://github.com/pytorch/executorch"
+    },
+    {
+      "type": "video",
+      "title": "ExecuTorch 1.0: General Availability Status for Mobile and Embedded...- Mergen Nachin & Cemal Bilgin",
+      "url": "https://www.youtube.com/watch?v=toirKRTLgJA"
+    },
+    {
+      "type": "video",
+      "title": "PyTorch Mobile and Android Neural Networks API | PyTorch Developer Day 2020",
+      "url": "https://www.youtube.com/watch?v=B-2spa3UCTU"
+    },
+    {
+      "type": "official",
+      "title": "TensorFlow Lite",
+      "url": "https://www.tensorflow.org/lite/guide"
+    },
+    {
+      "type": "article",
+      "title": "TensorFlow Lite Tutorial: How to Get Up and Running",
+      "url": "https://www.influxdata.com/blog/tensorflow-lite-tutorial-how-to-get-up-and-running/"
+    },
+    {
+      "type": "video",
+      "title": "TensorFlow Lite for Edge Devices - Tutorial",
+      "url": "https://www.youtube.com/watch?v=OJnaBhCixng"
+    },
+    {
+      "type": "video",
+      "title": "TensorFlow Lite in Android with Google Play services",
+      "url": "https://www.youtube.com/watch?v=SEeEsbWZog8&list=PLQY2H8rRoyvwhLghMaygIJS0_f_blnUlJ"
+    },
+    {
+      "type": "course",
+      "title": "What Is Edge Computing?",
+      "url": "https://www.udemy.com/course/edge-computing/"
+    },
+    {
+      "type": "article",
+      "title": "What Is Edge AI and How Does It Work?",
+      "url": "https://blogs.nvidia.com/blog/what-is-edge-ai/"
+    },
+    {
+      "type": "article",
+      "title": "What is Edge AI?",
+      "url": "https://www.ibm.com/think/topics/edge-ai"
+    },
+    {
+      "type": "article",
+      "title": "What is Edge Computing - Cloudflare Docs",
+      "url": "https://www.cloudflare.com/learning/serverless/glossary/what-is-edge-computing/"
+    },
+    {
+      "type": "article",
+      "title": "What is Edge Computing? Is It More Than a Buzzword?",
+      "url": "https://www.howtogeek.com/devops/what-is-edge-computing-is-it-more-than-a-buzzword/"
+    }
+  ],
+  "jetson": [
+    {
+      "type": "official",
+      "title": "NVIDIA Jetson Modules",
+      "url": "https://developer.nvidia.com/embedded/jetson-modules"
+    },
+    {
+      "type": "article",
+      "title": "What Is NVIDIA Jetson? A Beginner’s Guide to Powerful Edge AI Modules",
+      "url": "https://blog.aetherix.com/nvidia-jetson-beginners-guide/"
+    },
+    {
+      "type": "video",
+      "title": "NVIDIA Jetson Orin Nano Super COMPLETE Setup Guide & Tutorial",
+      "url": "https://www.youtube.com/watch?v=-PjMC0gyH9s"
+    }
+  ],
+  "lime": [
+    {
+      "type": "official",
+      "title": "lime",
+      "url": "https://github.com/marcotcr/lime"
+    },
+    {
+      "type": "article",
+      "title": "Explainable AI - Understanding and Trusting Machine Learning Models",
+      "url": "https://www.datacamp.com/tutorial/explainable-ai-understanding-and-trusting-machine-learning-models"
+    },
+    {
+      "type": "video",
+      "title": "Understanding LIME | Explainable AI",
+      "url": "https://www.youtube.com/watch?v=CYl172IwqKs"
+    },
+    {
+      "type": "article",
+      "title": "What is Explainable AI (XAI)?",
+      "url": "https://www.ibm.com/think/topics/explainable-ai"
+    },
+    {
+      "type": "article",
+      "title": "Explainable AI (XAI) | Giskard",
+      "url": "https://www.giskard.ai/glossary/explainable-ai-xai"
+    },
+    {
+      "type": "article",
+      "title": "How to Leverage Explainable AI for Better Business Decisions",
+      "url": "https://towardsdatascience.com/how-to-leverage-explainable-ai-for-better-business-decisions/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "Explainable AI: Demystifying AI Agents Decision-Making",
+      "url": "https://www.youtube.com/watch?v=yJkCuEu3K68"
+    }
+  ],
+  "shap": [
+    {
+      "type": "official",
+      "title": "Welcome to the SHAP documentation",
+      "url": "https://shap.readthedocs.io/en/latest/"
+    },
+    {
+      "type": "opensource",
+      "title": "shap",
+      "url": "https://github.com/shap/shap"
+    },
+    {
+      "type": "article",
+      "title": "Explainable AI - Understanding and Trusting Machine Learning Models",
+      "url": "https://www.datacamp.com/tutorial/explainable-ai-understanding-and-trusting-machine-learning-models"
+    },
+    {
+      "type": "article",
+      "title": "When Shapley Values Break: A Guide to Robust Model Explainability",
+      "url": "https://towardsdatascience.com/when-shapley-values-break-a-guide-to-robust-model-explainability/?utm_source=roadmap&utm_medium=Referral&utm_campaign=TDS+roadmap+integration"
+    },
+    {
+      "type": "video",
+      "title": "SHAP values for beginners | What they mean and their applications",
+      "url": "https://www.youtube.com/watch?v=MQ6fFDwjuco"
+    }
+  ]
+}
