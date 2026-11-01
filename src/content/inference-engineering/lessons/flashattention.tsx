@@ -17,8 +17,8 @@ export const lesson: Lesson = {
       body: (
         <>
           <p>
-            Attention is the most expensive operation in an LLM during prefill, the phase that
-            processes the whole prompt. In its textbook form it has three steps:
+            Attention is a major cost in an LLM during prefill, the phase that processes the whole
+            prompt, and it dominates at long prompts. In its textbook form it has three steps:
           </p>
           <ol>
             <li>Multiply queries by keys to get a score for every pair of tokens.</li>

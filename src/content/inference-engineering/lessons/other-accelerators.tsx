@@ -79,7 +79,7 @@ print(torch.version.hip)          # None on a CUDA build`}</code>
           </pre>
           <p>
             <strong>Google TPUs</strong> are custom chips built around large matrix engines, and
-            they scale through fast links between chips. They're available only on Google Cloud.
+            they scale through fast links between chips. They're mainly offered through Google Cloud.
             They work well with JAX. They can be a strong choice for teams already on that
             platform, and Google runs its own models on them.
           </p>
@@ -171,7 +171,7 @@ Payback:         $120,000 ÷ $30,000 = 4 months`}</code>
   ],
   takeaways: [
     "Inference is a good fit for alternatives, because the workload is stable and well defined.",
-    "AMD is the closest match to NVIDIA GPUs. TPUs and AWS chips are tied to their clouds.",
+    "AMD is the closest match to NVIDIA GPUs. TPUs and AWS chips are mostly tied to their clouds.",
     "SRAM-heavy chips favor speed per user, but memory per chip is limited.",
     "Include porting and ongoing maintenance when calculating any saving.",
     "OpenAI-compatible interfaces keep your options open.",

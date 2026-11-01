@@ -52,7 +52,7 @@ At 400 TFLOP/s achieved:  32 ÷ 400 = 0.08 s = about 80 ms`}</code>
           </pre>
           <p>
             Each weight is read once but used for 2,000 tokens, so intensity is high and the math
-            units stay busy. Doubling the prompt doubles prefill time. Faster compute, such as
+            units stay busy. Doubling the prompt roughly doubles prefill time, until attention's quadratic cost starts to matter. Faster compute, such as
             lower precision, directly shortens it.
           </p>
         </>

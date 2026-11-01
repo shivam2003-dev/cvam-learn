@@ -140,8 +140,8 @@ with torch.inference_mode():
             all to leaving about 8 GB for KV cache and overhead.
           </p>
           <Callout tone="note">
-            Native hardware support matters. NVIDIA's Hopper GPUs added FP8 support, and Blackwell
-            added FP4. On older GPUs these formats may be unsupported or need slow conversion, so
+            Native hardware support matters. NVIDIA's Ada and Hopper GPUs added FP8 support, and
+            Blackwell added FP4. On older GPUs these formats may be unsupported or need slow conversion, so
             check your target before committing. Specs and support change, so verify them.
           </Callout>
         </>

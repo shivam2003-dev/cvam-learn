@@ -18,8 +18,8 @@ export const lesson: Lesson = {
           <p>
             A data scientist trains a model in a notebook and it scores well. Everyone is happy.
             Six months later it still isn't in production, or it shipped and nobody knows if it
-            still works. This is the most common way ML projects fail, and the model usually
-            isn't the reason.
+            still works. This is a very common way for ML projects to fail, and the model itself
+            is often not the reason.
           </p>
           <p>
             <strong>MLOps</strong> is the set of practices that closes this gap. It applies the

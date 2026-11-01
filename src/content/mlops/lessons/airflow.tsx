@@ -82,7 +82,7 @@ export const lesson: Lesson = {
 from airflow.sdk import dag, task
 
 @dag(
-    schedule="0 3 * * *",            # every day at 03:00 UTC
+    schedule="0 3 * * *",            # every day at 03:00 (UTC by default)
     start_date=datetime(2026, 1, 1),
     catchup=False,
     max_active_runs=1,
@@ -133,7 +133,9 @@ churn_retrain()`}</code>
           <p>
             Test without the scheduler by running{" "}
             <code>airflow dags test churn_retrain 2026-03-14</code>, or one task with{" "}
-            <code>airflow tasks test churn_retrain validate 2026-03-14</code>.
+            <code>airflow tasks test churn_retrain build_snapshot 2026-03-14</code>. A task that takes
+            another task's output, like <code>validate</code>, has no upstream result to read in
+            that mode, so test the first task or run the whole DAG.
           </p>
           <Callout tone="warn" title="Check what the date means">
             <code>ds</code> is the run's logical date, and its meaning varies. By default in

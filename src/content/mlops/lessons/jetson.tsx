@@ -46,7 +46,7 @@ export const lesson: Lesson = {
           <p>Three differences from a server shape everything else:</p>
           <ul>
             <li>
-              <strong>Arm64:</strong> x86 container images will not run. You need arm64 builds.
+              <strong>Arm64:</strong> x86 container images will not run natively. You need arm64 builds.
             </li>
             <li>
               <strong>Unified memory:</strong> the CPU and GPU share one memory pool. Copies between

@@ -113,7 +113,7 @@ Reduction: 4,100,000 ÷ 104,000 ≈ 39 times less work`}</code>
             rows={[
               ["--model-path", "Model repository or local folder"],
               ["--context-length", "Longest context, otherwise taken from the model config"],
-              ["--mem-fraction-static", "Share of GPU memory for weights and KV cache; lower it first on out-of-memory errors"],
+              ["--mem-fraction-static", "Share of GPU memory for weights and KV cache; lower it if the server runs out of memory"],
               ["--schedule-policy", "Queue order, such as fcfs or lpm"],
             ]}
           />

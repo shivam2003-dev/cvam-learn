@@ -96,9 +96,9 @@ KV per request:   4 GiB total, so 4 ÷ 4 = 1 GiB per GPU
 Concurrency:      18 ÷ 1 = 18 requests, before overhead`}</code>
           </pre>
           <p>
-            In practice, a little more than one quarter lands on each GPU. Embedding tables and
-            layer norms are often kept whole on every GPU, and the engine needs its own working
-            memory.
+            In practice, a little more than one quarter lands on each GPU. Layer norms and some
+            other small tensors are usually copied whole onto every GPU, and the engine needs its
+            own working memory.
           </p>
         </>
       ),

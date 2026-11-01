@@ -232,10 +232,10 @@ Difference = 0.6 points
     },
     {
       kind: "text",
-      q: "Two million embeddings have 512 dimensions, stored in 4-byte floats. How many GB is that, where 1 GB is 1,000,000,000 bytes?",
+      q: "Two million embeddings have 1,000 dimensions, stored in 4-byte floats. How many GB is that, where 1 GB is 1,000,000,000 bytes?",
       format: "*",
       accept: ["8", "8gb", "8 gb"],
-      explain: "2,000,000 × 512 × 4 = 8,000,000,000 bytes, which is 8 GB.",
+      explain: "2,000,000 × 1,000 × 4 = 8,000,000,000 bytes, which is 8 GB.",
     },
   ],
 };

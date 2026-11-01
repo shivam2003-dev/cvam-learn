@@ -17,7 +17,7 @@ export const lesson: Lesson = {
       body: (
         <>
           <p>
-            Most production inference today runs on NVIDIA's <strong>Hopper</strong> and{" "}
+            A large share of production inference runs on NVIDIA's <strong>Hopper</strong> and{" "}
             <strong>Blackwell</strong> GPUs, and clouds usually offer both. The newer one isn't
             automatically the right one. The older GPU may be cheaper and easier to get, and it
             may meet your latency target anyway. Headline claims won't tell you, because they
@@ -120,7 +120,7 @@ FP4 202.5   3 (2.53)    2 (1.13)     1 (0.75)`}</code>
           </pre>
           <p>
             These numbers use the low end of each memory range, and they're only for the weights.
-            A real deployment needs extra room for KV caches, so the true count is often higher.
+            A real deployment needs extra room for KV caches, so the true count is often higher. Tensor parallel sizes also usually need to divide the model's attention heads evenly, which in practice means 2, 4 or 8 GPUs.
             A single B300 holding the FP4 weights has about 67.5 GB left for caches, which is a
             workable amount. Note too that FP4 runs well only on hardware that supports it, and
             aggressive quantization must be tested for quality.

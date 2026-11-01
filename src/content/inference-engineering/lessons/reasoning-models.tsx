@@ -147,7 +147,7 @@ export const lesson: Lesson = {
             reasoning parser does this, so clients get them in separate fields:
           </p>
           <pre>
-            <code>{`vllm serve deepseek-ai/DeepSeek-R1 \\
+            <code>{`vllm serve deepseek-ai/DeepSeek-R1-Distill-Qwen-7B \\
   --reasoning-parser deepseek_r1 \\
   --max-model-len 32768`}</code>
           </pre>

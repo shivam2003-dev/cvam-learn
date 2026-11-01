@@ -89,9 +89,9 @@ export const lesson: Lesson = {
             and writing to disk also had a cost.
           </p>
           <pre>
-            <code>{`def should_offload(tokens, gb_per_token, bandwidth_gbps,
+            <code>{`def should_offload(tokens, gb_per_token, bandwidth_gb_per_s,
                    overhead_s, prefill_tokens_per_s):
-    reload_s = tokens * gb_per_token / bandwidth_gbps + overhead_s
+    reload_s = tokens * gb_per_token / bandwidth_gb_per_s + overhead_s
     recompute_s = tokens / prefill_tokens_per_s
     return reload_s < recompute_s
 
@@ -118,9 +118,9 @@ should_offload(8_000, 0.0005, 5, 0.005, 5_000)  # True: 0.805 s vs 1.6 s`}</code
               choice. Blocks shared by many requests deserve more protection.
             </li>
             <li>
-              <strong>When is it written?</strong> Copying a cache as it's evicted loses nothing but
-              blocks freeing memory. Copying in the background costs bandwidth but makes eviction
-              instant.
+              <strong>When is it written?</strong> Copying a cache only as it's evicted adds no
+              extra traffic, but the memory can't be freed until the copy finishes. Copying in the
+              background costs bandwidth but makes eviction instant.
             </li>
             <li>
               <strong>When is it promoted?</strong> Load it back on a hit. Some systems preload it if

@@ -62,7 +62,7 @@ export const lesson: Lesson = {
           </p>
           <p>
             Take a 4,096 × 4,096 tensor in 16-bit. That's 16,777,216 values × 2 bytes, or 32 MiB.
-            Apply three element-wise steps: add bias, GELU, dropout.
+            Apply three element-wise steps: add bias, GELU, scale.
           </p>
           <pre>
             <code>{`Unfused:  3 kernels × (read 32 MiB + write 32 MiB) = 192 MiB moved
@@ -72,7 +72,7 @@ Fused:    1 kernel  ×  (read 32 MiB + write 32 MiB) =  64 MiB moved
           </pre>
           <p>
             Element-wise operations have very low arithmetic intensity, so they're memory-bound.
-            That makes cutting their memory traffic the entire game.
+            That makes cutting their memory traffic the main lever.
           </p>
           <Table
             head={["Common fusion", "What it removes"]}

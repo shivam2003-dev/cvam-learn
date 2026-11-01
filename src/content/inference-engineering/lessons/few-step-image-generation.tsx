@@ -52,7 +52,7 @@ export const lesson: Lesson = {
           <p>
             A <strong>solver</strong> is the math inside the scheduler that takes a noise prediction
             and moves the latent forward. The basic methods take simple first-order steps. Smarter
-            ones, such as DDIM and DPM-Solver++, use more of the path's structure, or reuse earlier
+            ones, such as DPM-Solver++ and UniPC, use more of the path's structure, or reuse earlier
             predictions to estimate the curve. They get the same denoiser closer to the true path.
           </p>
           <p>This is the cheapest speedup available, as it's a one-line change in Diffusers:</p>
@@ -135,7 +135,7 @@ image = pipe(
             If curves are the problem, train a model whose paths are straighter. That's the idea
             behind <strong>rectified flow</strong>, a form of flow matching. A straight path has less
             error for a large step, so fewer steps go further. FLUX.1 uses flow matching, and its
-            schnell variant is tuned to run in about 4 steps.
+            schnell variant is distilled to run in about 4 steps.
           </p>
           <p>
             A separate family of tricks reduces the cost of each step rather than the number of

@@ -109,7 +109,7 @@ Read it back:
           <Table
             head={["Flavor", "Weights", "Activations", "Needs data?"]}
             rows={[
-              ["Weight-only", "Quantized", "Left at higher precision", "Usually no"],
+              ["Weight-only", "Quantized", "Left at higher precision", "Depends: simple rounding no, GPTQ and AWQ yes"],
               ["Dynamic", "Quantized", "Quantized, range measured per batch at run time", "No"],
               ["Static", "Quantized", "Quantized, range fixed in advance", "Yes, for calibration"],
             ]}
@@ -117,7 +117,7 @@ Read it back:
           <p>
             <strong>Calibration</strong> means running a few hundred representative prompts through
             the model and recording the activation ranges, so they can be frozen into the model.
-            Static quantization is the fastest at run time, because no ranges are computed. It also
+            Static quantization can be the fastest at run time, because no ranges are computed. It also
             carries a risk: if calibration data doesn't look like real traffic, those frozen ranges
             will fit badly.
           </p>

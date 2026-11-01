@@ -73,7 +73,7 @@ export const lesson: Lesson = {
       body: (
         <>
           <p>
-            Modern chat LLMs are <strong>decoder-only</strong>. There's no separate encoder: the
+            Most modern chat LLMs are <strong>decoder-only</strong>. There's no separate encoder: the
             prompt and the response share one sequence, and the model continues it.
           </p>
           <p>

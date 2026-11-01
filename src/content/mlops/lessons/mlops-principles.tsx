@@ -114,7 +114,7 @@ export const lesson: Lesson = {
     },
     {
       kind: "text",
-      q: "What term means retraining and releasing models automatically? Two words.",
+      q: "What term means retraining models automatically on new data or a trigger? Two words.",
       format: "********** ********",
       accept: ["continuous training"],
       explain: "Continuous training keeps a model up to date as new data arrives.",

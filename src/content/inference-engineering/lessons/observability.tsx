@@ -113,7 +113,7 @@ export const lesson: Lesson = {
         <>
           <p>
             A <strong>service level objective</strong> (SLO) is a target for good behavior, such as
-            "99.9% of requests succeed, with TTFT under 2 seconds." Its opposite is the{" "}
+            "99.9% of requests succeed, with TTFT under 2 seconds." Its flip side is the{" "}
             <strong>error budget</strong>: how much failure you can accept in a period.
           </p>
           <Formula>error budget = (1 − SLO) × period</Formula>
@@ -205,7 +205,7 @@ export const lesson: Lesson = {
       kind: "text",
       q: "Your SLO is 99.5% over 30 days (43,200 minutes). What's the error budget in minutes?",
       format: "***",
-      accept: ["216"],
+      accept: ["216", "216 minutes"],
       explain: "0.005 × 43,200 = 216 minutes.",
     },
     {
@@ -236,7 +236,7 @@ export const lesson: Lesson = {
       kind: "text",
       q: "98 requests take 1 second and 2 take 50 seconds. What's the p99 latency in seconds?",
       format: "**",
-      accept: ["50", "50s"],
+      accept: ["50", "50s", "50 s", "50 seconds"],
       explain: "The 99th of 100 sorted requests is one of the two slow ones.",
     },
   ],

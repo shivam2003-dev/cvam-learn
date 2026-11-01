@@ -147,7 +147,7 @@ With VAD:    60 × 0.40 = 24 min of speech
              24 min ÷ 20 = 1.2 min of GPU time
 Saving:      1.8 min, or 60%`}</code>
           </pre>
-          <Formula>saved GPU time = total time × (1 − speech fraction)</Formula>
+          <Formula>saved GPU time = total time × (1 − speech fraction) ÷ speed</Formula>
           <p>
             The VAD also has a cost, but it's tiny. It runs on a CPU, and a small share of one core
             can usually keep up with a stream. Check that on your own hardware before planning

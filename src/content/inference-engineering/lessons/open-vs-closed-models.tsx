@@ -22,7 +22,7 @@ export const lesson: Lesson = {
           </p>
           <p>
             An <strong>open-weight model</strong> publishes its trained weights for download, so
-            you can run it wherever you like. This is where nearly all hands-on inference
+            you can run it wherever you like. This is where most hands-on inference
             engineering happens, because you control the whole stack.
           </p>
           <p>

@@ -25,7 +25,7 @@ export const lesson: Lesson = {
           <p>
             Output is generated one token at a time. Without any cache, producing token 1,001
             means recomputing keys and values for the previous 1,000 tokens, and token 1,002
-            repeats it all again. Total work grows with the square of the sequence length.
+            repeats it all again. Total work grows at least with the square of the sequence length.
           </p>
           <p>
             But keys and values for old tokens never change, because earlier text doesn't change.

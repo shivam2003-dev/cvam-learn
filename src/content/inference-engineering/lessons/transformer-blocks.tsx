@@ -72,8 +72,8 @@ export const lesson: Lesson = {
             embeddings, which rotates query and key vectors by an amount based on position.
           </p>
           <p>
-            For serving, position methods affect the maximum context a model supports, and how
-            cleanly requests can be batched.
+            For serving, position methods affect the maximum context a model supports and how well
+            it handles long inputs.
           </p>
         </>
       ),

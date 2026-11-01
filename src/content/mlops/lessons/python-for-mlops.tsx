@@ -147,6 +147,7 @@ def main() -> None:
         raise ValueError(f"No rows found in {args.data}")
 
     log.info("Training on %d rows, seed=%d", len(df), args.seed)
+    args.out.mkdir(parents=True, exist_ok=True)
     metrics = fit_and_score(df, args.out, seed=args.seed)
 
     (args.out / "metrics.json").write_text(json.dumps(metrics))

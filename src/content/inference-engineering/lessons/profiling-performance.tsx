@@ -126,7 +126,8 @@ py-spy dump --pid 1234                    # one snapshot of all threads`}</code>
           </p>
           <p>For operations inside the model, use the PyTorch profiler:</p>
           <pre>
-            <code>{`from torch.profiler import ProfilerActivity, profile, record_function
+            <code>{`import torch
+from torch.profiler import ProfilerActivity, profile, record_function
 
 with profile(
     activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA],

@@ -229,7 +229,7 @@ Full prompts and outputs, 20 KB per request:
       kind: "text",
       q: "You log 1,000 bytes for each of 100 requests per second. How many GB is that per day? (A day has 86,400 seconds.)",
       format: "****",
-      accept: ["8.64"],
+      accept: ["8.64", "8.64gb", "8.64 gb"],
       explain: "100 × 1,000 × 86,400 = 8,640,000,000 bytes, which is 8.64 GB.",
     },
     {

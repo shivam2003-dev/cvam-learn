@@ -65,7 +65,7 @@ export const lesson: Lesson = {
             <li>Fine-tune, if the task and data are stable and volume justifies it.</li>
           </ol>
           <p>
-            The third point is a common trap. Fine-tuning teaches <em>behavior</em>, not facts. If
+            The third point is a common trap. Fine-tuning mainly teaches <em>behavior</em>, not facts. If
             your prices change every week, a tuned model will keep quoting old ones. Retrieval
             handles facts that change, and tuning handles how the model behaves.
           </p>
@@ -201,7 +201,7 @@ Break-even: $5,000 ÷ $104 = about 48 days`}</code>
   ],
   takeaways: [
     "Fine-tuning adapts a model to your task, and distillation moves a large model's skill into a small one.",
-    "Fix prompts, formats and retrieval first, since tuning teaches behavior rather than facts.",
+    "Fix prompts, formats and retrieval first, since tuning mainly teaches behavior rather than facts.",
     "LoRA trains a tiny fraction of the parameters and lets many adapters share one base model.",
     "Distillation relies on clean teacher outputs and on terms that allow the use.",
     "Payback depends on sustained volume, so calculate break-even before you start.",

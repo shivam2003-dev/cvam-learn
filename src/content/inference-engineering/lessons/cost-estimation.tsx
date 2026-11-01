@@ -203,7 +203,7 @@ Utilization: 2,222 ÷ 4,000          ≈ 56%`}</code>
       kind: "text",
       q: "A GPU costs $9 per hour and generates 1,000 tokens per second at 50% utilization. What's the cost in dollars per 1M tokens?",
       format: "*",
-      accept: ["5", "5.00", "$5"],
+      accept: ["5", "5.00", "$5", "$5.00"],
       explain: "1,000 × 3,600 × 0.5 = 1.8M tokens per hour, and $9 ÷ 1.8 = $5.",
     },
     {
@@ -236,7 +236,7 @@ Utilization: 2,222 ÷ 4,000          ≈ 56%`}</code>
       kind: "text",
       q: "A customer uses 20M output tokens and 100M input tokens, with an input-to-output ratio of 5. How many million output-equivalent tokens is that?",
       format: "**",
-      accept: ["40", "40M"],
+      accept: ["40", "40M", "40 million"],
       explain: "20 + (100 ÷ 5) = 40 million.",
     },
   ],

@@ -146,7 +146,7 @@ export const lesson: Lesson = {
           <p>
             Time needs care too. <strong>Event time</strong> is when something happened.{" "}
             <strong>Processing time</strong> is when your system saw it. A phone that was offline
-            may send a purchase two hours late. Always build features on event time, or the same
+            may send a purchase two hours late. Build features on event time where you can, or the same
             events can produce different feature values depending on when they were processed.
           </p>
         </>

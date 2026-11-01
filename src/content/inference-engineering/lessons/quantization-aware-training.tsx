@@ -19,7 +19,7 @@ export const lesson: Lesson = {
           <p>
             Post-training quantization rounds weights after training ends. The model never saw that
             rounding, so it has no chance to work around it. Often that's fine. Sometimes, especially
-            at 4 bits or lower, accuracy falls too far, and no amount of calibration fixes it.
+            at 4 bits or lower, accuracy falls too far, and calibration alone may not fix it.
           </p>
           <p>
             <strong>Quantization-aware training</strong>, or QAT, teaches the model about rounding

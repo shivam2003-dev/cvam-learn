@@ -120,7 +120,7 @@ Total                              279 s  (about 4.7 minutes)`}</code>
           <ul>
             <li><strong>Startup probe:</strong> gives a slow process time to start before other checks begin.</li>
             <li><strong>Readiness probe:</strong> decides if the pod should receive traffic.</li>
-            <li><strong>Liveness probe:</strong> restarts a pod that has stopped responding.</li>
+            <li><strong>Liveness probe:</strong> restarts a container that has stopped responding.</li>
           </ul>
           <pre>
             <code>{`containers:
@@ -143,7 +143,7 @@ Total                              279 s  (about 4.7 minutes)`}</code>
           </pre>
           <Callout tone="warn">
             A liveness probe without a startup probe is a classic trap. If the model takes four
-            minutes to load and liveness gives up after 30 seconds, Kubernetes kills the pod and
+            minutes to load and liveness gives up after 30 seconds, Kubernetes kills the container and
             starts again, forever. The pod never gets ready, and nothing in the logs looks like an
             error from the model itself.
           </Callout>

@@ -43,7 +43,7 @@ export const lesson: Lesson = {
             head={["Model", "Experts", "Active per token", "Total params", "Active params"]}
             rows={[
               ["Mixtral 8x7B", "8", "2", "About 47B", "About 13B"],
-              ["DeepSeek-V3", "256", "8", "671B", "37B"],
+              ["DeepSeek-V3", "256 routed, plus 1 shared", "8 routed, plus the shared one", "671B", "37B"],
             ]}
           />
           <p>

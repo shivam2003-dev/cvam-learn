@@ -84,6 +84,10 @@ export const lesson: Lesson = {
   }
 }
 
+provider "aws" {
+  region = "eu-west-1"
+}
+
 variable "environment" {
   type = string
 }
@@ -237,7 +241,8 @@ Saving:       $2,880 − $704                   = $2,176 per month`}</code>
             Setting the count to 0 removes the machines, and the bucket stays. A forgotten GPU is
             one of the most common surprise bills in ML, so <code>terraform destroy</code> on a
             short-lived experiment environment is a good habit, provided its important data is
-            stored elsewhere.
+            stored elsewhere. Note that <code>prevent_destroy</code> on the bucket above will make
+            a full destroy fail, which is the point of that setting.
           </p>
           <p>
             Terraform stops once the machine exists. Installing packages inside that machine is

@@ -81,7 +81,7 @@ Intensity 1365:  min(1000, 1365 × 3) = 1,000 TFLOP/s  (flat top)`}</code>
             </li>
           </ul>
           <Callout tone="tip">
-            Always ask where you sit relative to the roof before you optimize. Teams routinely
+            Always ask where you sit relative to the roof before you optimize. Teams can
             spend weeks speeding up math in a job that was waiting on memory the whole time.
           </Callout>
         </>

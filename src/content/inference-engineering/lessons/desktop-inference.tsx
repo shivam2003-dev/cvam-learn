@@ -75,7 +75,7 @@ export const lesson: Lesson = {
           <pre>
             <code>{`Illustrative laptop: 100 GB/s memory bandwidth
 7B model at 4-bit:  3.5 GB
-Upper bound:  100 ÷ 3.5  ≈ 28 tokens/s
+Upper bound:  100 ÷ 3.5  ≈ 29 tokens/s
 
 Same laptop, 13B at 4-bit: 6.5 GB  →  100 ÷ 6.5 ≈ 15 tokens/s`}</code>
           </pre>

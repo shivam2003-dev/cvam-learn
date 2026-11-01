@@ -51,8 +51,9 @@ export const lesson: Lesson = {
           </p>
           <p>
             How much does that hurt? A new connection needs round trips for TCP and TLS before the
-            prompt even arrives, so a cold connection adds about three round trips to the time to
-            first token. Reusing connections removes most of that.
+            prompt even arrives, so a cold connection adds roughly two to three extra round trips
+            to the time to first token, depending on the TLS version. Reusing connections removes
+            most of that.
           </p>
           <p>
             But distance doesn't slow a stream once it's going. All tokens arrive late by the same
@@ -210,7 +211,7 @@ export const lesson: Lesson = {
       kind: "text",
       q: "Two cities are 6,000 km apart in a straight fiber line. What's the minimum round trip, in milliseconds?",
       format: "**",
-      accept: ["60", "60ms"],
+      accept: ["60", "60ms", "60 ms"],
       explain: "2 × 6,000 ÷ 200 = 60 ms.",
     },
     {

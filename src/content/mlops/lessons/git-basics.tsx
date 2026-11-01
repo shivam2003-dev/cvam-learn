@@ -43,8 +43,8 @@ export const lesson: Lesson = {
         <>
           <p>
             A <strong>commit</strong> is a snapshot of tracked files, plus an author, a message and
-            a link to its parent commit. Each one gets a hash, a 40-character ID computed from its
-            content, such as <code>9fceb02d0ae598e95dc970b74767f19372d61af8</code>. Change anything
+            a link to its parent commit. Each one gets a hash, an ID computed from its content (40
+            characters in Git's default SHA-1 format), such as <code>9fceb02d0ae598e95dc970b74767f19372d61af8</code>. Change anything
             and the hash changes, so a hash identifies one exact state of the code.
           </p>
           <p>Work moves through three places:</p>

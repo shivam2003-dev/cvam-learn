@@ -18,7 +18,7 @@ export const lesson: Lesson = {
         <>
           <p>
             Text models stream results token by token, so users see progress almost immediately.
-            Image models give you nothing useful until the very end, and each image may hold a GPU
+            Image models usually give you nothing useful until the very end, and each image may hold a GPU
             for seconds. A burst of users can't be served with a plain request and response without
             timeouts and wasted capacity.
           </p>

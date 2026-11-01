@@ -62,8 +62,8 @@ export const lesson: Lesson = {
             mentions the app. Traffic can multiply in minutes, faster than new GPUs can start.
           </p>
           <p>
-            Consumer apps also have a pricing problem. Most users pay nothing, and paying users
-            usually pay a flat fee. So a heavy user can cost far more than they bring in. Common
+            Consumer apps also have a pricing problem. Many users pay nothing, and paying users
+            often pay a flat fee. So a heavy user can cost far more than they bring in. Common
             responses:
           </p>
           <ul>

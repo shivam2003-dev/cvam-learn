@@ -19,8 +19,8 @@ export const lesson: Lesson = {
           <p>
             A Mixture of Experts (MoE) model replaces the feed-forward block with many smaller
             networks called <strong>experts</strong>. A small <strong>router</strong> picks a few
-            of them for each token. DeepSeek-V3, for example, has 256 experts per MoE layer and
-            activates 8 per token. Nearly all of the model's memory sits in experts that any one
+            of them for each token. DeepSeek-V3, for example, has 256 routed experts per MoE layer and
+            activates 8 of them per token (plus one shared expert). Nearly all of the model's memory sits in experts that any one
             token never touches.
           </p>
           <p>
@@ -99,9 +99,9 @@ Free memory:      96 − 77.5 = 18.5 GiB for KV cache and overhead`}</code>
             200 <strong>activations</strong>. With a hidden size of 4,096 and 2 bytes per value:
           </p>
           <pre>
-            <code>{`One direction, one layer:  200 × 4,096 × 2 = 819,200 bytes
-Both directions:           819,200 × 2 = 1,638,400 bytes
-Over 40 MoE layers:        1,638,400 × 40 = 65,536,000 bytes ≈ 62.5 MiB`}</code>
+            <code>{`One direction, one layer:  200 × 4,096 × 2 = 1,638,400 bytes
+Both directions:           1,638,400 × 2 = 3,276,800 bytes
+Over 40 MoE layers:        3,276,800 × 40 = 131,072,000 bytes ≈ 125 MiB`}</code>
           </pre>
           <p>
             About 7 in 8 activations leave their home GPU on average, so most of that crosses the

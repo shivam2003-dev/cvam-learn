@@ -34,7 +34,7 @@ export const lesson: Lesson = {
       body: (
         <>
           <p>
-            Generation repeats a denoising step many times. Total time is the number of steps
+            Generation repeats a denoising step many times. Denoising time is the number of steps
             multiplied by the time of one forward pass of the main network.
           </p>
           <pre>
@@ -108,7 +108,7 @@ Cut to 6 steps (few-step methods):  6 × 0.5 s  =  3 seconds`}</code>
   ],
   takeaways: [
     "Diffusion processes a whole image or clip per step, so it's usually compute-bound.",
-    "Total time equals step count times the time of one step.",
+    "Denoising time equals step count times the time of one step.",
     "Fewer steps give the biggest speedup.",
     "Video multiplies patches by frames, and attention can grow with the square.",
     "The pixel decoder and activation memory can also become bottlenecks.",

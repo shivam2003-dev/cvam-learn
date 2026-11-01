@@ -140,8 +140,8 @@ for s in segments:
           <p>
             Streaming is a hard real-time problem. Each second of audio must be processed in under
             one second on average, or a backlog builds and latency climbs without limit. Unlike a
-            chat request, a stream also holds resources for its entire length. Connections need
-            sticky routing, because the model's state for that stream lives on one server.
+            chat request, a stream also holds resources for its entire length. Connections usually
+            need sticky routing, because the model's state for that stream lives on one server.
           </p>
           <p>Capacity follows from time per chunk. In this illustrative setup:</p>
           <pre>

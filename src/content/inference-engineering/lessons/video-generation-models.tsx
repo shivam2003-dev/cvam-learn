@@ -132,7 +132,7 @@ Ratio: 11.7 billion ÷ 392 million = about 30 times fewer`}</code>
 from diffusers import AutoencoderKLWan, WanPipeline
 from diffusers.utils import export_to_video
 
-model_id = "Wan-AI/Wan2.1-T2V-14B-720P-Diffusers"
+model_id = "Wan-AI/Wan2.1-T2V-14B-Diffusers"
 vae = AutoencoderKLWan.from_pretrained(
     model_id, subfolder="vae", torch_dtype=torch.float32
 )
@@ -175,7 +175,7 @@ VAE decode:              30 s
 Total:                  330 s, or 5.5 minutes
 
 Clips per hour:  3,600 ÷ 330 = about 10.9
-Cost per clip:   $3 ÷ 10.9 = about $0.27`}</code>
+Cost per clip:   $3 ÷ 10.9 = about $0.28`}</code>
           </pre>
           <p>
             So a single clip holds a full GPU for over five minutes. An image took a few seconds. This

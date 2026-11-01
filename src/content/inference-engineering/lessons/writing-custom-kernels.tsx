@@ -49,7 +49,7 @@ export const lesson: Lesson = {
             You choose the block size and how many blocks to launch. Each thread works out which
             piece of data is its own from its position. For n elements and 256 threads per block,
             you need <code>ceil(n ÷ 256)</code> blocks. For 1,000,000 elements, that's 3,907
-            blocks, with a few threads in the last block doing nothing.
+            blocks, with some threads in the last block doing nothing.
           </p>
         </>
       ),

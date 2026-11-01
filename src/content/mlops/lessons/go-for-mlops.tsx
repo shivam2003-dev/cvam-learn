@@ -190,15 +190,17 @@ go build -o prober .             # produce a binary
 GOOS=linux GOARCH=arm64 go build -o prober .`}</code>
           </pre>
           <p>
-            Dependencies are recorded in <code>go.mod</code> and <code>go.sum</code>, which act like
-            a Python project file and lockfile. Commit both.
+            Dependencies are recorded in <code>go.mod</code> (the requirements) and{" "}
+            <code>go.sum</code> (checksums that verify them), loosely like a Python project file
+            and lockfile. Commit both.
           </p>
           <p>
             A <strong>multi-stage Docker build</strong> compiles in one image and copies only the
             binary into a minimal one:
           </p>
           <pre>
-            <code>{`FROM golang:1.23 AS build
+            <code>{`# Use a currently supported Go version
+FROM golang:1.23 AS build
 WORKDIR /src
 COPY . .
 RUN CGO_ENABLED=0 go build -o /prober .

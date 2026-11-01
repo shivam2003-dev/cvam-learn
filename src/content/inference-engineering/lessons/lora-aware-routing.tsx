@@ -57,8 +57,8 @@ LoRA:         2 × 4,096 × 16        =    131,072 values
 Ratio:        16,777,216 ÷ 131,072  = 128 times smaller`}</code>
           </pre>
           <p>
-            Real adapters usually touch only some layers too, so they're often megabytes where the
-            base model is many gigabytes. That's why a single replica can keep several ready.
+            Real adapters usually touch only some of the matrices too, so they're often megabytes
+            where the base model is many gigabytes. That's why a single replica can keep several ready.
           </p>
         </>
       ),
@@ -184,7 +184,8 @@ LoRA-aware routing, 95% hit rate:
           <Callout tone="warn">
             If two adapters are both popular and constantly evict each other from a tight slot
             count, you'll see latency spikes while GPUs look busy. That's cache thrashing. Fix it by
-            adding slots, adding replicas, or pinning your largest adapters so they aren't evicted.
+            adding slots, adding replicas, or having your router keep your largest adapters resident so
+            they aren't evicted.
           </Callout>
         </>
       ),
@@ -202,7 +203,7 @@ LoRA-aware routing, 95% hit rate:
       kind: "text",
       q: "How many values does a rank-10 LoRA add for a 1,000 × 1,000 matrix?",
       format: "*****",
-      accept: ["20000"],
+      accept: ["20000", "20,000"],
       explain: "2 × 1,000 × 10 = 20,000 values, compared with 1,000,000 in the full matrix.",
     },
     {

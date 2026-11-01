@@ -111,8 +111,8 @@ kubectl rollout undo deployment/fraud-api   # roll back`}</code>
           </p>
           <p>
             <strong>Probes.</strong> Models can take minutes to load. The startup probe here allows
-            30 × 10 seconds = 5 minutes. Without it, Kubernetes may restart the pod before it's
-            ready, forever. The readiness probe keeps traffic away until the model can answer.
+            30 × 10 seconds = 5 minutes. Without it, a liveness probe (if you add one) may restart the
+            pod before it's ready, again and again. The readiness probe keeps traffic away until the model can answer.
           </p>
           <Callout tone="warn">
             A readiness check that returns OK before the model has loaded sends live traffic to a

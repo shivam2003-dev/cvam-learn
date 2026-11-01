@@ -62,7 +62,7 @@ export const lesson: Lesson = {
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 1          # one extra replica during the rollout
+      maxSurge: 1          # one extra replica during the rollout (needs a spare GPU)
       maxUnavailable: 0    # never go below the desired count
   template:
     spec:
@@ -139,8 +139,9 @@ export const lesson: Lesson = {
       body: (
         <>
           <p>
-            You have 20 replicas and no spare GPUs. Each one takes 3 minutes to drain and 5 minutes
-            to restart with the new version. These numbers are illustrative.
+            Now suppose you have 20 replicas and no spare GPUs, so the rollout can't surge and
+            must take replicas out of service in batches instead. Each one takes 3 minutes to
+            drain and 5 minutes to restart with the new version. These numbers are illustrative.
           </p>
           <Formula>rollout time = (replicas ÷ batch size) × time per batch</Formula>
           <pre>
@@ -222,7 +223,7 @@ Four at a time:  5 batches × 8 =  40 minutes, 20% capacity lost`}</code>
       kind: "text",
       q: "Your longest response is 6,000 tokens at 30 tokens per second. How many seconds does it take?",
       format: "***",
-      accept: ["200", "200s"],
+      accept: ["200", "200s", "200 s", "200 seconds"],
       explain: "6,000 ÷ 30 = 200 seconds, so the grace period must be longer.",
     },
     {

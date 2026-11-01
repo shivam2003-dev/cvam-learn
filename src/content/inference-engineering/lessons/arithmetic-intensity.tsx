@@ -74,7 +74,7 @@ n = 4,096  →  about 1,365 FLOP per byte`}</code>
             rows={[
               ["Matrix × vector", "About 1", "Memory-bound"],
               ["Matrix × matrix, n = 4,096", "About 1,365", "Compute-bound"],
-              ["Element-wise add or GELU", "Under 1", "Memory-bound"],
+              ["Element-wise add or GELU", "About 1 or less", "Memory-bound"],
             ]}
           />
         </>
@@ -101,9 +101,9 @@ Intensity ≈ B FLOP per byte`}</code>
             become compute-bound, if memory for the KV caches allowed it.
           </p>
           <Callout tone="tip">
-            This is why batching is the single biggest lever in LLM serving. The weight read is
-            paid once, and every extra request is nearly free until intensity reaches the chip's
-            ratio.
+            This is why batching is one of the biggest levers in LLM serving. The weight read is
+            paid once, and the weight-related work for each extra request is nearly free until
+            intensity reaches the chip's ratio. Each request still reads its own KV cache.
           </Callout>
         </>
       ),

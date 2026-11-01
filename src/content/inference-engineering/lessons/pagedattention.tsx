@@ -164,7 +164,8 @@ Paged:
             Paged allocation lets an engine admit more work than could fit if every request ran
             to its limit. So memory can still run out. When no free blocks remain, the engine
             picks a request to <strong>preempt</strong>, usually the most recent one, and frees its
-            blocks. There are two ways to resume it:
+            blocks. There are two ways to resume it, though recent vLLM versions mainly use
+            recompute:
           </p>
           <Table
             head={["Method", "How it works", "Cost"]}

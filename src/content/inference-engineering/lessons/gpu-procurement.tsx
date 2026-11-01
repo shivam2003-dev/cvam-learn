@@ -17,8 +17,8 @@ export const lesson: Lesson = {
       body: (
         <>
           <p>
-            Most cloud resources feel unlimited. GPUs often don't. Popular models can be sold out in
-            a region, new accounts can have low quotas, and a spike may arrive just when
+            Most cloud resources feel unlimited. GPUs often don't. Popular GPU models can be sold out
+            in a region, new accounts can have low quotas, and a spike may arrive just when
             you can't buy more. Paying the wrong way can double your bill. Buying too much can
             leave you with a long contract for idle hardware.
           </p>
@@ -46,7 +46,7 @@ export const lesson: Lesson = {
             rows={[
               ["Price", "Low, with a commitment", "Highest", "Usually lowest"],
               ["Commitment", "Months to years", "None", "None"],
-              ["Availability", "Guaranteed by contract", "Not guaranteed", "Not guaranteed"],
+              ["Availability", "Usually guaranteed by contract", "Not guaranteed", "Not guaranteed"],
               ["Can be taken away?", "No", "No, once running", "Yes, at short notice"],
               ["Best for", "Steady baseline load", "Peaks and short projects", "Batch and interruptible work"],
             ]}
@@ -197,7 +197,7 @@ print(best, daily_cost(demand, best))    # 20 1440.0`}</code>
       kind: "text",
       q: "You reserve 10 GPUs at $2 per hour for 24 hours. What does that cost in dollars?",
       format: "***",
-      accept: ["480", "$480"],
+      accept: ["480", "$480", "$480.00"],
       explain: "10 × 24 × $2 = $480, whether they're busy or not.",
     },
     {

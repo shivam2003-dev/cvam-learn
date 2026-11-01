@@ -55,7 +55,7 @@ export const lesson: Lesson = {
               ["Data", "The rest", "Raw tensor bytes"],
             ]}
           />
-          <p>The header is plain JSON. An entry looks like this:</p>
+          <p>The header is plain JSON. An entry looks like this, with the file's other tensors left out:</p>
           <pre>
             <code>{`{
   "__metadata__": { "format": "pt" },
@@ -76,7 +76,7 @@ export const lesson: Lesson = {
 4,096 + 1,572,864 = 1,576,960   (matches the end offset)`}</code>
           </pre>
           <p>
-            To find the first byte in the file, add what comes before the data. With a 2,000-byte
+            To find this tensor's first byte in the file, add what comes before the data. With a 2,000-byte
             header, that's <code>8 + 2,000 + 4,096 = 6,104</code>. Because each location is simple
             arithmetic, a loader can jump straight to one tensor.
           </p>

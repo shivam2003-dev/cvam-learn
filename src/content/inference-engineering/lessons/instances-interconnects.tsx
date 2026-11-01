@@ -132,7 +132,7 @@ PCIe Gen5 x16 (64 GB/s):       4 ÷ 64  = 62.5 ms
           <p>
             Compare this with memory bandwidth. A GPU reads its own HBM at terabytes per second,
             so even NVLink is much slower than local memory. This is why tensor parallelism works
-            hard to send as little as possible, and why NVLink is treated as a requirement for it.
+            hard to send as little as possible, and why fast links such as NVLink are strongly preferred for it.
           </p>
           <Table
             head={["Pattern", "Traffic", "Link needed"]}

@@ -182,7 +182,8 @@ Saved:            550 − 390           = 160 minutes`}</code>
             Check its pod:
           </p>
           <pre>
-            <code>{`kubectl get pods -n kubeflow
+            <code>{`# step pods run in the namespace of the run (a user namespace on multi-user installs)
+kubectl get pods -n kubeflow
 kubectl describe pod <pod-name> -n kubeflow   # read the Events section
 kubectl logs <pod-name> -n kubeflow`}</code>
           </pre>
