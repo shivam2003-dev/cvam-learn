@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { LinkCard, splitVideos, VideoCard } from "@/components/ResourceCards";
 import { lessonKey, useProgress } from "@/lib/progress";
 import type { NavCourse, NavLesson, NavModule, Reference } from "@/lib/types";
 
@@ -117,6 +118,7 @@ function TopicDrawer({
   const resources = lesson
     ? (lesson.resources ?? [])
     : unique((group?.lessons ?? []).flatMap((l) => l.resources ?? []));
+  const { videos, rest } = splitVideos(resources);
   const known = new Set(GROUPS.map((group) => group.type));
   const groups = [
     ...GROUPS,
@@ -180,28 +182,32 @@ function TopicDrawer({
           </ul>
         )}
 
+        {videos.length > 0 && (
+          <section className="mt-6">
+            <h3 className="font-mono text-xs uppercase tracking-wider text-faint">
+              Watch · {videos.length}
+            </h3>
+            <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              {videos.map(({ item, id }) => (
+                <VideoCard key={item.url} item={item} id={id} />
+              ))}
+            </div>
+          </section>
+        )}
+
         {groups.map(({ type, label }) => {
-          const items = resources.filter((resource) => resource.type === type);
+          const items = rest.filter((resource) => resource.type === type);
           if (items.length === 0) return null;
           return (
             <section key={type} className="mt-6">
               <h3 className="font-mono text-xs uppercase tracking-wider text-faint">
                 {label} · {items.length}
               </h3>
-              <ul className="mt-2 divide-y divide-line">
+              <div className="mt-3 grid gap-3">
                 {items.map((item) => (
-                  <li key={item.url}>
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block py-2 text-sm text-sky hover:underline"
-                    >
-                      {item.title}
-                    </a>
-                  </li>
+                  <LinkCard key={item.url} item={item} />
                 ))}
-              </ul>
+              </div>
             </section>
           );
         })}

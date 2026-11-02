@@ -1,3 +1,4 @@
+import { LinkCard, splitVideos, VideoCard } from "@/components/ResourceCards";
 import type { Reference } from "@/lib/types";
 
 export function References({
@@ -8,6 +9,8 @@ export function References({
   roadmapUrl: string;
 }) {
   if (items.length === 0) return null;
+
+  const { videos, rest: reading } = splitVideos(items);
 
   return (
     <details className="group mt-8 rounded-2xl border border-line bg-panel">
@@ -20,23 +23,32 @@ export function References({
           </span>
         </span>
       </summary>
-      <ul className="divide-y divide-line border-t border-line">
-        {items.map((item) => (
-          <li key={item.url} className="flex items-baseline gap-3 px-5 py-2.5 text-sm">
-            <span className="w-16 shrink-0 font-mono text-xs text-faint capitalize">
-              {item.type}
-            </span>
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noreferrer"
-              className="min-w-0 text-sky hover:underline"
-            >
-              {item.title}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <div className="space-y-6 border-t border-line p-5">
+        {videos.length > 0 && (
+          <section>
+            <h3 className="mb-3 font-mono text-xs uppercase tracking-wider text-faint">
+              Watch · {videos.length}
+            </h3>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {videos.map(({ item, id }) => (
+                <VideoCard key={item.url} item={item} id={id} />
+              ))}
+            </div>
+          </section>
+        )}
+        {reading.length > 0 && (
+          <section>
+            <h3 className="mb-3 font-mono text-xs uppercase tracking-wider text-faint">
+              Read and explore · {reading.length}
+            </h3>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {reading.map((item) => (
+                <LinkCard key={item.url} item={item} />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
       <p className="border-t border-line px-5 py-3 text-xs text-faint">
         Curated picks plus links from the{" "}
         <a href={roadmapUrl} className="underline underline-offset-2 hover:text-soft">
