@@ -4,6 +4,8 @@ import { lesson as authBridging } from "./auth-bridging";
 import { lesson as billingDecompose } from "./billing-decompose";
 import { lesson as billingDesign } from "./billing-design";
 import { lesson as billingInterview } from "./billing-interview";
+import { lesson as capstoneDataIntegration } from "./capstone-data-integration";
+import { lesson as capstoneLlmApplication } from "./capstone-llm-application";
 import { lesson as choosingAgenticFramework } from "./choosing-agentic-framework";
 import { lesson as clientApproach } from "./client-approach";
 import { lesson as clientSecurityDeployment } from "./client-security-deployment";
@@ -14,6 +16,15 @@ import { lesson as csAgentInterview } from "./cs-agent-interview";
 import { lesson as customerDiscovery } from "./customer-discovery";
 import { lesson as dataContractsSchemaChanges } from "./data-contracts-schema-changes";
 import { lesson as dataMovementPatterns } from "./data-movement-patterns";
+import { lesson as deliveryDefending } from "./delivery-defending";
+import { lesson as deliveryInterface } from "./delivery-interface";
+import { lesson as deliveryLiveExtension } from "./delivery-live-extension";
+import { lesson as deliveryMistakes } from "./delivery-mistakes";
+import { lesson as deliveryReadme } from "./delivery-readme";
+import { lesson as deliveryRolePlay } from "./delivery-role-play";
+import { lesson as deliveryTradeoffs } from "./delivery-tradeoffs";
+import { lesson as deliveryUserWorkflow } from "./delivery-user-workflow";
+import { lesson as deliveryWalkthroughVideo } from "./delivery-walkthrough-video";
 import { lesson as enterpriseConstraints } from "./enterprise-constraints";
 import { lesson as failuresRateLimitsSilentErrors } from "./failures-rate-limits-silent-errors";
 import { lesson as fieldFeedbackLoop } from "./field-feedback-loop";
@@ -50,7 +61,19 @@ import { lesson as shipmentDesign } from "./shipment-design";
 import { lesson as shipmentInterview } from "./shipment-interview";
 import { lesson as shipmentProject } from "./shipment-project";
 import { lesson as stakeholderCommunication } from "./stakeholder-communication";
+import { lesson as takehomeAmbiguity } from "./takehome-ambiguity";
+import { lesson as takehomeCodeQuality } from "./takehome-code-quality";
+import { lesson as takehomeEvaluatingLlm } from "./takehome-evaluating-llm";
+import { lesson as takehomeLlmSolutions } from "./takehome-llm-solutions";
+import { lesson as takehomeMessyData } from "./takehome-messy-data";
+import { lesson as takehomeMvp } from "./takehome-mvp";
+import { lesson as takehomeReadingBrief } from "./takehome-reading-brief";
+import { lesson as takehomeScoring } from "./takehome-scoring";
+import { lesson as takehomeStack } from "./takehome-stack";
+import { lesson as takehomeThirdPartyApis } from "./takehome-third-party-apis";
+import { lesson as takehomeTypes } from "./takehome-types";
 import { lesson as weekInTheLife } from "./week-in-the-life";
+import { lesson as whatsNext } from "./whats-next";
 import { lesson as whoIsAnFde } from "./who-is-an-fde";
 
 export const lessons: Record<string, Lesson> = {
@@ -59,6 +82,8 @@ export const lessons: Record<string, Lesson> = {
   "billing-decompose": billingDecompose,
   "billing-design": billingDesign,
   "billing-interview": billingInterview,
+  "capstone-data-integration": capstoneDataIntegration,
+  "capstone-llm-application": capstoneLlmApplication,
   "choosing-agentic-framework": choosingAgenticFramework,
   "client-approach": clientApproach,
   "client-security-deployment": clientSecurityDeployment,
@@ -69,6 +94,15 @@ export const lessons: Record<string, Lesson> = {
   "customer-discovery": customerDiscovery,
   "data-contracts-schema-changes": dataContractsSchemaChanges,
   "data-movement-patterns": dataMovementPatterns,
+  "delivery-defending": deliveryDefending,
+  "delivery-interface": deliveryInterface,
+  "delivery-live-extension": deliveryLiveExtension,
+  "delivery-mistakes": deliveryMistakes,
+  "delivery-readme": deliveryReadme,
+  "delivery-role-play": deliveryRolePlay,
+  "delivery-tradeoffs": deliveryTradeoffs,
+  "delivery-user-workflow": deliveryUserWorkflow,
+  "delivery-walkthrough-video": deliveryWalkthroughVideo,
   "enterprise-constraints": enterpriseConstraints,
   "failures-rate-limits-silent-errors": failuresRateLimitsSilentErrors,
   "field-feedback-loop": fieldFeedbackLoop,
@@ -105,6 +139,18 @@ export const lessons: Record<string, Lesson> = {
   "shipment-interview": shipmentInterview,
   "shipment-project": shipmentProject,
   "stakeholder-communication": stakeholderCommunication,
+  "takehome-ambiguity": takehomeAmbiguity,
+  "takehome-code-quality": takehomeCodeQuality,
+  "takehome-evaluating-llm": takehomeEvaluatingLlm,
+  "takehome-llm-solutions": takehomeLlmSolutions,
+  "takehome-messy-data": takehomeMessyData,
+  "takehome-mvp": takehomeMvp,
+  "takehome-reading-brief": takehomeReadingBrief,
+  "takehome-scoring": takehomeScoring,
+  "takehome-stack": takehomeStack,
+  "takehome-third-party-apis": takehomeThirdPartyApis,
+  "takehome-types": takehomeTypes,
   "week-in-the-life": weekInTheLife,
+  "whats-next": whatsNext,
   "who-is-an-fde": whoIsAnFde,
 };
