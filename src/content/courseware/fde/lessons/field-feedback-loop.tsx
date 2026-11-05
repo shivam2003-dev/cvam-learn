@@ -159,16 +159,18 @@ Idea:           Native OCR in the ingestion pipeline, with a confidence score.`}
             ]}
           />
           <p>A structure that works:</p>
-          <Flow
-            numbered
-            steps={[
-              { title: "Problem", note: "Who is affected and what they cannot do", tone: "sky" },
-              { title: "Evidence", note: "Counts, quotes, recordings, tickets", tone: "sky" },
-              { title: "Impact", note: "Time, money, deals or renewals at risk", tone: "amber" },
-              { title: "Workaround", note: "What you built, with a link", tone: "lime" },
-              { title: "Proposal", note: "A suggested direction, held loosely", tone: "lime" },
-            ]}
-          />
+          <Figure caption="The structure of a product request that gets acted on: problem, evidence, impact, workaround and proposal.">
+            <Flow
+              numbered
+              steps={[
+                { title: "Problem", note: "Who is affected and what they cannot do", tone: "sky" },
+                { title: "Evidence", note: "Counts, quotes, recordings, tickets", tone: "sky" },
+                { title: "Impact", note: "Time, money, deals or renewals at risk", tone: "amber" },
+                { title: "Workaround", note: "What you built, with a link", tone: "lime" },
+                { title: "Proposal", note: "A suggested direction, held loosely", tone: "lime" },
+              ]}
+            />
+          </Figure>
           <p>
             Share your workaround code. It is often the best first draft of the feature, and it proves
             the need is real. State your proposal as a suggestion; the product team knows constraints

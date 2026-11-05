@@ -167,28 +167,30 @@ export const lesson: Lesson = {
             </li>
           </ul>
 
-          <Graph
-            label="The pilot feedback loop: users produce signals, the FDE triages them, fixes ship back to users, and metrics are reported to the sponsor"
-            cellW={190}
-            cellH={100}
-            nodeW={152}
-            nodes={[
-              { id: "users", label: "Pilot users", sub: "Use it daily", col: 0, row: 0, tone: "sky", shape: "pill" },
-              { id: "signals", label: "Signals", sub: "Logs, feedback, surveys", col: 1, row: 0, tone: "sky" },
-              { id: "triage", label: "Triage", sub: "Bug, quality, feature, training", col: 2, row: 0, tone: "lime" },
-              { id: "fix", label: "Fix and release", sub: "Twice-weekly cadence", col: 1, row: 1, tone: "lime" },
-              { id: "report", label: "Weekly report", sub: "Metrics, risks, asks", col: 3, row: 0, tone: "amber" },
-              { id: "sponsor", label: "Sponsor", sub: "Decisions and support", col: 3, row: 1, tone: "amber", shape: "pill" },
-            ]}
-            edges={[
-              { from: "users", to: "signals" },
-              { from: "signals", to: "triage" },
-              { from: "triage", to: "fix" },
-              { from: "fix", to: "users", label: "better version", dashed: true },
-              { from: "triage", to: "report" },
-              { from: "report", to: "sponsor" },
-            ]}
-          />
+          <Figure caption="The pilot feedback loop. Users produce signals, the FDE triages them, fixes ship back to users, and metrics go to the sponsor.">
+            <Graph
+              label="The pilot feedback loop: users produce signals, the FDE triages them, fixes ship back to users, and metrics are reported to the sponsor"
+              cellW={190}
+              cellH={100}
+              nodeW={152}
+              nodes={[
+                { id: "users", label: "Pilot users", sub: "Use it daily", col: 0, row: 0, tone: "sky", shape: "pill" },
+                { id: "signals", label: "Signals", sub: "Logs, feedback, surveys", col: 1, row: 0, tone: "sky" },
+                { id: "triage", label: "Triage", sub: "Bug, quality, feature, training", col: 2, row: 0, tone: "lime" },
+                { id: "fix", label: "Fix and release", sub: "Twice-weekly cadence", col: 1, row: 1, tone: "lime" },
+                { id: "report", label: "Weekly report", sub: "Metrics, risks, asks", col: 3, row: 0, tone: "amber" },
+                { id: "sponsor", label: "Sponsor", sub: "Decisions and support", col: 3, row: 1, tone: "amber", shape: "pill" },
+              ]}
+              edges={[
+                { from: "users", to: "signals" },
+                { from: "signals", to: "triage" },
+                { from: "triage", to: "fix" },
+                { from: "fix", to: "users", label: "better version", dashed: true },
+                { from: "triage", to: "report" },
+                { from: "report", to: "sponsor" },
+              ]}
+            />
+          </Figure>
         </>
       ),
     },

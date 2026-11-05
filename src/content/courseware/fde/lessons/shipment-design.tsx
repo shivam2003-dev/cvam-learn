@@ -114,16 +114,18 @@ export const lesson: Lesson = {
       title: "Safety around write actions",
       body: (
         <>
-          <Layers
-            layers={[
-              { title: "Approval", note: "No write without an approved plan tied to a specific option ID, planner and timestamp.", tone: "rose" },
-              { title: "Limits", note: "Cost ceiling and cargo-value ceiling per plan; rebooking only on lanes enabled for automation.", tone: "rose" },
-              { title: "Idempotent execution", note: "Booking requests carry an idempotency key from the plan ID, so retries cannot double-book.", tone: "amber" },
-              { title: "Re-validation before execution", note: "Recheck capacity and price just before booking; if changed beyond a tolerance, return to the planner.", tone: "amber" },
-              { title: "Compensation", note: "A defined cancel-and-restore path if a later step fails after an earlier booking succeeded.", tone: "lime" },
-              { title: "Audit", note: "Immutable record of inputs, options, reasoning, approval and actions.", tone: "sky" },
-            ]}
-          />
+          <Figure caption="Safety layers around write actions, from approval through to audit.">
+            <Layers
+              layers={[
+                { title: "Approval", note: "No write without an approved plan tied to a specific option ID, planner and timestamp.", tone: "rose" },
+                { title: "Limits", note: "Cost ceiling and cargo-value ceiling per plan; rebooking only on lanes enabled for automation.", tone: "rose" },
+                { title: "Idempotent execution", note: "Booking requests carry an idempotency key from the plan ID, so retries cannot double-book.", tone: "amber" },
+                { title: "Re-validation before execution", note: "Recheck capacity and price just before booking; if changed beyond a tolerance, return to the planner.", tone: "amber" },
+                { title: "Compensation", note: "A defined cancel-and-restore path if a later step fails after an earlier booking succeeded.", tone: "lime" },
+                { title: "Audit", note: "Immutable record of inputs, options, reasoning, approval and actions.", tone: "sky" },
+              ]}
+            />
+          </Figure>
           <Callout tone="warn" title="Untrusted text in carrier data">
             Carrier responses and customer emails can contain text that looks like instructions. The
             search agent has no write tools, and the executor consumes only validated structured

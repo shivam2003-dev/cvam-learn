@@ -112,15 +112,17 @@ export const lesson: Lesson = {
       title: "Evaluation that matches the business",
       body: (
         <>
-          <Layers
-            layers={[
-              { title: "Online outcomes", note: "Coder time per chart, acceptance rate, denial rate and audit findings after launch.", tone: "amber" },
-              { title: "Coder-in-the-loop study", note: "Blind comparison: coders with and without suggestions on the same charts; accuracy and time.", tone: "amber" },
-              { title: "Slice analysis", note: "Metrics by specialty, clinic, code group, note length and demographic group to find hidden weak spots and bias.", tone: "lime" },
-              { title: "Held-out test", note: "Precision, recall and F1 (micro and macro) by code group; calibration curve; high-confidence error rate.", tone: "lime" },
-              { title: "Baselines", note: "Prompted model, classical classifier and last year's performance, on identical data.", tone: "sky" },
-            ]}
-          />
+          <Figure caption="Evaluation layers for the coding model, from baselines up to business outcomes after launch.">
+            <Layers
+              layers={[
+                { title: "Online outcomes", note: "Coder time per chart, acceptance rate, denial rate and audit findings after launch.", tone: "amber" },
+                { title: "Coder-in-the-loop study", note: "Blind comparison: coders with and without suggestions on the same charts; accuracy and time.", tone: "amber" },
+                { title: "Slice analysis", note: "Metrics by specialty, clinic, code group, note length and demographic group to find hidden weak spots and bias.", tone: "lime" },
+                { title: "Held-out test", note: "Precision, recall and F1 (micro and macro) by code group; calibration curve; high-confidence error rate.", tone: "lime" },
+                { title: "Baselines", note: "Prompted model, classical classifier and last year's performance, on identical data.", tone: "sky" },
+              ]}
+            />
+          </Figure>
           <p>
             Report per-slice results to the customer, not only an average. A model that is excellent
             overall but poor on, say, oncology notes needs a different rollout plan for that

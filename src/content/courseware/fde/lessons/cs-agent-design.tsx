@@ -99,16 +99,18 @@ def propose_refund(session, order_ref: str, amount: float, reason: str) -> dict:
       title: "Defending a public-facing agent",
       body: (
         <>
-          <Layers
-            layers={[
-              { title: "Output guard", note: "Check replies for other customers' data, internal terms, prohibited claims (legal, medical, price promises) and tone before sending.", tone: "amber" },
-              { title: "Tool and policy enforcement", note: "Identity binding, limits, eligibility rules and approvals are code. The prompt is not a security boundary.", tone: "rose" },
-              { title: "Input handling", note: "Treat customer text, attachments and pasted emails as data. Detect injection patterns; strip or quarantine; never let them change tools or rules.", tone: "rose" },
-              { title: "Session hygiene", note: "Isolate sessions; no cross-customer memory; bounded history; reset after verification failure.", tone: "lime" },
-              { title: "Abuse controls", note: "Rate limits, anomaly detection for refund abuse and enumeration of order numbers, and escalating verification.", tone: "lime" },
-              { title: "Transparency", note: "Disclose that the customer is talking to an AI and offer a human at any time.", tone: "sky" },
-            ]}
-          />
+          <Figure caption="Defences for a public-facing agent. Limits and identity live in code; the prompt is not a security boundary.">
+            <Layers
+              layers={[
+                { title: "Output guard", note: "Check replies for other customers' data, internal terms, prohibited claims (legal, medical, price promises) and tone before sending.", tone: "amber" },
+                { title: "Tool and policy enforcement", note: "Identity binding, limits, eligibility rules and approvals are code. The prompt is not a security boundary.", tone: "rose" },
+                { title: "Input handling", note: "Treat customer text, attachments and pasted emails as data. Detect injection patterns; strip or quarantine; never let them change tools or rules.", tone: "rose" },
+                { title: "Session hygiene", note: "Isolate sessions; no cross-customer memory; bounded history; reset after verification failure.", tone: "lime" },
+                { title: "Abuse controls", note: "Rate limits, anomaly detection for refund abuse and enumeration of order numbers, and escalating verification.", tone: "lime" },
+                { title: "Transparency", note: "Disclose that the customer is talking to an AI and offer a human at any time.", tone: "sky" },
+              ]}
+            />
+          </Figure>
           <Figure caption="A social-engineering attempt against the agent. The attack fails because authorisation is enforced by the tool layer, not by the model's judgment.">
             <Sequence
               label="Sequence: attacker claims to be a manager and asks for another customer's order; the tool layer returns not found; the agent offers a safe alternative and flags the session"

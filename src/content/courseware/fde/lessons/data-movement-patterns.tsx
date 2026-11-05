@@ -123,17 +123,19 @@ export const lesson: Lesson = {
             />
           </Figure>
 
-          <Flow
-            direction="col"
-            numbered
-            steps={[
-              { title: "Does B need the data only at the moment a user acts?", note: "Call the API on demand; cache if needed.", tone: "lime" },
-              { title: "Is a day-old copy acceptable?", note: "Use a nightly batch. It is the simplest and most robust.", tone: "lime" },
-              { title: "Does A support webhooks or events?", note: "Use them, with a queue in front and a reconciliation job behind.", tone: "amber" },
-              { title: "Only an API with no push?", note: "Poll with a change cursor or updated-since filter.", tone: "amber" },
-              { title: "No API but database access is allowed?", note: "Consider CDC, with the owner's approval and care for schema changes.", tone: "rose" },
-            ]}
-          />
+          <Figure caption="A decision path for choosing how data moves. Take the first option that meets the real freshness need.">
+            <Flow
+              direction="col"
+              numbered
+              steps={[
+                { title: "Does B need the data only at the moment a user acts?", note: "Call the API on demand; cache if needed.", tone: "lime" },
+                { title: "Is a day-old copy acceptable?", note: "Use a nightly batch. It is the simplest and most robust.", tone: "lime" },
+                { title: "Does A support webhooks or events?", note: "Use them, with a queue in front and a reconciliation job behind.", tone: "amber" },
+                { title: "Only an API with no push?", note: "Poll with a change cursor or updated-since filter.", tone: "amber" },
+                { title: "No API but database access is allowed?", note: "Consider CDC, with the owner's approval and care for schema changes.", tone: "rose" },
+              ]}
+            />
+          </Figure>
 
           <Callout tone="tip" title="Real time is expensive">
             Customers say &ldquo;real time&rdquo; when they mean &ldquo;not a day old&rdquo;. Ask what

@@ -179,14 +179,16 @@ export const lesson: Lesson = {
               actions are added.
             </p>
           </Exercise>
-          <Flow
-            numbered
-            steps={[
-              { title: "Pilot 1: advise", note: "Drafts options; planners compare with their own", tone: "sky" },
-              { title: "Pilot 2: recommend", note: "Ranked plan with reasons; one-click approval", tone: "lime" },
-              { title: "Pilot 3: act", note: "Executes approved plans; low-risk lanes first", tone: "amber" },
-            ]}
-          />
+          <Figure caption="Rollout stages for a system that could rebook cargo: advise, recommend, then act on low-risk lanes.">
+            <Flow
+              numbered
+              steps={[
+                { title: "Pilot 1: advise", note: "Drafts options; planners compare with their own", tone: "sky" },
+                { title: "Pilot 2: recommend", note: "Ranked plan with reasons; one-click approval", tone: "lime" },
+                { title: "Pilot 3: act", note: "Executes approved plans; low-risk lanes first", tone: "amber" },
+              ]}
+            />
+          </Figure>
         </>
       ),
     },

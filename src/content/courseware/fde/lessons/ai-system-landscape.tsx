@@ -132,29 +132,31 @@ export const lesson: Lesson = {
             worth building: it keeps systems small and customers happy with cost.
           </p>
 
-          <Graph
-            label="A hybrid support system: rules route, a classifier detects intent, RAG retrieves policy, an LLM drafts, a person approves"
-            cellW={176}
-            cellH={100}
-            nodeW={146}
-            nodes={[
-              { id: "in", label: "Ticket", col: 0, row: 0, tone: "plain", shape: "pill" },
-              { id: "rules", label: "Rules", sub: "Spam, VIP, language", col: 1, row: 0, tone: "plain" },
-              { id: "ml", label: "Classifier", sub: "Intent and urgency", col: 2, row: 0, tone: "sky" },
-              { id: "rag", label: "RAG", sub: "Find policy passages", col: 3, row: 0, tone: "amber" },
-              { id: "llm", label: "LLM", sub: "Draft the reply", col: 3, row: 1, tone: "lime" },
-              { id: "human", label: "Agent approves", sub: "Edits and sends", col: 2, row: 1, tone: "rose", shape: "pill" },
-              { id: "out", label: "Customer", col: 1, row: 1, tone: "plain", shape: "pill" },
-            ]}
-            edges={[
-              { from: "in", to: "rules" },
-              { from: "rules", to: "ml" },
-              { from: "ml", to: "rag" },
-              { from: "rag", to: "llm" },
-              { from: "llm", to: "human" },
-              { from: "human", to: "out" },
-            ]}
-          />
+          <Figure caption="A hybrid support system. Rules route, a classifier detects intent, retrieval finds policy, a model drafts, and a person approves.">
+            <Graph
+              label="A hybrid support system: rules route, a classifier detects intent, RAG retrieves policy, an LLM drafts, a person approves"
+              cellW={176}
+              cellH={100}
+              nodeW={146}
+              nodes={[
+                { id: "in", label: "Ticket", col: 0, row: 0, tone: "plain", shape: "pill" },
+                { id: "rules", label: "Rules", sub: "Spam, VIP, language", col: 1, row: 0, tone: "plain" },
+                { id: "ml", label: "Classifier", sub: "Intent and urgency", col: 2, row: 0, tone: "sky" },
+                { id: "rag", label: "RAG", sub: "Find policy passages", col: 3, row: 0, tone: "amber" },
+                { id: "llm", label: "LLM", sub: "Draft the reply", col: 3, row: 1, tone: "lime" },
+                { id: "human", label: "Agent approves", sub: "Edits and sends", col: 2, row: 1, tone: "rose", shape: "pill" },
+                { id: "out", label: "Customer", col: 1, row: 1, tone: "plain", shape: "pill" },
+              ]}
+              edges={[
+                { from: "in", to: "rules" },
+                { from: "rules", to: "ml" },
+                { from: "ml", to: "rag" },
+                { from: "rag", to: "llm" },
+                { from: "llm", to: "human" },
+                { from: "human", to: "out" },
+              ]}
+            />
+          </Figure>
         </>
       ),
     },

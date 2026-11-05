@@ -147,15 +147,17 @@ export const lesson: Lesson = {
           <p>
             Five years of coded notes sound like a gift. Interrogate it:
           </p>
-          <Layers
-            layers={[
-              { title: "Privacy", note: "Notes contain protected health information. Training must happen in an approved environment; de-identify where possible; track who can access data and models.", tone: "rose" },
-              { title: "Label quality", note: "Were the historical codes correct? Audited and denied claims show where coders erred. Training on wrong labels teaches wrong habits.", tone: "amber" },
-              { title: "Drift", note: "Code sets, guidelines and note templates change. Old data may use retired codes.", tone: "amber" },
-              { title: "Coverage", note: "Most codes are rare. Count examples per code; very rare codes cannot be learned.", tone: "lime" },
-              { title: "Splits", note: "Split by patient or by time, never randomly by note, to avoid leakage and measure real-world performance.", tone: "lime" },
-            ]}
-          />
+          <Figure caption="Data questions to settle before any training starts, from privacy down to leakage-free splits.">
+            <Layers
+              layers={[
+                { title: "Privacy", note: "Notes contain protected health information. Training must happen in an approved environment; de-identify where possible; track who can access data and models.", tone: "rose" },
+                { title: "Label quality", note: "Were the historical codes correct? Audited and denied claims show where coders erred. Training on wrong labels teaches wrong habits.", tone: "amber" },
+                { title: "Drift", note: "Code sets, guidelines and note templates change. Old data may use retired codes.", tone: "amber" },
+                { title: "Coverage", note: "Most codes are rare. Count examples per code; very rare codes cannot be learned.", tone: "lime" },
+                { title: "Splits", note: "Split by patient or by time, never randomly by note, to avoid leakage and measure real-world performance.", tone: "lime" },
+              ]}
+            />
+          </Figure>
           <Table
             head={["Metric", "Why it matters here"]}
             rows={[
@@ -201,14 +203,16 @@ export const lesson: Lesson = {
             The target is not to replace coders. It is to give them ranked suggestions so they spend
             time on judgment, not typing. Plan three stages:
           </p>
-          <Flow
-            numbered
-            steps={[
-              { title: "Shadow", note: "Model scores historical charts and live charts invisibly; compare with coders", tone: "sky" },
-              { title: "Assist", note: "Coders see suggestions with evidence; every code is confirmed by a person", tone: "lime" },
-              { title: "Selective automation", note: "Pre-fill the highest-confidence, lowest-risk codes with sampling audits", tone: "amber" },
-            ]}
-          />
+          <Figure caption="A staged rollout for coding suggestions: shadow, then assist with confirmation, then selective automation.">
+            <Flow
+              numbered
+              steps={[
+                { title: "Shadow", note: "Model scores historical charts and live charts invisibly; compare with coders", tone: "sky" },
+                { title: "Assist", note: "Coders see suggestions with evidence; every code is confirmed by a person", tone: "lime" },
+                { title: "Selective automation", note: "Pre-fill the highest-confidence, lowest-risk codes with sampling audits", tone: "amber" },
+              ]}
+            />
+          </Figure>
           <p>
             Success criteria for moving between stages should be agreed in advance: for example,
             precision on high-risk codes above a threshold, acceptance rate above a target, and no

@@ -152,15 +152,17 @@ def apply(order, event):
       title: "Reconciliation and the finance-friendly error queue",
       body: (
         <>
-          <Layers
-            layers={[
-              { title: "Finance error queue", note: "Each failed event shows order, reason in plain words, suggested fix, owner, age; buttons to retry, edit and retry, or dismiss with a note.", tone: "amber" },
-              { title: "Reconciliation", note: "Nightly comparison of CRM and ERP by order ID, total, line count and status; differences listed and, for safe categories, auto-repaired.", tone: "amber" },
-              { title: "Alerts", note: "Queue depth, age of oldest event, error rate, and a canary order that should flow through daily.", tone: "lime" },
-              { title: "Audit trail", note: "For any invoice, the chain from CRM order to ERP order, with timestamps and the user or process involved.", tone: "lime" },
-              { title: "Runbooks", note: "Procedures for ERP downtime, a bad deploy and replay of a day of events.", tone: "sky" },
-            ]}
-          />
+          <Figure caption="Operational layers around the sync: error queue, reconciliation, alerts, audit and runbooks.">
+            <Layers
+              layers={[
+                { title: "Finance error queue", note: "Each failed event shows order, reason in plain words, suggested fix, owner, age; buttons to retry, edit and retry, or dismiss with a note.", tone: "amber" },
+                { title: "Reconciliation", note: "Nightly comparison of CRM and ERP by order ID, total, line count and status; differences listed and, for safe categories, auto-repaired.", tone: "amber" },
+                { title: "Alerts", note: "Queue depth, age of oldest event, error rate, and a canary order that should flow through daily.", tone: "lime" },
+                { title: "Audit trail", note: "For any invoice, the chain from CRM order to ERP order, with timestamps and the user or process involved.", tone: "lime" },
+                { title: "Runbooks", note: "Procedures for ERP downtime, a bad deploy and replay of a day of events.", tone: "sky" },
+              ]}
+            />
+          </Figure>
           <Table
             head={["Reconciliation check", "Frequency", "On mismatch"]}
             rows={[

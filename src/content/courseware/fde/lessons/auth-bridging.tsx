@@ -173,22 +173,24 @@ export const lesson: Lesson = {
               regulator.
             </li>
           </ul>
-          <Sequence
-            label="Zero-downtime key rotation: create new key, deploy it, verify, then revoke the old one"
-            actors={[
-              { id: "ops", label: "Operator" },
-              { id: "vault", label: "Secrets vault" },
-              { id: "svc", label: "Service" },
-              { id: "api", label: "Downstream API" },
-            ]}
-            messages={[
-              { from: "ops", to: "api", text: "Issue new key (old still valid)" },
-              { from: "ops", to: "vault", text: "Store new key as version 2" },
-              { from: "svc", to: "vault", text: "Fetch current key on refresh" },
-              { from: "svc", to: "api", text: "Calls succeed with version 2" },
-              { from: "ops", to: "api", text: "Revoke the old key after verification" },
-            ]}
-          />
+          <Figure caption="Zero-downtime key rotation. The new key is issued and stored first, the service picks it up, and only then is the old key revoked.">
+            <Sequence
+              label="Zero-downtime key rotation: create new key, deploy it, verify, then revoke the old one"
+              actors={[
+                { id: "ops", label: "Operator" },
+                { id: "vault", label: "Secrets vault" },
+                { id: "svc", label: "Service" },
+                { id: "api", label: "Downstream API" },
+              ]}
+              messages={[
+                { from: "ops", to: "api", text: "Issue new key (old still valid)" },
+                { from: "ops", to: "vault", text: "Store new key as version 2" },
+                { from: "svc", to: "vault", text: "Fetch current key on refresh" },
+                { from: "svc", to: "api", text: "Calls succeed with version 2" },
+                { from: "ops", to: "api", text: "Revoke the old key after verification" },
+              ]}
+            />
+          </Figure>
         </>
       ),
     },

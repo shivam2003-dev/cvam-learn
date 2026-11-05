@@ -210,15 +210,17 @@ Budget range the sponsor mentioned:  $150K to $250K  ->  plausible`}</code>
             hard sell regardless of how clever the technology is.
           </p>
 
-          <Layers
-            layers={[
-              { title: "Frequency", note: "How often does the problem occur?", tone: "sky" },
-              { title: "Duration", note: "How long does each occurrence take today?", tone: "sky" },
-              { title: "Cost of error", note: "What does a mistake cost when it happens?", tone: "amber" },
-              { title: "Number of people", note: "How many are affected, and how senior are they?", tone: "amber" },
-              { title: "Strategic weight", note: "Is it tied to a goal leadership already cares about?", tone: "lime" },
-            ]}
-          />
+          <Figure caption="Five factors for sizing an opportunity before committing weeks of work.">
+            <Layers
+              layers={[
+                { title: "Frequency", note: "How often does the problem occur?", tone: "sky" },
+                { title: "Duration", note: "How long does each occurrence take today?", tone: "sky" },
+                { title: "Cost of error", note: "What does a mistake cost when it happens?", tone: "amber" },
+                { title: "Number of people", note: "How many are affected, and how senior are they?", tone: "amber" },
+                { title: "Strategic weight", note: "Is it tied to a goal leadership already cares about?", tone: "lime" },
+              ]}
+            />
+          </Figure>
         </>
       ),
     },

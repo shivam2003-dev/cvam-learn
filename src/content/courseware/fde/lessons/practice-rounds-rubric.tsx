@@ -34,14 +34,16 @@ export const lesson: Lesson = {
               ]}
             />
           </Figure>
-          <Timeline
-            phases={[
-              { label: "0 to 9", when: "Clarify", tone: "sky", items: ["Users, data, systems", "Success measure", "Constraints"] },
-              { label: "9 to 24", when: "Design", tone: "lime", weight: 1.5, items: ["Components and flows", "Mechanisms labelled"] },
-              { label: "24 to 36", when: "Harden", tone: "amber", weight: 1.2, items: ["Failures", "Security", "Deployment"] },
-              { label: "36 to 45", when: "Close", tone: "plain", items: ["Trade-offs", "Rollout", "Summary"] },
-            ]}
-          />
+          <Figure caption="Time allocation for a 45-minute practice round.">
+            <Timeline
+              phases={[
+                { label: "0 to 9", when: "Clarify", tone: "sky", items: ["Users, data, systems", "Success measure", "Constraints"] },
+                { label: "9 to 24", when: "Design", tone: "lime", weight: 1.5, items: ["Components and flows", "Mechanisms labelled"] },
+                { label: "24 to 36", when: "Harden", tone: "amber", weight: 1.2, items: ["Failures", "Security", "Deployment"] },
+                { label: "36 to 45", when: "Close", tone: "plain", items: ["Trade-offs", "Rollout", "Summary"] },
+              ]}
+            />
+          </Figure>
         </>
       ),
     },

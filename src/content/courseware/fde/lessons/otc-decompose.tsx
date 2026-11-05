@@ -129,15 +129,17 @@ export const lesson: Lesson = {
             region, in one currency, with reconciliation and the error queue. Billing and payments
             follow once the order backbone is trusted.
           </p>
-          <Flow
-            numbered
-            steps={[
-              { title: "Slice 1", note: "Orders CRM to ERP, one region; reconcile daily", tone: "sky" },
-              { title: "Slice 2", note: "Order changes and cancellations; state machine", tone: "lime" },
-              { title: "Slice 3", note: "Invoices and statuses back to CRM", tone: "lime" },
-              { title: "Slice 4", note: "Billing platform and payments matching", tone: "amber" },
-            ]}
-          />
+          <Figure caption="Delivery in slices. Each slice adds one flow once the previous one is trusted.">
+            <Flow
+              numbered
+              steps={[
+                { title: "Slice 1", note: "Orders CRM to ERP, one region; reconcile daily", tone: "sky" },
+                { title: "Slice 2", note: "Order changes and cancellations; state machine", tone: "lime" },
+                { title: "Slice 3", note: "Invoices and statuses back to CRM", tone: "lime" },
+                { title: "Slice 4", note: "Billing platform and payments matching", tone: "amber" },
+              ]}
+            />
+          </Figure>
           <Exercise
             title="Who owns the field?"
             task={

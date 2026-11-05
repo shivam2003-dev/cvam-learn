@@ -139,11 +139,11 @@ export const lesson: Lesson = {
               yLabel="Evidence of judgment"
               corners={["Wise but vague", "Strong answer", "Weak answer", "Specific but naive"]}
               items={[
-                { label: "Reasoned trade-offs with numbers", x: 0.84, y: 0.86, tone: "lime" },
-                { label: "'It depends' with no follow-through", x: 0.18, y: 0.6, tone: "amber" },
+                { label: "Trade-offs with numbers", x: 0.84, y: 0.86, tone: "lime" },
+                { label: "'It depends' only", x: 0.18, y: 0.6, tone: "amber" },
                 { label: "Name-dropping frameworks", x: 0.62, y: 0.2, tone: "rose" },
                 { label: "'Use the best model'", x: 0.16, y: 0.12, tone: "rose" },
-                { label: "Detailed design, no failure cases", x: 0.78, y: 0.4, tone: "amber" },
+                { label: "Design, no failure cases", x: 0.78, y: 0.4, tone: "amber" },
               ]}
             />
           </Figure>

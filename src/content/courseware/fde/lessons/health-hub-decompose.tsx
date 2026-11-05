@@ -90,16 +90,18 @@ export const lesson: Lesson = {
       title: "The hard problems",
       body: (
         <>
-          <Layers
-            layers={[
-              { title: "Lineage and audit", note: "For any value, show which source it came from, when, and who accessed it. Regulators ask.", tone: "rose" },
-              { title: "Consent and purpose", note: "Patients may opt out of research or sharing. Consent changes over time and must be enforced per record.", tone: "rose" },
-              { title: "Data quality", note: "Missing fields, wrong units, free-text diagnoses, duplicated and conflicting entries.", tone: "amber" },
-              { title: "Semantics and standards", note: "Each system names things differently. Map to common standards (for example FHIR resources and standard terminologies) and keep source values.", tone: "amber" },
-              { title: "Patient identity", note: "Is 'J. Smith, born 1980' in system A the same person as 'John Smith, born 1980' in system B? Wrong merges and missed merges both harm.", tone: "lime" },
-              { title: "Integration with legacy", note: "Old interfaces (HL7 v2 messages, file exports, vendor APIs), different schedules and uptimes.", tone: "sky" },
-            ]}
-          />
+          <Figure caption="The hard problems in a health data hub, from lineage and consent down to legacy interfaces.">
+            <Layers
+              layers={[
+                { title: "Lineage and audit", note: "For any value, show which source it came from, when, and who accessed it. Regulators ask.", tone: "rose" },
+                { title: "Consent and purpose", note: "Patients may opt out of research or sharing. Consent changes over time and must be enforced per record.", tone: "rose" },
+                { title: "Data quality", note: "Missing fields, wrong units, free-text diagnoses, duplicated and conflicting entries.", tone: "amber" },
+                { title: "Semantics and standards", note: "Each system names things differently. Map to common standards (for example FHIR resources and standard terminologies) and keep source values.", tone: "amber" },
+                { title: "Patient identity", note: "Is 'J. Smith, born 1980' in system A the same person as 'John Smith, born 1980' in system B? Wrong merges and missed merges both harm.", tone: "lime" },
+                { title: "Integration with legacy", note: "Old interfaces (HL7 v2 messages, file exports, vendor APIs), different schedules and uptimes.", tone: "sky" },
+              ]}
+            />
+          </Figure>
           <p>
             <strong>Identity matching deserves special attention.</strong> Two kinds of error have
             very different consequences:

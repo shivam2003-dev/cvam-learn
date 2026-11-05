@@ -69,14 +69,16 @@ GEMINI_EMBEDDING_MODEL=<embedding model name from Google's current docs>`}</code
             set a budget alert on the account. The project makes only a few hundred small calls, but
             good habits start now.
           </p>
-          <Layers
-            layers={[
-              { title: "app.py", note: "Question loop: retrieve, answer, verify, print.", tone: "lime" },
-              { title: "ingest.py", note: "Builds the vector store from the docs folder.", tone: "lime" },
-              { title: "eval.py", note: "Runs a labelled question set and prints a score.", tone: "amber" },
-              { title: "chroma/ and docs/", note: "Local vector store and your source PDFs.", tone: "plain" },
-            ]}
-          />
+          <Figure caption="Project files and their roles, from the question loop to the evaluation script.">
+            <Layers
+              layers={[
+                { title: "app.py", note: "Question loop: retrieve, answer, verify, print.", tone: "lime" },
+                { title: "ingest.py", note: "Builds the vector store from the docs folder.", tone: "lime" },
+                { title: "eval.py", note: "Runs a labelled question set and prints a score.", tone: "amber" },
+                { title: "chroma/ and docs/", note: "Local vector store and your source PDFs.", tone: "plain" },
+              ]}
+            />
+          </Figure>
         </>
       ),
     },

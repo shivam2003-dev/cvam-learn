@@ -155,29 +155,31 @@ export const lesson: Lesson = {
       title: "Risks to design against from day one",
       body: (
         <>
-          <Graph
-            label="Main risks for a customer service agent around the agent: wrong answers, data leakage, unauthorised actions, prompt injection and brand harm"
-            cellW={208}
-            cellH={104}
-            nodeW={168}
-            nodes={[
-              { id: "a", label: "Customer-facing agent", col: 1.5, row: 1, tone: "lime", shape: "pill", w: 190 },
-              { id: "w", label: "Wrong or invented answers", sub: "Policy hallucination", col: 0, row: 0, tone: "rose" },
-              { id: "l", label: "Data leakage", sub: "Other customers' details", col: 1.5, row: 0, tone: "rose" },
-              { id: "u", label: "Unauthorised actions", sub: "Refund abuse, account takeover", col: 3, row: 0, tone: "rose" },
-              { id: "i", label: "Prompt injection", sub: "Customer or email text", col: 0, row: 2, tone: "amber" },
-              { id: "b", label: "Brand harm", sub: "Tone, claims, offence", col: 1.5, row: 2, tone: "amber" },
-              { id: "s", label: "Social engineering", sub: "Pretext to gain access", col: 3, row: 2, tone: "amber" },
-            ]}
-            edges={[
-              { from: "w", to: "a", dashed: true },
-              { from: "l", to: "a", dashed: true },
-              { from: "u", to: "a", dashed: true },
-              { from: "i", to: "a", dashed: true },
-              { from: "b", to: "a", dashed: true },
-              { from: "s", to: "a", dashed: true },
-            ]}
-          />
+          <Figure caption="The main risks around a customer-facing agent. Each one is designed against from the first day.">
+            <Graph
+              label="Main risks for a customer service agent around the agent: wrong answers, data leakage, unauthorised actions, prompt injection and brand harm"
+              cellW={208}
+              cellH={104}
+              nodeW={168}
+              nodes={[
+                { id: "a", label: "Customer-facing agent", col: 1.5, row: 1, tone: "lime", shape: "pill", w: 190 },
+                { id: "w", label: "Wrong or invented answers", sub: "Policy hallucination", col: 0, row: 0, tone: "rose" },
+                { id: "l", label: "Data leakage", sub: "Other customers' details", col: 1.5, row: 0, tone: "rose" },
+                { id: "u", label: "Unauthorised actions", sub: "Refund abuse, account takeover", col: 3, row: 0, tone: "rose" },
+                { id: "i", label: "Prompt injection", sub: "Customer or email text", col: 0, row: 2, tone: "amber" },
+                { id: "b", label: "Brand harm", sub: "Tone, claims, offence", col: 1.5, row: 2, tone: "amber" },
+                { id: "s", label: "Social engineering", sub: "Pretext to gain access", col: 3, row: 2, tone: "amber" },
+              ]}
+              edges={[
+                { from: "w", to: "a", dashed: true },
+                { from: "l", to: "a", dashed: true },
+                { from: "u", to: "a", dashed: true },
+                { from: "i", to: "a", dashed: true },
+                { from: "b", to: "a", dashed: true },
+                { from: "s", to: "a", dashed: true },
+              ]}
+            />
+          </Figure>
         </>
       ),
     },

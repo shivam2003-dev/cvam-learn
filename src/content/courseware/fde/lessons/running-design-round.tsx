@@ -125,17 +125,19 @@ export const lesson: Lesson = {
       title: "When you are stuck",
       body: (
         <>
-          <Flow
-            direction="col"
-            numbered
-            steps={[
-              { title: "Pause and say so", note: "I want to think about this for a moment.", tone: "sky" },
-              { title: "Restate the problem", note: "Often reveals the missing piece.", tone: "sky" },
-              { title: "List what you know", note: "Write facts and constraints on the board.", tone: "lime" },
-              { title: "Try the simplest version", note: "Solve a smaller case or one component.", tone: "lime" },
-              { title: "Ask a focused question", note: "Is it fine to assume X?", tone: "amber" },
-            ]}
-          />
+          <Figure caption="What to do when you are stuck: pause, restate, list what you know, simplify and ask.">
+            <Flow
+              direction="col"
+              numbered
+              steps={[
+                { title: "Pause and say so", note: "I want to think about this for a moment.", tone: "sky" },
+                { title: "Restate the problem", note: "Often reveals the missing piece.", tone: "sky" },
+                { title: "List what you know", note: "Write facts and constraints on the board.", tone: "lime" },
+                { title: "Try the simplest version", note: "Solve a smaller case or one component.", tone: "lime" },
+                { title: "Ask a focused question", note: "Is it fine to assume X?", tone: "amber" },
+              ]}
+            />
+          </Figure>
           <Callout tone="tip" title="Mistakes are not fatal">
             If you realise you drew something wrong, say &ldquo;I made an error: this arrow should go
             the other way because the ERP is the system of record,&rdquo; fix it, and continue. A
