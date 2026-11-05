@@ -20,6 +20,14 @@ export function CourseGrid({ base }: { base: "paths" | "roadmaps" }) {
               </Link>
             </h3>
             <p className="mt-2 flex-1 text-soft">{course.tagline}</p>
+            {base === "paths" && (
+              <Link
+                href={`/roadmaps/${course.slug}`}
+                className="mt-3 font-mono text-sm text-soft hover:text-text"
+              >
+                View as roadmap →
+              </Link>
+            )}
             <div className="mt-4">
               <CourseBar course={course.slug} slugs={readyLessons(course.slug).map((l) => l.slug)} />
             </div>

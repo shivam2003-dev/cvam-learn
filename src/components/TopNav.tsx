@@ -7,8 +7,8 @@ import { levelOf, streakOf, useProgress, xpOf } from "@/lib/progress";
 
 const links = [
   { href: "/", label: "Home", match: (p: string) => p === "/" },
+  { href: "/courseware", label: "Courseware", match: (p: string) => p.startsWith("/courseware") },
   { href: "/paths", label: "Paths", match: (p: string) => p.startsWith("/paths") },
-  { href: "/roadmaps", label: "Roadmaps", match: (p: string) => p.startsWith("/roadmaps") },
   { href: "/practice", label: "Practice", match: (p: string) => p.startsWith("/practice") },
 ];
 

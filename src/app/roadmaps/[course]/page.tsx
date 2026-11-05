@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CourseBar } from "@/components/CourseBar";
 import { RoadmapMap } from "@/components/RoadmapMap";
-import { TopNav } from "@/components/TopNav";
 import { courses, getCourse, readyLessons, toNavCourse } from "@/lib/courses";
 
 type Props = { params: Promise<{ course: string }> };
@@ -25,9 +25,14 @@ export default async function RoadmapPage({ params }: Props) {
 
   return (
     <>
-      <TopNav />
-      <main className="mx-auto max-w-6xl px-4 py-10">
-        <h1 className="font-display text-4xl font-extrabold tracking-tight">
+      <main className="mx-auto max-w-6xl px-4 py-6">
+        <Link
+          href={`/paths/${slug}`}
+          className="inline-flex items-center gap-2 font-mono text-sm text-soft hover:text-text"
+        >
+          <span aria-hidden="true">←</span> Back to {entry.course.title} path
+        </Link>
+        <h1 className="mt-6 font-display text-4xl font-extrabold tracking-tight">
           {entry.course.title} roadmap
         </h1>
         <p className="mt-3 max-w-2xl text-soft">

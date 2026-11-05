@@ -2,12 +2,12 @@ import type { Course } from "@/lib/types";
 
 export const forwardDeployedEngineer: Course = {
   slug: "forward-deployed-engineer",
-  title: "Forward Deployed Engineer",
+  title: "Forward Deployed Engineer: Crash Course",
   tagline:
-    "Engineer who ships inside the customer's world: scope the problem, integrate with messy systems, deploy AI, and prove the value.",
+    "A fast crash course on shipping inside the customer's world: scope the problem, integrate with messy systems, deploy AI, prove the value.",
   description:
-    "Learn what a Forward Deployed Engineer does and the mix of skills it takes: broad engineering, data and AI building blocks, integration with legacy systems, cloud and security, plus discovery, scoping, business sense and clear communication with customers and executives.",
-  level: "Intermediate",
+    "Crash course: short, dense lessons you can finish in a sitting each. Learn what a Forward Deployed Engineer does and the mix of skills it takes: broad engineering, data and AI building blocks, integration with legacy systems, cloud and security, plus discovery, scoping, business sense and clear communication with customers and executives. For the full chapter-by-chapter course with diagrams, case studies and interview prep, see Courseware.",
+  level: "Crash course",
   skills: ["Customer discovery", "Integration engineering", "AI & agents", "Cloud & security", "Scoping & ROI", "Communication"],
   modules: [
     {
