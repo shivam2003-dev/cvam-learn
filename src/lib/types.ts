@@ -6,6 +6,8 @@ export type LessonMeta = {
   slug: string;
   title: string;
   summary: string;
+  /** Courseware only: a hands-on project or lab instead of a reading lesson. */
+  kind?: "lesson" | "project" | "lab";
 };
 
 export type Module = {

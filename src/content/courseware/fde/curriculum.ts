@@ -1,0 +1,216 @@
+import type { Course } from "@/lib/types";
+
+export const fde: Course = {
+  slug: "fde",
+  title: "Forward Deployed Engineering",
+  tagline:
+    "Work with customers to turn AI and software into production systems: discovery, POC sprints, enterprise delivery, system design and interviews.",
+  description:
+    "A full, detailed course for engineers who build inside customer environments. Learn the FDE role, run discovery and POC sprints, take pilots to production, design AI and integration systems, work through realistic case studies, and prepare for FDE interviews and take-home assignments.",
+  level: "Intermediate",
+  skills: [
+    "Customer discovery",
+    "POC sprints",
+    "Enterprise delivery",
+    "AI systems architecture",
+    "Integration design",
+    "FDE interviews",
+  ],
+  modules: [
+    {
+      id: "foundations",
+      title: "Foundations of Forward Deployed Engineering",
+      blurb: "Master the essential skills for deploying AI solutions in diverse organizational contexts.",
+      lessons: [
+        { slug: "who-is-an-fde", title: "Who Is a Forward Deployed Engineer?", summary: "The role, its origins, how it differs from neighbouring jobs, and what the work looks like." },
+        { slug: "week-in-the-life", title: "A Week in the Life of an FDE", summary: "A realistic five-day engagement: calls, code, blockers and the decisions in between." },
+        { slug: "course-readiness", title: "Are You Ready for This Course?", summary: "Prerequisites, a self-assessment, and how to get the most from the chapters ahead." },
+      ],
+    },
+    {
+      id: "problem-to-poc",
+      title: "From Problem to POC Sprint",
+      blurb: "Master effective customer discovery, POC sprints, and solution architecture for AI projects.",
+      lessons: [
+        { slug: "customer-discovery", title: "Running Customer Discovery", summary: "Interviews, workflow mapping and turning a vague wish into a defined problem." },
+        { slug: "scoping-solution-architecture", title: "Scoping and Solution Architecture", summary: "Cut the work into slices and sketch an architecture the customer will accept." },
+        { slug: "poc-sprint", title: "The Proof of Concept (POC) Sprint", summary: "Plan and run a short sprint that proves value on real data." },
+      ],
+    },
+    {
+      id: "poc-to-production",
+      title: "From POC to Production",
+      blurb: "Master the transition from POC to production-ready AI systems through effective feedback and collaboration.",
+      lessons: [
+        { slug: "pilot-phase", title: "The Pilot Phase", summary: "Put the solution in real users' hands, measure it, and decide whether to scale." },
+        { slug: "project-handoff", title: "The Project Handoff", summary: "Transfer ownership to the customer's team without losing the value." },
+        { slug: "field-feedback-loop", title: "The Field Feedback Loop", summary: "Turn what you learn in the field into product improvements." },
+      ],
+    },
+    {
+      id: "skills-that-compound",
+      title: "Skills That Compound",
+      blurb: "Master navigating enterprise constraints and communicating effectively with diverse stakeholders.",
+      lessons: [
+        { slug: "enterprise-constraints", title: "Navigating Enterprise Constraints", summary: "Security, procurement, change control and legacy: working with the rules, not around them." },
+        { slug: "stakeholder-communication", title: "Communicating Across Stakeholder Types", summary: "Executives, operators, security and engineers each need a different message." },
+      ],
+    },
+    {
+      id: "ai-systems-architecture",
+      title: "AI Systems Architecture",
+      blurb: "Explore AI system types, harness engineering, and orchestration for effective deployment.",
+      lessons: [
+        { slug: "ai-system-landscape", title: "The AI System Landscape", summary: "Classical ML, LLM apps, RAG, agents and where each fits." },
+        { slug: "llm-based-systems", title: "LLM-Based Systems", summary: "Prompts, structured output, retrieval and the shape of a production LLM feature." },
+        { slug: "harness-tools-memory-context", title: "Harness Engineering: Tools, Memory, and Context", summary: "Everything around the model that makes an agent useful." },
+        { slug: "harness-guardrails-observability", title: "Harness Engineering: Guardrails, Observability, and Review", summary: "Keep agents safe, visible and accountable." },
+        { slug: "multi-agent-orchestration", title: "Multi-Agent Orchestration Patterns", summary: "Routers, orchestrators, hand-offs and when several agents help." },
+        { slug: "choosing-agentic-framework", title: "Choosing an Agentic Framework", summary: "Frameworks versus plain SDK code, and how to decide." },
+      ],
+    },
+    {
+      id: "interview-fundamentals",
+      title: "FDE Interview Fundamentals",
+      blurb: "Master the essential skills and strategies for successful FDE interviews.",
+      lessons: [
+        { slug: "how-fde-interviews-work", title: "How FDE Interviews Work", summary: "What companies test and how the process is structured." },
+        { slug: "four-interview-rounds", title: "The Four Interview Rounds", summary: "Coding, system design, customer scenario and behavioural rounds." },
+      ],
+    },
+    {
+      id: "system-design-integration",
+      title: "FDE System Design: Approach and Integration Patterns",
+      blurb: "Enhance workflows through collaborative system design and tailored solutions.",
+      lessons: [
+        { slug: "how-design-rounds-work", title: "How FDE System Design Rounds Work", summary: "How these rounds differ from generic system design." },
+        { slug: "client-approach", title: "The CLIENT Approach for FDE System Design", summary: "A repeatable framework for any customer-facing design problem." },
+        { slug: "running-design-round", title: "Running an FDE Design Round", summary: "Pacing, whiteboard habits and handling interruptions." },
+        { slug: "data-movement-patterns", title: "Choosing How Data Moves Between Systems", summary: "APIs, events, files, CDC and batch: choose with trade-offs." },
+        { slug: "auth-bridging", title: "Bridging Authentication Across Systems", summary: "SSO, tokens, service accounts and delegated access." },
+        { slug: "failures-rate-limits-silent-errors", title: "Handling Failures, Rate Limits, and Silent Errors", summary: "Retries, backpressure, dead letters and reconciliation." },
+        { slug: "data-contracts-schema-changes", title: "Data Contracts, Validation, and Schema Changes", summary: "Keep integrations working as systems evolve." },
+        { slug: "client-security-deployment", title: "Designing for Client Security and Deployment Environments", summary: "VPC, on-premise, air-gapped and regulated settings." },
+      ],
+    },
+    {
+      id: "case-financial-assistant",
+      title: "Case Study: Financial Knowledge Assistant",
+      blurb: "Explore the design and implementation of a retrieval and generation system for efficient document access.",
+      lessons: [
+        { slug: "financial-decompose", title: "Decomposing the Problem: The RAG System", summary: "Break a document Q&A request into requirements and risks." },
+        { slug: "financial-design", title: "System Design: The RAG System", summary: "Ingestion, retrieval, generation, evaluation and access control." },
+        { slug: "financial-interview", title: "FDE Interview Questions: The RAG System", summary: "Likely questions, strong answers and follow-ups." },
+        { slug: "financial-project", title: "Build a RAG Using LangChain with Google Gemini", summary: "Hands-on project: build the assistant end to end.", kind: "project" },
+      ],
+    },
+    {
+      id: "case-shipment-rerouting",
+      title: "Case Study: Shipment Rerouting Agent",
+      blurb: "Explore the design and implementation of a multi-agent system for logistics disruption management.",
+      lessons: [
+        { slug: "shipment-decompose", title: "Decomposing the Problem: Multi-Agent System", summary: "Turn a disruption-handling process into agent roles." },
+        { slug: "shipment-design", title: "System Design: Multi-Agent System", summary: "Orchestration, tools, approvals and failure handling." },
+        { slug: "shipment-interview", title: "FDE Interview Questions: Multi-Agent System", summary: "Likely questions, strong answers and follow-ups." },
+        { slug: "shipment-project", title: "Develop a Multi-Agent Research Assistant Using AutoGen", summary: "Hands-on project: a multi-agent assistant.", kind: "project" },
+      ],
+    },
+    {
+      id: "case-hospital-billing",
+      title: "Case Study: Hospital Billing System",
+      blurb: "Enhance medical billing accuracy through AI fine-tuning and system integration.",
+      lessons: [
+        { slug: "billing-decompose", title: "Decomposing the Problem: Fine-Tuning the Model", summary: "Decide whether fine-tuning is the right tool for billing codes." },
+        { slug: "billing-design", title: "System Design: Fine-Tuning the Model", summary: "Data, training, evaluation, deployment and human review." },
+        { slug: "billing-interview", title: "FDE Interview Questions: Fine-Tuning the Model", summary: "Likely questions, strong answers and follow-ups." },
+      ],
+    },
+    {
+      id: "case-health-data-hub",
+      title: "Case Study: The Health Data Hub",
+      blurb: "Integrate and design health data systems while ensuring integrity and compliance.",
+      lessons: [
+        { slug: "health-hub-decompose", title: "Decomposing the Problem: The Health Data Hub", summary: "Many source systems, one patient view, strict compliance." },
+        { slug: "health-hub-design", title: "System Design: The Health Data Hub", summary: "Ingestion, identity matching, consent, audit and access." },
+        { slug: "health-hub-interview", title: "FDE Interview Questions: The Health Data Hub", summary: "Likely questions, strong answers and follow-ups." },
+      ],
+    },
+    {
+      id: "case-order-to-cash",
+      title: "Case Study: Order-to-Cash Sync",
+      blurb: "Master the complexities of synchronizing order-to-cash processes between systems.",
+      lessons: [
+        { slug: "otc-decompose", title: "Decomposing the Problem: Order-to-Cash Sync", summary: "Orders, invoices and payments across CRM, ERP and billing." },
+        { slug: "otc-design", title: "System Design: Order-to-Cash Sync", summary: "Idempotency, ordering, reconciliation and error queues." },
+        { slug: "otc-interview", title: "FDE Interview Questions: Order-to-Cash Sync", summary: "Likely questions, strong answers and follow-ups." },
+      ],
+    },
+    {
+      id: "case-customer-service-agent",
+      title: "Case Study: Customer Service AI Agent",
+      blurb: "Develop a secure and efficient AI agent for customer service inquiries.",
+      lessons: [
+        { slug: "cs-agent-decompose", title: "Decomposing the Problem: Customer Service AI Agent", summary: "Scope an agent that answers and acts safely." },
+        { slug: "cs-agent-design", title: "System Design: Customer Service AI Agent", summary: "Tools, permissions, escalation and evaluation." },
+        { slug: "cs-agent-interview", title: "FDE Interview Questions: Customer Service AI Agent", summary: "Likely questions, strong answers and follow-ups." },
+        { slug: "practice-rounds-rubric", title: "Practice Rounds and Self-Review Rubric", summary: "Mock design prompts and a rubric to score yourself." },
+        { slug: "lab-image-classification", title: "Fine-Tune a SageMaker JumpStart Model for Image Classification", summary: "Cloud lab: fine-tune and deploy a managed model.", kind: "lab" },
+      ],
+    },
+    {
+      id: "interview-guide-companies",
+      title: "FDE Interview Guide for Top AI Companies",
+      blurb: "Explore essential interview strategies for Forward Deployed AI Engineer roles across leading companies.",
+      lessons: [
+        { slug: "guide-palantir", title: "Interview Guide: Palantir Forward Deployed AI Engineers", summary: "What to expect and how to prepare." },
+        { slug: "guide-openai", title: "Interview Guide: OpenAI Forward Deployed Engineers", summary: "What to expect and how to prepare." },
+        { slug: "guide-anthropic", title: "Interview Guide: Anthropic Applied AI Engineers", summary: "What to expect and how to prepare." },
+        { slug: "guide-google-cloud", title: "Interview Guide: Google Cloud GenAI FDE", summary: "What to expect and how to prepare." },
+      ],
+    },
+    {
+      id: "takehome-building",
+      title: "FDE Take-Home Masterclass: Scoping and Building",
+      blurb: "Master effective strategies for FDE assignments, focusing on clarity, scoping, and data handling.",
+      lessons: [
+        { slug: "takehome-scoring", title: "How FDE Take-Homes Are Scored", summary: "What reviewers look for and how they weigh it." },
+        { slug: "takehome-types", title: "Types of FDE Take-Home Assignments", summary: "Data integration, LLM apps, dashboards and debugging tasks." },
+        { slug: "takehome-reading-brief", title: "Reading the Brief", summary: "Extract requirements, constraints and hidden expectations." },
+        { slug: "takehome-ambiguity", title: "Handling Ambiguity and Documenting Assumptions", summary: "Decide, record and move on." },
+        { slug: "takehome-mvp", title: "Scoping the MVP", summary: "Choose what to build and what to cut in a fixed time." },
+        { slug: "takehome-stack", title: "Choosing a Stack and Project Structure", summary: "Pick tools that you can finish with, and lay out the repo." },
+        { slug: "takehome-messy-data", title: "Working with Messy Data", summary: "Profile, clean and validate untidy inputs." },
+        { slug: "takehome-third-party-apis", title: "Integrating Third-Party APIs", summary: "Auth, pagination, rate limits and testing without live keys." },
+        { slug: "takehome-llm-solutions", title: "Building LLM-Powered Solutions", summary: "Prompts, structure and cost control in a small project." },
+        { slug: "takehome-evaluating-llm", title: "Evaluating and Guardrailing LLM Output", summary: "Show that your solution works, and fails safely." },
+        { slug: "takehome-code-quality", title: "Code Quality, Testing, and Reproducibility", summary: "Make it easy to run, read and trust." },
+      ],
+    },
+    {
+      id: "takehome-delivering",
+      title: "FDE Take-Home Masterclass: Delivering and Defending",
+      blurb: "Master user-centric design, documentation, and decision-making for effective AI system implementation.",
+      lessons: [
+        { slug: "delivery-user-workflow", title: "Designing Around the End User's Workflow", summary: "Fit the user's day, not your architecture." },
+        { slug: "delivery-interface", title: "Building a Demonstrable Interface", summary: "A small UI or CLI that shows the value in a minute." },
+        { slug: "delivery-readme", title: "Writing the README", summary: "The document reviewers read first." },
+        { slug: "delivery-tradeoffs", title: "Documenting Trade-Offs and Limitations", summary: "State what you chose, what you skipped and why." },
+        { slug: "delivery-walkthrough-video", title: "Recording the Walk-Through Video", summary: "Script, record and edit a clear demo." },
+        { slug: "delivery-defending", title: "Presenting and Defending Your Decisions", summary: "Answer pushback calmly with reasons." },
+        { slug: "delivery-live-extension", title: "Handling Live Extension Exercises", summary: "Extend your own code under time pressure." },
+        { slug: "delivery-role-play", title: "Customer Role-Play and Scope Changes", summary: "Stay useful when the 'customer' changes the brief." },
+        { slug: "delivery-mistakes", title: "Common Take-Home Mistakes", summary: "The errors that sink otherwise good submissions." },
+        { slug: "capstone-data-integration", title: "Capstone: Data Integration Challenge", summary: "Build a multi-source integration from a brief.", kind: "project" },
+        { slug: "capstone-llm-application", title: "Capstone: LLM Application Challenge", summary: "Build and evaluate an LLM application from a brief.", kind: "project" },
+      ],
+    },
+    {
+      id: "wrap-up",
+      title: "Wrap Up",
+      blurb: "Complete the course to excel as a Forward Deployed Engineer in AI systems.",
+      lessons: [
+        { slug: "whats-next", title: "What's Next?", summary: "Career paths, continued learning and how to keep sharpening the skills." },
+      ],
+    },
+  ],
+};

@@ -11,7 +11,7 @@ def camel(slug):
     return head + "".join(word.capitalize() for word in rest)
 
 
-for directory in sorted(ROOT.glob("*/lessons")):
+for directory in sorted([*ROOT.glob("*/lessons"), *ROOT.glob("courseware/*/lessons")]):
     slugs = sorted(path.stem for path in directory.glob("*.tsx"))
     imports = "".join(f'import {{ lesson as {camel(s)} }} from "./{s}";\n' for s in slugs)
     entries = "".join(f'  "{s}": {camel(s)},\n' for s in slugs)
@@ -22,4 +22,4 @@ for directory in sorted(ROOT.glob("*/lessons")):
         f"{entries}"
         "};\n"
     )
-    print(directory.parent.name, len(slugs))
+    print(f"{directory.parent.parent.name}/{directory.parent.name}" if directory.parent.parent.name == "courseware" else directory.parent.name, len(slugs))

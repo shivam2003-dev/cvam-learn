@@ -8,9 +8,13 @@ import type { NavCourse } from "@/lib/types";
 export function CurriculumNav({
   course,
   activeSlug,
+  base = "paths",
+  groupLabel = "Module",
 }: {
   course: NavCourse;
   activeSlug: string;
+  base?: string;
+  groupLabel?: string;
 }) {
   const progress = useProgress();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -44,7 +48,7 @@ export function CurriculumNav({
       </button>
       <nav
         id="curriculum"
-        aria-label="Course curriculum"
+        aria-label={`${groupLabel} list`}
         className={`${drawerOpen ? "block" : "hidden"} mt-4 border-y border-line bg-panel lg:sticky lg:top-14 lg:mt-0 lg:block lg:h-[calc(100dvh-3.5rem)] lg:w-80 lg:shrink-0 lg:overflow-y-auto lg:border-y-0 lg:border-r`}
       >
         <ol>
@@ -81,6 +85,7 @@ export function CurriculumNav({
                     {module.lessons.map((lesson) => (
                       <li key={lesson.slug}>
                         <LessonRow
+                          base={base}
                           course={course.slug}
                           title={lesson.title}
                           slug={lesson.slug}
@@ -104,6 +109,7 @@ export function CurriculumNav({
 }
 
 function LessonRow({
+  base,
   course,
   slug,
   title,
@@ -111,6 +117,7 @@ function LessonRow({
   active,
   done,
 }: {
+  base: string;
   course: string;
   slug: string;
   title: string;
@@ -129,7 +136,7 @@ function LessonRow({
 
   return (
     <Link
-      href={`/paths/${course}/${slug}`}
+      href={`/${base}/${course}/${slug}`}
       aria-current={active ? "page" : undefined}
       className={`flex items-center gap-3 border-l-2 px-4 py-1.5 pl-[1.6rem] text-sm hover:bg-raised ${active ? "border-lime bg-raised text-text" : "border-transparent text-soft"}`}
     >

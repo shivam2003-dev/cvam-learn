@@ -5,7 +5,7 @@ import { DifficultyBadge } from "@/components/Lesson";
 import { lessonKey, useProgress } from "@/lib/progress";
 import type { NavCourse } from "@/lib/types";
 
-export function ContinueButton({ course }: { course: NavCourse }) {
+export function ContinueButton({ course, base = "paths" }: { course: NavCourse; base?: string }) {
   const progress = useProgress();
   const ready = course.modules.flatMap((m) => m.lessons.filter((l) => l.ready));
   const next = ready.find((l) => !progress.done[lessonKey(course.slug, l.slug)]);
@@ -15,7 +15,7 @@ export function ContinueButton({ course }: { course: NavCourse }) {
 
   return (
     <Link
-      href={`/paths/${course.slug}/${target.slug}`}
+      href={`/${base}/${course.slug}/${target.slug}`}
       className="inline-block rounded-lg bg-lime px-5 py-2.5 font-semibold text-ink transition hover:brightness-110"
     >
       {next ? (started ? `Continue: ${next.title}` : "Start learning") : "Review from the start"}
@@ -23,7 +23,7 @@ export function ContinueButton({ course }: { course: NavCourse }) {
   );
 }
 
-export function ModuleList({ course }: { course: NavCourse }) {
+export function ModuleList({ course, base = "paths" }: { course: NavCourse; base?: string }) {
   const progress = useProgress();
 
   return (
@@ -78,7 +78,7 @@ export function ModuleList({ course }: { course: NavCourse }) {
                     <li key={lesson.slug}>
                       {lesson.ready ? (
                         <Link
-                          href={`/paths/${course.slug}/${lesson.slug}`}
+                          href={`/${base}/${course.slug}/${lesson.slug}`}
                           className="flex items-center gap-3 px-5 py-2.5 hover:bg-raised"
                         >
                           {content}

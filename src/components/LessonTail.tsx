@@ -21,7 +21,9 @@ export function LessonTail({
   quiz,
   prev,
   next,
+  base = "paths",
 }: {
+  base?: string;
   course: string;
   slug: string;
   quiz: QuizQuestion[];
@@ -49,7 +51,7 @@ export function LessonTail({
 
   function finish() {
     completeLesson(key);
-    router.push(next ? `/paths/${course}/${next.slug}` : `/paths/${course}`);
+    router.push(next ? `/${base}/${course}/${next.slug}` : `/${base}/${course}`);
   }
 
   return (
@@ -129,7 +131,7 @@ export function LessonTail({
               onClick={finish}
               className="rounded-lg bg-lime px-4 py-2 font-semibold text-ink transition hover:brightness-110 disabled:cursor-not-allowed disabled:bg-raised disabled:text-faint"
             >
-              {done ? (next ? "Continue" : "Back to path") : "Complete & continue"}
+              {done ? (next ? "Continue" : base === "paths" ? "Back to path" : "Back to course") : "Complete & continue"}
             </button>
           </div>
         </div>
@@ -140,7 +142,7 @@ export function LessonTail({
         className="mt-6 flex justify-between gap-4 font-mono text-sm"
       >
         {prev ? (
-          <Link href={`/paths/${course}/${prev.slug}`} className="text-soft hover:text-text">
+          <Link href={`/${base}/${course}/${prev.slug}`} className="text-soft hover:text-text">
             ← {prev.title}
           </Link>
         ) : (
@@ -148,7 +150,7 @@ export function LessonTail({
         )}
         {next && (
           <Link
-            href={`/paths/${course}/${next.slug}`}
+            href={`/${base}/${course}/${next.slug}`}
             className="text-right text-soft hover:text-text"
           >
             {next.title} →
