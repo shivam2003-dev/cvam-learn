@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -17,21 +18,7 @@ export const lesson: Lesson = {
       title: "The compute spectrum",
       body: (
         <>
-          <Figure caption="More control means more responsibility. Pick the most managed option that satisfies the requirements.">
-            <Quadrant
-              xLabel="Operational responsibility"
-              yLabel="Flexibility and control"
-              corners={["Managed Kubernetes", "Full control", "Serverless", ""]}
-              items={[
-                { label: "Cloud Run functions", x: 0.1, y: 0.15, tone: "lime" },
-                { label: "Cloud Run", x: 0.22, y: 0.4, tone: "lime" },
-                { label: "GKE Autopilot", x: 0.4, y: 0.62, tone: "sky" },
-                { label: "GKE Standard", x: 0.62, y: 0.78, tone: "sky" },
-                { label: "Compute Engine", x: 0.82, y: 0.9, tone: "amber" },
-              ]}
-              label="Compute options plotted by operational responsibility and flexibility"
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="compute-choices-diagram-1" />
           <Table
             head={["Service", "Best for", "Notes"]}
             rows={[

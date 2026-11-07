@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -25,26 +26,7 @@ export const lesson: Lesson = {
             cost than the internet. It is <em>not encrypted by default</em>: traffic is private, not
             confidential (see the encryption lesson).
           </p>
-          <Figure caption="Physical path. Your router connects by cross connect to an AWS DX router in a colocation facility; AWS carries the traffic over its backbone to the Region.">
-            <Graph
-              label="Direct Connect physical path from customer data center through a colocation facility to the AWS Region"
-              cellW={190}
-              cellH={104}
-              nodeW={160}
-              nodes={[
-                { id: "dc", label: "Customer router", sub: "data center", col: 0, row: 0, tone: "sky" },
-                { id: "cx", label: "Cross connect", sub: "fibre, LOA-CFA", col: 1, row: 0, tone: "amber", shape: "pill" },
-                { id: "dx", label: "AWS DX router", sub: "DX location", col: 2, row: 0, tone: "lime" },
-                { id: "r", label: "AWS Region", sub: "VPCs via VIFs", col: 3, row: 0, tone: "lime" },
-              ]}
-              groups={[{ label: "Colocation facility", c1: 1, r1: 0, c2: 2, r2: 0, tone: "amber" }]}
-              edges={[
-                { from: "dc", to: "cx", label: "carrier / own fibre", dashed: true },
-                { from: "cx", to: "dx" },
-                { from: "dx", to: "r", label: "AWS backbone" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="direct-connect-design-diagram-1" />
         </>
       ),
     },
@@ -95,29 +77,7 @@ export const lesson: Lesson = {
               ["Single connection", "One connection", "Nothing", "No resilience"],
             ]}
           />
-          <Figure caption="Maximum resiliency: two DX locations, each with two connections to two separate on-premises routers. Active BGP sessions run over all four.">
-            <Graph
-              label="Maximum resiliency: two on-premises routers connected by four connections to two Direct Connect locations"
-              cellW={200}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "r1", label: "Customer router A", col: 0, row: 0, tone: "sky" },
-                { id: "r2", label: "Customer router B", col: 0, row: 1, tone: "sky" },
-                { id: "l1", label: "DX location 1", sub: "two AWS devices", col: 1, row: 0, tone: "lime" },
-                { id: "l2", label: "DX location 2", sub: "two AWS devices", col: 1, row: 1, tone: "lime" },
-                { id: "aws", label: "AWS Region", col: 2, row: 0.5, tone: "amber", shape: "pill" },
-              ]}
-              edges={[
-                { from: "r1", to: "l1" },
-                { from: "r1", to: "l2" },
-                { from: "r2", to: "l1" },
-                { from: "r2", to: "l2" },
-                { from: "l1", to: "aws" },
-                { from: "l2", to: "aws" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="direct-connect-design-diagram-2" />
           <ul>
             <li>The SLA applies only when you follow the published topology exactly, including separate AWS devices and separate customer devices.</li>
             <li>Use <strong>Bidirectional Forwarding Detection (BFD)</strong> on the BGP sessions so a link failure is detected in about a second instead of waiting for the BGP hold timer (default 90 seconds). AWS enables BFD on its side; you must enable it on your router.</li>

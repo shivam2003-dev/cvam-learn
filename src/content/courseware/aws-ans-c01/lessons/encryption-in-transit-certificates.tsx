@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -18,18 +19,7 @@ export const lesson: Lesson = {
       title: "Encryption by segment",
       body: (
         <>
-          <Figure caption="Encryption options along the path from user to data. A compliant design names the control for every segment.">
-            <Layers
-              layers={[
-                { title: "User to edge", note: "HTTPS with CloudFront (TLS 1.2+/1.3), viewer protocol policy redirect-to-HTTPS, HSTS", tone: "lime" },
-                { title: "Edge to origin", note: "Origin protocol policy HTTPS only; valid cert on ALB/NLB; match host header", tone: "lime" },
-                { title: "Load balancer to targets", note: "Re-encrypt with HTTPS/TLS target groups, or NLB TCP passthrough", tone: "sky" },
-                { title: "Between instances / VPCs", note: "Nitro instances encrypt traffic between supported instance types automatically; TLS/mTLS in the application; TGW and inter-Region peering encrypt at the physical layer", tone: "sky" },
-                { title: "On-premises to AWS", note: "IPsec Site-to-Site VPN; IPsec over Direct Connect (public VIF or private IP VPN on transit VIF); MACsec on the DX link", tone: "amber" },
-                { title: "To AWS services", note: "TLS endpoints for S3 (enforce aws:SecureTransport), RDS SSL/TLS, DynamoDB, KMS", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="encryption-in-transit-certificates-diagram-1" />
         </>
       ),
     },

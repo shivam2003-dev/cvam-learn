@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -18,18 +19,7 @@ export const lesson: Lesson = {
       title: "The ML lifecycle",
       body: (
         <>
-          <Figure caption="ML lifecycle on a managed platform. Pipelines turn the loop into automated, repeatable runs.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Prepare data", note: "BigQuery, Cloud Storage, Feature Store", tone: "sky" },
-                { title: "Train / tune", note: "Custom jobs, AutoML-style, fine-tuning", tone: "lime" },
-                { title: "Evaluate", note: "Metrics, bias, comparison", tone: "amber" },
-                { title: "Register + deploy", note: "Model Registry, endpoints, batch", tone: "lime" },
-                { title: "Monitor", note: "Drift, skew, quality, cost", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="ai-platform-workflows-diagram-1" />
           <p>
             The exam guide names the <strong>Gemini Enterprise Agent Platform</strong> (earlier
             Vertex AI) for end-to-end workflows and <strong>Agent Platform Pipelines</strong> to

@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -29,16 +30,7 @@ export const lesson: Lesson = {
               ["Generative multimodal", "Gemini models via the platform and Gemini API", "Reasoning over text, images, audio, video; code; agents"],
             ]}
           />
-          <Figure caption="Decision flow. Use the simplest option that meets accuracy and control requirements.">
-            <Flow
-              steps={[
-                { title: "Task covered by a prebuilt API?", note: "Yes → use it (fastest, cheapest)", tone: "lime" },
-                { title: "Needs flexible language/reasoning?", note: "Gemini or a Model Garden model with prompts + grounding", tone: "sky" },
-                { title: "Domain accuracy not met?", note: "Fine-tune or customise", tone: "amber" },
-                { title: "Unique architecture / scale?", note: "Custom training on GPUs/TPUs", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="prebuilt-ai-apis-diagram-1" />
         </>
       ),
     },

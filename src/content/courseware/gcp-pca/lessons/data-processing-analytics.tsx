@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -17,32 +18,7 @@ export const lesson: Lesson = {
       title: "The data pipeline",
       body: (
         <>
-          <Figure caption="A reference pipeline. Pub/Sub decouples producers; Dataflow transforms in streaming or batch; BigQuery serves analytics; Cloud Storage holds the raw lake; Composer orchestrates.">
-            <Graph
-              label="Streaming and batch data pipeline from sources through Pub/Sub and Dataflow to BigQuery and Cloud Storage with Composer orchestration"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "src", label: "Sources", sub: "apps, devices, databases", col: 0, row: 0.5, tone: "sky" },
-                { id: "ps", label: "Pub/Sub", sub: "streaming ingest", col: 1, row: 0, tone: "lime" },
-                { id: "ds", label: "Datastream", sub: "CDC from databases", col: 1, row: 1, tone: "lime" },
-                { id: "df", label: "Dataflow", sub: "Apache Beam", col: 2, row: 0.5, tone: "amber" },
-                { id: "gcs", label: "Cloud Storage", sub: "raw lake", col: 3, row: 0, tone: "plain" },
-                { id: "bq", label: "BigQuery", sub: "warehouse + ML", col: 3, row: 1, tone: "lime" },
-                { id: "bi", label: "Looker / BI", col: 4, row: 1, tone: "sky", shape: "pill" },
-              ]}
-              edges={[
-                { from: "src", to: "ps" },
-                { from: "src", to: "ds" },
-                { from: "ps", to: "df" },
-                { from: "ds", to: "df" },
-                { from: "df", to: "gcs" },
-                { from: "df", to: "bq" },
-                { from: "bq", to: "bi" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="data-processing-analytics-diagram-1" />
         </>
       ),
     },

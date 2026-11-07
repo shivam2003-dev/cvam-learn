@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -50,24 +51,7 @@ export const lesson: Lesson = {
             <strong>private hosted zone (PHZ)</strong> answers only for the VPCs associated with it,
             so internal names such as <code>db.corp.example</code> never reach the public internet.
           </p>
-          <Figure caption="Split-horizon DNS. The same name can resolve differently inside the VPC (PHZ) and outside (public zone).">
-            <Graph
-              label="Split-horizon DNS: internal clients resolve through a private hosted zone, external clients through a public hosted zone"
-              cellW={200}
-              cellH={100}
-              nodeW={170}
-              nodes={[
-                { id: "int", label: "Instance in VPC", col: 0, row: 0, tone: "sky" },
-                { id: "ext", label: "Internet user", col: 0, row: 1, tone: "sky", shape: "pill" },
-                { id: "phz", label: "Private hosted zone", sub: "app.example.com → 10.0.1.20", col: 1, row: 0, tone: "lime" },
-                { id: "pub", label: "Public hosted zone", sub: "app.example.com → ALB (alias)", col: 1, row: 1, tone: "amber" },
-              ]}
-              edges={[
-                { from: "int", to: "phz", label: "VPC resolver" },
-                { from: "ext", to: "pub", label: "public resolvers" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="route53-public-private-diagram-1" />
           <p>For a PHZ to work the associated VPC must have both <code>enableDnsSupport</code> and <code>enableDnsHostnames</code> set to true. When a PHZ and a public zone share the same domain name, queries from an associated VPC go to the PHZ and, if the PHZ has no matching record for that name, the answer is NXDOMAIN rather than falling back to the public zone. Duplicate the records you still need.</p>
           <Callout tone="warn" title="Cross-account association">
             The VPC owner and the zone owner are different accounts. The zone account first runs{" "}

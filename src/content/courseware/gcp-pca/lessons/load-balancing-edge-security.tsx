@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -35,27 +36,7 @@ export const lesson: Lesson = {
               ["Internal passthrough Network LB", "L4", "Regional", "Internal TCP/UDP, next hop for appliances"],
             ]}
           />
-          <Figure caption="Global external Application Load Balancer. One anycast IP routes each request to the closest healthy backend using a URL map to backend services.">
-            <Graph
-              label="Global external Application Load Balancer with Cloud Armor and CDN in front of regional backends"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "u", label: "Users", col: 0, row: 0.5, tone: "sky", shape: "pill" },
-                { id: "ca", label: "Cloud Armor", sub: "WAF + DDoS", col: 1, row: 0.5, tone: "rose" },
-                { id: "lb", label: "Global ALB", sub: "URL map, TLS cert, CDN", col: 2, row: 0.5, tone: "lime" },
-                { id: "b1", label: "Backend: region A", sub: "MIG / NEG / Cloud Run", col: 3, row: 0, tone: "plain" },
-                { id: "b2", label: "Backend: region B", sub: "MIG / NEG / GKE", col: 3, row: 1, tone: "plain" },
-              ]}
-              edges={[
-                { from: "u", to: "ca" },
-                { from: "ca", to: "lb" },
-                { from: "lb", to: "b1" },
-                { from: "lb", to: "b2" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="load-balancing-edge-security-diagram-1" />
         </>
       ),
     },

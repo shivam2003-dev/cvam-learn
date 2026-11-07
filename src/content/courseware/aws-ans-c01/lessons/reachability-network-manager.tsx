@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -27,17 +28,7 @@ export const lesson: Lesson = {
             is either <em>reachable</em> with a hop-by-hop path or <em>not reachable</em> with the
             exact component that blocks it (for example a missing route or a security group rule).
           </p>
-          <Figure caption="Analysis workflow. Create a path, run an analysis, read the explanation, fix the component, rerun.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Define path", note: "Source, destination, protocol, port", tone: "sky" },
-                { title: "Run analysis", note: "Control-plane model, no traffic", tone: "lime" },
-                { title: "Read result", note: "Hops or blocking component", tone: "amber" },
-                { title: "Fix + rerun", note: "Route, SG, NACL, attachment", tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="reachability-network-manager-diagram-1" />
           <Table
             head={["Strength", "Limit"]}
             rows={[

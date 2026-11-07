@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -46,28 +47,7 @@ export const lesson: Lesson = {
       title: "Failure domains and DR patterns",
       body: (
         <>
-          <Figure caption="Regional design with a global load balancer. Zones protect against a data center failure; a second region protects against a region failure.">
-            <Graph
-              label="Global external load balancer distributing to regional managed instance groups in two regions, each across three zones, with a multi-region database"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "u", label: "Users", col: 0, row: 0.5, tone: "sky", shape: "pill" },
-                { id: "lb", label: "Global external LB", sub: "anycast IP, health checks", col: 1, row: 0.5, tone: "lime" },
-                { id: "r1", label: "Region A", sub: "regional MIG, 3 zones", col: 2, row: 0, tone: "amber" },
-                { id: "r2", label: "Region B", sub: "regional MIG, 3 zones", col: 2, row: 1, tone: "amber" },
-                { id: "db", label: "Spanner multi-region", sub: "or Cloud SQL + cross-region replica", col: 3, row: 0.5, tone: "plain", shape: "db" },
-              ]}
-              edges={[
-                { from: "u", to: "lb" },
-                { from: "lb", to: "r1" },
-                { from: "lb", to: "r2" },
-                { from: "r1", to: "db" },
-                { from: "r2", to: "db" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="ha-dr-scalability-diagram-1" />
           <Table
             head={["DR pattern", "What runs in the DR region", "RTO / RPO", "Relative cost"]}
             rows={[

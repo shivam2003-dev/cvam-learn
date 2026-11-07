@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -17,17 +18,7 @@ export const lesson: Lesson = {
       title: "Reading the question",
       body: (
         <>
-          <Figure caption="A four-pass reading method. Constraint words decide the answer, not familiar service names.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Ask", note: "What exactly must I choose?", tone: "sky" },
-                { title: "Constraints", note: "Cost, latency, residency, skills, effort, time", tone: "amber" },
-                { title: "Eliminate", note: "Cross out options violating a constraint", tone: "lime" },
-                { title: "Pick", note: "Most managed option that satisfies all", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="exam-technique-and-review-diagram-1" />
           <ul>
             <li>Watch qualifiers: <em>most cost-effective</em>, <em>least operational overhead</em>, <em>minimal changes</em>, <em>fastest</em>, <em>most secure</em>, <em>highly available</em>.</li>
             <li><strong>Multiple select</strong> questions tell you how many to choose; each must be correct.</li>

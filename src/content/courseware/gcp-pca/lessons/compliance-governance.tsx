@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -48,17 +49,7 @@ export const lesson: Lesson = {
             <li><strong>Cloud Audit Logs:</strong> Admin Activity (always on, free), Data Access (off by default except BigQuery; enable for sensitive services), System Event, and Policy Denied logs. Export to locked, retained storage.</li>
             <li><strong>Data lifecycle:</strong> retention policies, deletion workflows, backups with the same residency, and tested erasure.</li>
           </ul>
-          <Figure caption="Layers of compliance control: policy, platform, data, evidence.">
-            <Layers
-              layers={[
-                { title: "Governance", note: "Policies, data owners, DPAs, risk register, training", tone: "plain" },
-                { title: "Guardrails", note: "Organization policy, Assured Workloads, hierarchical firewall, VPC Service Controls", tone: "rose" },
-                { title: "Data protection", note: "Classification, CMEK/EKM, DLP, retention and residency", tone: "amber" },
-                { title: "Identity and access", note: "Least privilege, PAM, MFA, separation of duties", tone: "lime" },
-                { title: "Evidence", note: "Audit logs, Asset Inventory, SCC compliance, reports, regular reviews", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="compliance-governance-diagram-1" />
         </>
       ),
     },

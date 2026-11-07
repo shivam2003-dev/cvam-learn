@@ -1,0 +1,242 @@
+{
+  "ans-exam-overview-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "ans-exam-overview-diagram-2": {
+    "width": 1774,
+    "height": 887
+  },
+  "network-foundations-diagram-1": {
+    "width": 1536,
+    "height": 1024
+  },
+  "network-foundations-diagram-2": {
+    "width": 1774,
+    "height": 887
+  },
+  "network-foundations-diagram-3": {
+    "width": 1752,
+    "height": 897
+  },
+  "orientation-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "cloudfront-design-diagram-1": {
+    "width": 1920,
+    "height": 819
+  },
+  "cloudfront-design-diagram-2": {
+    "width": 1752,
+    "height": 897
+  },
+  "global-accelerator-edge-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "edge-global-summary": {
+    "width": 1672,
+    "height": 941
+  },
+  "route53-public-private-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "route53-routing-health-diagram-1": {
+    "width": 1536,
+    "height": 1024
+  },
+  "route53-routing-health-diagram-2": {
+    "width": 1774,
+    "height": 887
+  },
+  "hybrid-dns-resolver-diagram-1": {
+    "width": 1536,
+    "height": 1024
+  },
+  "dnssec-dns-security-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "dns-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "elb-types-layers-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "elb-types-layers-diagram-2": {
+    "width": 1774,
+    "height": 887
+  },
+  "elb-config-integration-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "elb-config-integration-diagram-2": {
+    "width": 1752,
+    "height": 897
+  },
+  "load-balancing-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "direct-connect-design-diagram-1": {
+    "width": 2172,
+    "height": 724
+  },
+  "direct-connect-design-diagram-2": {
+    "width": 1774,
+    "height": 887
+  },
+  "direct-connect-implementation-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "direct-connect-implementation-diagram-2": {
+    "width": 1752,
+    "height": 897
+  },
+  "site-to-site-client-vpn-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "bgp-routing-policy-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "bgp-routing-policy-diagram-2": {
+    "width": 1752,
+    "height": 897
+  },
+  "hybrid-sdwan-redundancy-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "hybrid-sdwan-redundancy-diagram-2": {
+    "width": 1774,
+    "height": 887
+  },
+  "hybrid-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "vpc-design-addressing-diagram-1": {
+    "width": 1536,
+    "height": 1024
+  },
+  "vpc-peering-vs-tgw-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "transit-gateway-architectures-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "privatelink-endpoints-diagram-1": {
+    "width": 1536,
+    "height": 1024
+  },
+  "privatelink-endpoints-diagram-2": {
+    "width": 1774,
+    "height": 887
+  },
+  "vpc-sharing-organizations-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "multi-vpc-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "network-monitoring-cloudwatch-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "flow-logs-traffic-mirroring-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "reachability-network-manager-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "network-automation-iac-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "monitoring-automation-summary": {
+    "width": 1752,
+    "height": 897
+  },
+  "maintaining-routing-quotas-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "troubleshooting-playbook-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "performance-cost-optimization-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "operations-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "threat-modeling-inbound-security-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "threat-modeling-inbound-security-diagram-2": {
+    "width": 1774,
+    "height": 887
+  },
+  "outbound-inspection-firewall-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "sg-nacl-firewall-manager-audit-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "encryption-in-transit-certificates-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "security-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "scenario-global-application-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "scenario-enterprise-hybrid-diagram-1": {
+    "width": 1753,
+    "height": 897
+  },
+  "lab-hub-spoke-transit-gateway-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "exam-technique-and-review-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "practice-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "network-automation-iac-diagram-2": {
+    "width": 1774,
+    "height": 887
+  },
+  "lab-hub-spoke-transit-gateway-diagram-2": {
+    "width": 1752,
+    "height": 897
+  }
+}

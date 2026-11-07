@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -90,27 +91,7 @@ fields @timestamp, srcAddr, dstAddr, dstPort, action
             Load Balancer endpoint) for analysis by IDS, forensic or performance tools. Packets are
             encapsulated in <strong>VXLAN on UDP 4789</strong>.
           </p>
-          <Figure caption="Traffic mirroring. A session links a source ENI, a filter and a target; the monitoring appliance receives VXLAN copies without affecting production traffic.">
-            <Graph
-              label="Traffic mirroring from a source ENI through a filter and session to a target NLB and analysis appliance"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "src", label: "Source ENI", sub: "web server", col: 0, row: 0, tone: "sky" },
-                { id: "flt", label: "Mirror filter", sub: "inbound/outbound rules", col: 1, row: 0, tone: "amber" },
-                { id: "sess", label: "Mirror session", sub: "priority, packet length", col: 2, row: 0, tone: "lime" },
-                { id: "tgt", label: "Target", sub: "ENI / NLB / GWLB endpoint", col: 3, row: 0, tone: "lime" },
-                { id: "ids", label: "IDS / analyzer", sub: "UDP 4789", col: 3, row: 1, tone: "plain" },
-              ]}
-              edges={[
-                { from: "src", to: "flt" },
-                { from: "flt", to: "sess" },
-                { from: "sess", to: "tgt" },
-                { from: "tgt", to: "ids" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="flow-logs-traffic-mirroring-diagram-1" />
           <ul>
             <li>Targets can be in the same VPC, a peered VPC, or reachable through Transit Gateway.</li>
             <li>The target must allow VXLAN (UDP 4789) in its security group.</li>

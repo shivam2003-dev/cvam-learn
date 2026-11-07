@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -31,28 +32,7 @@ export const lesson: Lesson = {
             <li><strong>Spot VMs:</strong> in a separate MIG or a mixed fleet using flexible provisioning; handle the preemption notice and keep stateless.</li>
             <li><strong>Images:</strong> golden images or startup scripts; Image families; Shielded VM and Confidential VM options; OS Login for SSH.</li>
           </ul>
-          <Figure caption="Regional MIG behind a load balancer. The autoscaler adds VMs from the template; autohealing replaces failed ones.">
-            <Graph
-              label="Instance template to regional managed instance group in three zones with autoscaler and health check behind a load balancer"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "t", label: "Instance template", sub: "image, type, SA, tags", col: 0, row: 0.5, tone: "amber" },
-                { id: "mig", label: "Regional MIG", sub: "autoscaler + autohealing", col: 1, row: 0.5, tone: "lime" },
-                { id: "za", label: "Zone a VMs", col: 2, row: 0, tone: "plain" },
-                { id: "zb", label: "Zone b VMs", col: 2, row: 1, tone: "plain" },
-                { id: "lb", label: "Load balancer", col: 3, row: 0.5, tone: "sky" },
-              ]}
-              edges={[
-                { from: "t", to: "mig" },
-                { from: "mig", to: "za" },
-                { from: "mig", to: "zb" },
-                { from: "za", to: "lb", dashed: true },
-                { from: "zb", to: "lb", dashed: true },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="compute-configuration-iac-diagram-1" />
         </>
       ),
     },

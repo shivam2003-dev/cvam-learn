@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -37,30 +38,7 @@ export const lesson: Lesson = {
       title: "Reference architecture",
       body: (
         <>
-          <Figure caption="Secured zone (perimeter) holds identifiable data; a de-identification pipeline feeds an analytics zone; connectivity and keys are controlled.">
-            <Graph
-              label="On-premises EHR connects over Interconnect to a Cloud Healthcare API in a VPC Service Controls perimeter, with a de-identification pipeline feeding an analytics BigQuery zone and an AI assistant protected by Model Armor"
-              cellW={200}
-              cellH={96}
-              nodeW={170}
-              nodes={[
-                { id: "ehr", label: "On-premises EHR / clinics", sub: "HL7 / FHIR", col: 0, row: 0.5, tone: "sky" },
-                { id: "ic", label: "Interconnect + HA VPN backup", col: 1, row: 0.5, tone: "amber" },
-                { id: "hc", label: "Cloud Healthcare API", sub: "FHIR store, EU regions", col: 2, row: 0, tone: "lime", shape: "db" },
-                { id: "deid", label: "De-identification", sub: "Sensitive Data Protection", col: 2, row: 1, tone: "lime" },
-                { id: "bq", label: "Analytics BigQuery", sub: "de-identified only", col: 3, row: 1, tone: "plain", shape: "db" },
-                { id: "ai", label: "Clinician assistant", sub: "Gemini + Model Armor", col: 3, row: 0, tone: "rose" },
-              ]}
-              groups={[{ label: "VPC Service Controls perimeter (EU)", c1: 2, r1: 0, c2: 3, r2: 1, tone: "lime" }]}
-              edges={[
-                { from: "ehr", to: "ic" },
-                { from: "ic", to: "hc" },
-                { from: "hc", to: "deid" },
-                { from: "deid", to: "bq" },
-                { from: "hc", to: "ai", dashed: true },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="scenario-regulated-hybrid-diagram-1" />
           <Table
             head={["Requirement", "Control"]}
             rows={[

@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -34,17 +35,7 @@ export const lesson: Lesson = {
               ["Custom", "Your own set of permissions at project or organization level", "When predefined roles are too broad; maintain carefully"],
             ]}
           />
-          <Figure caption="Evaluation order. Deny policies and organization policy restrict even where an allow exists.">
-            <Layers
-              layers={[
-                { title: "Organization policy constraints", note: "What configurations are allowed at all (for example no external IPs)", tone: "rose" },
-                { title: "VPC Service Controls", note: "Which API calls may cross a perimeter", tone: "rose" },
-                { title: "IAM deny policies", note: "Explicit denials that override allows", tone: "amber" },
-                { title: "IAM allow policies (inherited + conditions)", note: "Union of grants from org, folder, project and resource", tone: "lime" },
-                { title: "Resource-level controls", note: "Bucket policies, ACLs (if enabled), database users", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="iam-resource-hierarchy-diagram-1" />
         </>
       ),
     },

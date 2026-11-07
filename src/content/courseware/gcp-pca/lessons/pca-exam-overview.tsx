@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -51,18 +52,7 @@ export const lesson: Lesson = {
       title: "The six sections",
       body: (
         <>
-          <Figure caption="Section weightings from the exam guide. Designing and planning carries the most weight; the three sections at the bottom together are 40 percent.">
-            <Layers
-              layers={[
-                { title: "1. Designing and planning a cloud solution architecture (~25%)", note: "Business and technical requirements; network, storage and compute; migration; future improvements.", tone: "lime" },
-                { title: "2. Managing and provisioning infrastructure (~17.5%)", note: "Network topologies, storage, compute, Agent Platform ML workflows, prebuilt APIs.", tone: "sky" },
-                { title: "3. Designing for security and compliance (~17.5%)", note: "IAM, hierarchy, data security, VPC Service Controls, supply chain, AI security, regulation.", tone: "rose" },
-                { title: "4. Analyzing and optimizing processes (~15%)", note: "SDLC, CI/CD, troubleshooting, DR, stakeholder and change management, cost.", tone: "amber" },
-                { title: "5. Managing implementation (~12.5%)", note: "Advising teams, API management (Apigee), SDKs, emulators, Terraform.", tone: "amber" },
-                { title: "6. Ensuring solution and operations excellence (~12.5%)", note: "Operational excellence pillar, observability, release management, reliability testing.", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="pca-exam-overview-diagram-1" />
           <p>
             The current guide adds generative AI content in several places: Gemini Cloud Assist,
             Google Cloud AI and ML solutions (Gemini, Agent Builder, Model Garden, AI Hypercomputer),

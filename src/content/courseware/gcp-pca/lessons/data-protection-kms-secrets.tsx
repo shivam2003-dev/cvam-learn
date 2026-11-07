@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -22,17 +23,7 @@ export const lesson: Lesson = {
             Google encrypts data at rest by default with AES-256 using Google-managed keys, and
             encrypts data in transit between its facilities. You decide whether you need more control.
           </p>
-          <Figure caption="Increasing key control, moving from the default to keys held outside Google Cloud.">
-            <Layers
-              layers={[
-                { title: "Google-managed encryption (default)", note: "No configuration; automatic rotation; no customer key control", tone: "plain" },
-                { title: "CMEK (customer-managed encryption keys)", note: "Keys in Cloud KMS that you create, rotate, disable and destroy; supported by most services (Cloud Storage, BigQuery, Compute, GKE, Cloud SQL, Spanner, Pub/Sub…)", tone: "lime" },
-                { title: "CMEK with Cloud HSM", note: "Keys protected in FIPS 140-2 Level 3 hardware security modules", tone: "sky" },
-                { title: "Cloud EKM (external key manager)", note: "Keys remain in a supported external key manager outside Google; you can cut off access to data instantly", tone: "amber" },
-                { title: "CSEK (customer-supplied keys)", note: "You provide the key with each request; only Cloud Storage and Compute Engine disks; you must keep the key or lose the data", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="data-protection-kms-secrets-diagram-1" />
           <ul>
             <li><strong>Cloud KMS Autokey</strong> automates CMEK creation and assignment with consistent policy.</li>
             <li><strong>Confidential Computing</strong> protects data in use with memory encryption (Confidential VMs, GKE nodes).</li>

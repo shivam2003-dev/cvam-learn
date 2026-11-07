@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -25,16 +26,7 @@ export const lesson: Lesson = {
             not altered. It provides <em>authenticity and integrity</em>, not confidentiality: queries
             are still visible.
           </p>
-          <Figure caption="Chain of trust. The parent zone holds a DS record that vouches for the child zone's key-signing key.">
-            <Flow
-              steps={[
-                { title: "Root zone", note: "Trust anchor in validating resolvers", tone: "sky" },
-                { title: ".com (parent)", note: "Holds DS record for example.com", tone: "sky" },
-                { title: "example.com (child)", note: "KSK signs the ZSK; ZSK signs record sets (RRSIG)", tone: "lime" },
-                { title: "Validating resolver", note: "Checks signatures up the chain", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="dnssec-dns-security-diagram-1" />
           <Table
             head={["Term", "Meaning"]}
             rows={[

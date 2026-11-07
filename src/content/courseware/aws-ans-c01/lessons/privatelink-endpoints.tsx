@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -29,27 +30,7 @@ export const lesson: Lesson = {
               ["Private DNS", "Not used (prefix list)", "Optional private DNS name overrides the public service name", "N/A"],
             ]}
           />
-          <Figure caption="Gateway endpoint adds a route; interface endpoint adds an ENI. Only the interface endpoint is reachable from outside the VPC.">
-            <Graph
-              label="Gateway endpoint for S3 via route table versus interface endpoint ENI for another service"
-              cellW={200}
-              cellH={100}
-              nodeW={170}
-              nodes={[
-                { id: "ec2", label: "Private subnet instance", col: 0, row: 0.5, tone: "sky" },
-                { id: "gw", label: "Gateway endpoint", sub: "pl-xxxx → S3 route", col: 1, row: 0, tone: "lime" },
-                { id: "if", label: "Interface endpoint ENI", sub: "10.0.2.14, SG", col: 1, row: 1, tone: "amber" },
-                { id: "s3", label: "Amazon S3", col: 2, row: 0, tone: "plain", shape: "db" },
-                { id: "svc", label: "AWS service / PrivateLink service", col: 2, row: 1, tone: "plain" },
-              ]}
-              edges={[
-                { from: "ec2", to: "gw" },
-                { from: "ec2", to: "if" },
-                { from: "gw", to: "s3" },
-                { from: "if", to: "svc" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="privatelink-endpoints-diagram-1" />
           <Callout tone="tip" title="S3 from on-premises">
             A gateway endpoint cannot be reached from on-premises. To use private connectivity to S3
             from a data center, create an S3 <strong>interface endpoint</strong> and resolve its
@@ -77,27 +58,7 @@ export const lesson: Lesson = {
             <li><strong>Source IP:</strong> the provider sees NLB or endpoint addresses; enable proxy protocol v2 to learn the consumer&apos;s VPC endpoint ID and original source.</li>
             <li><strong>Overlapping CIDRs:</strong> irrelevant, because the consumer addresses an ENI in its own range.</li>
           </ul>
-          <Figure caption="PrivateLink provider and consumer. Many consumer VPCs reach one NLB-backed service without exposing the provider network.">
-            <Graph
-              label="Consumer VPCs reach a provider service through interface endpoints connected to an endpoint service backed by an NLB"
-              cellW={200}
-              cellH={100}
-              nodeW={170}
-              nodes={[
-                { id: "c1", label: "Consumer VPC 1", sub: "interface endpoint", col: 0, row: 0, tone: "sky" },
-                { id: "c2", label: "Consumer VPC 2", sub: "interface endpoint", col: 0, row: 1, tone: "sky" },
-                { id: "es", label: "Endpoint service", sub: "allowed principals", col: 1, row: 0.5, tone: "amber" },
-                { id: "nlb", label: "NLB", col: 2, row: 0.5, tone: "lime" },
-                { id: "app", label: "Service targets", col: 3, row: 0.5, tone: "plain" },
-              ]}
-              edges={[
-                { from: "c1", to: "es" },
-                { from: "c2", to: "es" },
-                { from: "es", to: "nlb" },
-                { from: "nlb", to: "app" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="privatelink-endpoints-diagram-2" />
         </>
       ),
     },

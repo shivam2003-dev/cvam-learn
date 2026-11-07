@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -18,18 +19,7 @@ export const lesson: Lesson = {
       title: "A CI/CD pipeline on Google Cloud",
       body: (
         <>
-          <Figure caption="From commit to production. Every stage produces evidence and gates the next.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Source", note: "GitHub, GitLab, Developer Connect, Cloud Source Repositories legacy", tone: "sky" },
-                { title: "Build + test", note: "Cloud Build triggers, unit tests, SAST", tone: "lime" },
-                { title: "Package", note: "Artifact Registry, scan, sign", tone: "lime" },
-                { title: "Deploy", note: "Cloud Deploy pipeline: dev → staging → prod", tone: "amber" },
-                { title: "Verify + operate", note: "Smoke tests, SLO monitoring, rollback", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="sdlc-cicd-testing-diagram-1" />
           <Table
             head={["Service", "Role"]}
             rows={[

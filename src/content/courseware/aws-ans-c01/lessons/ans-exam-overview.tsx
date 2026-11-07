@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -54,16 +55,7 @@ export const lesson: Lesson = {
       title: "The four domains and where they live in this course",
       body: (
         <>
-          <Figure caption="The four content domains with their weightings. Network Design and Network Implementation together make up more than half of the scored content.">
-            <Layers
-              layers={[
-                { title: "Domain 1: Network Design (30%)", note: "Edge, DNS, load balancing, logging requirements, hybrid and multi-account routing strategy (6 tasks).", tone: "lime" },
-                { title: "Domain 2: Network Implementation (26%)", note: "Build hybrid links, multi-account connectivity, hybrid DNS and automation (4 tasks).", tone: "sky" },
-                { title: "Domain 3: Management and Operation (20%)", note: "Maintain routing, monitor and troubleshoot, optimize cost and performance (3 tasks).", tone: "amber" },
-                { title: "Domain 4: Security, Compliance, Governance (24%)", note: "Secure flows, audit with logs, protect data in transit (3 tasks).", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="ans-exam-overview-diagram-1" />
           <Table
             head={["Task", "Topic", "Chapter in this course"]}
             rows={[
@@ -116,19 +108,7 @@ export const lesson: Lesson = {
       title: "A study plan that works",
       body: (
         <>
-          <Figure caption="A suggested eight-week rhythm. Each loop is read, build, verify, then drill questions on that domain.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Foundations", note: "Week 1: OSI, CIDR, BGP, MTU, VPC", tone: "sky" },
-                { title: "Edge, DNS, ELB", note: "Weeks 2 to 3", tone: "lime" },
-                { title: "Hybrid + multi-VPC", note: "Weeks 4 to 5, the heaviest", tone: "lime" },
-                { title: "Ops + monitoring", note: "Week 6", tone: "amber" },
-                { title: "Security", note: "Week 7", tone: "amber" },
-                { title: "Scenarios + review", note: "Week 8", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="ans-exam-overview-diagram-2" />
           <ol>
             <li>Read a lesson, then <strong>build it</strong> in a sandbox account. Networking is learned by seeing routes, not by memorising them.</li>
             <li>Keep a one-page <strong>decision table</strong> per topic (for example peering versus Transit Gateway versus PrivateLink).</li>

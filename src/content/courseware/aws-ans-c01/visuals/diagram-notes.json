@@ -1,0 +1,725 @@
+{
+  "ans-exam-overview-diagram-1": {
+    "lesson": "ans-exam-overview",
+    "section": "The four domains and where they live in this course",
+    "caption": "The four content domains with their weightings. Network Design and Network Implementation together make up more than half of the scored content.",
+    "notes": [
+      "1. Domain 1: Network Design (30%): Edge, DNS, load balancing, logging requirements, hybrid and multi-account routing strategy (6 tasks).",
+      "2. Domain 2: Network Implementation (26%): Build hybrid links, multi-account connectivity, hybrid DNS and automation (4 tasks).",
+      "3. Domain 3: Management and Operation (20%): Maintain routing, monitor and troubleshoot, optimize cost and performance (3 tasks).",
+      "4. Domain 4: Security, Compliance, Governance (24%): Secure flows, audit with logs, protect data in transit (3 tasks)."
+    ]
+  },
+  "ans-exam-overview-diagram-2": {
+    "lesson": "ans-exam-overview",
+    "section": "A study plan that works",
+    "caption": "A suggested eight-week rhythm. Each loop is read, build, verify, then drill questions on that domain.",
+    "notes": [
+      "1. Foundations: Week 1: OSI, CIDR, BGP, MTU, VPC",
+      "2. Edge, DNS, ELB: Weeks 2 to 3",
+      "3. Hybrid + multi-VPC: Weeks 4 to 5, the heaviest",
+      "4. Ops + monitoring: Week 6",
+      "5. Security: Week 7",
+      "6. Scenarios + review: Week 8"
+    ]
+  },
+  "network-foundations-diagram-1": {
+    "lesson": "network-foundations",
+    "section": "The OSI layers you must be able to use",
+    "caption": "OSI layers with typical AWS services. Higher layers can inspect more but add latency and cost.",
+    "notes": [
+      "1. L7 Application: HTTP, gRPC, DNS. ALB, CloudFront, API Gateway, AWS WAF, Route 53.",
+      "2. L6 / L5 Presentation, session: TLS termination and sessions. ALB and NLB TLS listeners, ACM certificates.",
+      "3. L4 Transport: TCP, UDP ports. NLB, security groups, network ACLs, NAT gateway, Global Accelerator.",
+      "4. L3 Network: IP, ICMP, routing, BGP. Route tables, Transit Gateway, GWLB (GENEVE), VPN (IPsec).",
+      "5. L2 Data link: Ethernet, VLAN 802.1Q, LAG, MACsec. Direct Connect VIFs ride a VLAN.",
+      "6. L1 Physical: Fibre, optics, cross-connects. Direct Connect location, LOA-CFA."
+    ]
+  },
+  "network-foundations-diagram-2": {
+    "lesson": "network-foundations",
+    "section": "Routing: longest prefix, static and BGP",
+    "caption": "Longest prefix match. The /24 wins for 10.1.1.5 even though the /16 also matches; 10.1.9.9 only matches the /16.",
+    "notes": [
+      "Dest 10.1.1.5",
+      "Dest 10.1.9.9",
+      "Route table: 10.1.0.0/16 → pcx",
+      "More specific: 10.1.1.0/24 → tgw",
+      "Transit Gateway",
+      "VPC peering",
+      "Dest 10.1.1.5 → More specific: wins /24",
+      "Dest 10.1.9.9 → Route table: only /16",
+      "More specific → Transit Gateway",
+      "Route table → VPC peering"
+    ]
+  },
+  "network-foundations-diagram-3": {
+    "lesson": "network-foundations",
+    "section": "How a VPC forwards a packet",
+    "caption": "Packet path from an instance to a remote VPC. A block at any step stops the flow.",
+    "notes": [
+      "Instance",
+      "Security group: stateful",
+      "Network ACL: stateless",
+      "Route table: longest prefix",
+      "Next hop: TGW, IGW, PCX, VGW",
+      "Instance → Security group",
+      "Security group → Network ACL",
+      "Network ACL → Route table",
+      "Route table → Next hop"
+    ]
+  },
+  "cloudfront-design-diagram-1": {
+    "lesson": "cloudfront-design",
+    "section": "How CloudFront serves a request",
+    "caption": "Cache hierarchy. A hit at the edge never touches the origin; Origin Shield adds one more consolidating cache in front of the origin.",
+    "notes": [
+      "Viewer",
+      "Edge location: cache hit returns here",
+      "Regional edge cache",
+      "Origin Shield: optional",
+      "Origin: S3, ALB, custom",
+      "Viewer → Edge location",
+      "Edge location → Regional edge cache: miss",
+      "Regional edge cache → Origin Shield: miss",
+      "Origin Shield → Origin: miss"
+    ]
+  },
+  "cloudfront-design-diagram-2": {
+    "lesson": "cloudfront-design",
+    "section": "Forcing traffic through CloudFront",
+    "caption": "Protecting each origin type. Each layer removes the direct-to-origin path.",
+    "notes": [
+      "1. S3 origin: Origin access control (OAC): bucket policy allows only the CloudFront service principal for that distribution. Block public access stays on.",
+      "2. ALB / NLB / EC2 in private subnets: CloudFront VPC origins keep the origin private with no public IP, reached through a service-managed ENI.",
+      "3. Public ALB or custom origin: Allow the AWS-managed prefix list for CloudFront origin-facing IPs in the security group, plus a secret custom header the origin verifies (rotate it).",
+      "4. API Gateway: Use an edge-optimized or regional endpoint with a CloudFront-added header or API key; resource policy or WAF for validation.",
+      "5. Viewer side: HTTPS only (redirect HTTP), TLS 1.2+ security policy, AWS WAF web ACL attached to the distribution."
+    ]
+  },
+  "global-accelerator-edge-diagram-1": {
+    "lesson": "global-accelerator-edge",
+    "section": "What Global Accelerator does",
+    "caption": "Global Accelerator structure. Listeners accept TCP or UDP on chosen ports; each listener routes to endpoint groups (one per Region) containing endpoints.",
+    "notes": [
+      "Clients",
+      "Accelerator: 2 static anycast IPs",
+      "Listener: TCP/UDP + ports",
+      "Endpoint group us-east-1: dial 50%",
+      "Endpoint group eu-west-1: dial 50%",
+      "ALB / NLB / EC2 / EIP",
+      "ALB / NLB / EC2 / EIP",
+      "Clients → Accelerator",
+      "Accelerator → Listener",
+      "Listener → Endpoint group us-east-1",
+      "Listener → Endpoint group eu-west-1",
+      "Endpoint group us-east-1 → ALB / NLB / EC2 / EIP",
+      "Endpoint group eu-west-1 → ALB / NLB / EC2 / EIP"
+    ]
+  },
+  "route53-public-private-diagram-1": {
+    "lesson": "route53-public-private",
+    "section": "Public and private hosted zones",
+    "caption": "Split-horizon DNS. The same name can resolve differently inside the VPC (PHZ) and outside (public zone).",
+    "notes": [
+      "Instance in VPC",
+      "Internet user",
+      "Private hosted zone: app.example.com → 10.0.1.20",
+      "Public hosted zone: app.example.com → ALB (alias)",
+      "Instance in VPC → Private hosted zone: VPC resolver",
+      "Internet user → Public hosted zone: public resolvers"
+    ]
+  },
+  "route53-routing-health-diagram-1": {
+    "lesson": "route53-routing-health",
+    "section": "The routing policies",
+    "caption": "Choosing between the policies by what you need to control. Position is approximate.",
+    "notes": [
+      "Horizontal axis: User location awareness; vertical axis: Control over traffic share",
+      "Top left: Weighted",
+      "Top right: Geoproximity",
+      "Bottom left: Simple",
+      "Bottom right: Latency / Geolocation",
+      "Simple: lower User location awareness; lower Control over traffic share",
+      "Multivalue: lower User location awareness; lower Control over traffic share",
+      "Weighted: lower User location awareness; higher Control over traffic share",
+      "Failover: lower User location awareness; higher Control over traffic share",
+      "Latency: higher User location awareness; lower Control over traffic share",
+      "Geolocation: higher User location awareness; lower Control over traffic share",
+      "Geoproximity: higher User location awareness; higher Control over traffic share"
+    ]
+  },
+  "route53-routing-health-diagram-2": {
+    "lesson": "route53-routing-health",
+    "section": "Health checks",
+    "caption": "Active/passive failover. Route 53 returns the primary while it is healthy; when it fails, the secondary record is returned.",
+    "notes": [
+      "Client",
+      "Route 53: failover records",
+      "Health check: primary endpoint",
+      "Primary Region",
+      "Secondary Region",
+      "Client → Route 53",
+      "Health check → Route 53: status (dashed connection)",
+      "Route 53 → Primary Region: healthy",
+      "Route 53 → Secondary Region: failed (dashed connection)"
+    ]
+  },
+  "hybrid-dns-resolver-diagram-1": {
+    "lesson": "hybrid-dns-resolver",
+    "section": "Inbound and outbound endpoints",
+    "caption": "Hybrid DNS with both endpoint types. On-premises forwards aws.example.com to the inbound endpoint; the VPC forwards corp.example.com to the outbound endpoint.",
+    "notes": [
+      "Boundary: AWS VPC",
+      "On-prem DNS servers: corp.example.com",
+      "Inbound endpoint: ENIs in 2+ AZs",
+      "VPC Resolver: PHZ aws.example.com",
+      "Outbound endpoint: ENIs in 2+ AZs",
+      "EC2 instance",
+      "On-prem DNS servers → Inbound endpoint: aws.example.com",
+      "Inbound endpoint → VPC Resolver",
+      "Outbound endpoint → On-prem DNS servers: forward rule (dashed connection)",
+      "EC2 instance → VPC Resolver: corp.example.com",
+      "VPC Resolver → Outbound endpoint: conditional forwarding rule"
+    ]
+  },
+  "dnssec-dns-security-diagram-1": {
+    "lesson": "dnssec-dns-security",
+    "section": "DNSSEC: integrity of DNS answers",
+    "caption": "Chain of trust. The parent zone holds a DS record that vouches for the child zone's key-signing key.",
+    "notes": [
+      "1. Root zone: Trust anchor in validating resolvers",
+      "2. .com (parent): Holds DS record for example.com",
+      "3. example.com (child): KSK signs the ZSK; ZSK signs record sets (RRSIG)",
+      "4. Validating resolver: Checks signatures up the chain"
+    ]
+  },
+  "elb-types-layers-diagram-1": {
+    "lesson": "elb-types-layers",
+    "section": "Three load balancers, three layers",
+    "caption": "Which load balancer works at which layer. The Classic Load Balancer is legacy and is rarely the right answer on the exam.",
+    "notes": [
+      "Application Load Balancer: Layer 7: HTTP, HTTPS, gRPC, WebSocket",
+      "Network Load Balancer: Layer 4: TCP, UDP, TLS",
+      "Gateway Load Balancer: Layer 3 gateway + L4 balancing, GENEVE",
+      "Classic Load Balancer: Legacy L4/L7"
+    ]
+  },
+  "elb-types-layers-diagram-2": {
+    "lesson": "elb-types-layers",
+    "section": "Selecting the right one",
+    "caption": "Static IPs with Layer 7 routing. An NLB with Elastic IPs forwards to an ALB target group, which applies host and path rules.",
+    "notes": [
+      "Client: allow-lists 2 IPs",
+      "NLB: Elastic IP per AZ",
+      "ALB: path / host rules",
+      "Targets: ECS / EC2",
+      "Client → NLB",
+      "NLB → ALB",
+      "ALB → Targets"
+    ]
+  },
+  "elb-config-integration-diagram-1": {
+    "lesson": "elb-config-integration",
+    "section": "Encryption and authentication patterns",
+    "caption": "Three TLS designs. Choose by whether the load balancer must see the content, and by compliance needs.",
+    "notes": [
+      "1. TLS termination: Client TLS to ALB/NLB with an ACM certificate; plain HTTP to targets inside the VPC. Offloads CPU and enables layer 7 features.",
+      "2. Re-encryption (end to end): Terminate at ALB, then new TLS session to targets. Required where compliance forbids clear text inside the VPC. Target certificates need not be public CA issued.",
+      "3. TLS passthrough: NLB TCP listener forwards encrypted bytes untouched; target holds the certificate. The load balancer cannot inspect HTTP, and the client IP is preserved."
+    ]
+  },
+  "elb-config-integration-diagram-2": {
+    "lesson": "elb-config-integration",
+    "section": "Integrations that appear in scenarios",
+    "caption": "A typical internet application: global DNS and edge, a WAF-protected ALB, and an Auto Scaling group across two AZs.",
+    "notes": [
+      "Route 53: alias record",
+      "CloudFront + WAF",
+      "ALB: 2 AZs",
+      "ASG instances AZ-a",
+      "ASG instances AZ-b",
+      "Route 53 → CloudFront + WAF",
+      "CloudFront + WAF → ALB",
+      "ALB → ASG instances AZ-a",
+      "ALB → ASG instances AZ-b"
+    ]
+  },
+  "direct-connect-design-diagram-1": {
+    "lesson": "direct-connect-design",
+    "section": "What Direct Connect is",
+    "caption": "Physical path. Your router connects by cross connect to an AWS DX router in a colocation facility; AWS carries the traffic over its backbone to the Region.",
+    "notes": [
+      "Boundary: Colocation facility",
+      "Customer router: data center",
+      "Cross connect: fibre, LOA-CFA",
+      "AWS DX router: DX location",
+      "AWS Region: VPCs via VIFs",
+      "Customer router → Cross connect: carrier / own fibre (dashed connection)",
+      "Cross connect → AWS DX router",
+      "AWS DX router → AWS Region: AWS backbone"
+    ]
+  },
+  "direct-connect-design-diagram-2": {
+    "lesson": "direct-connect-design",
+    "section": "Resiliency models",
+    "caption": "Maximum resiliency: two DX locations, each with two connections to two separate on-premises routers. Active BGP sessions run over all four.",
+    "notes": [
+      "Customer router A",
+      "Customer router B",
+      "DX location 1: two AWS devices",
+      "DX location 2: two AWS devices",
+      "AWS Region",
+      "Customer router A → DX location 1",
+      "Customer router A → DX location 2",
+      "Customer router B → DX location 1",
+      "Customer router B → DX location 2",
+      "DX location 1 → AWS Region",
+      "DX location 2 → AWS Region"
+    ]
+  },
+  "direct-connect-implementation-diagram-1": {
+    "lesson": "direct-connect-implementation",
+    "section": "Virtual interfaces",
+    "caption": "Two VIF types sharing a physical connection. The private VIF reaches a VPC; the public VIF reaches AWS public services such as S3 without the internet.",
+    "notes": [
+      "Customer router: two BGP sessions",
+      "DX connection: VLAN 101 private, VLAN 102 public",
+      "Private VIF → VPC",
+      "Public VIF → AWS public services",
+      "Customer router → DX connection",
+      "DX connection → Private VIF → VPC",
+      "DX connection → Public VIF → AWS public services"
+    ]
+  },
+  "direct-connect-implementation-diagram-2": {
+    "lesson": "direct-connect-implementation",
+    "section": "Direct Connect gateway",
+    "caption": "Transit VIF design. One DX gateway reaches Transit Gateways in two Regions, each connected to many VPCs.",
+    "notes": [
+      "On-premises",
+      "Direct Connect gateway",
+      "TGW us-east-1",
+      "TGW eu-west-1",
+      "On-premises → Direct Connect gateway: transit VIF",
+      "Direct Connect gateway → TGW us-east-1",
+      "Direct Connect gateway → TGW eu-west-1"
+    ]
+  },
+  "site-to-site-client-vpn-diagram-1": {
+    "lesson": "site-to-site-client-vpn",
+    "section": "Site-to-Site VPN anatomy",
+    "caption": "Two tunnels per connection. Configure both on the customer device; one active and one standby, or both active with ECMP on a Transit Gateway.",
+    "notes": [
+      "Customer gateway device: public IP, ASN",
+      "Tunnel 1: AWS endpoint AZ-a",
+      "Tunnel 2: AWS endpoint AZ-b",
+      "VGW or Transit Gateway",
+      "Customer gateway device → Tunnel 1",
+      "Customer gateway device → Tunnel 2",
+      "Tunnel 1 → VGW or Transit Gateway",
+      "Tunnel 2 → VGW or Transit Gateway"
+    ]
+  },
+  "bgp-routing-policy-diagram-1": {
+    "lesson": "bgp-routing-policy",
+    "section": "How BGP chooses a path",
+    "caption": "Traffic engineering levers, strongest first. Prefix length beats all attributes; local preference is the main outbound control.",
+    "notes": [
+      "1. Longest prefix: /25 beats /24 regardless of attributes",
+      "2. Local preference: Highest wins; local to your AS",
+      "3. AS_PATH length: Shortest wins; prepend to de-prefer",
+      "4. MED: Lowest wins; hints to a neighbour",
+      "5. Other tie-breakers: eBGP over iBGP, router ID"
+    ]
+  },
+  "bgp-routing-policy-diagram-2": {
+    "lesson": "bgp-routing-policy",
+    "section": "The levers AWS gives you",
+    "caption": "Active/passive over two Direct Connect locations using local preference communities. Traffic from AWS prefers DX-1; DX-2 takes over if the primary BGP session drops.",
+    "notes": [
+      "AWS (VGW / DXGW)",
+      "DX-1 primary: 7224:7300 high",
+      "DX-2 standby: 7224:7100 low",
+      "On-premises: 10.0.0.0/8",
+      "AWS (VGW / DXGW) → DX-1 primary: preferred",
+      "AWS (VGW / DXGW) → DX-2 standby: backup (dashed connection)",
+      "DX-1 primary → On-premises",
+      "DX-2 standby → On-premises (dashed connection)"
+    ]
+  },
+  "hybrid-sdwan-redundancy-diagram-1": {
+    "lesson": "hybrid-sdwan-redundancy",
+    "section": "Resilient hybrid patterns",
+    "caption": "Direct Connect primary with VPN backup into a Transit Gateway. The DXGW route is preferred; if it drops, the VPN route takes over automatically through BGP.",
+    "notes": [
+      "On-premises routers: BGP",
+      "Direct Connect (transit VIF): preferred",
+      "Site-to-Site VPN: backup",
+      "Transit Gateway",
+      "On-premises routers → Direct Connect (transit VIF)",
+      "On-premises routers → Site-to-Site VPN (dashed connection)",
+      "Direct Connect (transit VIF) → Transit Gateway",
+      "Site-to-Site VPN → Transit Gateway (dashed connection)"
+    ]
+  },
+  "hybrid-sdwan-redundancy-diagram-2": {
+    "lesson": "hybrid-sdwan-redundancy",
+    "section": "Transit Gateway Connect and SD-WAN",
+    "caption": "SD-WAN with Transit Gateway Connect. GRE+BGP rides on a VPC attachment as transport; branch sites reach VPCs through the overlay.",
+    "notes": [
+      "Branch SD-WAN edges",
+      "SD-WAN appliance: in transport VPC",
+      "Transit Gateway: Connect attachment",
+      "Workload VPCs",
+      "Branch SD-WAN edges → SD-WAN appliance: overlay (dashed connection)",
+      "SD-WAN appliance → Transit Gateway: GRE + BGP",
+      "Transit Gateway → Workload VPCs"
+    ]
+  },
+  "vpc-design-addressing-diagram-1": {
+    "lesson": "vpc-design-addressing",
+    "section": "VPC and subnet layout",
+    "caption": "A three-tier VPC across two AZs. NAT gateways are per AZ so a zone failure does not break egress for the other zone.",
+    "notes": [
+      "Internet gateway",
+      "Public AZ-a: ALB, NAT gw",
+      "Public AZ-b: ALB, NAT gw",
+      "App AZ-a: private",
+      "App AZ-b: private",
+      "DB AZ-a: isolated",
+      "DB AZ-b: isolated",
+      "Internet gateway → Public AZ-a",
+      "Internet gateway → Public AZ-b",
+      "Public AZ-a → App AZ-a",
+      "Public AZ-b → App AZ-b",
+      "App AZ-a → DB AZ-a",
+      "App AZ-b → DB AZ-b"
+    ]
+  },
+  "vpc-peering-vs-tgw-diagram-1": {
+    "lesson": "vpc-peering-vs-tgw",
+    "section": "VPC peering in detail",
+    "caption": "Transitivity trap. A reaches B and B reaches C, but A cannot reach C unless it has its own peering (or a transit gateway).",
+    "notes": [
+      "VPC A",
+      "VPC B",
+      "VPC C",
+      "VPC A ↔ VPC B: peering",
+      "VPC B ↔ VPC C: peering",
+      "VPC A → VPC C: no path (dashed connection)"
+    ]
+  },
+  "transit-gateway-architectures-diagram-1": {
+    "lesson": "transit-gateway-architectures",
+    "section": "Segmentation example",
+    "caption": "Prod and dev VPCs are isolated from each other but both reach shared services and on-premises. Each spoke associates with its own route table; the shared and on-premises attachments propagate into both.",
+    "notes": [
+      "Prod VPC: assoc: RT-Prod",
+      "Dev VPC: assoc: RT-Dev",
+      "Transit Gateway: RT-Prod / RT-Dev / RT-Shared",
+      "Shared services VPC: assoc: RT-Shared",
+      "DX gateway to on-premises: assoc: RT-Shared",
+      "Prod VPC ↔ Transit Gateway",
+      "Dev VPC ↔ Transit Gateway",
+      "Transit Gateway ↔ Shared services VPC",
+      "Transit Gateway ↔ DX gateway to on-premises"
+    ]
+  },
+  "privatelink-endpoints-diagram-1": {
+    "lesson": "privatelink-endpoints",
+    "section": "Three endpoint types",
+    "caption": "Gateway endpoint adds a route; interface endpoint adds an ENI. Only the interface endpoint is reachable from outside the VPC.",
+    "notes": [
+      "Private subnet instance",
+      "Gateway endpoint: pl-xxxx → S3 route",
+      "Interface endpoint ENI: 10.0.2.14, SG",
+      "Amazon S3",
+      "AWS service / PrivateLink service",
+      "Private subnet instance → Gateway endpoint",
+      "Private subnet instance → Interface endpoint ENI",
+      "Gateway endpoint → Amazon S3",
+      "Interface endpoint ENI → AWS service / PrivateLink service"
+    ]
+  },
+  "privatelink-endpoints-diagram-2": {
+    "lesson": "privatelink-endpoints",
+    "section": "Publishing your own service",
+    "caption": "PrivateLink provider and consumer. Many consumer VPCs reach one NLB-backed service without exposing the provider network.",
+    "notes": [
+      "Consumer VPC 1: interface endpoint",
+      "Consumer VPC 2: interface endpoint",
+      "Endpoint service: allowed principals",
+      "NLB",
+      "Service targets",
+      "Consumer VPC 1 → Endpoint service",
+      "Consumer VPC 2 → Endpoint service",
+      "Endpoint service → NLB",
+      "NLB → Service targets"
+    ]
+  },
+  "vpc-sharing-organizations-diagram-1": {
+    "lesson": "vpc-sharing-organizations",
+    "section": "VPC sharing",
+    "caption": "One network account owns the VPC and shares subnets; app teams in other accounts deploy into them and keep their own billing and IAM boundaries.",
+    "notes": [
+      "Network account: owns VPC and subnets",
+      "AWS RAM: share subnets",
+      "App account A: launches in subnet-a",
+      "App account B: launches in subnet-b",
+      "Network account → AWS RAM",
+      "AWS RAM → App account A",
+      "AWS RAM → App account B"
+    ]
+  },
+  "network-monitoring-cloudwatch-diagram-1": {
+    "lesson": "network-monitoring-cloudwatch",
+    "section": "From requirements to signals",
+    "caption": "Monitoring design loop. Requirements decide which metrics, logs and alarms you need, and the baseline gives the alarms meaning.",
+    "notes": [
+      "1. Requirements: Availability, latency, security, audit",
+      "2. Metrics + logs: Pick sources per service",
+      "3. Baseline: Normal load and latency",
+      "4. Alarms: Thresholds, anomaly detection, composite",
+      "5. Respond: SNS, EventBridge, runbook, automation"
+    ]
+  },
+  "flow-logs-traffic-mirroring-diagram-1": {
+    "lesson": "flow-logs-traffic-mirroring",
+    "section": "VPC Traffic Mirroring",
+    "caption": "Traffic mirroring. A session links a source ENI, a filter and a target; the monitoring appliance receives VXLAN copies without affecting production traffic.",
+    "notes": [
+      "Source ENI: web server",
+      "Mirror filter: inbound/outbound rules",
+      "Mirror session: priority, packet length",
+      "Target: ENI / NLB / GWLB endpoint",
+      "IDS / analyzer: UDP 4789",
+      "Source ENI → Mirror filter",
+      "Mirror filter → Mirror session",
+      "Mirror session → Target",
+      "Target → IDS / analyzer"
+    ]
+  },
+  "reachability-network-manager-diagram-1": {
+    "lesson": "reachability-network-manager",
+    "section": "VPC Reachability Analyzer",
+    "caption": "Analysis workflow. Create a path, run an analysis, read the explanation, fix the component, rerun.",
+    "notes": [
+      "1. Define path: Source, destination, protocol, port",
+      "2. Run analysis: Control-plane model, no traffic",
+      "3. Read result: Hops or blocking component",
+      "4. Fix + rerun: Route, SG, NACL, attachment"
+    ]
+  },
+  "network-automation-iac-diagram-1": {
+    "lesson": "network-automation-iac",
+    "section": "Event-driven network automation",
+    "caption": "Self-healing and guardrail pattern. A risky change is detected, evaluated and reverted or escalated automatically.",
+    "notes": [
+      "Event: SG opened to 0.0.0.0/0",
+      "EventBridge rule",
+      "Lambda / SSM Automation: revoke rule",
+      "SNS: notify security",
+      "Event → EventBridge rule",
+      "EventBridge rule → Lambda / SSM Automation",
+      "Lambda / SSM Automation → SNS"
+    ]
+  },
+  "maintaining-routing-quotas-diagram-1": {
+    "lesson": "maintaining-routing-quotas",
+    "section": "Route tables in practice",
+    "caption": "Route maintenance loop. Every change should be reviewed, tested and monitored.",
+    "notes": [
+      "1. Change request: IaC pull request",
+      "2. Preview: Change set, Reachability Analyzer",
+      "3. Apply: Pipeline",
+      "4. Monitor: Blackhole, drop and BGP alarms"
+    ]
+  },
+  "troubleshooting-playbook-diagram-1": {
+    "lesson": "troubleshooting-playbook",
+    "section": "A repeatable method",
+    "caption": "Work from the bottom up or divide in half. Each step uses a specific tool, so you eliminate layers rather than guess.",
+    "notes": [
+      "1. Define the flow: Source, destination, port, protocol, direction",
+      "2. Name resolution: dig/nslookup, Resolver logs",
+      "3. Route: Route tables, TGW, Reachability Analyzer",
+      "4. Filters: SG, NACL, firewall, flow logs REJECT",
+      "5. Path quality: MTU, loss, latency, asymmetry",
+      "6. Application: Listener, TLS, health, mirror"
+    ]
+  },
+  "performance-cost-optimization-diagram-1": {
+    "lesson": "performance-cost-optimization",
+    "section": "Jumbo frames and multicast",
+    "caption": "Ways to cut bandwidth and latency, from the application outward.",
+    "notes": [
+      "1. Application: Compression, protocol efficiency, batching, HTTP/2 and keep-alive",
+      "2. Edge: CloudFront caching, Global Accelerator for better paths",
+      "3. Placement: Same AZ for chatty tiers, cluster placement groups, ENA Express",
+      "4. Frames: Jumbo frames end to end, tuned MSS",
+      "5. Replication: Multicast for one-to-many instead of repeated unicast"
+    ]
+  },
+  "threat-modeling-inbound-security-diagram-1": {
+    "lesson": "threat-modeling-inbound-security",
+    "section": "Securing inbound traffic",
+    "caption": "Layered inbound defence. Each layer removes a class of attack before it reaches the next.",
+    "notes": [
+      "1. DNS and edge: Route 53 (Shield protected), CloudFront or Global Accelerator absorb floods; geo-restrictions",
+      "2. AWS WAF + Shield: Layer 7 rules, rate limits, bot control; Shield Advanced adds DDoS response team and cost protection",
+      "3. Load balancer in public subnets: TLS termination, ALB only in the perimeter, security group allows CloudFront prefix list or required ports",
+      "4. Application tier in private subnets: No public IPs; SG allows only the ALB security group",
+      "5. Data tier in isolated subnets: SG allows only the application SG; no internet route"
+    ]
+  },
+  "threat-modeling-inbound-security-diagram-2": {
+    "lesson": "threat-modeling-inbound-security",
+    "section": "Perimeter and three-tier architectures",
+    "caption": "Perimeter (DMZ) VPC pattern. Untrusted traffic terminates in a perimeter VPC where WAF, firewall and reverse proxies live; only inspected traffic crosses Transit Gateway to private workload VPCs.",
+    "notes": [
+      "Internet",
+      "CloudFront + WAF",
+      "Perimeter VPC: ALB + Network Firewall",
+      "Transit Gateway",
+      "Workload VPCs: private only",
+      "Internet → CloudFront + WAF",
+      "CloudFront + WAF → Perimeter VPC",
+      "Perimeter VPC → Transit Gateway",
+      "Transit Gateway → Workload VPCs"
+    ]
+  },
+  "outbound-inspection-firewall-diagram-1": {
+    "lesson": "outbound-inspection-firewall",
+    "section": "Deployment models",
+    "caption": "Centralized inspection with Transit Gateway. Spoke route tables send 0.0.0.0/0 to the inspection attachment; the inspection VPC sends cleaned traffic to the egress NAT or back to another spoke.",
+    "notes": [
+      "Spoke VPC A",
+      "Spoke VPC B",
+      "Transit Gateway: appliance mode",
+      "Inspection VPC: Network Firewall endpoints",
+      "Egress VPC: NAT + IGW",
+      "Spoke VPC A → Transit Gateway",
+      "Spoke VPC B → Transit Gateway",
+      "Transit Gateway ↔ Inspection VPC",
+      "Inspection VPC → Egress VPC"
+    ]
+  },
+  "sg-nacl-firewall-manager-audit-diagram-1": {
+    "lesson": "sg-nacl-firewall-manager-audit",
+    "section": "AWS Firewall Manager",
+    "caption": "Firewall Manager flow. The administrator defines a policy and scope; Config detects resources; non-compliant resources are reported or auto-remediated in member accounts.",
+    "notes": [
+      "1. Define policy: Type, scope (OUs, tags), remediation",
+      "2. Detect: AWS Config inventory",
+      "3. Apply / remediate: Create or fix resources in member accounts",
+      "4. Report: Compliance dashboard, SNS notifications"
+    ]
+  },
+  "encryption-in-transit-certificates-diagram-1": {
+    "lesson": "encryption-in-transit-certificates",
+    "section": "Encryption by segment",
+    "caption": "Encryption options along the path from user to data. A compliant design names the control for every segment.",
+    "notes": [
+      "1. User to edge: HTTPS with CloudFront (TLS 1.2+/1.3), viewer protocol policy redirect-to-HTTPS, HSTS",
+      "2. Edge to origin: Origin protocol policy HTTPS only; valid cert on ALB/NLB; match host header",
+      "3. Load balancer to targets: Re-encrypt with HTTPS/TLS target groups, or NLB TCP passthrough",
+      "4. Between instances / VPCs: Nitro instances encrypt traffic between supported instance types automatically; TLS/mTLS in the application; TGW and inter-Region peering encrypt at the physical layer",
+      "5. On-premises to AWS: IPsec Site-to-Site VPN; IPsec over Direct Connect (public VIF or private IP VPN on transit VIF); MACsec on the DX link",
+      "6. To AWS services: TLS endpoints for S3 (enforce aws:SecureTransport), RDS SSL/TLS, DynamoDB, KMS"
+    ]
+  },
+  "scenario-global-application-diagram-1": {
+    "lesson": "scenario-global-application",
+    "section": "A design that satisfies every requirement",
+    "caption": "Reference design. Storefront and API use different edge services because they have different protocol and addressing requirements.",
+    "notes": [
+      "Shoppers",
+      "Partners",
+      "Route 53: geolocation: EU → EU",
+      "CloudFront + WAF: OAC for S3 assets",
+      "Global Accelerator: 2 static IPs, TCP port",
+      "us-east-1: ALB + NLB + VPC",
+      "eu-west-1: ALB + NLB + VPC",
+      "Shoppers → Route 53",
+      "Route 53 → CloudFront + WAF",
+      "CloudFront + WAF → us-east-1: origin groups",
+      "Partners → Global Accelerator",
+      "Global Accelerator → us-east-1: dial 50%",
+      "Global Accelerator → eu-west-1: dial 50%",
+      "CloudFront + WAF → eu-west-1"
+    ]
+  },
+  "scenario-enterprise-hybrid-diagram-1": {
+    "lesson": "scenario-enterprise-hybrid",
+    "section": "Reference architecture",
+    "caption": "Landing zone network. A dedicated Network account owns the Transit Gateways, Direct Connect gateway, inspection VPC and DNS; workload accounts attach through RAM-shared Transit Gateways.",
+    "notes": [
+      "Data center 1",
+      "Data center 2",
+      "Direct Connect gateway: transit VIFs, 2 locations",
+      "TGW us-east-1: RT-Prod / RT-NonProd / RT-Shared",
+      "TGW eu-west-1",
+      "Inspection VPC: Network Firewall, appliance mode",
+      "Workload VPCs: prod, non-prod",
+      "Shared services: DNS, endpoints",
+      "Data center 1 → Direct Connect gateway",
+      "Data center 2 → Direct Connect gateway",
+      "Direct Connect gateway → TGW us-east-1",
+      "Direct Connect gateway → TGW eu-west-1",
+      "TGW us-east-1 ↔ TGW eu-west-1: TGW peering",
+      "TGW us-east-1 → Inspection VPC",
+      "TGW us-east-1 → Workload VPCs",
+      "TGW eu-west-1 → Shared services"
+    ]
+  },
+  "lab-hub-spoke-transit-gateway-diagram-1": {
+    "lesson": "lab-hub-spoke-transit-gateway",
+    "section": "What you will build",
+    "caption": "Lab topology. Each spoke associates with its own TGW route table and learns only the shared VPC route.",
+    "notes": [
+      "app-a VPC 10.1.0.0/16: assoc RT-A",
+      "app-b VPC 10.2.0.0/16: assoc RT-B",
+      "Transit Gateway",
+      "shared VPC 10.0.0.0/16: assoc RT-Shared",
+      "app-a VPC 10.1.0.0/16 ↔ Transit Gateway",
+      "app-b VPC 10.2.0.0/16 ↔ Transit Gateway",
+      "Transit Gateway ↔ shared VPC 10.0.0.0/16"
+    ]
+  },
+  "exam-technique-and-review-diagram-1": {
+    "lesson": "exam-technique-and-review",
+    "section": "Reading the question",
+    "caption": "A four-pass method for scenario questions. The constraint words decide the answer, not the services you recognise.",
+    "notes": [
+      "1. Ask: Read the last sentence first: what must I choose?",
+      "2. Constraints: Underline cost, time, scale, security, minimal change",
+      "3. Eliminate: Cross out options that break any constraint",
+      "4. Choose: Pick the simplest option that satisfies all"
+    ]
+  },
+  "network-automation-iac-diagram-2": {
+    "lesson": "network-automation-iac",
+    "section": "Automation for cost and hygiene",
+    "caption": "Automation for cost and hygiene",
+    "notes": [
+      "1. Detect: Cost Explorer, Trusted Advisor, Config, Flow Logs",
+      "2. Decide: Idle NAT, unattached EIP, oversized links, stale endpoints",
+      "3. Act: Scheduled Lambda/SSM or IaC change via pipeline",
+      "4. Verify: Reachability Analyzer and alarms"
+    ]
+  },
+  "lab-hub-spoke-transit-gateway-diagram-2": {
+    "lesson": "lab-hub-spoke-transit-gateway",
+    "section": "Build the network",
+    "caption": "Build the network",
+    "notes": [
+      "1. VPCs + subnets: 3 VPCs, one private subnet each",
+      "2. Transit Gateway: Disable default association/propagation",
+      "3. Attachments: One per VPC",
+      "4. Route tables: RT-A, RT-B, RT-Shared",
+      "5. VPC routes: Spokes: 10.0.0.0/16 to TGW",
+      "6. Test: SSM + Reachability Analyzer"
+    ]
+  }
+}

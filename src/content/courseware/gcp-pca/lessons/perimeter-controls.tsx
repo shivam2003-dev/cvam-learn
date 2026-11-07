@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -26,25 +27,7 @@ export const lesson: Lesson = {
             blocked even with valid credentials, mitigating stolen credentials, misconfigured IAM and
             insider exfiltration.
           </p>
-          <Figure caption="A perimeter protects services in the production projects. Requests from inside or from allowed access levels succeed; others are denied.">
-            <Graph
-              label="VPC Service Controls perimeter around projects with an allowed corporate access level and a denied external request"
-              cellW={200}
-              cellH={96}
-              nodeW={170}
-              nodes={[
-                { id: "int", label: "Corporate network", sub: "access level allows", col: 0, row: 0, tone: "sky" },
-                { id: "ext", label: "Internet / other project", sub: "outside perimeter", col: 0, row: 1, tone: "rose" },
-                { id: "bq", label: "BigQuery", col: 1, row: 0, tone: "lime", shape: "db" },
-                { id: "gcs", label: "Cloud Storage", col: 2, row: 0, tone: "lime", shape: "db" },
-              ]}
-              groups={[{ label: "Service perimeter (prod projects)", c1: 1, r1: 0, c2: 2, r2: 0, tone: "lime" }]}
-              edges={[
-                { from: "int", to: "bq", label: "allowed" },
-                { from: "ext", to: "gcs", label: "denied", dashed: true },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="perimeter-controls-diagram-1" />
           <ul>
             <li><strong>Access levels</strong> (from Access Context Manager) allow requests by IP range, device posture or identity.</li>
             <li><strong>Ingress and egress rules</strong> permit specific cross-perimeter flows (for example a partner project, or a Cloud Build in another project).</li>

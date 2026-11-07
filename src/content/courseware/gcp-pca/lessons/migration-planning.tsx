@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -18,17 +19,7 @@ export const lesson: Lesson = {
       title: "The migration lifecycle",
       body: (
         <>
-          <Figure caption="Migration phases. Assessment decides strategy; the plan sets waves; each wave is migrated, validated and optimised.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Assess", note: "Inventory, dependencies, TCO with Migration Center", tone: "sky" },
-                { title: "Plan", note: "Strategy per workload, waves, landing zone, network", tone: "lime" },
-                { title: "Deploy / migrate", note: "Replicate, test, cut over", tone: "amber" },
-                { title: "Optimize", note: "Right-size, modernise, operate", tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="migration-planning-diagram-1" />
           <p>
             The exam guide expects a migration <em>plan</em> with documents and architecture
             diagrams: integration with existing systems, assessment of systems and data, methodology,

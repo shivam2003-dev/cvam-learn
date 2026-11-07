@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -30,28 +31,7 @@ export const lesson: Lesson = {
               ["Managed Prometheus, Ops Agent", "Collect metrics and logs from VMs and Kubernetes", "Ops Agent on Compute Engine; GKE integration built in"],
             ]}
           />
-          <Figure caption="Telemetry flows from workloads into Monitoring and Logging, which feed alerts, dashboards and long-term analysis in BigQuery or Cloud Storage.">
-            <Graph
-              label="Workloads send metrics, logs and traces to Cloud Monitoring, Logging and Trace, which feed alerting, dashboards and sinks"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "w", label: "Workloads", sub: "GCE, GKE, Cloud Run", col: 0, row: 0.5, tone: "sky" },
-                { id: "mon", label: "Monitoring", sub: "metrics, SLOs", col: 1, row: 0, tone: "lime" },
-                { id: "log", label: "Logging", sub: "buckets, sinks", col: 1, row: 1, tone: "lime" },
-                { id: "al", label: "Alerts + dashboards", col: 2, row: 0, tone: "amber" },
-                { id: "sink", label: "Sinks", sub: "BigQuery, GCS, Pub/Sub", col: 2, row: 1, tone: "plain" },
-              ]}
-              edges={[
-                { from: "w", to: "mon" },
-                { from: "w", to: "log" },
-                { from: "mon", to: "al" },
-                { from: "log", to: "sink" },
-                { from: "log", to: "mon", label: "log-based metrics", dashed: true },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="observability-monitoring-diagram-1" />
         </>
       ),
     },

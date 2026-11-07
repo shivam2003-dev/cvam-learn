@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -27,26 +28,7 @@ export const lesson: Lesson = {
               ["Dual-Region", "Hybrid link into each of two Regions via Direct Connect gateway and TGW peering", "Regional failure tolerance; more routing to manage"],
             ]}
           />
-          <Figure caption="Direct Connect primary with VPN backup into a Transit Gateway. The DXGW route is preferred; if it drops, the VPN route takes over automatically through BGP.">
-            <Graph
-              label="Direct Connect primary and Site-to-Site VPN backup both attached to a Transit Gateway"
-              cellW={200}
-              cellH={100}
-              nodeW={170}
-              nodes={[
-                { id: "onp", label: "On-premises routers", sub: "BGP", col: 0, row: 0.5, tone: "sky" },
-                { id: "dx", label: "Direct Connect (transit VIF)", sub: "preferred", col: 1, row: 0, tone: "lime" },
-                { id: "vpn", label: "Site-to-Site VPN", sub: "backup", col: 1, row: 1, tone: "amber" },
-                { id: "tgw", label: "Transit Gateway", col: 2, row: 0.5, tone: "lime" },
-              ]}
-              edges={[
-                { from: "onp", to: "dx" },
-                { from: "onp", to: "vpn", dashed: true },
-                { from: "dx", to: "tgw" },
-                { from: "vpn", to: "tgw", dashed: true },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="hybrid-sdwan-redundancy-diagram-1" />
           <Callout tone="warn" title="Do not forget the return path">
             Failover must work in both directions. AWS prefers Direct Connect over VPN for the same
             prefix, but your router also needs to prefer the Direct Connect path for traffic it sends,
@@ -74,25 +56,7 @@ export const lesson: Lesson = {
             <li>Advertised routes can be propagated into TGW route tables for segmentation; multiple appliances in different AZs provide redundancy.</li>
             <li>Network Manager integrates with SD-WAN vendors for visibility of sites and links.</li>
           </ul>
-          <Figure caption="SD-WAN with Transit Gateway Connect. GRE+BGP rides on a VPC attachment as transport; branch sites reach VPCs through the overlay.">
-            <Graph
-              label="SD-WAN appliance in a VPC connected to Transit Gateway through a Connect attachment using GRE and BGP"
-              cellW={200}
-              cellH={100}
-              nodeW={170}
-              nodes={[
-                { id: "br", label: "Branch SD-WAN edges", col: 0, row: 0.5, tone: "sky" },
-                { id: "app", label: "SD-WAN appliance", sub: "in transport VPC", col: 1, row: 0.5, tone: "amber" },
-                { id: "tgw", label: "Transit Gateway", sub: "Connect attachment", col: 2, row: 0.5, tone: "lime" },
-                { id: "vpcs", label: "Workload VPCs", col: 3, row: 0.5, tone: "plain" },
-              ]}
-              edges={[
-                { from: "br", to: "app", label: "overlay", dashed: true },
-                { from: "app", to: "tgw", label: "GRE + BGP" },
-                { from: "tgw", to: "vpcs" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="hybrid-sdwan-redundancy-diagram-2" />
         </>
       ),
     },

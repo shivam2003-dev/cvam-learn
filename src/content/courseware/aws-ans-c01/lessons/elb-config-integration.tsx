@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -44,15 +45,7 @@ export const lesson: Lesson = {
       title: "Encryption and authentication patterns",
       body: (
         <>
-          <Figure caption="Three TLS designs. Choose by whether the load balancer must see the content, and by compliance needs.">
-            <Layers
-              layers={[
-                { title: "TLS termination", note: "Client TLS to ALB/NLB with an ACM certificate; plain HTTP to targets inside the VPC. Offloads CPU and enables layer 7 features.", tone: "lime" },
-                { title: "Re-encryption (end to end)", note: "Terminate at ALB, then new TLS session to targets. Required where compliance forbids clear text inside the VPC. Target certificates need not be public CA issued.", tone: "sky" },
-                { title: "TLS passthrough", note: "NLB TCP listener forwards encrypted bytes untouched; target holds the certificate. The load balancer cannot inspect HTTP, and the client IP is preserved.", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="elb-config-integration-diagram-1" />
           <ul>
             <li>Certificates come from <strong>AWS Certificate Manager</strong> (public or private CA) or IAM; one listener supports multiple certificates using SNI.</li>
             <li>Use predefined <strong>security policies</strong> (for example TLS 1.3 policies) to restrict protocol versions and ciphers.</li>
@@ -80,27 +73,7 @@ export const lesson: Lesson = {
               ["ECS / Fargate", "Dynamic port mapping and IP targets for awsvpc networking"],
             ]}
           />
-          <Figure caption="A typical internet application: global DNS and edge, a WAF-protected ALB, and an Auto Scaling group across two AZs.">
-            <Graph
-              label="Internet application with Route 53, CloudFront, WAF, ALB and an auto scaled fleet in two Availability Zones"
-              cellW={180}
-              cellH={96}
-              nodeW={150}
-              nodes={[
-                { id: "r", label: "Route 53", sub: "alias record", col: 0, row: 0, tone: "sky" },
-                { id: "cf", label: "CloudFront + WAF", col: 1, row: 0, tone: "lime" },
-                { id: "alb", label: "ALB", sub: "2 AZs", col: 2, row: 0, tone: "lime" },
-                { id: "a", label: "ASG instances AZ-a", col: 3, row: 0, tone: "plain" },
-                { id: "b", label: "ASG instances AZ-b", col: 3, row: 1, tone: "plain" },
-              ]}
-              edges={[
-                { from: "r", to: "cf" },
-                { from: "cf", to: "alb" },
-                { from: "alb", to: "a" },
-                { from: "alb", to: "b" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="elb-config-integration-diagram-2" />
         </>
       ),
     },

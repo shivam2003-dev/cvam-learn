@@ -1,0 +1,2242 @@
+[
+  {
+    "id": "pca-exam-overview-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "pca-exam-overview",
+    "panel": 1,
+    "chapter": "orientation",
+    "title": "PCA Exam Overview and Study Strategy",
+    "source": {
+      "section": "The six sections",
+      "caption": "Section weightings from the exam guide. Designing and planning carries the most weight; the three sections at the bottom together are 40 percent.",
+      "diagram": {
+        "type": "Layers",
+        "layers": [
+          {
+            "title": "1. Designing and planning a cloud solution architecture (~25%)",
+            "note": "Business and technical requirements; network, storage and compute; migration; future improvements."
+          },
+          {
+            "title": "2. Managing and provisioning infrastructure (~17.5%)",
+            "note": "Network topologies, storage, compute, Agent Platform ML workflows, prebuilt APIs."
+          },
+          {
+            "title": "3. Designing for security and compliance (~17.5%)",
+            "note": "IAM, hierarchy, data security, VPC Service Controls, supply chain, AI security, regulation."
+          },
+          {
+            "title": "4. Analyzing and optimizing processes (~15%)",
+            "note": "SDLC, CI/CD, troubleshooting, DR, stakeholder and change management, cost."
+          },
+          {
+            "title": "5. Managing implementation (~12.5%)",
+            "note": "Advising teams, API management (Apigee), SDKs, emulators, Terraform."
+          },
+          {
+            "title": "6. Ensuring solution and operations excellence (~12.5%)",
+            "note": "Operational excellence pillar, observability, release management, reliability testing."
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: PCA Exam Overview and Study Strategy. Section: The six sections. Caption: Section weightings from the exam guide. Designing and planning carries the most weight; the three sections at the bottom together are 40 percent..\nSource diagram:\n{\"type\":\"Layers\",\"layers\":[{\"title\":\"1. Designing and planning a cloud solution architecture (~25%)\",\"note\":\"Business and technical requirements; network, storage and compute; migration; future improvements.\"},{\"title\":\"2. Managing and provisioning infrastructure (~17.5%)\",\"note\":\"Network topologies, storage, compute, Agent Platform ML workflows, prebuilt APIs.\"},{\"title\":\"3. Designing for security and compliance (~17.5%)\",\"note\":\"IAM, hierarchy, data security, VPC Service Controls, supply chain, AI security, regulation.\"},{\"title\":\"4. Analyzing and optimizing processes (~15%)\",\"note\":\"SDLC, CI/CD, troubleshooting, DR, stakeholder and change management, cost.\"},{\"title\":\"5. Managing implementation (~12.5%)\",\"note\":\"Advising teams, API management (Apigee), SDKs, emulators, Terraform.\"},{\"title\":\"6. Ensuring solution and operations excellence (~12.5%)\",\"note\":\"Operational excellence pillar, observability, release management, reliability testing.\"}]}"
+  },
+  {
+    "id": "gcp-foundations-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "gcp-foundations",
+    "panel": 1,
+    "chapter": "orientation",
+    "title": "Google Cloud Foundations for Architects",
+    "source": {
+      "section": "The resource hierarchy",
+      "caption": "The hierarchy. IAM policies and organization policies attach at any level and are inherited downward; projects are the unit of resource ownership, billing linkage and API enablement.",
+      "diagram": {
+        "type": "Graph",
+        "label": "Resource hierarchy: organization, folders, projects, resources",
+        "nodes": [
+          {
+            "id": "org",
+            "label": "Organization",
+            "sub": "example.com"
+          },
+          {
+            "id": "f1",
+            "label": "Folder: Production"
+          },
+          {
+            "id": "f2",
+            "label": "Folder: Development"
+          },
+          {
+            "id": "p1",
+            "label": "Project: shop-prod"
+          },
+          {
+            "id": "p2",
+            "label": "Project: data-prod"
+          },
+          {
+            "id": "p3",
+            "label": "Project: shop-dev"
+          },
+          {
+            "id": "r",
+            "label": "Resources",
+            "sub": "VMs, buckets, datasets"
+          }
+        ],
+        "edges": [
+          {
+            "from": "org",
+            "to": "f1"
+          },
+          {
+            "from": "org",
+            "to": "f2"
+          },
+          {
+            "from": "f1",
+            "to": "p1"
+          },
+          {
+            "from": "f1",
+            "to": "p2"
+          },
+          {
+            "from": "f2",
+            "to": "p3"
+          },
+          {
+            "from": "p2",
+            "to": "r"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Google Cloud Foundations for Architects. Section: The resource hierarchy. Caption: The hierarchy. IAM policies and organization policies attach at any level and are inherited downward; projects are the unit of resource ownership, billing linkage and API enablement..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"Resource hierarchy: organization, folders, projects, resources\",\"nodes\":[{\"id\":\"org\",\"label\":\"Organization\",\"sub\":\"example.com\"},{\"id\":\"f1\",\"label\":\"Folder: Production\"},{\"id\":\"f2\",\"label\":\"Folder: Development\"},{\"id\":\"p1\",\"label\":\"Project: shop-prod\"},{\"id\":\"p2\",\"label\":\"Project: data-prod\"},{\"id\":\"p3\",\"label\":\"Project: shop-dev\"},{\"id\":\"r\",\"label\":\"Resources\",\"sub\":\"VMs, buckets, datasets\"}],\"edges\":[{\"from\":\"org\",\"to\":\"f1\"},{\"from\":\"org\",\"to\":\"f2\"},{\"from\":\"f1\",\"to\":\"p1\"},{\"from\":\"f1\",\"to\":\"p2\"},{\"from\":\"f2\",\"to\":\"p3\"},{\"from\":\"p2\",\"to\":\"r\"}]}"
+  },
+  {
+    "id": "orientation-summary",
+    "course": "gcp-pca",
+    "kind": "summary",
+    "chapter": "orientation",
+    "title": "Exam Blueprint and Google Cloud Foundations",
+    "lessons": [
+      {
+        "title": "PCA Exam Overview and Study Strategy",
+        "summary": "Format, six sections, case studies, recommended experience and a study plan.",
+        "takeaways": [
+          "PCA: 2 hours, 50 to 60 questions, $200, two case studies making up 20 to 30 percent of the exam.",
+          "Six sections: design and plan (~25%), provision (17.5%), security (17.5%), optimize processes (15%), implementation (12.5%), operations (12.5%).",
+          "The Well-Architected Framework pillars guide decisions across the exam.",
+          "The guide now includes generative AI topics: Gemini Cloud Assist, Model Garden, Agent Builder, AI Hypercomputer, Model Armor."
+        ]
+      },
+      {
+        "title": "Google Cloud Foundations for Architects",
+        "summary": "Regions, zones, global resources, the resource hierarchy, billing and shared fate.",
+        "takeaways": [
+          "Know the scope of each resource (zonal, regional, global) to design for failure domains.",
+          "Organization → folders → projects → resources; policies inherit downward and projects anchor APIs, quotas and billing.",
+          "Premium Tier networking uses Google's backbone; Standard Tier is cheaper and regional.",
+          "Shared responsibility defines the boundary; shared fate adds Google's blueprints and secure defaults."
+        ]
+      }
+    ],
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCreate a cohesive chapter recap diagram for Google Cloud Professional Cloud Architect (PCA). Title: \"Chapter 1: Exam Blueprint and Google Cloud Foundations\". Subtitle: \"Chapter recap\". Cover ALL lessons below in connected concept clusters, a decision flow, comparison or architecture appropriate to the chapter. Use concise labels instead of paragraphs. Include a bottom strip \"Put it into practice\" with one actionable next step derived from these learning points. Only use the supplied learning content.\n[{\"title\":\"PCA Exam Overview and Study Strategy\",\"summary\":\"Format, six sections, case studies, recommended experience and a study plan.\",\"takeaways\":[\"PCA: 2 hours, 50 to 60 questions, $200, two case studies making up 20 to 30 percent of the exam.\",\"Six sections: design and plan (~25%), provision (17.5%), security (17.5%), optimize processes (15%), implementation (12.5%), operations (12.5%).\",\"The Well-Architected Framework pillars guide decisions across the exam.\",\"The guide now includes generative AI topics: Gemini Cloud Assist, Model Garden, Agent Builder, AI Hypercomputer, Model Armor.\"]},{\"title\":\"Google Cloud Foundations for Architects\",\"summary\":\"Regions, zones, global resources, the resource hierarchy, billing and shared fate.\",\"takeaways\":[\"Know the scope of each resource (zonal, regional, global) to design for failure domains.\",\"Organization → folders → projects → resources; policies inherit downward and projects anchor APIs, quotas and billing.\",\"Premium Tier networking uses Google's backbone; Standard Tier is cheaper and regional.\",\"Shared responsibility defines the boundary; shared fate adds Google's blueprints and secure defaults.\"]}]"
+  },
+  {
+    "id": "business-requirements-wellarchitected-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "business-requirements-wellarchitected",
+    "panel": 1,
+    "chapter": "design-plan",
+    "title": "Business Requirements and the Well-Architected Framework",
+    "source": {
+      "section": "From business goals to requirements",
+      "caption": "Requirements drive design. Each non-functional requirement should become a measurable target that you can design, test and monitor.",
+      "diagram": {
+        "type": "Flow",
+        "numbered": true,
+        "steps": [
+          {
+            "title": "Business goal",
+            "note": "Revenue, cost, speed, risk"
+          },
+          {
+            "title": "Requirements",
+            "note": "Functional + non-functional + constraints"
+          },
+          {
+            "title": "Design options",
+            "note": "Compare with trade-offs"
+          },
+          {
+            "title": "Decision + KPIs",
+            "note": "ROI, SLO, cost, risk"
+          },
+          {
+            "title": "Observe + iterate",
+            "note": "Metrics feed improvements"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Business Requirements and the Well-Architected Framework. Section: From business goals to requirements. Caption: Requirements drive design. Each non-functional requirement should become a measurable target that you can design, test and monitor..\nSource diagram:\n{\"type\":\"Flow\",\"numbered\":true,\"steps\":[{\"title\":\"Business goal\",\"note\":\"Revenue, cost, speed, risk\"},{\"title\":\"Requirements\",\"note\":\"Functional + non-functional + constraints\"},{\"title\":\"Design options\",\"note\":\"Compare with trade-offs\"},{\"title\":\"Decision + KPIs\",\"note\":\"ROI, SLO, cost, risk\"},{\"title\":\"Observe + iterate\",\"note\":\"Metrics feed improvements\"}]}"
+  },
+  {
+    "id": "business-requirements-wellarchitected-diagram-2",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "business-requirements-wellarchitected",
+    "panel": 2,
+    "chapter": "design-plan",
+    "title": "Business Requirements and the Well-Architected Framework",
+    "source": {
+      "section": "The Well-Architected Framework",
+      "caption": "Pillars of the framework and the question each helps you answer in a design.",
+      "diagram": {
+        "type": "Layers",
+        "layers": [
+          {
+            "title": "Operational excellence",
+            "note": "Can we deploy, observe and run it efficiently? Automation, monitoring, incident response, continuous improvement."
+          },
+          {
+            "title": "Security, privacy and compliance",
+            "note": "Is data protected and access least-privilege? Defence in depth, zero trust, compliance."
+          },
+          {
+            "title": "Reliability",
+            "note": "Does it meet availability and recovery targets? Redundancy, graceful degradation, SLOs, tested recovery."
+          },
+          {
+            "title": "Cost optimization",
+            "note": "Do we pay only for needed value? Right-sizing, commitments, lifecycle, FinOps visibility."
+          },
+          {
+            "title": "Performance optimization",
+            "note": "Does it scale and respond fast enough? Right service, caching, load testing, autoscaling."
+          },
+          {
+            "title": "Sustainability",
+            "note": "Can we reduce environmental impact? Efficient regions, utilization, lifecycle of data."
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Business Requirements and the Well-Architected Framework. Section: The Well-Architected Framework. Caption: Pillars of the framework and the question each helps you answer in a design..\nSource diagram:\n{\"type\":\"Layers\",\"layers\":[{\"title\":\"Operational excellence\",\"note\":\"Can we deploy, observe and run it efficiently? Automation, monitoring, incident response, continuous improvement.\"},{\"title\":\"Security, privacy and compliance\",\"note\":\"Is data protected and access least-privilege? Defence in depth, zero trust, compliance.\"},{\"title\":\"Reliability\",\"note\":\"Does it meet availability and recovery targets? Redundancy, graceful degradation, SLOs, tested recovery.\"},{\"title\":\"Cost optimization\",\"note\":\"Do we pay only for needed value? Right-sizing, commitments, lifecycle, FinOps visibility.\"},{\"title\":\"Performance optimization\",\"note\":\"Does it scale and respond fast enough? Right service, caching, load testing, autoscaling.\"},{\"title\":\"Sustainability\",\"note\":\"Can we reduce environmental impact? Efficient regions, utilization, lifecycle of data.\"}]}"
+  },
+  {
+    "id": "ha-dr-scalability-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "ha-dr-scalability",
+    "panel": 1,
+    "chapter": "design-plan",
+    "title": "High Availability, Disaster Recovery and Scalability",
+    "source": {
+      "section": "Failure domains and DR patterns",
+      "caption": "Regional design with a global load balancer. Zones protect against a data center failure; a second region protects against a region failure.",
+      "diagram": {
+        "type": "Graph",
+        "label": "Global external load balancer distributing to regional managed instance groups in two regions, each across three zones, with a multi-region database",
+        "nodes": [
+          {
+            "id": "u",
+            "label": "Users"
+          },
+          {
+            "id": "lb",
+            "label": "Global external LB",
+            "sub": "anycast IP, health checks"
+          },
+          {
+            "id": "r1",
+            "label": "Region A",
+            "sub": "regional MIG, 3 zones"
+          },
+          {
+            "id": "r2",
+            "label": "Region B",
+            "sub": "regional MIG, 3 zones"
+          },
+          {
+            "id": "db",
+            "label": "Spanner multi-region",
+            "sub": "or Cloud SQL + cross-region replica"
+          }
+        ],
+        "edges": [
+          {
+            "from": "u",
+            "to": "lb"
+          },
+          {
+            "from": "lb",
+            "to": "r1"
+          },
+          {
+            "from": "lb",
+            "to": "r2"
+          },
+          {
+            "from": "r1",
+            "to": "db"
+          },
+          {
+            "from": "r2",
+            "to": "db"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: High Availability, Disaster Recovery and Scalability. Section: Failure domains and DR patterns. Caption: Regional design with a global load balancer. Zones protect against a data center failure; a second region protects against a region failure..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"Global external load balancer distributing to regional managed instance groups in two regions, each across three zones, with a multi-region database\",\"nodes\":[{\"id\":\"u\",\"label\":\"Users\"},{\"id\":\"lb\",\"label\":\"Global external LB\",\"sub\":\"anycast IP, health checks\"},{\"id\":\"r1\",\"label\":\"Region A\",\"sub\":\"regional MIG, 3 zones\"},{\"id\":\"r2\",\"label\":\"Region B\",\"sub\":\"regional MIG, 3 zones\"},{\"id\":\"db\",\"label\":\"Spanner multi-region\",\"sub\":\"or Cloud SQL + cross-region replica\"}],\"edges\":[{\"from\":\"u\",\"to\":\"lb\"},{\"from\":\"lb\",\"to\":\"r1\"},{\"from\":\"lb\",\"to\":\"r2\"},{\"from\":\"r1\",\"to\":\"db\"},{\"from\":\"r2\",\"to\":\"db\"}]}"
+  },
+  {
+    "id": "compute-choices-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "compute-choices",
+    "panel": 1,
+    "chapter": "design-plan",
+    "title": "Choosing Compute: Compute Engine, GKE, Cloud Run and Functions",
+    "source": {
+      "section": "The compute spectrum",
+      "caption": "More control means more responsibility. Pick the most managed option that satisfies the requirements.",
+      "diagram": {
+        "type": "Quadrant",
+        "xLabel": "Operational responsibility",
+        "yLabel": "Flexibility and control",
+        "corners": [
+          "Managed Kubernetes",
+          "Full control",
+          "Serverless",
+          ""
+        ],
+        "items": [
+          {
+            "label": "Cloud Run functions",
+            "x": 0.1,
+            "y": 0.15
+          },
+          {
+            "label": "Cloud Run",
+            "x": 0.22,
+            "y": 0.4
+          },
+          {
+            "label": "GKE Autopilot",
+            "x": 0.4,
+            "y": 0.62
+          },
+          {
+            "label": "GKE Standard",
+            "x": 0.62,
+            "y": 0.78
+          },
+          {
+            "label": "Compute Engine",
+            "x": 0.82,
+            "y": 0.9
+          }
+        ],
+        "label": "Compute options plotted by operational responsibility and flexibility"
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Choosing Compute: Compute Engine, GKE, Cloud Run and Functions. Section: The compute spectrum. Caption: More control means more responsibility. Pick the most managed option that satisfies the requirements..\nSource diagram:\n{\"type\":\"Quadrant\",\"xLabel\":\"Operational responsibility\",\"yLabel\":\"Flexibility and control\",\"corners\":[\"Managed Kubernetes\",\"Full control\",\"Serverless\",\"\"],\"items\":[{\"label\":\"Cloud Run functions\",\"x\":0.1,\"y\":0.15},{\"label\":\"Cloud Run\",\"x\":0.22,\"y\":0.4},{\"label\":\"GKE Autopilot\",\"x\":0.4,\"y\":0.62},{\"label\":\"GKE Standard\",\"x\":0.62,\"y\":0.78},{\"label\":\"Compute Engine\",\"x\":0.82,\"y\":0.9}],\"label\":\"Compute options plotted by operational responsibility and flexibility\"}"
+  },
+  {
+    "id": "storage-database-choices-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "storage-database-choices",
+    "panel": 1,
+    "chapter": "design-plan",
+    "title": "Choosing Storage and Databases",
+    "source": {
+      "section": "Database options",
+      "caption": "A simple decision flow. Start with the access pattern and the consistency and scale needs, then check operational constraints.",
+      "diagram": {
+        "type": "Flow",
+        "steps": [
+          {
+            "title": "Analytics / warehouse?",
+            "note": "Yes → BigQuery"
+          },
+          {
+            "title": "Relational + SQL?",
+            "note": "Global scale, 99.999% → Spanner; Postgres performance → AlloyDB; otherwise Cloud SQL"
+          },
+          {
+            "title": "Massive key-value / time series?",
+            "note": "Bigtable"
+          },
+          {
+            "title": "Documents, mobile?",
+            "note": "Firestore"
+          },
+          {
+            "title": "Cache?",
+            "note": "Memorystore"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Choosing Storage and Databases. Section: Database options. Caption: A simple decision flow. Start with the access pattern and the consistency and scale needs, then check operational constraints..\nSource diagram:\n{\"type\":\"Flow\",\"steps\":[{\"title\":\"Analytics / warehouse?\",\"note\":\"Yes → BigQuery\"},{\"title\":\"Relational + SQL?\",\"note\":\"Global scale, 99.999% → Spanner; Postgres performance → AlloyDB; otherwise Cloud SQL\"},{\"title\":\"Massive key-value / time series?\",\"note\":\"Bigtable\"},{\"title\":\"Documents, mobile?\",\"note\":\"Firestore\"},{\"title\":\"Cache?\",\"note\":\"Memorystore\"}]}"
+  },
+  {
+    "id": "data-processing-analytics-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "data-processing-analytics",
+    "panel": 1,
+    "chapter": "design-plan",
+    "title": "Choosing Data Processing and Analytics",
+    "source": {
+      "section": "The data pipeline",
+      "caption": "A reference pipeline. Pub/Sub decouples producers; Dataflow transforms in streaming or batch; BigQuery serves analytics; Cloud Storage holds the raw lake; Composer orchestrates.",
+      "diagram": {
+        "type": "Graph",
+        "label": "Streaming and batch data pipeline from sources through Pub/Sub and Dataflow to BigQuery and Cloud Storage with Composer orchestration",
+        "nodes": [
+          {
+            "id": "src",
+            "label": "Sources",
+            "sub": "apps, devices, databases"
+          },
+          {
+            "id": "ps",
+            "label": "Pub/Sub",
+            "sub": "streaming ingest"
+          },
+          {
+            "id": "ds",
+            "label": "Datastream",
+            "sub": "CDC from databases"
+          },
+          {
+            "id": "df",
+            "label": "Dataflow",
+            "sub": "Apache Beam"
+          },
+          {
+            "id": "gcs",
+            "label": "Cloud Storage",
+            "sub": "raw lake"
+          },
+          {
+            "id": "bq",
+            "label": "BigQuery",
+            "sub": "warehouse + ML"
+          },
+          {
+            "id": "bi",
+            "label": "Looker / BI"
+          }
+        ],
+        "edges": [
+          {
+            "from": "src",
+            "to": "ps"
+          },
+          {
+            "from": "src",
+            "to": "ds"
+          },
+          {
+            "from": "ps",
+            "to": "df"
+          },
+          {
+            "from": "ds",
+            "to": "df"
+          },
+          {
+            "from": "df",
+            "to": "gcs"
+          },
+          {
+            "from": "df",
+            "to": "bq"
+          },
+          {
+            "from": "bq",
+            "to": "bi"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Choosing Data Processing and Analytics. Section: The data pipeline. Caption: A reference pipeline. Pub/Sub decouples producers; Dataflow transforms in streaming or batch; BigQuery serves analytics; Cloud Storage holds the raw lake; Composer orchestrates..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"Streaming and batch data pipeline from sources through Pub/Sub and Dataflow to BigQuery and Cloud Storage with Composer orchestration\",\"nodes\":[{\"id\":\"src\",\"label\":\"Sources\",\"sub\":\"apps, devices, databases\"},{\"id\":\"ps\",\"label\":\"Pub/Sub\",\"sub\":\"streaming ingest\"},{\"id\":\"ds\",\"label\":\"Datastream\",\"sub\":\"CDC from databases\"},{\"id\":\"df\",\"label\":\"Dataflow\",\"sub\":\"Apache Beam\"},{\"id\":\"gcs\",\"label\":\"Cloud Storage\",\"sub\":\"raw lake\"},{\"id\":\"bq\",\"label\":\"BigQuery\",\"sub\":\"warehouse + ML\"},{\"id\":\"bi\",\"label\":\"Looker / BI\"}],\"edges\":[{\"from\":\"src\",\"to\":\"ps\"},{\"from\":\"src\",\"to\":\"ds\"},{\"from\":\"ps\",\"to\":\"df\"},{\"from\":\"ds\",\"to\":\"df\"},{\"from\":\"df\",\"to\":\"gcs\"},{\"from\":\"df\",\"to\":\"bq\"},{\"from\":\"bq\",\"to\":\"bi\"}]}"
+  },
+  {
+    "id": "networking-design-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "networking-design",
+    "panel": 1,
+    "chapter": "design-plan",
+    "title": "Cloud-Native Network Design",
+    "source": {
+      "section": "Connecting networks",
+      "caption": "Shared VPC. A central host project owns the network; application teams run workloads in service projects without managing the network.",
+      "diagram": {
+        "type": "Graph",
+        "label": "Shared VPC host project with service projects",
+        "nodes": [
+          {
+            "id": "host",
+            "label": "Host project",
+            "sub": "VPC, subnets, firewall, NAT, VPN"
+          },
+          {
+            "id": "s1",
+            "label": "Service project: web"
+          },
+          {
+            "id": "s2",
+            "label": "Service project: data"
+          },
+          {
+            "id": "s3",
+            "label": "Service project: ml"
+          }
+        ],
+        "edges": [
+          {
+            "from": "host",
+            "to": "s1",
+            "label": "subnet"
+          },
+          {
+            "from": "host",
+            "to": "s2"
+          },
+          {
+            "from": "host",
+            "to": "s3"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Cloud-Native Network Design. Section: Connecting networks. Caption: Shared VPC. A central host project owns the network; application teams run workloads in service projects without managing the network..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"Shared VPC host project with service projects\",\"nodes\":[{\"id\":\"host\",\"label\":\"Host project\",\"sub\":\"VPC, subnets, firewall, NAT, VPN\"},{\"id\":\"s1\",\"label\":\"Service project: web\"},{\"id\":\"s2\",\"label\":\"Service project: data\"},{\"id\":\"s3\",\"label\":\"Service project: ml\"}],\"edges\":[{\"from\":\"host\",\"to\":\"s1\",\"label\":\"subnet\"},{\"from\":\"host\",\"to\":\"s2\"},{\"from\":\"host\",\"to\":\"s3\"}]}"
+  },
+  {
+    "id": "hybrid-multicloud-connectivity-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "hybrid-multicloud-connectivity",
+    "panel": 1,
+    "chapter": "design-plan",
+    "title": "Hybrid and Multicloud Connectivity",
+    "source": {
+      "section": "Redundancy and SLAs",
+      "caption": "Interconnect 99.99% topology. Two metros, each with two connections on separate edge availability domains, and Cloud Routers in the VPC region.",
+      "diagram": {
+        "type": "Graph",
+        "label": "On-premises routers connected by four Dedicated Interconnect circuits across two metros to Cloud Routers in a Google Cloud region",
+        "nodes": [
+          {
+            "id": "dc1",
+            "label": "Data center A",
+            "sub": "two routers"
+          },
+          {
+            "id": "dc2",
+            "label": "Data center B",
+            "sub": "two routers"
+          },
+          {
+            "id": "m1",
+            "label": "Metro 1 colo",
+            "sub": "2 circuits, 2 EADs"
+          },
+          {
+            "id": "m2",
+            "label": "Metro 2 colo",
+            "sub": "2 circuits, 2 EADs"
+          },
+          {
+            "id": "cr",
+            "label": "Cloud Routers",
+            "sub": "VPC region, global routing"
+          }
+        ],
+        "edges": [
+          {
+            "from": "dc1",
+            "to": "m1"
+          },
+          {
+            "from": "dc2",
+            "to": "m2"
+          },
+          {
+            "from": "m1",
+            "to": "cr"
+          },
+          {
+            "from": "m2",
+            "to": "cr"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Hybrid and Multicloud Connectivity. Section: Redundancy and SLAs. Caption: Interconnect 99.99% topology. Two metros, each with two connections on separate edge availability domains, and Cloud Routers in the VPC region..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"On-premises routers connected by four Dedicated Interconnect circuits across two metros to Cloud Routers in a Google Cloud region\",\"nodes\":[{\"id\":\"dc1\",\"label\":\"Data center A\",\"sub\":\"two routers\"},{\"id\":\"dc2\",\"label\":\"Data center B\",\"sub\":\"two routers\"},{\"id\":\"m1\",\"label\":\"Metro 1 colo\",\"sub\":\"2 circuits, 2 EADs\"},{\"id\":\"m2\",\"label\":\"Metro 2 colo\",\"sub\":\"2 circuits, 2 EADs\"},{\"id\":\"cr\",\"label\":\"Cloud Routers\",\"sub\":\"VPC region, global routing\"}],\"edges\":[{\"from\":\"dc1\",\"to\":\"m1\"},{\"from\":\"dc2\",\"to\":\"m2\"},{\"from\":\"m1\",\"to\":\"cr\"},{\"from\":\"m2\",\"to\":\"cr\"}]}"
+  },
+  {
+    "id": "migration-planning-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "migration-planning",
+    "panel": 1,
+    "chapter": "design-plan",
+    "title": "Migration Planning and Tooling",
+    "source": {
+      "section": "The migration lifecycle",
+      "caption": "Migration phases. Assessment decides strategy; the plan sets waves; each wave is migrated, validated and optimised.",
+      "diagram": {
+        "type": "Flow",
+        "numbered": true,
+        "steps": [
+          {
+            "title": "Assess",
+            "note": "Inventory, dependencies, TCO with Migration Center"
+          },
+          {
+            "title": "Plan",
+            "note": "Strategy per workload, waves, landing zone, network"
+          },
+          {
+            "title": "Deploy / migrate",
+            "note": "Replicate, test, cut over"
+          },
+          {
+            "title": "Optimize",
+            "note": "Right-size, modernise, operate"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Migration Planning and Tooling. Section: The migration lifecycle. Caption: Migration phases. Assessment decides strategy; the plan sets waves; each wave is migrated, validated and optimised..\nSource diagram:\n{\"type\":\"Flow\",\"numbered\":true,\"steps\":[{\"title\":\"Assess\",\"note\":\"Inventory, dependencies, TCO with Migration Center\"},{\"title\":\"Plan\",\"note\":\"Strategy per workload, waves, landing zone, network\"},{\"title\":\"Deploy / migrate\",\"note\":\"Replicate, test, cut over\"},{\"title\":\"Optimize\",\"note\":\"Right-size, modernise, operate\"}]}"
+  },
+  {
+    "id": "ai-ml-solution-design-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "ai-ml-solution-design",
+    "panel": 1,
+    "chapter": "design-plan",
+    "title": "Designing Generative AI and ML Solutions",
+    "source": {
+      "section": "A RAG reference architecture",
+      "caption": "RAG on Google Cloud. Documents are chunked, embedded and indexed; at query time the system retrieves context, applies safety checks and calls Gemini.",
+      "diagram": {
+        "type": "Graph",
+        "label": "RAG architecture: documents to embeddings and vector index, user query retrieves context, Gemini generates a grounded answer with Model Armor screening",
+        "nodes": [
+          {
+            "id": "docs",
+            "label": "Documents",
+            "sub": "Cloud Storage, drives, databases"
+          },
+          {
+            "id": "emb",
+            "label": "Chunk + embed",
+            "sub": "embedding model"
+          },
+          {
+            "id": "idx",
+            "label": "Vector index",
+            "sub": "Vector Search, AlloyDB, BigQuery"
+          },
+          {
+            "id": "user",
+            "label": "User query"
+          },
+          {
+            "id": "app",
+            "label": "App / agent",
+            "sub": "Cloud Run, Agent Builder"
+          },
+          {
+            "id": "ma",
+            "label": "Model Armor",
+            "sub": "screen prompts + responses"
+          },
+          {
+            "id": "gem",
+            "label": "Gemini",
+            "sub": "grounded generation"
+          }
+        ],
+        "edges": [
+          {
+            "from": "docs",
+            "to": "emb"
+          },
+          {
+            "from": "emb",
+            "to": "idx"
+          },
+          {
+            "from": "user",
+            "to": "app"
+          },
+          {
+            "from": "app",
+            "to": "idx",
+            "label": "retrieve",
+            "dashed": true
+          },
+          {
+            "from": "app",
+            "to": "ma"
+          },
+          {
+            "from": "ma",
+            "to": "gem"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Designing Generative AI and ML Solutions. Section: A RAG reference architecture. Caption: RAG on Google Cloud. Documents are chunked, embedded and indexed; at query time the system retrieves context, applies safety checks and calls Gemini..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"RAG architecture: documents to embeddings and vector index, user query retrieves context, Gemini generates a grounded answer with Model Armor screening\",\"nodes\":[{\"id\":\"docs\",\"label\":\"Documents\",\"sub\":\"Cloud Storage, drives, databases\"},{\"id\":\"emb\",\"label\":\"Chunk + embed\",\"sub\":\"embedding model\"},{\"id\":\"idx\",\"label\":\"Vector index\",\"sub\":\"Vector Search, AlloyDB, BigQuery\"},{\"id\":\"user\",\"label\":\"User query\"},{\"id\":\"app\",\"label\":\"App / agent\",\"sub\":\"Cloud Run, Agent Builder\"},{\"id\":\"ma\",\"label\":\"Model Armor\",\"sub\":\"screen prompts + responses\"},{\"id\":\"gem\",\"label\":\"Gemini\",\"sub\":\"grounded generation\"}],\"edges\":[{\"from\":\"docs\",\"to\":\"emb\"},{\"from\":\"emb\",\"to\":\"idx\"},{\"from\":\"user\",\"to\":\"app\"},{\"from\":\"app\",\"to\":\"idx\",\"label\":\"retrieve\",\"dashed\":true},{\"from\":\"app\",\"to\":\"ma\"},{\"from\":\"ma\",\"to\":\"gem\"}]}"
+  },
+  {
+    "id": "design-plan-summary",
+    "course": "gcp-pca",
+    "kind": "summary",
+    "chapter": "design-plan",
+    "title": "Designing and Planning a Solution (Section 1, ~25%)",
+    "lessons": [
+      {
+        "title": "Business Requirements and the Well-Architected Framework",
+        "summary": "Functional and non-functional requirements, KPIs, build-buy-modify-deprecate and the framework pillars.",
+        "takeaways": [
+          "Convert business goals into measurable functional and non-functional requirements, with explicit constraints.",
+          "Disposition each workload: build, buy, modify or deprecate; justify with KPIs, ROI and TCO.",
+          "The framework pillars: operational excellence, security, reliability, cost optimization, performance optimization, sustainability.",
+          "Always state the trade-off; prefer managed, cloud-first designs unless a requirement says otherwise."
+        ]
+      },
+      {
+        "title": "High Availability, Disaster Recovery and Scalability",
+        "summary": "RTO and RPO, regional and multi-regional design, failover, backup and recovery.",
+        "takeaways": [
+          "Derive RTO, RPO and availability targets from business impact; each extra nine costs more.",
+          "Zone failure: regional managed services. Region failure: second region plus a global load balancer and a replicated database.",
+          "DR patterns trade cost for recovery speed: backup/restore, pilot light, warm standby, hot.",
+          "Match the database replication model to RPO; test restores and failovers regularly."
+        ]
+      },
+      {
+        "title": "Choosing Compute: Compute Engine, GKE, Cloud Run and Functions",
+        "summary": "Map workloads to platform products, machine types, Spot VMs and specialised hardware.",
+        "takeaways": [
+          "Prefer the most managed option that meets requirements: functions, Cloud Run, GKE Autopilot, then GKE Standard and Compute Engine.",
+          "Use custom machine types to avoid waste and Spot VMs for fault-tolerant batch workloads.",
+          "Committed use discounts reduce steady cost; sole-tenant nodes help with licensing and isolation.",
+          "Match special needs: GPUs and TPUs for ML, M-series for in-memory databases, VMware Engine for VMware estates."
+        ]
+      },
+      {
+        "title": "Choosing Storage and Databases",
+        "summary": "Cloud Storage, Filestore, Cloud SQL, AlloyDB, Spanner, Bigtable, Firestore, Memorystore.",
+        "takeaways": [
+          "Object = Cloud Storage with classes and locations; file = Filestore and friends; block = Persistent Disk/Hyperdisk/Local SSD.",
+          "Cloud SQL for standard relational, AlloyDB for demanding PostgreSQL, Spanner for global scale and consistency, Bigtable for huge key-value, Firestore for documents, Memorystore for cache, BigQuery for analytics.",
+          "Cloud SQL scales writes vertically; Spanner scales horizontally with strong consistency.",
+          "Pair stores: transactional sources feed analytics through Datastream or Dataflow."
+        ]
+      },
+      {
+        "title": "Choosing Data Processing and Analytics",
+        "summary": "Pub/Sub, Dataflow, Dataproc, BigQuery, Composer and Dataplex.",
+        "takeaways": [
+          "Pub/Sub ingests and decouples; Dataflow transforms; BigQuery analyses; Cloud Storage keeps raw data; Composer orchestrates.",
+          "Dataflow for new serverless batch/stream pipelines; Dataproc for existing Spark/Hadoop (ephemeral clusters on Cloud Storage).",
+          "Partition and cluster BigQuery tables and pick on-demand versus capacity pricing by workload pattern.",
+          "Govern with Dataplex, policy tags, row/column security and VPC Service Controls."
+        ]
+      },
+      {
+        "title": "Cloud-Native Network Design",
+        "summary": "VPC, subnets, Shared VPC, peering, Private Service Connect, firewalls and routing.",
+        "takeaways": [
+          "VPCs are global, subnets regional; use custom mode, global dynamic routing as needed, and service-account-targeted firewall rules.",
+          "Shared VPC for central control, peering for simple non-transitive links, PSC for service publishing and overlap-safe access, NCC for hub-and-spoke.",
+          "Private Google Access, Cloud NAT and private services access remove the need for external IPs.",
+          "Plan GKE alias IP ranges and serverless VPC egress early."
+        ]
+      },
+      {
+        "title": "Hybrid and Multicloud Connectivity",
+        "summary": "Cloud VPN, Interconnect, Cloud Router, Network Connectivity Center and Cross-Cloud Interconnect.",
+        "takeaways": [
+          "HA VPN is quick and cheap (99.99% with proper topology); Dedicated Interconnect for high steady bandwidth in a colo; Partner Interconnect via providers; Cross-Cloud Interconnect to other clouds.",
+          "Cloud Router with BGP provides dynamic routing; use global dynamic routing for multi-region VPCs.",
+          "99.99% Interconnect needs four connections across two metros; 99.9% needs two in one metro.",
+          "NCC connects spokes; Cloud DNS forwarding and inbound policies make hybrid name resolution work."
+        ]
+      },
+      {
+        "title": "Migration Planning and Tooling",
+        "summary": "Migration Center, the six Rs, migration tools, dependencies, licensing and cost.",
+        "takeaways": [
+          "Assess, plan, migrate, optimise; use dependencies to define waves.",
+          "Pick rehost, replatform, refactor, repurchase, retire or retain per workload.",
+          "Know the tools: Migration Center, Migrate to VMs, VMware Engine, Database Migration Service, Storage Transfer Service, Transfer Appliance.",
+          "Compute transfer time, plan network, licences and TCO; always include testing and rollback."
+        ]
+      },
+      {
+        "title": "Designing Generative AI and ML Solutions",
+        "summary": "Gemini, Model Garden, Agent Builder, RAG and AI Hypercomputer in an architecture.",
+        "takeaways": [
+          "Gemini (models), Model Garden (catalogue), Agent Builder (agents and search), prebuilt APIs and AI Hypercomputer (infrastructure) cover the AI portfolio.",
+          "RAG grounds answers in your data: ingest, chunk, embed, index, retrieve, screen, generate.",
+          "Prefer prebuilt APIs or prompting and RAG before fine-tuning or custom training.",
+          "Protect AI workloads with IAM, CMEK, VPC Service Controls, residency, Sensitive Data Protection and Model Armor."
+        ]
+      }
+    ],
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCreate a cohesive chapter recap diagram for Google Cloud Professional Cloud Architect (PCA). Title: \"Chapter 2: Designing and Planning a Solution (Section 1, ~25%)\". Subtitle: \"Chapter recap\". Cover ALL lessons below in connected concept clusters, a decision flow, comparison or architecture appropriate to the chapter. Use concise labels instead of paragraphs. Include a bottom strip \"Put it into practice\" with one actionable next step derived from these learning points. Only use the supplied learning content.\n[{\"title\":\"Business Requirements and the Well-Architected Framework\",\"summary\":\"Functional and non-functional requirements, KPIs, build-buy-modify-deprecate and the framework pillars.\",\"takeaways\":[\"Convert business goals into measurable functional and non-functional requirements, with explicit constraints.\",\"Disposition each workload: build, buy, modify or deprecate; justify with KPIs, ROI and TCO.\",\"The framework pillars: operational excellence, security, reliability, cost optimization, performance optimization, sustainability.\",\"Always state the trade-off; prefer managed, cloud-first designs unless a requirement says otherwise.\"]},{\"title\":\"High Availability, Disaster Recovery and Scalability\",\"summary\":\"RTO and RPO, regional and multi-regional design, failover, backup and recovery.\",\"takeaways\":[\"Derive RTO, RPO and availability targets from business impact; each extra nine costs more.\",\"Zone failure: regional managed services. Region failure: second region plus a global load balancer and a replicated database.\",\"DR patterns trade cost for recovery speed: backup/restore, pilot light, warm standby, hot.\",\"Match the database replication model to RPO; test restores and failovers regularly.\"]},{\"title\":\"Choosing Compute: Compute Engine, GKE, Cloud Run and Functions\",\"summary\":\"Map workloads to platform products, machine types, Spot VMs and specialised hardware.\",\"takeaways\":[\"Prefer the most managed option that meets requirements: functions, Cloud Run, GKE Autopilot, then GKE Standard and Compute Engine.\",\"Use custom machine types to avoid waste and Spot VMs for fault-tolerant batch workloads.\",\"Committed use discounts reduce steady cost; sole-tenant nodes help with licensing and isolation.\",\"Match special needs: GPUs and TPUs for ML, M-series for in-memory databases, VMware Engine for VMware estates.\"]},{\"title\":\"Choosing Storage and Databases\",\"summary\":\"Cloud Storage, Filestore, Cloud SQL, AlloyDB, Spanner, Bigtable, Firestore, Memorystore.\",\"takeaways\":[\"Object = Cloud Storage with classes and locations; file = Filestore and friends; block = Persistent Disk/Hyperdisk/Local SSD.\",\"Cloud SQL for standard relational, AlloyDB for demanding PostgreSQL, Spanner for global scale and consistency, Bigtable for huge key-value, Firestore for documents, Memorystore for cache, BigQuery for analytics.\",\"Cloud SQL scales writes vertically; Spanner scales horizontally with strong consistency.\",\"Pair stores: transactional sources feed analytics through Datastream or Dataflow.\"]},{\"title\":\"Choosing Data Processing and Analytics\",\"summary\":\"Pub/Sub, Dataflow, Dataproc, BigQuery, Composer and Dataplex.\",\"takeaways\":[\"Pub/Sub ingests and decouples; Dataflow transforms; BigQuery analyses; Cloud Storage keeps raw data; Composer orchestrates.\",\"Dataflow for new serverless batch/stream pipelines; Dataproc for existing Spark/Hadoop (ephemeral clusters on Cloud Storage).\",\"Partition and cluster BigQuery tables and pick on-demand versus capacity pricing by workload pattern.\",\"Govern with Dataplex, policy tags, row/column security and VPC Service Controls.\"]},{\"title\":\"Cloud-Native Network Design\",\"summary\":\"VPC, subnets, Shared VPC, peering, Private Service Connect, firewalls and routing.\",\"takeaways\":[\"VPCs are global, subnets regional; use custom mode, global dynamic routing as needed, and service-account-targeted firewall rules.\",\"Shared VPC for central control, peering for simple non-transitive links, PSC for service publishing and overlap-safe access, NCC for hub-and-spoke.\",\"Private Google Access, Cloud NAT and private services access remove the need for external IPs.\",\"Plan GKE alias IP ranges and serverless VPC egress early.\"]},{\"title\":\"Hybrid and Multicloud Connectivity\",\"summary\":\"Cloud VPN, Interconnect, Cloud Router, Network Connectivity Center and Cross-Cloud Interconnect.\",\"takeaways\":[\"HA VPN is quick and cheap (99.99% with proper topology); Dedicated Interconnect for high steady bandwidth in a colo; Partner Interconnect via providers; Cross-Cloud Interconnect to other clouds.\",\"Cloud Router with BGP provides dynamic routing; use global dynamic routing for multi-region VPCs.\",\"99.99% Interconnect needs four connections across two metros; 99.9% needs two in one metro.\",\"NCC connects spokes; Cloud DNS forwarding and inbound policies make hybrid name resolution work.\"]},{\"title\":\"Migration Planning and Tooling\",\"summary\":\"Migration Center, the six Rs, migration tools, dependencies, licensing and cost.\",\"takeaways\":[\"Assess, plan, migrate, optimise; use dependencies to define waves.\",\"Pick rehost, replatform, refactor, repurchase, retire or retain per workload.\",\"Know the tools: Migration Center, Migrate to VMs, VMware Engine, Database Migration Service, Storage Transfer Service, Transfer Appliance.\",\"Compute transfer time, plan network, licences and TCO; always include testing and rollback.\"]},{\"title\":\"Designing Generative AI and ML Solutions\",\"summary\":\"Gemini, Model Garden, Agent Builder, RAG and AI Hypercomputer in an architecture.\",\"takeaways\":[\"Gemini (models), Model Garden (catalogue), Agent Builder (agents and search), prebuilt APIs and AI Hypercomputer (infrastructure) cover the AI portfolio.\",\"RAG grounds answers in your data: ingest, chunk, embed, index, retrieve, screen, generate.\",\"Prefer prebuilt APIs or prompting and RAG before fine-tuning or custom training.\",\"Protect AI workloads with IAM, CMEK, VPC Service Controls, residency, Sensitive Data Protection and Model Armor.\"]}]"
+  },
+  {
+    "id": "load-balancing-edge-security-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "load-balancing-edge-security",
+    "panel": 1,
+    "chapter": "manage-provision",
+    "title": "Load Balancing, Cloud CDN and Cloud Armor",
+    "source": {
+      "section": "Choosing a load balancer",
+      "caption": "Global external Application Load Balancer. One anycast IP routes each request to the closest healthy backend using a URL map to backend services.",
+      "diagram": {
+        "type": "Graph",
+        "label": "Global external Application Load Balancer with Cloud Armor and CDN in front of regional backends",
+        "nodes": [
+          {
+            "id": "u",
+            "label": "Users"
+          },
+          {
+            "id": "ca",
+            "label": "Cloud Armor",
+            "sub": "WAF + DDoS"
+          },
+          {
+            "id": "lb",
+            "label": "Global ALB",
+            "sub": "URL map, TLS cert, CDN"
+          },
+          {
+            "id": "b1",
+            "label": "Backend: region A",
+            "sub": "MIG / NEG / Cloud Run"
+          },
+          {
+            "id": "b2",
+            "label": "Backend: region B",
+            "sub": "MIG / NEG / GKE"
+          }
+        ],
+        "edges": [
+          {
+            "from": "u",
+            "to": "ca"
+          },
+          {
+            "from": "ca",
+            "to": "lb"
+          },
+          {
+            "from": "lb",
+            "to": "b1"
+          },
+          {
+            "from": "lb",
+            "to": "b2"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Load Balancing, Cloud CDN and Cloud Armor. Section: Choosing a load balancer. Caption: Global external Application Load Balancer. One anycast IP routes each request to the closest healthy backend using a URL map to backend services..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"Global external Application Load Balancer with Cloud Armor and CDN in front of regional backends\",\"nodes\":[{\"id\":\"u\",\"label\":\"Users\"},{\"id\":\"ca\",\"label\":\"Cloud Armor\",\"sub\":\"WAF + DDoS\"},{\"id\":\"lb\",\"label\":\"Global ALB\",\"sub\":\"URL map, TLS cert, CDN\"},{\"id\":\"b1\",\"label\":\"Backend: region A\",\"sub\":\"MIG / NEG / Cloud Run\"},{\"id\":\"b2\",\"label\":\"Backend: region B\",\"sub\":\"MIG / NEG / GKE\"}],\"edges\":[{\"from\":\"u\",\"to\":\"ca\"},{\"from\":\"ca\",\"to\":\"lb\"},{\"from\":\"lb\",\"to\":\"b1\"},{\"from\":\"lb\",\"to\":\"b2\"}]}"
+  },
+  {
+    "id": "storage-configuration-lifecycle-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "storage-configuration-lifecycle",
+    "panel": 1,
+    "chapter": "manage-provision",
+    "title": "Configuring Storage: Lifecycle, Protection and Transfer",
+    "source": {
+      "section": "Cloud Storage configuration",
+      "caption": "A lifecycle for log archives: hot for a month, then cheaper classes, then deleted after the retention period.",
+      "diagram": {
+        "type": "Flow",
+        "steps": [
+          {
+            "title": "Standard",
+            "note": "0 to 30 days, frequent access"
+          },
+          {
+            "title": "Nearline",
+            "note": "30 to 90 days"
+          },
+          {
+            "title": "Coldline",
+            "note": "90 to 365 days"
+          },
+          {
+            "title": "Archive",
+            "note": "1 to 7 years, retention lock"
+          },
+          {
+            "title": "Delete",
+            "note": "After policy expires"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Configuring Storage: Lifecycle, Protection and Transfer. Section: Cloud Storage configuration. Caption: A lifecycle for log archives: hot for a month, then cheaper classes, then deleted after the retention period..\nSource diagram:\n{\"type\":\"Flow\",\"steps\":[{\"title\":\"Standard\",\"note\":\"0 to 30 days, frequent access\"},{\"title\":\"Nearline\",\"note\":\"30 to 90 days\"},{\"title\":\"Coldline\",\"note\":\"90 to 365 days\"},{\"title\":\"Archive\",\"note\":\"1 to 7 years, retention lock\"},{\"title\":\"Delete\",\"note\":\"After policy expires\"}]}"
+  },
+  {
+    "id": "compute-configuration-iac-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "compute-configuration-iac",
+    "panel": 1,
+    "chapter": "manage-provision",
+    "title": "Configuring Compute: Instance Groups, GKE, Serverless and IaC",
+    "source": {
+      "section": "Compute Engine at scale",
+      "caption": "Regional MIG behind a load balancer. The autoscaler adds VMs from the template; autohealing replaces failed ones.",
+      "diagram": {
+        "type": "Graph",
+        "label": "Instance template to regional managed instance group in three zones with autoscaler and health check behind a load balancer",
+        "nodes": [
+          {
+            "id": "t",
+            "label": "Instance template",
+            "sub": "image, type, SA, tags"
+          },
+          {
+            "id": "mig",
+            "label": "Regional MIG",
+            "sub": "autoscaler + autohealing"
+          },
+          {
+            "id": "za",
+            "label": "Zone a VMs"
+          },
+          {
+            "id": "zb",
+            "label": "Zone b VMs"
+          },
+          {
+            "id": "lb",
+            "label": "Load balancer"
+          }
+        ],
+        "edges": [
+          {
+            "from": "t",
+            "to": "mig"
+          },
+          {
+            "from": "mig",
+            "to": "za"
+          },
+          {
+            "from": "mig",
+            "to": "zb"
+          },
+          {
+            "from": "za",
+            "to": "lb",
+            "dashed": true,
+            "label": "Backend registration"
+          },
+          {
+            "from": "zb",
+            "to": "lb",
+            "dashed": true,
+            "label": "Backend registration"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Configuring Compute: Instance Groups, GKE, Serverless and IaC. Section: Compute Engine at scale. Caption: Regional MIG behind a load balancer. The autoscaler adds VMs from the template; autohealing replaces failed ones..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"Instance template to regional managed instance group in three zones with autoscaler and health check behind a load balancer\",\"nodes\":[{\"id\":\"t\",\"label\":\"Instance template\",\"sub\":\"image, type, SA, tags\"},{\"id\":\"mig\",\"label\":\"Regional MIG\",\"sub\":\"autoscaler + autohealing\"},{\"id\":\"za\",\"label\":\"Zone a VMs\"},{\"id\":\"zb\",\"label\":\"Zone b VMs\"},{\"id\":\"lb\",\"label\":\"Load balancer\"}],\"edges\":[{\"from\":\"t\",\"to\":\"mig\"},{\"from\":\"mig\",\"to\":\"za\"},{\"from\":\"mig\",\"to\":\"zb\"},{\"from\":\"za\",\"to\":\"lb\",\"dashed\":true},{\"from\":\"zb\",\"to\":\"lb\",\"dashed\":true}]}\nFinal layout and accuracy requirements: Use title \"Regional MIG Behind a Load Balancer\". The solid template → MIG → zone VM arrows are configuration/creation relationships. The dashed zone VM → load balancer arrows mean backend registration, NOT incoming request traffic. Label them \"Backend registration\". Do not call VM → load balancer a request flow. Keep the layout, components and short notes clear.\nLeave at least 6 percent clear white margin on every side. All titles, diagrams, legends and footnotes must be fully visible. Landscape 1536 x 1024.",
+    "reviewRevision": true
+  },
+  {
+    "id": "ai-platform-workflows-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "ai-platform-workflows",
+    "panel": 1,
+    "chapter": "manage-provision",
+    "title": "ML Workflows on the Agent Platform and AI Hypercomputer",
+    "source": {
+      "section": "The ML lifecycle",
+      "caption": "ML lifecycle on a managed platform. Pipelines turn the loop into automated, repeatable runs.",
+      "diagram": {
+        "type": "Flow",
+        "numbered": true,
+        "steps": [
+          {
+            "title": "Prepare data",
+            "note": "BigQuery, Cloud Storage, Feature Store"
+          },
+          {
+            "title": "Train / tune",
+            "note": "Custom jobs, AutoML-style, fine-tuning"
+          },
+          {
+            "title": "Evaluate",
+            "note": "Metrics, bias, comparison"
+          },
+          {
+            "title": "Register + deploy",
+            "note": "Model Registry, endpoints, batch"
+          },
+          {
+            "title": "Monitor",
+            "note": "Drift, skew, quality, cost"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: ML Workflows on the Agent Platform and AI Hypercomputer. Section: The ML lifecycle. Caption: ML lifecycle on a managed platform. Pipelines turn the loop into automated, repeatable runs..\nSource diagram:\n{\"type\":\"Flow\",\"numbered\":true,\"steps\":[{\"title\":\"Prepare data\",\"note\":\"BigQuery, Cloud Storage, Feature Store\"},{\"title\":\"Train / tune\",\"note\":\"Custom jobs, AutoML-style, fine-tuning\"},{\"title\":\"Evaluate\",\"note\":\"Metrics, bias, comparison\"},{\"title\":\"Register + deploy\",\"note\":\"Model Registry, endpoints, batch\"},{\"title\":\"Monitor\",\"note\":\"Drift, skew, quality, cost\"}]}"
+  },
+  {
+    "id": "prebuilt-ai-apis-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "prebuilt-ai-apis",
+    "panel": 1,
+    "chapter": "manage-provision",
+    "title": "Prebuilt AI APIs, Model Garden and Gemini Enterprise",
+    "source": {
+      "section": "The prebuilt API families",
+      "caption": "Decision flow. Use the simplest option that meets accuracy and control requirements.",
+      "diagram": {
+        "type": "Flow",
+        "steps": [
+          {
+            "title": "Task covered by a prebuilt API?",
+            "note": "Yes → use it (fastest, cheapest)"
+          },
+          {
+            "title": "Needs flexible language/reasoning?",
+            "note": "Gemini or a Model Garden model with prompts + grounding"
+          },
+          {
+            "title": "Domain accuracy not met?",
+            "note": "Fine-tune or customise"
+          },
+          {
+            "title": "Unique architecture / scale?",
+            "note": "Custom training on GPUs/TPUs"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Prebuilt AI APIs, Model Garden and Gemini Enterprise. Section: The prebuilt API families. Caption: Decision flow. Use the simplest option that meets accuracy and control requirements..\nSource diagram:\n{\"type\":\"Flow\",\"steps\":[{\"title\":\"Task covered by a prebuilt API?\",\"note\":\"Yes → use it (fastest, cheapest)\"},{\"title\":\"Needs flexible language/reasoning?\",\"note\":\"Gemini or a Model Garden model with prompts + grounding\"},{\"title\":\"Domain accuracy not met?\",\"note\":\"Fine-tune or customise\"},{\"title\":\"Unique architecture / scale?\",\"note\":\"Custom training on GPUs/TPUs\"}]}"
+  },
+  {
+    "id": "manage-provision-summary",
+    "course": "gcp-pca",
+    "kind": "summary",
+    "chapter": "manage-provision",
+    "title": "Managing and Provisioning Infrastructure (Section 2, ~17.5%)",
+    "lessons": [
+      {
+        "title": "Load Balancing, Cloud CDN and Cloud Armor",
+        "summary": "Pick and configure the right load balancer, with edge protection and DNS.",
+        "takeaways": [
+          "Select by layer, scope, exposure and proxy vs passthrough: global external ALB for web, internal ALB for private APIs, passthrough NLB for UDP and client IP.",
+          "Backend services, NEGs, health checks (with firewall allowances), URL maps and certificates are the core objects.",
+          "Cloud CDN, Cloud Armor, IAP and managed certificates add edge performance and security; serverless NEGs bring Cloud Run behind the same controls.",
+          "Hybrid NEGs extend load balancing to on-premises and other clouds."
+        ]
+      },
+      {
+        "title": "Configuring Storage: Lifecycle, Protection and Transfer",
+        "summary": "Retention, lifecycle, backups, transfer services and growth planning.",
+        "takeaways": [
+          "Cloud Storage: uniform access, public access prevention, lifecycle, versioning/soft delete, retention locks, CMEK and signed URLs.",
+          "Choose disk types and regional PD for performance and availability; use snapshots and Backup and DR Service.",
+          "Configure database HA, backups, PITR, replicas and capacity growth deliberately per service.",
+          "Use the right transfer tool and keep compute near data; protect and test recovery."
+        ]
+      },
+      {
+        "title": "Configuring Compute: Instance Groups, GKE, Serverless and IaC",
+        "summary": "Managed instance groups, GKE modes, serverless networking, patching and Terraform.",
+        "takeaways": [
+          "MIGs: templates, regional spread, autoscaling, application-level autohealing and rolling or canary updates.",
+          "GKE: Autopilot by default, regional private clusters, Workload Identity Federation, release channels, fleet governance.",
+          "Cloud Run: concurrency, min/max instances, VPC egress, revisions with traffic splitting.",
+          "Terraform and Infrastructure Manager for provisioning, VM Manager for patching, immutable images for rollout."
+        ]
+      },
+      {
+        "title": "ML Workflows on the Agent Platform and AI Hypercomputer",
+        "summary": "Pipelines, data integration, GPUs and TPUs, and consumption models.",
+        "takeaways": [
+          "Automate the ML lifecycle with pipelines: prepare data, train, evaluate, register, deploy, monitor.",
+          "Integrate data from BigQuery and Cloud Storage; use a registry, endpoints, batch prediction and monitoring.",
+          "Pick GPUs or TPUs by framework, scale and cost, and match consumption (on-demand, Spot, reservations, flex-start) to the workload.",
+          "Secure ML with least privilege, CMEK, private endpoints and VPC Service Controls."
+        ]
+      },
+      {
+        "title": "Prebuilt AI APIs, Model Garden and Gemini Enterprise",
+        "summary": "Differentiate Google AI APIs and integrate agents, NotebookLM and models.",
+        "takeaways": [
+          "Know the prebuilt families: search, conversation, vision/image, video, audio, language, plus Gemini multimodal.",
+          "Use a prebuilt API when it fits; Gemini or Model Garden with grounding for flexible tasks; customise or train only when necessary.",
+          "Gemini Enterprise adds agents and NotebookLM for employee workflows.",
+          "Authenticate with service accounts, restrict API keys, use PSC and VPC Service Controls, and plan quotas and residency."
+        ]
+      }
+    ],
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCreate a cohesive chapter recap diagram for Google Cloud Professional Cloud Architect (PCA). Title: \"Chapter 3: Managing and Provisioning Infrastructure (Section 2, ~17.5%)\". Subtitle: \"Chapter recap\". Cover ALL lessons below in connected concept clusters, a decision flow, comparison or architecture appropriate to the chapter. Use concise labels instead of paragraphs. Include a bottom strip \"Put it into practice\" with one actionable next step derived from these learning points. Only use the supplied learning content.\n[{\"title\":\"Load Balancing, Cloud CDN and Cloud Armor\",\"summary\":\"Pick and configure the right load balancer, with edge protection and DNS.\",\"takeaways\":[\"Select by layer, scope, exposure and proxy vs passthrough: global external ALB for web, internal ALB for private APIs, passthrough NLB for UDP and client IP.\",\"Backend services, NEGs, health checks (with firewall allowances), URL maps and certificates are the core objects.\",\"Cloud CDN, Cloud Armor, IAP and managed certificates add edge performance and security; serverless NEGs bring Cloud Run behind the same controls.\",\"Hybrid NEGs extend load balancing to on-premises and other clouds.\"]},{\"title\":\"Configuring Storage: Lifecycle, Protection and Transfer\",\"summary\":\"Retention, lifecycle, backups, transfer services and growth planning.\",\"takeaways\":[\"Cloud Storage: uniform access, public access prevention, lifecycle, versioning/soft delete, retention locks, CMEK and signed URLs.\",\"Choose disk types and regional PD for performance and availability; use snapshots and Backup and DR Service.\",\"Configure database HA, backups, PITR, replicas and capacity growth deliberately per service.\",\"Use the right transfer tool and keep compute near data; protect and test recovery.\"]},{\"title\":\"Configuring Compute: Instance Groups, GKE, Serverless and IaC\",\"summary\":\"Managed instance groups, GKE modes, serverless networking, patching and Terraform.\",\"takeaways\":[\"MIGs: templates, regional spread, autoscaling, application-level autohealing and rolling or canary updates.\",\"GKE: Autopilot by default, regional private clusters, Workload Identity Federation, release channels, fleet governance.\",\"Cloud Run: concurrency, min/max instances, VPC egress, revisions with traffic splitting.\",\"Terraform and Infrastructure Manager for provisioning, VM Manager for patching, immutable images for rollout.\"]},{\"title\":\"ML Workflows on the Agent Platform and AI Hypercomputer\",\"summary\":\"Pipelines, data integration, GPUs and TPUs, and consumption models.\",\"takeaways\":[\"Automate the ML lifecycle with pipelines: prepare data, train, evaluate, register, deploy, monitor.\",\"Integrate data from BigQuery and Cloud Storage; use a registry, endpoints, batch prediction and monitoring.\",\"Pick GPUs or TPUs by framework, scale and cost, and match consumption (on-demand, Spot, reservations, flex-start) to the workload.\",\"Secure ML with least privilege, CMEK, private endpoints and VPC Service Controls.\"]},{\"title\":\"Prebuilt AI APIs, Model Garden and Gemini Enterprise\",\"summary\":\"Differentiate Google AI APIs and integrate agents, NotebookLM and models.\",\"takeaways\":[\"Know the prebuilt families: search, conversation, vision/image, video, audio, language, plus Gemini multimodal.\",\"Use a prebuilt API when it fits; Gemini or Model Garden with grounding for flexible tasks; customise or train only when necessary.\",\"Gemini Enterprise adds agents and NotebookLM for employee workflows.\",\"Authenticate with service accounts, restrict API keys, use PSC and VPC Service Controls, and plan quotas and residency.\"]}]"
+  },
+  {
+    "id": "iam-resource-hierarchy-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "iam-resource-hierarchy",
+    "panel": 1,
+    "chapter": "security-compliance",
+    "title": "IAM and the Resource Hierarchy",
+    "source": {
+      "section": "The IAM model",
+      "caption": "Evaluation order. Deny policies and organization policy restrict even where an allow exists.",
+      "diagram": {
+        "type": "Layers",
+        "layers": [
+          {
+            "title": "Organization policy constraints",
+            "note": "What configurations are allowed at all (for example no external IPs)"
+          },
+          {
+            "title": "VPC Service Controls",
+            "note": "Which API calls may cross a perimeter"
+          },
+          {
+            "title": "IAM deny policies",
+            "note": "Explicit denials that override allows"
+          },
+          {
+            "title": "IAM allow policies (inherited + conditions)",
+            "note": "Union of grants from org, folder, project and resource"
+          },
+          {
+            "title": "Resource-level controls",
+            "note": "Bucket policies, ACLs (if enabled), database users"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: IAM and the Resource Hierarchy. Section: The IAM model. Caption: Evaluation order. Deny policies and organization policy restrict even where an allow exists..\nSource diagram:\n{\"type\":\"Layers\",\"layers\":[{\"title\":\"Organization policy constraints\",\"note\":\"What configurations are allowed at all (for example no external IPs)\"},{\"title\":\"VPC Service Controls\",\"note\":\"Which API calls may cross a perimeter\"},{\"title\":\"IAM deny policies\",\"note\":\"Explicit denials that override allows\"},{\"title\":\"IAM allow policies (inherited + conditions)\",\"note\":\"Union of grants from org, folder, project and resource\"},{\"title\":\"Resource-level controls\",\"note\":\"Bucket policies, ACLs (if enabled), database users\"}]}"
+  },
+  {
+    "id": "data-protection-kms-secrets-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "data-protection-kms-secrets",
+    "panel": 1,
+    "chapter": "security-compliance",
+    "title": "Data Protection: Cloud KMS, Secrets and Sensitive Data",
+    "source": {
+      "section": "Encryption by default and key options",
+      "caption": "Increasing key control, moving from the default to keys held outside Google Cloud.",
+      "diagram": {
+        "type": "Layers",
+        "layers": [
+          {
+            "title": "Google-managed encryption (default)",
+            "note": "No configuration; automatic rotation; no customer key control"
+          },
+          {
+            "title": "CMEK (customer-managed encryption keys)",
+            "note": "Keys in Cloud KMS that you create, rotate, disable and destroy; supported by most services (Cloud Storage, BigQuery, Compute, GKE, Cloud SQL, Spanner, Pub/Sub…)"
+          },
+          {
+            "title": "CMEK with Cloud HSM",
+            "note": "Keys protected in FIPS 140-2 Level 3 hardware security modules"
+          },
+          {
+            "title": "Cloud EKM (external key manager)",
+            "note": "Keys remain in a supported external key manager outside Google; you can cut off access to data instantly"
+          },
+          {
+            "title": "CSEK (customer-supplied keys)",
+            "note": "You provide the key with each request; only Cloud Storage and Compute Engine disks; you must keep the key or lose the data"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Data Protection: Cloud KMS, Secrets and Sensitive Data. Section: Encryption by default and key options. Caption: Increasing key control, moving from the default to keys held outside Google Cloud..\nSource diagram:\n{\"type\":\"Layers\",\"layers\":[{\"title\":\"Google-managed encryption (default)\",\"note\":\"No configuration; automatic rotation; no customer key control\"},{\"title\":\"CMEK (customer-managed encryption keys)\",\"note\":\"Keys in Cloud KMS that you create, rotate, disable and destroy; supported by most services (Cloud Storage, BigQuery, Compute, GKE, Cloud SQL, Spanner, Pub/Sub…)\"},{\"title\":\"CMEK with Cloud HSM\",\"note\":\"Keys protected in FIPS 140-2 Level 3 hardware security modules\"},{\"title\":\"Cloud EKM (external key manager)\",\"note\":\"Keys remain in a supported external key manager outside Google; you can cut off access to data instantly\"},{\"title\":\"CSEK (customer-supplied keys)\",\"note\":\"You provide the key with each request; only Cloud Storage and Compute Engine disks; you must keep the key or lose the data\"}]}"
+  },
+  {
+    "id": "perimeter-controls-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "perimeter-controls",
+    "panel": 1,
+    "chapter": "security-compliance",
+    "title": "Perimeter and Access Controls",
+    "source": {
+      "section": "VPC Service Controls",
+      "caption": "A perimeter protects services in the production projects. Requests from inside or from allowed access levels succeed; others are denied.",
+      "diagram": {
+        "type": "Graph",
+        "label": "VPC Service Controls perimeter around projects with an allowed corporate access level and a denied external request",
+        "nodes": [
+          {
+            "id": "int",
+            "label": "Corporate network",
+            "sub": "access level allows"
+          },
+          {
+            "id": "ext",
+            "label": "Internet / other project",
+            "sub": "outside perimeter"
+          },
+          {
+            "id": "bq",
+            "label": "BigQuery"
+          },
+          {
+            "id": "gcs",
+            "label": "Cloud Storage"
+          }
+        ],
+        "groups": [
+          {
+            "label": "Service perimeter (prod projects)",
+            "c1": 1,
+            "r1": 0,
+            "c2": 2,
+            "r2": 0
+          }
+        ],
+        "edges": [
+          {
+            "from": "int",
+            "to": "bq",
+            "label": "allowed"
+          },
+          {
+            "from": "ext",
+            "to": "gcs",
+            "label": "denied",
+            "dashed": true
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Perimeter and Access Controls. Section: VPC Service Controls. Caption: A perimeter protects services in the production projects. Requests from inside or from allowed access levels succeed; others are denied..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"VPC Service Controls perimeter around projects with an allowed corporate access level and a denied external request\",\"nodes\":[{\"id\":\"int\",\"label\":\"Corporate network\",\"sub\":\"access level allows\"},{\"id\":\"ext\",\"label\":\"Internet / other project\",\"sub\":\"outside perimeter\"},{\"id\":\"bq\",\"label\":\"BigQuery\"},{\"id\":\"gcs\",\"label\":\"Cloud Storage\"}],\"groups\":[{\"label\":\"Service perimeter (prod projects)\",\"c1\":1,\"r1\":0,\"c2\":2,\"r2\":0}],\"edges\":[{\"from\":\"int\",\"to\":\"bq\",\"label\":\"allowed\"},{\"from\":\"ext\",\"to\":\"gcs\",\"label\":\"denied\",\"dashed\":true}]}"
+  },
+  {
+    "id": "supply-chain-ai-security-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "supply-chain-ai-security",
+    "panel": 1,
+    "chapter": "security-compliance",
+    "title": "Software Supply Chain and AI Security",
+    "source": {
+      "section": "Securing the software supply chain",
+      "caption": "A secured delivery chain. Each stage produces evidence that the next stage checks.",
+      "diagram": {
+        "type": "Flow",
+        "numbered": true,
+        "steps": [
+          {
+            "title": "Source",
+            "note": "Protected branches, code review, signed commits, Secret scanning"
+          },
+          {
+            "title": "Build",
+            "note": "Cloud Build, hermetic and isolated; SLSA provenance"
+          },
+          {
+            "title": "Store",
+            "note": "Artifact Registry, vulnerability scanning, immutable tags"
+          },
+          {
+            "title": "Attest",
+            "note": "Sign images; attestations after tests and scans"
+          },
+          {
+            "title": "Admit",
+            "note": "Binary Authorization policy at deploy time"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Software Supply Chain and AI Security. Section: Securing the software supply chain. Caption: A secured delivery chain. Each stage produces evidence that the next stage checks..\nSource diagram:\n{\"type\":\"Flow\",\"numbered\":true,\"steps\":[{\"title\":\"Source\",\"note\":\"Protected branches, code review, signed commits, Secret scanning\"},{\"title\":\"Build\",\"note\":\"Cloud Build, hermetic and isolated; SLSA provenance\"},{\"title\":\"Store\",\"note\":\"Artifact Registry, vulnerability scanning, immutable tags\"},{\"title\":\"Attest\",\"note\":\"Sign images; attestations after tests and scans\"},{\"title\":\"Admit\",\"note\":\"Binary Authorization policy at deploy time\"}]}"
+  },
+  {
+    "id": "compliance-governance-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "compliance-governance",
+    "panel": 1,
+    "chapter": "security-compliance",
+    "title": "Compliance, Residency and Audit",
+    "source": {
+      "section": "Residency, Assured Workloads and transparency",
+      "caption": "Layers of compliance control: policy, platform, data, evidence.",
+      "diagram": {
+        "type": "Layers",
+        "layers": [
+          {
+            "title": "Governance",
+            "note": "Policies, data owners, DPAs, risk register, training"
+          },
+          {
+            "title": "Guardrails",
+            "note": "Organization policy, Assured Workloads, hierarchical firewall, VPC Service Controls"
+          },
+          {
+            "title": "Data protection",
+            "note": "Classification, CMEK/EKM, DLP, retention and residency"
+          },
+          {
+            "title": "Identity and access",
+            "note": "Least privilege, PAM, MFA, separation of duties"
+          },
+          {
+            "title": "Evidence",
+            "note": "Audit logs, Asset Inventory, SCC compliance, reports, regular reviews"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Compliance, Residency and Audit. Section: Residency, Assured Workloads and transparency. Caption: Layers of compliance control: policy, platform, data, evidence..\nSource diagram:\n{\"type\":\"Layers\",\"layers\":[{\"title\":\"Governance\",\"note\":\"Policies, data owners, DPAs, risk register, training\"},{\"title\":\"Guardrails\",\"note\":\"Organization policy, Assured Workloads, hierarchical firewall, VPC Service Controls\"},{\"title\":\"Data protection\",\"note\":\"Classification, CMEK/EKM, DLP, retention and residency\"},{\"title\":\"Identity and access\",\"note\":\"Least privilege, PAM, MFA, separation of duties\"},{\"title\":\"Evidence\",\"note\":\"Audit logs, Asset Inventory, SCC compliance, reports, regular reviews\"}]}"
+  },
+  {
+    "id": "security-compliance-summary",
+    "course": "gcp-pca",
+    "kind": "summary",
+    "chapter": "security-compliance",
+    "title": "Designing for Security and Compliance (Section 3, ~17.5%)",
+    "lessons": [
+      {
+        "title": "IAM and the Resource Hierarchy",
+        "summary": "Roles, service accounts, conditions, deny policies and separation of duties.",
+        "takeaways": [
+          "Allow policies inherit and union down the hierarchy; deny policies and organization policy restrict even allowed access.",
+          "Use predefined roles and groups; avoid basic roles; custom roles only when needed.",
+          "Dedicated service accounts, attached identities, impersonation and Workload Identity Federation replace service account keys.",
+          "Use conditions, PAM, Policy Troubleshooter/Analyzer and Recommender, and design explicit separation of duties."
+        ]
+      },
+      {
+        "title": "Data Protection: Cloud KMS, Secrets and Sensitive Data",
+        "summary": "CMEK, HSM, EKM, Secret Manager and Sensitive Data Protection.",
+        "takeaways": [
+          "Data is encrypted at rest by default; escalate to CMEK, HSM, EKM or CSEK as control requirements grow.",
+          "Cloud KMS: keys, versions, rotation, scheduled destruction, location matching and separate admin/user roles.",
+          "Secret Manager for secrets; Sensitive Data Protection to discover and de-identify PII.",
+          "Confidential Computing protects data in use."
+        ]
+      },
+      {
+        "title": "Perimeter and Access Controls",
+        "summary": "VPC Service Controls, organization policy, hierarchical firewalls, IAP and Workload Identity Federation.",
+        "takeaways": [
+          "VPC Service Controls add a network-context perimeter around Google APIs to stop exfiltration even with valid IAM credentials.",
+          "Organization Policy constrains configurations (locations, external IPs, key creation); hierarchical firewall policies centralise network rules.",
+          "IAP, context-aware access and Chrome Enterprise Premium implement zero-trust access without VPNs or public bastions.",
+          "Impersonation and federation remove long-lived keys."
+        ]
+      },
+      {
+        "title": "Software Supply Chain and AI Security",
+        "summary": "Artifact Registry, Binary Authorization, provenance and Model Armor.",
+        "takeaways": [
+          "Secure each stage from source to runtime and verify at deploy: Artifact Registry, provenance, attestations, Binary Authorization.",
+          "Model Armor, Sensitive Data Protection and private, scoped model deployment secure AI systems; treat prompts and retrieved content as untrusted.",
+          "Security Command Center centralises posture, vulnerabilities and threat findings.",
+          "Use separate service accounts and key custody for attestations and models."
+        ]
+      },
+      {
+        "title": "Compliance, Residency and Audit",
+        "summary": "Regulation, Assured Workloads, audit logs and Access Transparency.",
+        "takeaways": [
+          "Translate each regulation into concrete controls and use only in-scope services; compliance of the workload is yours.",
+          "Residency: gcp.resourceLocations, regional services, Assured Workloads, EKM.",
+          "Audit logs: Admin Activity always on; enable Data Access logs for sensitive services; centralise and lock retention.",
+          "Access Transparency and Access Approval add visibility and control over Google personnel access."
+        ]
+      }
+    ],
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCreate a cohesive chapter recap diagram for Google Cloud Professional Cloud Architect (PCA). Title: \"Chapter 4: Designing for Security and Compliance (Section 3, ~17.5%)\". Subtitle: \"Chapter recap\". Cover ALL lessons below in connected concept clusters, a decision flow, comparison or architecture appropriate to the chapter. Use concise labels instead of paragraphs. Include a bottom strip \"Put it into practice\" with one actionable next step derived from these learning points. Only use the supplied learning content.\n[{\"title\":\"IAM and the Resource Hierarchy\",\"summary\":\"Roles, service accounts, conditions, deny policies and separation of duties.\",\"takeaways\":[\"Allow policies inherit and union down the hierarchy; deny policies and organization policy restrict even allowed access.\",\"Use predefined roles and groups; avoid basic roles; custom roles only when needed.\",\"Dedicated service accounts, attached identities, impersonation and Workload Identity Federation replace service account keys.\",\"Use conditions, PAM, Policy Troubleshooter/Analyzer and Recommender, and design explicit separation of duties.\"]},{\"title\":\"Data Protection: Cloud KMS, Secrets and Sensitive Data\",\"summary\":\"CMEK, HSM, EKM, Secret Manager and Sensitive Data Protection.\",\"takeaways\":[\"Data is encrypted at rest by default; escalate to CMEK, HSM, EKM or CSEK as control requirements grow.\",\"Cloud KMS: keys, versions, rotation, scheduled destruction, location matching and separate admin/user roles.\",\"Secret Manager for secrets; Sensitive Data Protection to discover and de-identify PII.\",\"Confidential Computing protects data in use.\"]},{\"title\":\"Perimeter and Access Controls\",\"summary\":\"VPC Service Controls, organization policy, hierarchical firewalls, IAP and Workload Identity Federation.\",\"takeaways\":[\"VPC Service Controls add a network-context perimeter around Google APIs to stop exfiltration even with valid IAM credentials.\",\"Organization Policy constrains configurations (locations, external IPs, key creation); hierarchical firewall policies centralise network rules.\",\"IAP, context-aware access and Chrome Enterprise Premium implement zero-trust access without VPNs or public bastions.\",\"Impersonation and federation remove long-lived keys.\"]},{\"title\":\"Software Supply Chain and AI Security\",\"summary\":\"Artifact Registry, Binary Authorization, provenance and Model Armor.\",\"takeaways\":[\"Secure each stage from source to runtime and verify at deploy: Artifact Registry, provenance, attestations, Binary Authorization.\",\"Model Armor, Sensitive Data Protection and private, scoped model deployment secure AI systems; treat prompts and retrieved content as untrusted.\",\"Security Command Center centralises posture, vulnerabilities and threat findings.\",\"Use separate service accounts and key custody for attestations and models.\"]},{\"title\":\"Compliance, Residency and Audit\",\"summary\":\"Regulation, Assured Workloads, audit logs and Access Transparency.\",\"takeaways\":[\"Translate each regulation into concrete controls and use only in-scope services; compliance of the workload is yours.\",\"Residency: gcp.resourceLocations, regional services, Assured Workloads, EKM.\",\"Audit logs: Admin Activity always on; enable Data Access logs for sensitive services; centralise and lock retention.\",\"Access Transparency and Access Approval add visibility and control over Google personnel access.\"]}]"
+  },
+  {
+    "id": "sdlc-cicd-testing-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "sdlc-cicd-testing",
+    "panel": 1,
+    "chapter": "analyze-optimize",
+    "title": "SDLC, CI/CD and Testing",
+    "source": {
+      "section": "A CI/CD pipeline on Google Cloud",
+      "caption": "From commit to production. Every stage produces evidence and gates the next.",
+      "diagram": {
+        "type": "Flow",
+        "numbered": true,
+        "steps": [
+          {
+            "title": "Source",
+            "note": "GitHub, GitLab, Developer Connect, Cloud Source Repositories legacy"
+          },
+          {
+            "title": "Build + test",
+            "note": "Cloud Build triggers, unit tests, SAST"
+          },
+          {
+            "title": "Package",
+            "note": "Artifact Registry, scan, sign"
+          },
+          {
+            "title": "Deploy",
+            "note": "Cloud Deploy pipeline: dev → staging → prod"
+          },
+          {
+            "title": "Verify + operate",
+            "note": "Smoke tests, SLO monitoring, rollback"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: SDLC, CI/CD and Testing. Section: A CI/CD pipeline on Google Cloud. Caption: From commit to production. Every stage produces evidence and gates the next..\nSource diagram:\n{\"type\":\"Flow\",\"numbered\":true,\"steps\":[{\"title\":\"Source\",\"note\":\"GitHub, GitLab, Developer Connect, Cloud Source Repositories legacy\"},{\"title\":\"Build + test\",\"note\":\"Cloud Build triggers, unit tests, SAST\"},{\"title\":\"Package\",\"note\":\"Artifact Registry, scan, sign\"},{\"title\":\"Deploy\",\"note\":\"Cloud Deploy pipeline: dev → staging → prod\"},{\"title\":\"Verify + operate\",\"note\":\"Smoke tests, SLO monitoring, rollback\"}]}"
+  },
+  {
+    "id": "troubleshooting-dr-testing-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "troubleshooting-dr-testing",
+    "panel": 1,
+    "chapter": "analyze-optimize",
+    "title": "Troubleshooting, Root Cause Analysis and DR Testing",
+    "source": {
+      "section": "A method for incidents",
+      "caption": "Stabilise first, then diagnose, then fix the cause, then learn.",
+      "diagram": {
+        "type": "Flow",
+        "numbered": true,
+        "steps": [
+          {
+            "title": "Detect + triage",
+            "note": "Alert, severity, owner"
+          },
+          {
+            "title": "Mitigate",
+            "note": "Rollback, failover, scale, disable feature"
+          },
+          {
+            "title": "Diagnose",
+            "note": "Hypotheses from signals, narrow the scope"
+          },
+          {
+            "title": "Fix",
+            "note": "Permanent change via normal pipeline"
+          },
+          {
+            "title": "Learn",
+            "note": "Postmortem, actions, tests"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Troubleshooting, Root Cause Analysis and DR Testing. Section: A method for incidents. Caption: Stabilise first, then diagnose, then fix the cause, then learn..\nSource diagram:\n{\"type\":\"Flow\",\"numbered\":true,\"steps\":[{\"title\":\"Detect + triage\",\"note\":\"Alert, severity, owner\"},{\"title\":\"Mitigate\",\"note\":\"Rollback, failover, scale, disable feature\"},{\"title\":\"Diagnose\",\"note\":\"Hypotheses from signals, narrow the scope\"},{\"title\":\"Fix\",\"note\":\"Permanent change via normal pipeline\"},{\"title\":\"Learn\",\"note\":\"Postmortem, actions, tests\"}]}"
+  },
+  {
+    "id": "business-processes-finops-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "business-processes-finops",
+    "panel": 1,
+    "chapter": "analyze-optimize",
+    "title": "Business Processes, Change Management and Cost",
+    "source": {
+      "section": "FinOps on Google Cloud",
+      "caption": "Cost optimisation layers, from visibility to commitments.",
+      "diagram": {
+        "type": "Layers",
+        "layers": [
+          {
+            "title": "Visibility and allocation",
+            "note": "Billing export to BigQuery, labels, projects/folders, budgets and alerts, Looker Studio dashboards"
+          },
+          {
+            "title": "Eliminate waste",
+            "note": "Delete idle resources, snapshots, unattached disks; Recommender (idle VMs, over-provisioned); lifecycle policies"
+          },
+          {
+            "title": "Right-size and re-architect",
+            "note": "Custom machine types, autoscaling, serverless, Autoclass, BigQuery partitioning/clustering"
+          },
+          {
+            "title": "Price better",
+            "note": "Committed use discounts (resource-based and flexible), sustained use discounts, Spot VMs, BigQuery editions/reservations, enterprise agreements"
+          },
+          {
+            "title": "Governance",
+            "note": "Quotas, organization policy limits on machine types and regions, showback/chargeback, FinOps culture"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Business Processes, Change Management and Cost. Section: FinOps on Google Cloud. Caption: Cost optimisation layers, from visibility to commitments..\nSource diagram:\n{\"type\":\"Layers\",\"layers\":[{\"title\":\"Visibility and allocation\",\"note\":\"Billing export to BigQuery, labels, projects/folders, budgets and alerts, Looker Studio dashboards\"},{\"title\":\"Eliminate waste\",\"note\":\"Delete idle resources, snapshots, unattached disks; Recommender (idle VMs, over-provisioned); lifecycle policies\"},{\"title\":\"Right-size and re-architect\",\"note\":\"Custom machine types, autoscaling, serverless, Autoclass, BigQuery partitioning/clustering\"},{\"title\":\"Price better\",\"note\":\"Committed use discounts (resource-based and flexible), sustained use discounts, Spot VMs, BigQuery editions/reservations, enterprise agreements\"},{\"title\":\"Governance\",\"note\":\"Quotas, organization policy limits on machine types and regions, showback/chargeback, FinOps culture\"}]}"
+  },
+  {
+    "id": "analyze-optimize-summary",
+    "course": "gcp-pca",
+    "kind": "summary",
+    "chapter": "analyze-optimize",
+    "title": "Analyzing and Optimizing Processes (Section 4, ~15%)",
+    "lessons": [
+      {
+        "title": "SDLC, CI/CD and Testing",
+        "summary": "Cloud Build, Artifact Registry, Cloud Deploy and release strategies.",
+        "takeaways": [
+          "Cloud Build → Artifact Registry → Cloud Deploy forms the managed pipeline; promote the same artifact through environments.",
+          "Pick rolling, blue/green or canary by risk, capacity and rollback needs; decouple deploy from release with flags.",
+          "Test at multiple levels, validate infrastructure and policy in CI, and offer a service catalog for self-service.",
+          "Measure delivery with deployment frequency, lead time, change failure rate and time to restore."
+        ]
+      },
+      {
+        "title": "Troubleshooting, Root Cause Analysis and DR Testing",
+        "summary": "A method for incidents, postmortems and validating recovery.",
+        "takeaways": [
+          "Mitigate first, then diagnose using what changed, golden signals and the request path.",
+          "Match tools to symptoms: Error Reporting, Trace, Profiler, Connectivity Tests, Firewall Insights, Policy Troubleshooter, Gemini Cloud Assist.",
+          "Blameless postmortems produce tracked actions; verify fixes with tests and alerts.",
+          "Test DR for real and record measured RTO and RPO."
+        ]
+      },
+      {
+        "title": "Business Processes, Change Management and Cost",
+        "summary": "Stakeholders, skills, CapEx versus OpEx and FinOps on Google Cloud.",
+        "takeaways": [
+          "Architects influence through listening, options with trade-offs, evidence and facilitation.",
+          "Plan change management and skills readiness; choose managed services where skills are thin.",
+          "Build a TCO and ROI case that includes hidden and migration costs; understand CapEx versus OpEx.",
+          "FinOps: visibility, waste removal, right-sizing, discounts and governance."
+        ]
+      }
+    ],
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCreate a cohesive chapter recap diagram for Google Cloud Professional Cloud Architect (PCA). Title: \"Chapter 5: Analyzing and Optimizing Processes (Section 4, ~15%)\". Subtitle: \"Chapter recap\". Cover ALL lessons below in connected concept clusters, a decision flow, comparison or architecture appropriate to the chapter. Use concise labels instead of paragraphs. Include a bottom strip \"Put it into practice\" with one actionable next step derived from these learning points. Only use the supplied learning content.\n[{\"title\":\"SDLC, CI/CD and Testing\",\"summary\":\"Cloud Build, Artifact Registry, Cloud Deploy and release strategies.\",\"takeaways\":[\"Cloud Build → Artifact Registry → Cloud Deploy forms the managed pipeline; promote the same artifact through environments.\",\"Pick rolling, blue/green or canary by risk, capacity and rollback needs; decouple deploy from release with flags.\",\"Test at multiple levels, validate infrastructure and policy in CI, and offer a service catalog for self-service.\",\"Measure delivery with deployment frequency, lead time, change failure rate and time to restore.\"]},{\"title\":\"Troubleshooting, Root Cause Analysis and DR Testing\",\"summary\":\"A method for incidents, postmortems and validating recovery.\",\"takeaways\":[\"Mitigate first, then diagnose using what changed, golden signals and the request path.\",\"Match tools to symptoms: Error Reporting, Trace, Profiler, Connectivity Tests, Firewall Insights, Policy Troubleshooter, Gemini Cloud Assist.\",\"Blameless postmortems produce tracked actions; verify fixes with tests and alerts.\",\"Test DR for real and record measured RTO and RPO.\"]},{\"title\":\"Business Processes, Change Management and Cost\",\"summary\":\"Stakeholders, skills, CapEx versus OpEx and FinOps on Google Cloud.\",\"takeaways\":[\"Architects influence through listening, options with trade-offs, evidence and facilitation.\",\"Plan change management and skills readiness; choose managed services where skills are thin.\",\"Build a TCO and ROI case that includes hidden and migration costs; understand CapEx versus OpEx.\",\"FinOps: visibility, waste removal, right-sizing, discounts and governance.\"]}]"
+  },
+  {
+    "id": "api-management-apigee-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "api-management-apigee",
+    "panel": 1,
+    "chapter": "implementation",
+    "title": "API Management and Apigee",
+    "source": {
+      "section": "Why API management",
+      "caption": "Apigee as a façade. Consumers use stable, secured API products; the proxy layer applies policies and routes to diverse backends.",
+      "diagram": {
+        "type": "Graph",
+        "label": "API consumers call Apigee proxies which apply policies and route to Cloud Run, GKE and on-premises backends",
+        "nodes": [
+          {
+            "id": "dev",
+            "label": "Developers / apps",
+            "sub": "partners, mobile, web"
+          },
+          {
+            "id": "portal",
+            "label": "Developer portal"
+          },
+          {
+            "id": "apigee",
+            "label": "Apigee",
+            "sub": "proxies + policies"
+          },
+          {
+            "id": "b1",
+            "label": "Cloud Run / GKE"
+          },
+          {
+            "id": "b2",
+            "label": "On-premises / legacy"
+          }
+        ],
+        "edges": [
+          {
+            "from": "dev",
+            "to": "portal",
+            "dashed": true
+          },
+          {
+            "from": "dev",
+            "to": "apigee"
+          },
+          {
+            "from": "apigee",
+            "to": "b1"
+          },
+          {
+            "from": "apigee",
+            "to": "b2"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: API Management and Apigee. Section: Why API management. Caption: Apigee as a façade. Consumers use stable, secured API products; the proxy layer applies policies and routes to diverse backends..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"API consumers call Apigee proxies which apply policies and route to Cloud Run, GKE and on-premises backends\",\"nodes\":[{\"id\":\"dev\",\"label\":\"Developers / apps\",\"sub\":\"partners, mobile, web\"},{\"id\":\"portal\",\"label\":\"Developer portal\"},{\"id\":\"apigee\",\"label\":\"Apigee\",\"sub\":\"proxies + policies\"},{\"id\":\"b1\",\"label\":\"Cloud Run / GKE\"},{\"id\":\"b2\",\"label\":\"On-premises / legacy\"}],\"edges\":[{\"from\":\"dev\",\"to\":\"portal\",\"dashed\":true},{\"from\":\"dev\",\"to\":\"apigee\"},{\"from\":\"apigee\",\"to\":\"b1\"},{\"from\":\"apigee\",\"to\":\"b2\"}]}"
+  },
+  {
+    "id": "programmatic-access-terraform-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "programmatic-access-terraform",
+    "panel": 1,
+    "chapter": "implementation",
+    "title": "Programmatic Access: gcloud, SDKs, Emulators and Terraform",
+    "source": {
+      "section": "Infrastructure as code with Terraform",
+      "caption": "Terraform workflow. State records what exists; plan shows the diff; apply changes it; pipelines add review and policy checks.",
+      "diagram": {
+        "type": "Flow",
+        "numbered": true,
+        "steps": [
+          {
+            "title": "Write",
+            "note": "Modules, variables, providers"
+          },
+          {
+            "title": "Init",
+            "note": "Providers, remote backend (GCS)"
+          },
+          {
+            "title": "Plan",
+            "note": "Diff against state; policy checks"
+          },
+          {
+            "title": "Apply",
+            "note": "Create/update with approvals"
+          },
+          {
+            "title": "Detect drift",
+            "note": "Plan on schedule; fix manually changed resources"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Programmatic Access: gcloud, SDKs, Emulators and Terraform. Section: Infrastructure as code with Terraform. Caption: Terraform workflow. State records what exists; plan shows the diff; apply changes it; pipelines add review and policy checks..\nSource diagram:\n{\"type\":\"Flow\",\"numbered\":true,\"steps\":[{\"title\":\"Write\",\"note\":\"Modules, variables, providers\"},{\"title\":\"Init\",\"note\":\"Providers, remote backend (GCS)\"},{\"title\":\"Plan\",\"note\":\"Diff against state; policy checks\"},{\"title\":\"Apply\",\"note\":\"Create/update with approvals\"},{\"title\":\"Detect drift\",\"note\":\"Plan on schedule; fix manually changed resources\"}]}"
+  },
+  {
+    "id": "implementation-summary",
+    "course": "gcp-pca",
+    "kind": "summary",
+    "chapter": "implementation",
+    "title": "Managing Implementation (Section 5, ~12.5%)",
+    "lessons": [
+      {
+        "title": "API Management and Apigee",
+        "summary": "Proxies, products, security, quotas and the right gateway for the job.",
+        "takeaways": [
+          "API management adds security, traffic control, transformation, analytics and developer experience in front of backends.",
+          "Apigee: proxies, policies, products, apps, environments, analytics, portal and monetisation; managed or hybrid.",
+          "Use API Gateway or Cloud Endpoints for lighter needs; a mesh for east-west traffic.",
+          "Spike Arrest smooths bursts; Quota limits consumption; version and deprecate APIs deliberately."
+        ]
+      },
+      {
+        "title": "Programmatic Access: gcloud, SDKs, Emulators and Terraform",
+        "summary": "Cloud Shell, client libraries, authentication, emulators and infrastructure as code.",
+        "takeaways": [
+          "Cloud Shell and Editor, Cloud Code, gcloud, bq, gcloud storage and client libraries cover interactive and programmatic access.",
+          "Use ADC and attached service accounts; impersonate for testing; never ship key files.",
+          "Emulators exist for Bigtable, Spanner, Pub/Sub and Firestore for fast local and CI tests.",
+          "Terraform with remote state, modules, pipelines and drift detection is the standard IaC approach."
+        ]
+      }
+    ],
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCreate a cohesive chapter recap diagram for Google Cloud Professional Cloud Architect (PCA). Title: \"Chapter 6: Managing Implementation (Section 5, ~12.5%)\". Subtitle: \"Chapter recap\". Cover ALL lessons below in connected concept clusters, a decision flow, comparison or architecture appropriate to the chapter. Use concise labels instead of paragraphs. Include a bottom strip \"Put it into practice\" with one actionable next step derived from these learning points. Only use the supplied learning content.\n[{\"title\":\"API Management and Apigee\",\"summary\":\"Proxies, products, security, quotas and the right gateway for the job.\",\"takeaways\":[\"API management adds security, traffic control, transformation, analytics and developer experience in front of backends.\",\"Apigee: proxies, policies, products, apps, environments, analytics, portal and monetisation; managed or hybrid.\",\"Use API Gateway or Cloud Endpoints for lighter needs; a mesh for east-west traffic.\",\"Spike Arrest smooths bursts; Quota limits consumption; version and deprecate APIs deliberately.\"]},{\"title\":\"Programmatic Access: gcloud, SDKs, Emulators and Terraform\",\"summary\":\"Cloud Shell, client libraries, authentication, emulators and infrastructure as code.\",\"takeaways\":[\"Cloud Shell and Editor, Cloud Code, gcloud, bq, gcloud storage and client libraries cover interactive and programmatic access.\",\"Use ADC and attached service accounts; impersonate for testing; never ship key files.\",\"Emulators exist for Bigtable, Spanner, Pub/Sub and Firestore for fast local and CI tests.\",\"Terraform with remote state, modules, pipelines and drift detection is the standard IaC approach.\"]}]"
+  },
+  {
+    "id": "observability-monitoring-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "observability-monitoring",
+    "panel": 1,
+    "chapter": "operations",
+    "title": "Google Cloud Observability and Alerting",
+    "source": {
+      "section": "The observability suite",
+      "caption": "Telemetry flows from workloads into Monitoring and Logging, which feed alerts, dashboards and long-term analysis in BigQuery or Cloud Storage.",
+      "diagram": {
+        "type": "Graph",
+        "label": "Workloads send metrics, logs and traces to Cloud Monitoring, Logging and Trace, which feed alerting, dashboards and sinks",
+        "nodes": [
+          {
+            "id": "w",
+            "label": "Workloads",
+            "sub": "GCE, GKE, Cloud Run"
+          },
+          {
+            "id": "mon",
+            "label": "Monitoring",
+            "sub": "metrics, SLOs"
+          },
+          {
+            "id": "log",
+            "label": "Logging",
+            "sub": "buckets, sinks"
+          },
+          {
+            "id": "al",
+            "label": "Alerts + dashboards"
+          },
+          {
+            "id": "sink",
+            "label": "Sinks",
+            "sub": "BigQuery, GCS, Pub/Sub"
+          }
+        ],
+        "edges": [
+          {
+            "from": "w",
+            "to": "mon"
+          },
+          {
+            "from": "w",
+            "to": "log"
+          },
+          {
+            "from": "mon",
+            "to": "al"
+          },
+          {
+            "from": "log",
+            "to": "sink"
+          },
+          {
+            "from": "log",
+            "to": "mon",
+            "label": "log-based metrics",
+            "dashed": true
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Google Cloud Observability and Alerting. Section: The observability suite. Caption: Telemetry flows from workloads into Monitoring and Logging, which feed alerts, dashboards and long-term analysis in BigQuery or Cloud Storage..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"Workloads send metrics, logs and traces to Cloud Monitoring, Logging and Trace, which feed alerting, dashboards and sinks\",\"nodes\":[{\"id\":\"w\",\"label\":\"Workloads\",\"sub\":\"GCE, GKE, Cloud Run\"},{\"id\":\"mon\",\"label\":\"Monitoring\",\"sub\":\"metrics, SLOs\"},{\"id\":\"log\",\"label\":\"Logging\",\"sub\":\"buckets, sinks\"},{\"id\":\"al\",\"label\":\"Alerts + dashboards\"},{\"id\":\"sink\",\"label\":\"Sinks\",\"sub\":\"BigQuery, GCS, Pub/Sub\"}],\"edges\":[{\"from\":\"w\",\"to\":\"mon\"},{\"from\":\"w\",\"to\":\"log\"},{\"from\":\"mon\",\"to\":\"al\"},{\"from\":\"log\",\"to\":\"sink\"},{\"from\":\"log\",\"to\":\"mon\",\"label\":\"log-based metrics\",\"dashed\":true}]}"
+  },
+  {
+    "id": "release-reliability-sre-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "release-reliability-sre",
+    "panel": 1,
+    "chapter": "operations",
+    "title": "Release Management, SRE and Reliability Testing",
+    "source": {
+      "section": "Release management and support",
+      "caption": "Progressive delivery with guardrails. Each step has an automatic check and a rollback.",
+      "diagram": {
+        "type": "Flow",
+        "numbered": true,
+        "steps": [
+          {
+            "title": "Deploy dark",
+            "note": "Feature flag off"
+          },
+          {
+            "title": "Canary 1%",
+            "note": "Watch SLIs"
+          },
+          {
+            "title": "Ramp 10 → 50%",
+            "note": "Automated analysis"
+          },
+          {
+            "title": "Full",
+            "note": "Bake time"
+          },
+          {
+            "title": "Cleanup",
+            "note": "Remove flag, old revisions"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Release Management, SRE and Reliability Testing. Section: Release management and support. Caption: Progressive delivery with guardrails. Each step has an automatic check and a rollback..\nSource diagram:\n{\"type\":\"Flow\",\"numbered\":true,\"steps\":[{\"title\":\"Deploy dark\",\"note\":\"Feature flag off\"},{\"title\":\"Canary 1%\",\"note\":\"Watch SLIs\"},{\"title\":\"Ramp 10 → 50%\",\"note\":\"Automated analysis\"},{\"title\":\"Full\",\"note\":\"Bake time\"},{\"title\":\"Cleanup\",\"note\":\"Remove flag, old revisions\"}]}"
+  },
+  {
+    "id": "operations-summary",
+    "course": "gcp-pca",
+    "kind": "summary",
+    "chapter": "operations",
+    "title": "Solution and Operations Excellence (Section 6, ~12.5%)",
+    "lessons": [
+      {
+        "title": "Google Cloud Observability and Alerting",
+        "summary": "Monitoring, Logging, Trace, Profiler, SLO monitoring and Gemini Cloud Assist.",
+        "takeaways": [
+          "Monitoring (metrics, alerts, SLOs), Logging (buckets, sinks, log-based metrics), Trace, Profiler and Error Reporting form the suite; Gemini Cloud Assist helps investigate.",
+          "Alert on user-visible symptoms and SLO burn rate, with runbooks; reduce noise.",
+          "Use sinks and exclusion filters to control cost and meet retention; know the _Required bucket.",
+          "Baseline and benchmark before and after changes; profile and trace to find bottlenecks."
+        ]
+      },
+      {
+        "title": "Release Management, SRE and Reliability Testing",
+        "summary": "SLOs, error budgets, progressive delivery, chaos, load and penetration testing.",
+        "takeaways": [
+          "SLIs measure, SLOs target, SLAs contract; error budgets balance velocity and reliability.",
+          "Release progressively with flags, canaries, automated checks and rollback; plan on-call, runbooks and escalation.",
+          "Prove reliability with load, soak, chaos, DR and penetration testing under the platform's policies.",
+          "Design graceful degradation: timeouts, backoff, circuit breakers and load shedding."
+        ]
+      }
+    ],
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCreate a cohesive chapter recap diagram for Google Cloud Professional Cloud Architect (PCA). Title: \"Chapter 7: Solution and Operations Excellence (Section 6, ~12.5%)\". Subtitle: \"Chapter recap\". Cover ALL lessons below in connected concept clusters, a decision flow, comparison or architecture appropriate to the chapter. Use concise labels instead of paragraphs. Include a bottom strip \"Put it into practice\" with one actionable next step derived from these learning points. Only use the supplied learning content.\n[{\"title\":\"Google Cloud Observability and Alerting\",\"summary\":\"Monitoring, Logging, Trace, Profiler, SLO monitoring and Gemini Cloud Assist.\",\"takeaways\":[\"Monitoring (metrics, alerts, SLOs), Logging (buckets, sinks, log-based metrics), Trace, Profiler and Error Reporting form the suite; Gemini Cloud Assist helps investigate.\",\"Alert on user-visible symptoms and SLO burn rate, with runbooks; reduce noise.\",\"Use sinks and exclusion filters to control cost and meet retention; know the _Required bucket.\",\"Baseline and benchmark before and after changes; profile and trace to find bottlenecks.\"]},{\"title\":\"Release Management, SRE and Reliability Testing\",\"summary\":\"SLOs, error budgets, progressive delivery, chaos, load and penetration testing.\",\"takeaways\":[\"SLIs measure, SLOs target, SLAs contract; error budgets balance velocity and reliability.\",\"Release progressively with flags, canaries, automated checks and rollback; plan on-call, runbooks and escalation.\",\"Prove reliability with load, soak, chaos, DR and penetration testing under the platform's policies.\",\"Design graceful degradation: timeouts, backoff, circuit breakers and load shedding.\"]}]"
+  },
+  {
+    "id": "case-study-technique-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "case-study-technique",
+    "panel": 1,
+    "chapter": "practice",
+    "title": "Working the Case Studies: Altostrat, Cymbal, EHR Healthcare, KnightMotives",
+    "source": {
+      "section": "A method for any case study",
+      "caption": "Extract, map, then answer. Build the requirement list once and reuse it for every question tied to the case.",
+      "diagram": {
+        "type": "Flow",
+        "numbered": true,
+        "steps": [
+          {
+            "title": "Business drivers",
+            "note": "Why the company is changing; success metrics"
+          },
+          {
+            "title": "Existing estate",
+            "note": "Current systems, locations, teams, licences"
+          },
+          {
+            "title": "Requirements",
+            "note": "Technical, security, compliance, cost, timeline"
+          },
+          {
+            "title": "Constraints",
+            "note": "Skills, contracts, data location, uptime windows"
+          },
+          {
+            "title": "Map to services",
+            "note": "One line per requirement"
+          },
+          {
+            "title": "Answer",
+            "note": "Choose the option that satisfies the most stated requirements"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Working the Case Studies: Altostrat, Cymbal, EHR Healthcare, KnightMotives. Section: A method for any case study. Caption: Extract, map, then answer. Build the requirement list once and reuse it for every question tied to the case..\nSource diagram:\n{\"type\":\"Flow\",\"numbered\":true,\"steps\":[{\"title\":\"Business drivers\",\"note\":\"Why the company is changing; success metrics\"},{\"title\":\"Existing estate\",\"note\":\"Current systems, locations, teams, licences\"},{\"title\":\"Requirements\",\"note\":\"Technical, security, compliance, cost, timeline\"},{\"title\":\"Constraints\",\"note\":\"Skills, contracts, data location, uptime windows\"},{\"title\":\"Map to services\",\"note\":\"One line per requirement\"},{\"title\":\"Answer\",\"note\":\"Choose the option that satisfies the most stated requirements\"}]}"
+  },
+  {
+    "id": "scenario-retail-modernization-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "scenario-retail-modernization",
+    "panel": 1,
+    "chapter": "practice",
+    "title": "Scenario: Modernizing a Retail Platform",
+    "source": {
+      "section": "Reference design",
+      "caption": "Target architecture. Stateless services on Cloud Run behind a global load balancer, transactional data in Spanner, events through Pub/Sub, and a private link to the on-premises ERP.",
+      "diagram": {
+        "type": "Graph",
+        "label": "Retail platform: global load balancer with Cloud Armor and CDN to Cloud Run services, Spanner, Pub/Sub and BigQuery, with Interconnect to the on-premises ERP",
+        "nodes": [
+          {
+            "id": "u",
+            "label": "Shoppers"
+          },
+          {
+            "id": "lb",
+            "label": "Global ALB",
+            "sub": "Cloud Armor + CDN"
+          },
+          {
+            "id": "web",
+            "label": "Cloud Run: storefront + checkout",
+            "sub": "regions: EU, US, APAC"
+          },
+          {
+            "id": "db",
+            "label": "Spanner multi-region",
+            "sub": "orders, inventory"
+          },
+          {
+            "id": "ps",
+            "label": "Pub/Sub",
+            "sub": "order events"
+          },
+          {
+            "id": "bq",
+            "label": "BigQuery + Vertex AI Search",
+            "sub": "analytics, personalised search"
+          },
+          {
+            "id": "erp",
+            "label": "On-premises ERP",
+            "sub": "Interconnect + Cloud Router"
+          }
+        ],
+        "edges": [
+          {
+            "from": "u",
+            "to": "lb"
+          },
+          {
+            "from": "lb",
+            "to": "web"
+          },
+          {
+            "from": "web",
+            "to": "db"
+          },
+          {
+            "from": "web",
+            "to": "ps"
+          },
+          {
+            "from": "ps",
+            "to": "bq"
+          },
+          {
+            "from": "ps",
+            "to": "erp",
+            "label": "orders"
+          },
+          {
+            "from": "web",
+            "to": "bq",
+            "dashed": true
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Scenario: Modernizing a Retail Platform. Section: Reference design. Caption: Target architecture. Stateless services on Cloud Run behind a global load balancer, transactional data in Spanner, events through Pub/Sub, and a private link to the on-premises ERP..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"Retail platform: global load balancer with Cloud Armor and CDN to Cloud Run services, Spanner, Pub/Sub and BigQuery, with Interconnect to the on-premises ERP\",\"nodes\":[{\"id\":\"u\",\"label\":\"Shoppers\"},{\"id\":\"lb\",\"label\":\"Global ALB\",\"sub\":\"Cloud Armor + CDN\"},{\"id\":\"web\",\"label\":\"Cloud Run: storefront + checkout\",\"sub\":\"regions: EU, US, APAC\"},{\"id\":\"db\",\"label\":\"Spanner multi-region\",\"sub\":\"orders, inventory\"},{\"id\":\"ps\",\"label\":\"Pub/Sub\",\"sub\":\"order events\"},{\"id\":\"bq\",\"label\":\"BigQuery + Vertex AI Search\",\"sub\":\"analytics, personalised search\"},{\"id\":\"erp\",\"label\":\"On-premises ERP\",\"sub\":\"Interconnect + Cloud Router\"}],\"edges\":[{\"from\":\"u\",\"to\":\"lb\"},{\"from\":\"lb\",\"to\":\"web\"},{\"from\":\"web\",\"to\":\"db\"},{\"from\":\"web\",\"to\":\"ps\"},{\"from\":\"ps\",\"to\":\"bq\"},{\"from\":\"ps\",\"to\":\"erp\",\"label\":\"orders\"},{\"from\":\"web\",\"to\":\"bq\",\"dashed\":true}]}"
+  },
+  {
+    "id": "scenario-regulated-hybrid-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "scenario-regulated-hybrid",
+    "panel": 1,
+    "chapter": "practice",
+    "title": "Scenario: A Regulated Hybrid Healthcare Platform",
+    "source": {
+      "section": "Reference architecture",
+      "caption": "Secured zone (perimeter) holds identifiable data; a de-identification pipeline feeds an analytics zone; connectivity and keys are controlled.",
+      "diagram": {
+        "type": "Graph",
+        "label": "On-premises EHR connects over Interconnect to a Cloud Healthcare API in a VPC Service Controls perimeter, with a de-identification pipeline feeding an analytics BigQuery zone and an AI assistant protected by Model Armor",
+        "nodes": [
+          {
+            "id": "ehr",
+            "label": "On-premises EHR / clinics",
+            "sub": "HL7 / FHIR"
+          },
+          {
+            "id": "ic",
+            "label": "Interconnect + HA VPN backup"
+          },
+          {
+            "id": "hc",
+            "label": "Cloud Healthcare API",
+            "sub": "FHIR store, EU regions"
+          },
+          {
+            "id": "deid",
+            "label": "De-identification",
+            "sub": "Sensitive Data Protection"
+          },
+          {
+            "id": "bq",
+            "label": "Analytics BigQuery",
+            "sub": "de-identified only"
+          },
+          {
+            "id": "ai",
+            "label": "Clinician assistant",
+            "sub": "Gemini + Model Armor"
+          }
+        ],
+        "groups": [
+          {
+            "label": "VPC Service Controls perimeter (EU)",
+            "c1": 2,
+            "r1": 0,
+            "c2": 3,
+            "r2": 1
+          }
+        ],
+        "edges": [
+          {
+            "from": "ehr",
+            "to": "ic"
+          },
+          {
+            "from": "ic",
+            "to": "hc"
+          },
+          {
+            "from": "hc",
+            "to": "deid"
+          },
+          {
+            "from": "deid",
+            "to": "bq"
+          },
+          {
+            "from": "hc",
+            "to": "ai",
+            "dashed": true
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Scenario: A Regulated Hybrid Healthcare Platform. Section: Reference architecture. Caption: Secured zone (perimeter) holds identifiable data; a de-identification pipeline feeds an analytics zone; connectivity and keys are controlled..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"On-premises EHR connects over Interconnect to a Cloud Healthcare API in a VPC Service Controls perimeter, with a de-identification pipeline feeding an analytics BigQuery zone and an AI assistant protected by Model Armor\",\"nodes\":[{\"id\":\"ehr\",\"label\":\"On-premises EHR / clinics\",\"sub\":\"HL7 / FHIR\"},{\"id\":\"ic\",\"label\":\"Interconnect + HA VPN backup\"},{\"id\":\"hc\",\"label\":\"Cloud Healthcare API\",\"sub\":\"FHIR store, EU regions\"},{\"id\":\"deid\",\"label\":\"De-identification\",\"sub\":\"Sensitive Data Protection\"},{\"id\":\"bq\",\"label\":\"Analytics BigQuery\",\"sub\":\"de-identified only\"},{\"id\":\"ai\",\"label\":\"Clinician assistant\",\"sub\":\"Gemini + Model Armor\"}],\"groups\":[{\"label\":\"VPC Service Controls perimeter (EU)\",\"c1\":2,\"r1\":0,\"c2\":3,\"r2\":1}],\"edges\":[{\"from\":\"ehr\",\"to\":\"ic\"},{\"from\":\"ic\",\"to\":\"hc\"},{\"from\":\"hc\",\"to\":\"deid\"},{\"from\":\"deid\",\"to\":\"bq\"},{\"from\":\"hc\",\"to\":\"ai\",\"dashed\":true}]}"
+  },
+  {
+    "id": "lab-secure-three-tier-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "lab-secure-three-tier",
+    "panel": 1,
+    "chapter": "practice",
+    "title": "Lab: Deploy a Secure Three-Tier Service",
+    "source": {
+      "section": "What you will build",
+      "caption": "Lab architecture. Requests pass Cloud Armor and the load balancer to Cloud Run, which reaches Cloud SQL over a private IP using Direct VPC egress.",
+      "diagram": {
+        "type": "Graph",
+        "label": "Internet to global load balancer with Cloud Armor, serverless NEG, Cloud Run, Direct VPC egress and Cloud SQL private IP",
+        "nodes": [
+          {
+            "id": "u",
+            "label": "Users"
+          },
+          {
+            "id": "ca",
+            "label": "Cloud Armor",
+            "sub": "rate limit + WAF"
+          },
+          {
+            "id": "lb",
+            "label": "Global ALB",
+            "sub": "managed certificate"
+          },
+          {
+            "id": "run",
+            "label": "Cloud Run service",
+            "sub": "dedicated SA"
+          },
+          {
+            "id": "vpc",
+            "label": "VPC subnet",
+            "sub": "Direct VPC egress"
+          },
+          {
+            "id": "sql",
+            "label": "Cloud SQL",
+            "sub": "private IP only"
+          }
+        ],
+        "edges": [
+          {
+            "from": "u",
+            "to": "ca"
+          },
+          {
+            "from": "ca",
+            "to": "lb"
+          },
+          {
+            "from": "lb",
+            "to": "run"
+          },
+          {
+            "from": "run",
+            "to": "vpc"
+          },
+          {
+            "from": "vpc",
+            "to": "sql"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Lab: Deploy a Secure Three-Tier Service. Section: What you will build. Caption: Lab architecture. Requests pass Cloud Armor and the load balancer to Cloud Run, which reaches Cloud SQL over a private IP using Direct VPC egress..\nSource diagram:\n{\"type\":\"Graph\",\"label\":\"Internet to global load balancer with Cloud Armor, serverless NEG, Cloud Run, Direct VPC egress and Cloud SQL private IP\",\"nodes\":[{\"id\":\"u\",\"label\":\"Users\"},{\"id\":\"ca\",\"label\":\"Cloud Armor\",\"sub\":\"rate limit + WAF\"},{\"id\":\"lb\",\"label\":\"Global ALB\",\"sub\":\"managed certificate\"},{\"id\":\"run\",\"label\":\"Cloud Run service\",\"sub\":\"dedicated SA\"},{\"id\":\"vpc\",\"label\":\"VPC subnet\",\"sub\":\"Direct VPC egress\"},{\"id\":\"sql\",\"label\":\"Cloud SQL\",\"sub\":\"private IP only\"}],\"edges\":[{\"from\":\"u\",\"to\":\"ca\"},{\"from\":\"ca\",\"to\":\"lb\"},{\"from\":\"lb\",\"to\":\"run\"},{\"from\":\"run\",\"to\":\"vpc\"},{\"from\":\"vpc\",\"to\":\"sql\"}]}"
+  },
+  {
+    "id": "exam-technique-and-review-diagram-1",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "exam-technique-and-review",
+    "panel": 1,
+    "chapter": "practice",
+    "title": "Exam Technique, Pattern Review and Final Checklist",
+    "source": {
+      "section": "Reading the question",
+      "caption": "A four-pass reading method. Constraint words decide the answer, not familiar service names.",
+      "diagram": {
+        "type": "Flow",
+        "numbered": true,
+        "steps": [
+          {
+            "title": "Ask",
+            "note": "What exactly must I choose?"
+          },
+          {
+            "title": "Constraints",
+            "note": "Cost, latency, residency, skills, effort, time"
+          },
+          {
+            "title": "Eliminate",
+            "note": "Cross out options violating a constraint"
+          },
+          {
+            "title": "Pick",
+            "note": "Most managed option that satisfies all"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Exam Technique, Pattern Review and Final Checklist. Section: Reading the question. Caption: A four-pass reading method. Constraint words decide the answer, not familiar service names..\nSource diagram:\n{\"type\":\"Flow\",\"numbered\":true,\"steps\":[{\"title\":\"Ask\",\"note\":\"What exactly must I choose?\"},{\"title\":\"Constraints\",\"note\":\"Cost, latency, residency, skills, effort, time\"},{\"title\":\"Eliminate\",\"note\":\"Cross out options violating a constraint\"},{\"title\":\"Pick\",\"note\":\"Most managed option that satisfies all\"}]}"
+  },
+  {
+    "id": "practice-summary",
+    "course": "gcp-pca",
+    "kind": "summary",
+    "chapter": "practice",
+    "title": "Case Studies, Scenarios and Exam Readiness",
+    "lessons": [
+      {
+        "title": "Working the Case Studies: Altostrat, Cymbal, EHR Healthcare, KnightMotives",
+        "summary": "How case-study questions are written and a method to answer them.",
+        "takeaways": [
+          "Two case studies per exam, 20 to 30 percent of questions, viewable on a split screen; read all four published ones beforehand.",
+          "Extract drivers, estate, requirements and constraints once, then trace every answer to a stated requirement.",
+          "Industry themes suggest building blocks, but the case text decides.",
+          "Watch hidden asks: residency, licensing, skills, existing contracts, hybrid coexistence."
+        ]
+      },
+      {
+        "title": "Scenario: Modernizing a Retail Platform",
+        "summary": "A full design question across compute, data, network, security and operations.",
+        "takeaways": [
+          "Trace every decision to a stated requirement and say which pillar or constraint it serves.",
+          "Cloud Run, Spanner, Pub/Sub and BigQuery give scale, consistency, decoupling and analytics with low ops.",
+          "Residency, PCI scope, hybrid coexistence and team skills are the hidden constraints that decide close calls.",
+          "Phase the migration with the strangler pattern to reduce risk."
+        ]
+      },
+      {
+        "title": "Scenario: A Regulated Hybrid Healthcare Platform",
+        "summary": "Compliance, hybrid connectivity, data residency and recovery.",
+        "takeaways": [
+          "Combine residency, key custody, perimeter, de-identification, connectivity and audit into one coherent design.",
+          "Size availability and DR to the stated targets; avoid over-engineering.",
+          "AI features need de-identified inputs, screening and regional endpoints.",
+          "Exceptions use narrow ingress/egress rules and time limits, not wider perimeters."
+        ]
+      },
+      {
+        "title": "Lab: Deploy a Secure Three-Tier Service",
+        "summary": "Cloud lab: Cloud Run, private Cloud SQL, load balancer, Cloud Armor and Terraform.",
+        "takeaways": [
+          "Restrict Cloud Run ingress to the load balancer so Cloud Armor cannot be bypassed.",
+          "Use private services access and Direct VPC egress for private Cloud SQL connectivity.",
+          "Dedicated service accounts and Secret Manager give least privilege and no embedded secrets.",
+          "Always verify by testing the blocked paths, then delete resources in dependency order."
+        ]
+      },
+      {
+        "title": "Exam Technique, Pattern Review and Final Checklist",
+        "summary": "Read questions, eliminate distractors and run a final-week review.",
+        "takeaways": [
+          "Read the final question, mark constraints, eliminate violators, choose the most managed compliant option.",
+          "Memorise clue-to-service patterns across all six sections.",
+          "Pace about 2 minutes per question, flag and return, summarise each case study once.",
+          "Use timed practice exams and the performance report to target weak sections."
+        ]
+      }
+    ],
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCreate a cohesive chapter recap diagram for Google Cloud Professional Cloud Architect (PCA). Title: \"Chapter 8: Case Studies, Scenarios and Exam Readiness\". Subtitle: \"Chapter recap\". Cover ALL lessons below in connected concept clusters, a decision flow, comparison or architecture appropriate to the chapter. Use concise labels instead of paragraphs. Include a bottom strip \"Put it into practice\" with one actionable next step derived from these learning points. Only use the supplied learning content.\n[{\"title\":\"Working the Case Studies: Altostrat, Cymbal, EHR Healthcare, KnightMotives\",\"summary\":\"How case-study questions are written and a method to answer them.\",\"takeaways\":[\"Two case studies per exam, 20 to 30 percent of questions, viewable on a split screen; read all four published ones beforehand.\",\"Extract drivers, estate, requirements and constraints once, then trace every answer to a stated requirement.\",\"Industry themes suggest building blocks, but the case text decides.\",\"Watch hidden asks: residency, licensing, skills, existing contracts, hybrid coexistence.\"]},{\"title\":\"Scenario: Modernizing a Retail Platform\",\"summary\":\"A full design question across compute, data, network, security and operations.\",\"takeaways\":[\"Trace every decision to a stated requirement and say which pillar or constraint it serves.\",\"Cloud Run, Spanner, Pub/Sub and BigQuery give scale, consistency, decoupling and analytics with low ops.\",\"Residency, PCI scope, hybrid coexistence and team skills are the hidden constraints that decide close calls.\",\"Phase the migration with the strangler pattern to reduce risk.\"]},{\"title\":\"Scenario: A Regulated Hybrid Healthcare Platform\",\"summary\":\"Compliance, hybrid connectivity, data residency and recovery.\",\"takeaways\":[\"Combine residency, key custody, perimeter, de-identification, connectivity and audit into one coherent design.\",\"Size availability and DR to the stated targets; avoid over-engineering.\",\"AI features need de-identified inputs, screening and regional endpoints.\",\"Exceptions use narrow ingress/egress rules and time limits, not wider perimeters.\"]},{\"title\":\"Lab: Deploy a Secure Three-Tier Service\",\"summary\":\"Cloud lab: Cloud Run, private Cloud SQL, load balancer, Cloud Armor and Terraform.\",\"takeaways\":[\"Restrict Cloud Run ingress to the load balancer so Cloud Armor cannot be bypassed.\",\"Use private services access and Direct VPC egress for private Cloud SQL connectivity.\",\"Dedicated service accounts and Secret Manager give least privilege and no embedded secrets.\",\"Always verify by testing the blocked paths, then delete resources in dependency order.\"]},{\"title\":\"Exam Technique, Pattern Review and Final Checklist\",\"summary\":\"Read questions, eliminate distractors and run a final-week review.\",\"takeaways\":[\"Read the final question, mark constraints, eliminate violators, choose the most managed compliant option.\",\"Memorise clue-to-service patterns across all six sections.\",\"Pace about 2 minutes per question, flag and return, summarise each case study once.\",\"Use timed practice exams and the performance report to target weak sections.\"]}]"
+  },
+  {
+    "id": "lab-secure-three-tier-diagram-2",
+    "course": "gcp-pca",
+    "kind": "diagram",
+    "lesson": "lab-secure-three-tier",
+    "panel": 2,
+    "standalone": true,
+    "chapter": "practice",
+    "title": "Lab: Deploy a Secure Three-Tier Service",
+    "source": {
+      "section": "Build it",
+      "caption": "Build it",
+      "diagram": {
+        "type": "Flow",
+        "numbered": true,
+        "steps": [
+          {
+            "title": "Enable APIs",
+            "note": "run, compute, sqladmin, servicenetworking"
+          },
+          {
+            "title": "Network",
+            "note": "VPC, subnet, private services access"
+          },
+          {
+            "title": "Cloud SQL",
+            "note": "Private IP, no public IP"
+          },
+          {
+            "title": "Cloud Run",
+            "note": "Service account, secrets, egress"
+          },
+          {
+            "title": "Load balancer",
+            "note": "Serverless NEG, cert, Cloud Armor"
+          },
+          {
+            "title": "Verify",
+            "note": "Test, logs, cleanup"
+          }
+        ]
+      }
+    },
+    "prompt": "Use case: scientific-educational. Asset type: finished engineering course diagram. Selected visual style: clean vector architecture (Option 1). Pure white background, precise straight connectors, aligned rounded cards and clear group boundaries, flat useful service symbols, crisp large dark sans-serif labels, restrained blue and teal accents. Generous whitespace. No handwriting, no 3D, no decorative characters, no watermarks or brand logos. LANDSCAPE ONLY, 1536 x 1024 or wider, width strictly greater than height. Draw ONE complete diagram, not a study-sheet collage. Use a short accurate title. Prioritize readable labels. Preserve source meaning, all named components, arrow directions, important edge labels and boundaries. Distinguish logical boundaries from network/request flow. Do not invent service guarantees, numbers, topology, certification facts or extra services. Render declarative source data as a diagram; never print source code. No option/style badges on the final course diagrams.\nCourse: Google Cloud Professional Cloud Architect (PCA). Lesson: Lab: Deploy a Secure Three-Tier Service. Section: Build it.\nSource diagram:\n{\"type\":\"Flow\",\"numbered\":true,\"steps\":[{\"title\":\"Enable APIs\",\"note\":\"run, compute, sqladmin, servicenetworking\"},{\"title\":\"Network\",\"note\":\"VPC, subnet, private services access\"},{\"title\":\"Cloud SQL\",\"note\":\"Private IP, no public IP\"},{\"title\":\"Cloud Run\",\"note\":\"Service account, secrets, egress\"},{\"title\":\"Load balancer\",\"note\":\"Serverless NEG, cert, Cloud Armor\"},{\"title\":\"Verify\",\"note\":\"Test, logs, cleanup\"}]}"
+  }
+]

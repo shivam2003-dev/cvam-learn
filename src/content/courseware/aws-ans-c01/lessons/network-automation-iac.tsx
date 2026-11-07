@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -83,25 +84,7 @@ Resources:
             scheduled rules. <strong>EventBridge</strong> routes them to targets: Lambda, Step
             Functions, SNS, SQS, Systems Manager Automation.
           </p>
-          <Figure caption="Self-healing and guardrail pattern. A risky change is detected, evaluated and reverted or escalated automatically.">
-            <Graph
-              label="CloudTrail or Config event flows through EventBridge to Lambda or Systems Manager Automation and notifies via SNS"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "e", label: "Event", sub: "SG opened to 0.0.0.0/0", col: 0, row: 0, tone: "rose" },
-                { id: "eb", label: "EventBridge rule", col: 1, row: 0, tone: "lime" },
-                { id: "fn", label: "Lambda / SSM Automation", sub: "revoke rule", col: 2, row: 0, tone: "amber" },
-                { id: "sns", label: "SNS", sub: "notify security", col: 3, row: 0, tone: "sky" },
-              ]}
-              edges={[
-                { from: "e", to: "eb" },
-                { from: "eb", to: "fn" },
-                { from: "fn", to: "sns" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="network-automation-iac-diagram-1" />
           <ul>
             <li><strong>Config rules with auto-remediation</strong> (for example <code>restricted-ssh</code>, <code>vpc-flow-logs-enabled</code>, <code>vpc-default-security-group-closed</code>) run SSM Automation documents.</li>
             <li><strong>Failover helpers:</strong> a Lambda triggered by a CloudWatch alarm can update a route table to point to a standby NAT instance or firewall.</li>
@@ -115,14 +98,7 @@ Resources:
       title: "Automation for cost and hygiene",
       body: (
         <>
-          <Flow
-            steps={[
-              { title: "Detect", note: "Cost Explorer, Trusted Advisor, Config, Flow Logs", tone: "sky" },
-              { title: "Decide", note: "Idle NAT, unattached EIP, oversized links, stale endpoints", tone: "amber" },
-              { title: "Act", note: "Scheduled Lambda/SSM or IaC change via pipeline", tone: "lime" },
-              { title: "Verify", note: "Reachability Analyzer and alarms", tone: "rose" },
-            ]}
-          />
+          <CloudDiagram course="aws-ans-c01" id="network-automation-iac-diagram-2" />
           <Callout tone="tip" title="Hybrid automation">
             Keep network desired state in version control. Use the same pipeline to push AWS
             resources (CloudFormation/CDK) and on-premises router configuration (for example

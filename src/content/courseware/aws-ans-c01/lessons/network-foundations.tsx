@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,18 +25,7 @@ export const lesson: Lesson = {
             an appliance works at layer 3. Knowing the layer tells you what the device can and cannot
             do.
           </p>
-          <Figure caption="OSI layers with typical AWS services. Higher layers can inspect more but add latency and cost.">
-            <Layers
-              layers={[
-                { title: "L7 Application", note: "HTTP, gRPC, DNS. ALB, CloudFront, API Gateway, AWS WAF, Route 53.", tone: "lime" },
-                { title: "L6 / L5 Presentation, session", note: "TLS termination and sessions. ALB and NLB TLS listeners, ACM certificates.", tone: "lime" },
-                { title: "L4 Transport", note: "TCP, UDP ports. NLB, security groups, network ACLs, NAT gateway, Global Accelerator.", tone: "sky" },
-                { title: "L3 Network", note: "IP, ICMP, routing, BGP. Route tables, Transit Gateway, GWLB (GENEVE), VPN (IPsec).", tone: "sky" },
-                { title: "L2 Data link", note: "Ethernet, VLAN 802.1Q, LAG, MACsec. Direct Connect VIFs ride a VLAN.", tone: "amber" },
-                { title: "L1 Physical", note: "Fibre, optics, cross-connects. Direct Connect location, LOA-CFA.", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="network-foundations-diagram-1" />
         </>
       ),
     },
@@ -94,28 +84,7 @@ export const lesson: Lesson = {
             <li><strong>BGP</strong> (Border Gateway Protocol, TCP port 179) exchanges prefixes between autonomous systems identified by an ASN. It is a path-vector protocol: it prefers higher local preference, then shorter AS_PATH, then lower MED, among other tie-breakers.</li>
             <li><strong>eBGP</strong> runs between different ASNs (your router and AWS); <strong>iBGP</strong> within the same ASN.</li>
           </ul>
-          <Figure caption="Longest prefix match. The /24 wins for 10.1.1.5 even though the /16 also matches; 10.1.9.9 only matches the /16.">
-            <Graph
-              label="Longest prefix match example with two routes and two destinations"
-              cellW={200}
-              cellH={96}
-              nodeW={170}
-              nodes={[
-                { id: "pkt1", label: "Dest 10.1.1.5", col: 0, row: 0, tone: "sky", shape: "pill" },
-                { id: "pkt2", label: "Dest 10.1.9.9", col: 0, row: 1, tone: "sky", shape: "pill" },
-                { id: "rt", label: "Route table", sub: "10.1.0.0/16 → pcx", col: 1, row: 0, tone: "amber" },
-                { id: "rt2", label: "More specific", sub: "10.1.1.0/24 → tgw", col: 1, row: 1, tone: "amber" },
-                { id: "tgw", label: "Transit Gateway", col: 2, row: 1, tone: "lime" },
-                { id: "pcx", label: "VPC peering", col: 2, row: 0, tone: "lime" },
-              ]}
-              edges={[
-                { from: "pkt1", to: "rt2", label: "wins /24" },
-                { from: "pkt2", to: "rt", label: "only /16" },
-                { from: "rt2", to: "tgw" },
-                { from: "rt", to: "pcx" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="network-foundations-diagram-2" />
         </>
       ),
     },
@@ -164,27 +133,7 @@ export const lesson: Lesson = {
             for allowed security-group flows is automatic; for network ACLs you must permit the
             ephemeral ports (1024 to 65535) explicitly.
           </p>
-          <Figure caption="Packet path from an instance to a remote VPC. A block at any step stops the flow.">
-            <Graph
-              label="Packet path: instance, security group, network ACL, route table, next hop"
-              cellW={170}
-              cellH={90}
-              nodeW={140}
-              nodes={[
-                { id: "ec2", label: "Instance", col: 0, row: 0, tone: "sky" },
-                { id: "sg", label: "Security group", sub: "stateful", col: 1, row: 0, tone: "lime" },
-                { id: "nacl", label: "Network ACL", sub: "stateless", col: 2, row: 0, tone: "lime" },
-                { id: "rt", label: "Route table", sub: "longest prefix", col: 3, row: 0, tone: "amber" },
-                { id: "hop", label: "Next hop", sub: "TGW, IGW, PCX, VGW", col: 4, row: 0, tone: "plain", shape: "pill" },
-              ]}
-              edges={[
-                { from: "ec2", to: "sg" },
-                { from: "sg", to: "nacl" },
-                { from: "nacl", to: "rt" },
-                { from: "rt", to: "hop" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="network-foundations-diagram-3" />
         </>
       ),
     },

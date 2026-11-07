@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -46,17 +47,7 @@ export const lesson: Lesson = {
       title: "Securing inbound traffic",
       body: (
         <>
-          <Figure caption="Layered inbound defence. Each layer removes a class of attack before it reaches the next.">
-            <Layers
-              layers={[
-                { title: "DNS and edge", note: "Route 53 (Shield protected), CloudFront or Global Accelerator absorb floods; geo-restrictions", tone: "lime" },
-                { title: "AWS WAF + Shield", note: "Layer 7 rules, rate limits, bot control; Shield Advanced adds DDoS response team and cost protection", tone: "lime" },
-                { title: "Load balancer in public subnets", note: "TLS termination, ALB only in the perimeter, security group allows CloudFront prefix list or required ports", tone: "sky" },
-                { title: "Application tier in private subnets", note: "No public IPs; SG allows only the ALB security group", tone: "amber" },
-                { title: "Data tier in isolated subnets", note: "SG allows only the application SG; no internet route", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="threat-modeling-inbound-security-diagram-1" />
           <Table
             head={["Service", "Protects", "Key facts"]}
             rows={[
@@ -80,27 +71,7 @@ export const lesson: Lesson = {
       title: "Perimeter and three-tier architectures",
       body: (
         <>
-          <Figure caption="Perimeter (DMZ) VPC pattern. Untrusted traffic terminates in a perimeter VPC where WAF, firewall and reverse proxies live; only inspected traffic crosses Transit Gateway to private workload VPCs.">
-            <Graph
-              label="Internet to a perimeter VPC with WAF and firewall, then Transit Gateway to private workload VPCs"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "net", label: "Internet", col: 0, row: 0, tone: "rose", shape: "pill" },
-                { id: "waf", label: "CloudFront + WAF", col: 1, row: 0, tone: "lime" },
-                { id: "per", label: "Perimeter VPC", sub: "ALB + Network Firewall", col: 2, row: 0, tone: "amber" },
-                { id: "tgw", label: "Transit Gateway", col: 3, row: 0, tone: "lime" },
-                { id: "app", label: "Workload VPCs", sub: "private only", col: 4, row: 0, tone: "sky" },
-              ]}
-              edges={[
-                { from: "net", to: "waf" },
-                { from: "waf", to: "per" },
-                { from: "per", to: "tgw" },
-                { from: "tgw", to: "app" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="threat-modeling-inbound-security-diagram-2" />
           <ul>
             <li><strong>Untrusted network:</strong> third-party or partner links terminate in a separate VPC with strict NACLs and inspection, never directly into production.</li>
             <li><strong>Compliance zones</strong> (PCI, HIPAA) get separate VPCs or accounts and separate TGW route tables so scope is small and provable.</li>

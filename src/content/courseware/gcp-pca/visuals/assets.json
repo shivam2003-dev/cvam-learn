@@ -1,0 +1,174 @@
+{
+  "pca-exam-overview-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "gcp-foundations-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "orientation-summary": {
+    "width": 1672,
+    "height": 941
+  },
+  "business-requirements-wellarchitected-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "business-requirements-wellarchitected-diagram-2": {
+    "width": 1536,
+    "height": 1024
+  },
+  "ha-dr-scalability-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "compute-choices-diagram-1": {
+    "width": 1536,
+    "height": 1024
+  },
+  "storage-database-choices-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "data-processing-analytics-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "networking-design-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "hybrid-multicloud-connectivity-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "migration-planning-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "ai-ml-solution-design-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "design-plan-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "load-balancing-edge-security-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "storage-configuration-lifecycle-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "compute-configuration-iac-diagram-1": {
+    "width": 1536,
+    "height": 1024
+  },
+  "ai-platform-workflows-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "prebuilt-ai-apis-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "manage-provision-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "iam-resource-hierarchy-diagram-1": {
+    "width": 1672,
+    "height": 941
+  },
+  "data-protection-kms-secrets-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "perimeter-controls-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "supply-chain-ai-security-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "compliance-governance-diagram-1": {
+    "width": 1536,
+    "height": 1024
+  },
+  "security-compliance-summary": {
+    "width": 1672,
+    "height": 941
+  },
+  "sdlc-cicd-testing-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "troubleshooting-dr-testing-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "business-processes-finops-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "analyze-optimize-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "api-management-apigee-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "programmatic-access-terraform-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "implementation-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "observability-monitoring-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "release-reliability-sre-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "operations-summary": {
+    "width": 1752,
+    "height": 897
+  },
+  "case-study-technique-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "scenario-retail-modernization-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "scenario-regulated-hybrid-diagram-1": {
+    "width": 1752,
+    "height": 897
+  },
+  "lab-secure-three-tier-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "exam-technique-and-review-diagram-1": {
+    "width": 1774,
+    "height": 887
+  },
+  "practice-summary": {
+    "width": 1672,
+    "height": 941
+  },
+  "lab-secure-three-tier-diagram-2": {
+    "width": 1752,
+    "height": 897
+  }
+}

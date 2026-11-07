@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,18 +25,7 @@ export const lesson: Lesson = {
             question (is it up, is it fast, is it attacked, who talked to whom), and how long to keep
             the data. Then map to signals.
           </p>
-          <Figure caption="Monitoring design loop. Requirements decide which metrics, logs and alarms you need, and the baseline gives the alarms meaning.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Requirements", note: "Availability, latency, security, audit", tone: "sky" },
-                { title: "Metrics + logs", note: "Pick sources per service", tone: "lime" },
-                { title: "Baseline", note: "Normal load and latency", tone: "amber" },
-                { title: "Alarms", note: "Thresholds, anomaly detection, composite", tone: "lime" },
-                { title: "Respond", note: "SNS, EventBridge, runbook, automation", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="network-monitoring-cloudwatch-diagram-1" />
         </>
       ),
     },

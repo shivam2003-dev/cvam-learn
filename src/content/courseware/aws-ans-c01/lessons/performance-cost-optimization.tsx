@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -56,17 +57,7 @@ export const lesson: Lesson = {
             (static or IGMPv2 dynamic) on Nitro instances. Multicast between a VPC and on-premises
             can be bridged with a GRE/VPN overlay or by an application that re-originates the stream.
           </p>
-          <Figure caption="Ways to cut bandwidth and latency, from the application outward.">
-            <Layers
-              layers={[
-                { title: "Application", note: "Compression, protocol efficiency, batching, HTTP/2 and keep-alive", tone: "lime" },
-                { title: "Edge", note: "CloudFront caching, Global Accelerator for better paths", tone: "lime" },
-                { title: "Placement", note: "Same AZ for chatty tiers, cluster placement groups, ENA Express", tone: "sky" },
-                { title: "Frames", note: "Jumbo frames end to end, tuned MSS", tone: "sky" },
-                { title: "Replication", note: "Multicast for one-to-many instead of repeated unicast", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="performance-cost-optimization-diagram-1" />
         </>
       ),
     },

@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,25 +25,7 @@ export const lesson: Lesson = {
             attached to one Transit Gateway. Segmentation requirement: both spokes can reach shared
             services, but <strong>app-a and app-b cannot reach each other</strong>.
           </p>
-          <Figure caption="Lab topology. Each spoke associates with its own TGW route table and learns only the shared VPC route.">
-            <Graph
-              label="Transit Gateway connecting app-a, app-b and a shared services VPC with segmented route tables"
-              cellW={200}
-              cellH={96}
-              nodeW={170}
-              nodes={[
-                { id: "a", label: "app-a VPC 10.1.0.0/16", sub: "assoc RT-A", col: 0, row: 0, tone: "sky" },
-                { id: "b", label: "app-b VPC 10.2.0.0/16", sub: "assoc RT-B", col: 0, row: 1, tone: "sky" },
-                { id: "tgw", label: "Transit Gateway", col: 1, row: 0.5, tone: "lime" },
-                { id: "s", label: "shared VPC 10.0.0.0/16", sub: "assoc RT-Shared", col: 2, row: 0.5, tone: "amber" },
-              ]}
-              edges={[
-                { from: "a", to: "tgw", both: true },
-                { from: "b", to: "tgw", both: true },
-                { from: "tgw", to: "s", both: true },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="lab-hub-spoke-transit-gateway-diagram-1" />
           <Callout tone="warn" title="Cost and safety">
             A Transit Gateway bills per attachment-hour and per GB. Three attachments for a couple of
             hours cost cents to a dollar or two, but forgotten resources keep billing. Use a sandbox
@@ -56,17 +39,7 @@ export const lesson: Lesson = {
       title: "Build the network",
       body: (
         <>
-          <Flow
-            numbered
-            steps={[
-              { title: "VPCs + subnets", note: "3 VPCs, one private subnet each", tone: "sky" },
-              { title: "Transit Gateway", note: "Disable default association/propagation", tone: "lime" },
-              { title: "Attachments", note: "One per VPC", tone: "lime" },
-              { title: "Route tables", note: "RT-A, RT-B, RT-Shared", tone: "amber" },
-              { title: "VPC routes", note: "Spokes: 10.0.0.0/16 to TGW", tone: "amber" },
-              { title: "Test", note: "SSM + Reachability Analyzer", tone: "rose" },
-            ]}
-          />
+          <CloudDiagram course="aws-ans-c01" id="lab-hub-spoke-transit-gateway-diagram-2" />
           <p>1. Create VPCs and subnets (repeat with 10.1.0.0/16 and 10.2.0.0/16):</p>
           <pre>
             <code>{`aws ec2 create-vpc --cidr-block 10.0.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=shared}]'

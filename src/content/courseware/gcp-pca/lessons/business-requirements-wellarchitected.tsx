@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -33,18 +34,7 @@ export const lesson: Lesson = {
               ["Integration", "What must it connect to?", "ERP, on-premises databases, partner APIs, identity providers"],
             ]}
           />
-          <Figure caption="Requirements drive design. Each non-functional requirement should become a measurable target that you can design, test and monitor.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Business goal", note: "Revenue, cost, speed, risk", tone: "sky" },
-                { title: "Requirements", note: "Functional + non-functional + constraints", tone: "lime" },
-                { title: "Design options", note: "Compare with trade-offs", tone: "amber" },
-                { title: "Decision + KPIs", note: "ROI, SLO, cost, risk", tone: "lime" },
-                { title: "Observe + iterate", note: "Metrics feed improvements", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="business-requirements-wellarchitected-diagram-1" />
         </>
       ),
     },
@@ -79,18 +69,7 @@ export const lesson: Lesson = {
             operating reliable, secure, efficient and cost-optimized workloads. The exam guide lists
             its pillars, which are woven through the exam objectives:
           </p>
-          <Figure caption="Pillars of the framework and the question each helps you answer in a design.">
-            <Layers
-              layers={[
-                { title: "Operational excellence", note: "Can we deploy, observe and run it efficiently? Automation, monitoring, incident response, continuous improvement.", tone: "lime" },
-                { title: "Security, privacy and compliance", note: "Is data protected and access least-privilege? Defence in depth, zero trust, compliance.", tone: "rose" },
-                { title: "Reliability", note: "Does it meet availability and recovery targets? Redundancy, graceful degradation, SLOs, tested recovery.", tone: "sky" },
-                { title: "Cost optimization", note: "Do we pay only for needed value? Right-sizing, commitments, lifecycle, FinOps visibility.", tone: "amber" },
-                { title: "Performance optimization", note: "Does it scale and respond fast enough? Right service, caching, load testing, autoscaling.", tone: "lime" },
-                { title: "Sustainability", note: "Can we reduce environmental impact? Efficient regions, utilization, lifecycle of data.", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="business-requirements-wellarchitected-diagram-2" />
           <Callout tone="tip" title="Using the pillars on the exam">
             When two options both work, ask which pillar the question emphasises (words like
             &ldquo;most cost-effective&rdquo;, &ldquo;most reliable&rdquo;, &ldquo;least operational

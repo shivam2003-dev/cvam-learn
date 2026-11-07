@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -25,17 +26,7 @@ export const lesson: Lesson = {
             <li><strong>Prefix lists:</strong> use managed prefix lists to reference many CIDRs in one route or security group rule and update them centrally.</li>
             <li><strong>Blackhole routes:</strong> a route to a deleted target becomes <em>blackhole</em> and silently drops traffic. Alert on these with Config or a script.</li>
           </ul>
-          <Figure caption="Route maintenance loop. Every change should be reviewed, tested and monitored.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Change request", note: "IaC pull request", tone: "sky" },
-                { title: "Preview", note: "Change set, Reachability Analyzer", tone: "amber" },
-                { title: "Apply", note: "Pipeline", tone: "lime" },
-                { title: "Monitor", note: "Blackhole, drop and BGP alarms", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="maintaining-routing-quotas-diagram-1" />
         </>
       ),
     },

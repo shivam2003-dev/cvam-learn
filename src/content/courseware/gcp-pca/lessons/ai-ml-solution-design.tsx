@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -47,31 +48,7 @@ export const lesson: Lesson = {
             <strong>Retrieval-augmented generation</strong> retrieves relevant company content and
             passes it to the model as context so answers are <em>grounded</em> and citable.
           </p>
-          <Figure caption="RAG on Google Cloud. Documents are chunked, embedded and indexed; at query time the system retrieves context, applies safety checks and calls Gemini.">
-            <Graph
-              label="RAG architecture: documents to embeddings and vector index, user query retrieves context, Gemini generates a grounded answer with Model Armor screening"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "docs", label: "Documents", sub: "Cloud Storage, drives, databases", col: 0, row: 0, tone: "sky" },
-                { id: "emb", label: "Chunk + embed", sub: "embedding model", col: 1, row: 0, tone: "lime" },
-                { id: "idx", label: "Vector index", sub: "Vector Search, AlloyDB, BigQuery", col: 2, row: 0, tone: "amber", shape: "db" },
-                { id: "user", label: "User query", col: 0, row: 1, tone: "sky", shape: "pill" },
-                { id: "app", label: "App / agent", sub: "Cloud Run, Agent Builder", col: 1, row: 1, tone: "lime" },
-                { id: "ma", label: "Model Armor", sub: "screen prompts + responses", col: 2, row: 1, tone: "rose" },
-                { id: "gem", label: "Gemini", sub: "grounded generation", col: 3, row: 1, tone: "lime" },
-              ]}
-              edges={[
-                { from: "docs", to: "emb" },
-                { from: "emb", to: "idx" },
-                { from: "user", to: "app" },
-                { from: "app", to: "idx", label: "retrieve", dashed: true },
-                { from: "app", to: "ma" },
-                { from: "ma", to: "gem" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="ai-ml-solution-design-diagram-1" />
           <ul>
             <li><strong>Grounding</strong> with enterprise data or Google Search reduces hallucination.</li>
             <li><strong>Evaluate</strong> quality with test sets and metrics; log prompts and responses with privacy controls.</li>

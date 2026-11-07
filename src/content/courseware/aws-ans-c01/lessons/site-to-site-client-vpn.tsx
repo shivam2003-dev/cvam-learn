@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -25,26 +26,7 @@ export const lesson: Lesson = {
             VPN on a <strong>virtual private gateway (VGW)</strong> attached to one VPC or on a{" "}
             <strong>Transit Gateway</strong> for many VPCs.
           </p>
-          <Figure caption="Two tunnels per connection. Configure both on the customer device; one active and one standby, or both active with ECMP on a Transit Gateway.">
-            <Graph
-              label="Site-to-Site VPN with two IPsec tunnels from a customer gateway device to AWS endpoints in two Availability Zones"
-              cellW={200}
-              cellH={100}
-              nodeW={170}
-              nodes={[
-                { id: "cgw", label: "Customer gateway device", sub: "public IP, ASN", col: 0, row: 0.5, tone: "sky" },
-                { id: "t1", label: "Tunnel 1", sub: "AWS endpoint AZ-a", col: 1, row: 0, tone: "amber", shape: "pill" },
-                { id: "t2", label: "Tunnel 2", sub: "AWS endpoint AZ-b", col: 1, row: 1, tone: "amber", shape: "pill" },
-                { id: "gw", label: "VGW or Transit Gateway", col: 2, row: 0.5, tone: "lime" },
-              ]}
-              edges={[
-                { from: "cgw", to: "t1" },
-                { from: "cgw", to: "t2" },
-                { from: "t1", to: "gw" },
-                { from: "t2", to: "gw" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="site-to-site-client-vpn-diagram-1" />
           <Table
             head={["Topic", "Detail"]}
             rows={[

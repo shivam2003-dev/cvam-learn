@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,31 +25,7 @@ export const lesson: Lesson = {
             nearest edge location and then travels on the AWS global network to the best healthy
             endpoint, instead of crossing many internet hops.
           </p>
-          <Figure caption="Global Accelerator structure. Listeners accept TCP or UDP on chosen ports; each listener routes to endpoint groups (one per Region) containing endpoints.">
-            <Graph
-              label="Global Accelerator: clients to anycast IPs to listener to endpoint groups in two Regions"
-              cellW={190}
-              cellH={104}
-              nodeW={160}
-              nodes={[
-                { id: "c", label: "Clients", col: 0, row: 0, tone: "sky", shape: "pill" },
-                { id: "ga", label: "Accelerator", sub: "2 static anycast IPs", col: 1, row: 0, tone: "lime" },
-                { id: "l", label: "Listener", sub: "TCP/UDP + ports", col: 2, row: 0, tone: "lime" },
-                { id: "g1", label: "Endpoint group us-east-1", sub: "dial 50%", col: 3, row: 0, tone: "amber" },
-                { id: "g2", label: "Endpoint group eu-west-1", sub: "dial 50%", col: 3, row: 1, tone: "amber" },
-                { id: "e1", label: "ALB / NLB / EC2 / EIP", col: 4, row: 0, tone: "plain" },
-                { id: "e2", label: "ALB / NLB / EC2 / EIP", col: 4, row: 1, tone: "plain" },
-              ]}
-              edges={[
-                { from: "c", to: "ga" },
-                { from: "ga", to: "l" },
-                { from: "l", to: "g1" },
-                { from: "l", to: "g2" },
-                { from: "g1", to: "e1" },
-                { from: "g2", to: "e2" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="global-accelerator-edge-diagram-1" />
           <p>Supported endpoints are Application Load Balancers, Network Load Balancers, EC2 instances and Elastic IP addresses. Global Accelerator continuously health-checks endpoints and shifts traffic away from unhealthy ones within seconds, without waiting for DNS TTLs to expire.</p>
         </>
       ),

@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -37,23 +38,7 @@ export const lesson: Lesson = {
             <strong>Geoproximity</strong> uses distance with a bias you tune, which is how you drain or
             attract traffic gradually.
           </p>
-          <Figure caption="Choosing between the policies by what you need to control. Position is approximate.">
-            <Quadrant
-              xLabel="User location awareness"
-              yLabel="Control over traffic share"
-              corners={["Weighted", "Geoproximity", "Simple", "Latency / Geolocation"]}
-              items={[
-                { label: "Simple", x: 0.1, y: 0.1, tone: "plain" },
-                { label: "Multivalue", x: 0.15, y: 0.35, tone: "plain" },
-                { label: "Weighted", x: 0.18, y: 0.85, tone: "lime" },
-                { label: "Failover", x: 0.3, y: 0.55, tone: "amber" },
-                { label: "Latency", x: 0.65, y: 0.3, tone: "sky" },
-                { label: "Geolocation", x: 0.82, y: 0.2, tone: "sky" },
-                { label: "Geoproximity", x: 0.9, y: 0.8, tone: "lime" },
-              ]}
-              label="Route 53 routing policies plotted by location awareness and control over traffic share"
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="route53-routing-health-diagram-1" />
         </>
       ),
     },
@@ -76,27 +61,7 @@ export const lesson: Lesson = {
             <li>Alias records can use <strong>Evaluate target health</strong> on supported targets without creating a separate health check.</li>
             <li>Health check status metrics are published in CloudWatch in us-east-1.</li>
           </ul>
-          <Figure caption="Active/passive failover. Route 53 returns the primary while it is healthy; when it fails, the secondary record is returned.">
-            <Graph
-              label="Route 53 failover: client queries Route 53, health check controls whether primary or secondary record is returned"
-              cellW={200}
-              cellH={100}
-              nodeW={165}
-              nodes={[
-                { id: "c", label: "Client", col: 0, row: 0, tone: "sky", shape: "pill" },
-                { id: "r", label: "Route 53", sub: "failover records", col: 1, row: 0, tone: "lime" },
-                { id: "h", label: "Health check", sub: "primary endpoint", col: 1, row: 1, tone: "amber" },
-                { id: "p", label: "Primary Region", col: 2, row: 0, tone: "plain" },
-                { id: "s", label: "Secondary Region", col: 2, row: 1, tone: "plain" },
-              ]}
-              edges={[
-                { from: "c", to: "r" },
-                { from: "h", to: "r", dashed: true, label: "status" },
-                { from: "r", to: "p", label: "healthy" },
-                { from: "r", to: "s", label: "failed", dashed: true },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="route53-routing-health-diagram-2" />
           <Callout tone="warn" title="DNS failover is only as fast as caches allow">
             Recovery time is roughly health-check detection time plus record TTL (plus client and
             resolver caching that ignores TTL). For aggressive targets use short TTLs (for example 60

@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -31,25 +32,7 @@ export const lesson: Lesson = {
               ["Public", "AWS public endpoints (S3, DynamoDB, public IPs of AWS services) using public IPs", "AWS public address space, not a VPC", "Receives all AWS public prefixes; you advertise your own public prefixes; MTU 1500"],
             ]}
           />
-          <Figure caption="Two VIF types sharing a physical connection. The private VIF reaches a VPC; the public VIF reaches AWS public services such as S3 without the internet.">
-            <Graph
-              label="Direct Connect connection with private and public virtual interfaces"
-              cellW={200}
-              cellH={104}
-              nodeW={170}
-              nodes={[
-                { id: "cr", label: "Customer router", sub: "two BGP sessions", col: 0, row: 0.5, tone: "sky" },
-                { id: "dx", label: "DX connection", sub: "VLAN 101 private, VLAN 102 public", col: 1, row: 0.5, tone: "amber" },
-                { id: "vgw", label: "Private VIF → VPC", col: 2, row: 0, tone: "lime" },
-                { id: "pub", label: "Public VIF → AWS public services", col: 2, row: 1, tone: "lime" },
-              ]}
-              edges={[
-                { from: "cr", to: "dx" },
-                { from: "dx", to: "vgw" },
-                { from: "dx", to: "pub" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="direct-connect-implementation-diagram-1" />
           <Callout tone="warn" title="Public VIF is not a private path to your VPC">
             A public VIF reaches AWS public IP space only. To reach VPC resources, use a private or
             transit VIF. To reach S3 privately from on-premises you can also use an S3 interface
@@ -76,25 +59,7 @@ export const lesson: Lesson = {
             <li>A DXGW does <strong>not</strong> route between VPCs and does not route between DX locations; traffic only flows between on-premises and associated gateways.</li>
             <li>Transit Gateway associations let on-premises reach many VPCs while keeping VPC-to-VPC routing inside the TGW.</li>
           </ul>
-          <Figure caption="Transit VIF design. One DX gateway reaches Transit Gateways in two Regions, each connected to many VPCs.">
-            <Graph
-              label="Transit virtual interface to a Direct Connect gateway associated with Transit Gateways in two Regions"
-              cellW={190}
-              cellH={100}
-              nodeW={160}
-              nodes={[
-                { id: "onp", label: "On-premises", col: 0, row: 0.5, tone: "sky" },
-                { id: "gw", label: "Direct Connect gateway", col: 1, row: 0.5, tone: "amber" },
-                { id: "t1", label: "TGW us-east-1", col: 2, row: 0, tone: "lime" },
-                { id: "t2", label: "TGW eu-west-1", col: 2, row: 1, tone: "lime" },
-              ]}
-              edges={[
-                { from: "onp", to: "gw", label: "transit VIF" },
-                { from: "gw", to: "t1" },
-                { from: "gw", to: "t2" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="direct-connect-implementation-diagram-2" />
         </>
       ),
     },

@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -26,27 +27,7 @@ export const lesson: Lesson = {
             backbone, which is usually faster and more consistent than the public internet, and
             connections to the origin are reused.
           </p>
-          <Figure caption="Cache hierarchy. A hit at the edge never touches the origin; Origin Shield adds one more consolidating cache in front of the origin.">
-            <Graph
-              label="CloudFront request flow: viewer, edge location, regional edge cache, optional origin shield, origin"
-              cellW={170}
-              cellH={96}
-              nodeW={140}
-              nodes={[
-                { id: "v", label: "Viewer", col: 0, row: 0, tone: "sky", shape: "pill" },
-                { id: "e", label: "Edge location", sub: "cache hit returns here", col: 1, row: 0, tone: "lime" },
-                { id: "r", label: "Regional edge cache", col: 2, row: 0, tone: "lime" },
-                { id: "s", label: "Origin Shield", sub: "optional", col: 3, row: 0, tone: "amber" },
-                { id: "o", label: "Origin", sub: "S3, ALB, custom", col: 4, row: 0, tone: "plain" },
-              ]}
-              edges={[
-                { from: "v", to: "e" },
-                { from: "e", to: "r", label: "miss" },
-                { from: "r", to: "s", label: "miss" },
-                { from: "s", to: "o", label: "miss" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="cloudfront-design-diagram-1" />
           <p>
             The exam focus is design: what to cache, what to forward, how to protect the origin, and
             how to keep hit ratio high. Cache behavior is governed by the <strong>cache policy</strong>{" "}
@@ -100,17 +81,7 @@ export const lesson: Lesson = {
             A frequent exam theme: viewers must reach content <em>only</em> through CloudFront (so
             AWS WAF, geo rules and caching cannot be bypassed). The mechanism depends on the origin:
           </p>
-          <Figure caption="Protecting each origin type. Each layer removes the direct-to-origin path.">
-            <Layers
-              layers={[
-                { title: "S3 origin", note: "Origin access control (OAC): bucket policy allows only the CloudFront service principal for that distribution. Block public access stays on.", tone: "lime" },
-                { title: "ALB / NLB / EC2 in private subnets", note: "CloudFront VPC origins keep the origin private with no public IP, reached through a service-managed ENI.", tone: "lime" },
-                { title: "Public ALB or custom origin", note: "Allow the AWS-managed prefix list for CloudFront origin-facing IPs in the security group, plus a secret custom header the origin verifies (rotate it).", tone: "sky" },
-                { title: "API Gateway", note: "Use an edge-optimized or regional endpoint with a CloudFront-added header or API key; resource policy or WAF for validation.", tone: "amber" },
-                { title: "Viewer side", note: "HTTPS only (redirect HTTP), TLS 1.2+ security policy, AWS WAF web ACL attached to the distribution.", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="cloudfront-design-diagram-2" />
           <p>
             Remember the scope of AWS WAF on CloudFront: the web ACL is a <em>global</em> resource
             created in <strong>us-east-1</strong>. The same applies to ACM certificates used by

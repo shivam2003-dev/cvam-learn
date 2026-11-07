@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -61,17 +62,7 @@ export const lesson: Lesson = {
       title: "FinOps on Google Cloud",
       body: (
         <>
-          <Figure caption="Cost optimisation layers, from visibility to commitments.">
-            <Layers
-              layers={[
-                { title: "Visibility and allocation", note: "Billing export to BigQuery, labels, projects/folders, budgets and alerts, Looker Studio dashboards", tone: "sky" },
-                { title: "Eliminate waste", note: "Delete idle resources, snapshots, unattached disks; Recommender (idle VMs, over-provisioned); lifecycle policies", tone: "lime" },
-                { title: "Right-size and re-architect", note: "Custom machine types, autoscaling, serverless, Autoclass, BigQuery partitioning/clustering", tone: "lime" },
-                { title: "Price better", note: "Committed use discounts (resource-based and flexible), sustained use discounts, Spot VMs, BigQuery editions/reservations, enterprise agreements", tone: "amber" },
-                { title: "Governance", note: "Quotas, organization policy limits on machine types and regions, showback/chargeback, FinOps culture", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="business-processes-finops-diagram-1" />
           <Exercise
             title="Cut the bill"
             task={<p>Monthly cloud spend rose 40 percent. Dev and test projects run 24/7, a large BigQuery table is queried with SELECT *, and steady production VMs run on-demand. Propose actions.</p>}

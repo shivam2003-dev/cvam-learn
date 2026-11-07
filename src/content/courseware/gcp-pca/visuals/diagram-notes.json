@@ -1,0 +1,506 @@
+{
+  "pca-exam-overview-diagram-1": {
+    "lesson": "pca-exam-overview",
+    "section": "The six sections",
+    "caption": "Section weightings from the exam guide. Designing and planning carries the most weight; the three sections at the bottom together are 40 percent.",
+    "notes": [
+      "1. 1. Designing and planning a cloud solution architecture (~25%): Business and technical requirements; network, storage and compute; migration; future improvements.",
+      "2. 2. Managing and provisioning infrastructure (~17.5%): Network topologies, storage, compute, Agent Platform ML workflows, prebuilt APIs.",
+      "3. 3. Designing for security and compliance (~17.5%): IAM, hierarchy, data security, VPC Service Controls, supply chain, AI security, regulation.",
+      "4. 4. Analyzing and optimizing processes (~15%): SDLC, CI/CD, troubleshooting, DR, stakeholder and change management, cost.",
+      "5. 5. Managing implementation (~12.5%): Advising teams, API management (Apigee), SDKs, emulators, Terraform.",
+      "6. 6. Ensuring solution and operations excellence (~12.5%): Operational excellence pillar, observability, release management, reliability testing."
+    ]
+  },
+  "gcp-foundations-diagram-1": {
+    "lesson": "gcp-foundations",
+    "section": "The resource hierarchy",
+    "caption": "The hierarchy. IAM policies and organization policies attach at any level and are inherited downward; projects are the unit of resource ownership, billing linkage and API enablement.",
+    "notes": [
+      "Organization: example.com",
+      "Folder: Production",
+      "Folder: Development",
+      "Project: shop-prod",
+      "Project: data-prod",
+      "Project: shop-dev",
+      "Resources: VMs, buckets, datasets",
+      "Organization → Folder: Production",
+      "Organization → Folder: Development",
+      "Folder: Production → Project: shop-prod",
+      "Folder: Production → Project: data-prod",
+      "Folder: Development → Project: shop-dev",
+      "Project: data-prod → Resources"
+    ]
+  },
+  "business-requirements-wellarchitected-diagram-1": {
+    "lesson": "business-requirements-wellarchitected",
+    "section": "From business goals to requirements",
+    "caption": "Requirements drive design. Each non-functional requirement should become a measurable target that you can design, test and monitor.",
+    "notes": [
+      "1. Business goal: Revenue, cost, speed, risk",
+      "2. Requirements: Functional + non-functional + constraints",
+      "3. Design options: Compare with trade-offs",
+      "4. Decision + KPIs: ROI, SLO, cost, risk",
+      "5. Observe + iterate: Metrics feed improvements"
+    ]
+  },
+  "business-requirements-wellarchitected-diagram-2": {
+    "lesson": "business-requirements-wellarchitected",
+    "section": "The Well-Architected Framework",
+    "caption": "Pillars of the framework and the question each helps you answer in a design.",
+    "notes": [
+      "1. Operational excellence: Can we deploy, observe and run it efficiently? Automation, monitoring, incident response, continuous improvement.",
+      "2. Security, privacy and compliance: Is data protected and access least-privilege? Defence in depth, zero trust, compliance.",
+      "3. Reliability: Does it meet availability and recovery targets? Redundancy, graceful degradation, SLOs, tested recovery.",
+      "4. Cost optimization: Do we pay only for needed value? Right-sizing, commitments, lifecycle, FinOps visibility.",
+      "5. Performance optimization: Does it scale and respond fast enough? Right service, caching, load testing, autoscaling.",
+      "6. Sustainability: Can we reduce environmental impact? Efficient regions, utilization, lifecycle of data."
+    ]
+  },
+  "ha-dr-scalability-diagram-1": {
+    "lesson": "ha-dr-scalability",
+    "section": "Failure domains and DR patterns",
+    "caption": "Regional design with a global load balancer. Zones protect against a data center failure; a second region protects against a region failure.",
+    "notes": [
+      "Users",
+      "Global external LB: anycast IP, health checks",
+      "Region A: regional MIG, 3 zones",
+      "Region B: regional MIG, 3 zones",
+      "Spanner multi-region: or Cloud SQL + cross-region replica",
+      "Users → Global external LB",
+      "Global external LB → Region A",
+      "Global external LB → Region B",
+      "Region A → Spanner multi-region",
+      "Region B → Spanner multi-region"
+    ]
+  },
+  "compute-choices-diagram-1": {
+    "lesson": "compute-choices",
+    "section": "The compute spectrum",
+    "caption": "More control means more responsibility. Pick the most managed option that satisfies the requirements.",
+    "notes": [
+      "Horizontal axis: Operational responsibility; vertical axis: Flexibility and control",
+      "Top left: Managed Kubernetes",
+      "Top right: Full control",
+      "Bottom left: Serverless",
+      "Bottom right: ",
+      "Cloud Run functions: lower Operational responsibility; lower Flexibility and control",
+      "Cloud Run: lower Operational responsibility; lower Flexibility and control",
+      "GKE Autopilot: lower Operational responsibility; higher Flexibility and control",
+      "GKE Standard: higher Operational responsibility; higher Flexibility and control",
+      "Compute Engine: higher Operational responsibility; higher Flexibility and control"
+    ]
+  },
+  "storage-database-choices-diagram-1": {
+    "lesson": "storage-database-choices",
+    "section": "Database options",
+    "caption": "A simple decision flow. Start with the access pattern and the consistency and scale needs, then check operational constraints.",
+    "notes": [
+      "1. Analytics / warehouse?: Yes → BigQuery",
+      "2. Relational + SQL?: Global scale, 99.999% → Spanner; Postgres performance → AlloyDB; otherwise Cloud SQL",
+      "3. Massive key-value / time series?: Bigtable",
+      "4. Documents, mobile?: Firestore",
+      "5. Cache?: Memorystore"
+    ]
+  },
+  "data-processing-analytics-diagram-1": {
+    "lesson": "data-processing-analytics",
+    "section": "The data pipeline",
+    "caption": "A reference pipeline. Pub/Sub decouples producers; Dataflow transforms in streaming or batch; BigQuery serves analytics; Cloud Storage holds the raw lake; Composer orchestrates.",
+    "notes": [
+      "Sources: apps, devices, databases",
+      "Pub/Sub: streaming ingest",
+      "Datastream: CDC from databases",
+      "Dataflow: Apache Beam",
+      "Cloud Storage: raw lake",
+      "BigQuery: warehouse + ML",
+      "Looker / BI",
+      "Sources → Pub/Sub",
+      "Sources → Datastream",
+      "Pub/Sub → Dataflow",
+      "Datastream → Dataflow",
+      "Dataflow → Cloud Storage",
+      "Dataflow → BigQuery",
+      "BigQuery → Looker / BI"
+    ]
+  },
+  "networking-design-diagram-1": {
+    "lesson": "networking-design",
+    "section": "Connecting networks",
+    "caption": "Shared VPC. A central host project owns the network; application teams run workloads in service projects without managing the network.",
+    "notes": [
+      "Host project: VPC, subnets, firewall, NAT, VPN",
+      "Service project: web",
+      "Service project: data",
+      "Service project: ml",
+      "Host project → Service project: web: subnet",
+      "Host project → Service project: data",
+      "Host project → Service project: ml"
+    ]
+  },
+  "hybrid-multicloud-connectivity-diagram-1": {
+    "lesson": "hybrid-multicloud-connectivity",
+    "section": "Redundancy and SLAs",
+    "caption": "Interconnect 99.99% topology. Two metros, each with two connections on separate edge availability domains, and Cloud Routers in the VPC region.",
+    "notes": [
+      "Data center A: two routers",
+      "Data center B: two routers",
+      "Metro 1 colo: 2 circuits, 2 EADs",
+      "Metro 2 colo: 2 circuits, 2 EADs",
+      "Cloud Routers: VPC region, global routing",
+      "Data center A → Metro 1 colo",
+      "Data center B → Metro 2 colo",
+      "Metro 1 colo → Cloud Routers",
+      "Metro 2 colo → Cloud Routers"
+    ]
+  },
+  "migration-planning-diagram-1": {
+    "lesson": "migration-planning",
+    "section": "The migration lifecycle",
+    "caption": "Migration phases. Assessment decides strategy; the plan sets waves; each wave is migrated, validated and optimised.",
+    "notes": [
+      "1. Assess: Inventory, dependencies, TCO with Migration Center",
+      "2. Plan: Strategy per workload, waves, landing zone, network",
+      "3. Deploy / migrate: Replicate, test, cut over",
+      "4. Optimize: Right-size, modernise, operate"
+    ]
+  },
+  "ai-ml-solution-design-diagram-1": {
+    "lesson": "ai-ml-solution-design",
+    "section": "A RAG reference architecture",
+    "caption": "RAG on Google Cloud. Documents are chunked, embedded and indexed; at query time the system retrieves context, applies safety checks and calls Gemini.",
+    "notes": [
+      "Documents: Cloud Storage, drives, databases",
+      "Chunk + embed: embedding model",
+      "Vector index: Vector Search, AlloyDB, BigQuery",
+      "User query",
+      "App / agent: Cloud Run, Agent Builder",
+      "Model Armor: screen prompts + responses",
+      "Gemini: grounded generation",
+      "Documents → Chunk + embed",
+      "Chunk + embed → Vector index",
+      "User query → App / agent",
+      "App / agent → Vector index: retrieve (dashed connection)",
+      "App / agent → Model Armor",
+      "Model Armor → Gemini"
+    ]
+  },
+  "load-balancing-edge-security-diagram-1": {
+    "lesson": "load-balancing-edge-security",
+    "section": "Choosing a load balancer",
+    "caption": "Global external Application Load Balancer. One anycast IP routes each request to the closest healthy backend using a URL map to backend services.",
+    "notes": [
+      "Users",
+      "Cloud Armor: WAF + DDoS",
+      "Global ALB: URL map, TLS cert, CDN",
+      "Backend: region A: MIG / NEG / Cloud Run",
+      "Backend: region B: MIG / NEG / GKE",
+      "Users → Cloud Armor",
+      "Cloud Armor → Global ALB",
+      "Global ALB → Backend: region A",
+      "Global ALB → Backend: region B"
+    ]
+  },
+  "storage-configuration-lifecycle-diagram-1": {
+    "lesson": "storage-configuration-lifecycle",
+    "section": "Cloud Storage configuration",
+    "caption": "A lifecycle for log archives: hot for a month, then cheaper classes, then deleted after the retention period.",
+    "notes": [
+      "1. Standard: 0 to 30 days, frequent access",
+      "2. Nearline: 30 to 90 days",
+      "3. Coldline: 90 to 365 days",
+      "4. Archive: 1 to 7 years, retention lock",
+      "5. Delete: After policy expires"
+    ]
+  },
+  "compute-configuration-iac-diagram-1": {
+    "lesson": "compute-configuration-iac",
+    "section": "Compute Engine at scale",
+    "caption": "Regional MIG behind a load balancer. The autoscaler adds VMs from the template; autohealing replaces failed ones.",
+    "notes": [
+      "Instance template: image, type, SA, tags",
+      "Regional MIG: autoscaler + autohealing",
+      "Zone a VMs",
+      "Zone b VMs",
+      "Load balancer",
+      "Instance template → Regional MIG",
+      "Regional MIG → Zone a VMs",
+      "Regional MIG → Zone b VMs",
+      "Zone a VMs → Load balancer: Backend registration (dashed connection)",
+      "Zone b VMs → Load balancer: Backend registration (dashed connection)"
+    ]
+  },
+  "ai-platform-workflows-diagram-1": {
+    "lesson": "ai-platform-workflows",
+    "section": "The ML lifecycle",
+    "caption": "ML lifecycle on a managed platform. Pipelines turn the loop into automated, repeatable runs.",
+    "notes": [
+      "1. Prepare data: BigQuery, Cloud Storage, Feature Store",
+      "2. Train / tune: Custom jobs, AutoML-style, fine-tuning",
+      "3. Evaluate: Metrics, bias, comparison",
+      "4. Register + deploy: Model Registry, endpoints, batch",
+      "5. Monitor: Drift, skew, quality, cost"
+    ]
+  },
+  "prebuilt-ai-apis-diagram-1": {
+    "lesson": "prebuilt-ai-apis",
+    "section": "The prebuilt API families",
+    "caption": "Decision flow. Use the simplest option that meets accuracy and control requirements.",
+    "notes": [
+      "1. Task covered by a prebuilt API?: Yes → use it (fastest, cheapest)",
+      "2. Needs flexible language/reasoning?: Gemini or a Model Garden model with prompts + grounding",
+      "3. Domain accuracy not met?: Fine-tune or customise",
+      "4. Unique architecture / scale?: Custom training on GPUs/TPUs"
+    ]
+  },
+  "iam-resource-hierarchy-diagram-1": {
+    "lesson": "iam-resource-hierarchy",
+    "section": "The IAM model",
+    "caption": "Evaluation order. Deny policies and organization policy restrict even where an allow exists.",
+    "notes": [
+      "1. Organization policy constraints: What configurations are allowed at all (for example no external IPs)",
+      "2. VPC Service Controls: Which API calls may cross a perimeter",
+      "3. IAM deny policies: Explicit denials that override allows",
+      "4. IAM allow policies (inherited + conditions): Union of grants from org, folder, project and resource",
+      "5. Resource-level controls: Bucket policies, ACLs (if enabled), database users"
+    ]
+  },
+  "data-protection-kms-secrets-diagram-1": {
+    "lesson": "data-protection-kms-secrets",
+    "section": "Encryption by default and key options",
+    "caption": "Increasing key control, moving from the default to keys held outside Google Cloud.",
+    "notes": [
+      "1. Google-managed encryption (default): No configuration; automatic rotation; no customer key control",
+      "2. CMEK (customer-managed encryption keys): Keys in Cloud KMS that you create, rotate, disable and destroy; supported by most services (Cloud Storage, BigQuery, Compute, GKE, Cloud SQL, Spanner, Pub/Sub…)",
+      "3. CMEK with Cloud HSM: Keys protected in FIPS 140-2 Level 3 hardware security modules",
+      "4. Cloud EKM (external key manager): Keys remain in a supported external key manager outside Google; you can cut off access to data instantly",
+      "5. CSEK (customer-supplied keys): You provide the key with each request; only Cloud Storage and Compute Engine disks; you must keep the key or lose the data"
+    ]
+  },
+  "perimeter-controls-diagram-1": {
+    "lesson": "perimeter-controls",
+    "section": "VPC Service Controls",
+    "caption": "A perimeter protects services in the production projects. Requests from inside or from allowed access levels succeed; others are denied.",
+    "notes": [
+      "Boundary: Service perimeter (prod projects)",
+      "Corporate network: access level allows",
+      "Internet / other project: outside perimeter",
+      "BigQuery",
+      "Cloud Storage",
+      "Corporate network → BigQuery: allowed",
+      "Internet / other project → Cloud Storage: denied (dashed connection)"
+    ]
+  },
+  "supply-chain-ai-security-diagram-1": {
+    "lesson": "supply-chain-ai-security",
+    "section": "Securing the software supply chain",
+    "caption": "A secured delivery chain. Each stage produces evidence that the next stage checks.",
+    "notes": [
+      "1. Source: Protected branches, code review, signed commits, Secret scanning",
+      "2. Build: Cloud Build, hermetic and isolated; SLSA provenance",
+      "3. Store: Artifact Registry, vulnerability scanning, immutable tags",
+      "4. Attest: Sign images; attestations after tests and scans",
+      "5. Admit: Binary Authorization policy at deploy time"
+    ]
+  },
+  "compliance-governance-diagram-1": {
+    "lesson": "compliance-governance",
+    "section": "Residency, Assured Workloads and transparency",
+    "caption": "Layers of compliance control: policy, platform, data, evidence.",
+    "notes": [
+      "1. Governance: Policies, data owners, DPAs, risk register, training",
+      "2. Guardrails: Organization policy, Assured Workloads, hierarchical firewall, VPC Service Controls",
+      "3. Data protection: Classification, CMEK/EKM, DLP, retention and residency",
+      "4. Identity and access: Least privilege, PAM, MFA, separation of duties",
+      "5. Evidence: Audit logs, Asset Inventory, SCC compliance, reports, regular reviews"
+    ]
+  },
+  "sdlc-cicd-testing-diagram-1": {
+    "lesson": "sdlc-cicd-testing",
+    "section": "A CI/CD pipeline on Google Cloud",
+    "caption": "From commit to production. Every stage produces evidence and gates the next.",
+    "notes": [
+      "1. Source: GitHub, GitLab, Developer Connect, Cloud Source Repositories legacy",
+      "2. Build + test: Cloud Build triggers, unit tests, SAST",
+      "3. Package: Artifact Registry, scan, sign",
+      "4. Deploy: Cloud Deploy pipeline: dev → staging → prod",
+      "5. Verify + operate: Smoke tests, SLO monitoring, rollback"
+    ]
+  },
+  "troubleshooting-dr-testing-diagram-1": {
+    "lesson": "troubleshooting-dr-testing",
+    "section": "A method for incidents",
+    "caption": "Stabilise first, then diagnose, then fix the cause, then learn.",
+    "notes": [
+      "1. Detect + triage: Alert, severity, owner",
+      "2. Mitigate: Rollback, failover, scale, disable feature",
+      "3. Diagnose: Hypotheses from signals, narrow the scope",
+      "4. Fix: Permanent change via normal pipeline",
+      "5. Learn: Postmortem, actions, tests"
+    ]
+  },
+  "business-processes-finops-diagram-1": {
+    "lesson": "business-processes-finops",
+    "section": "FinOps on Google Cloud",
+    "caption": "Cost optimisation layers, from visibility to commitments.",
+    "notes": [
+      "1. Visibility and allocation: Billing export to BigQuery, labels, projects/folders, budgets and alerts, Looker Studio dashboards",
+      "2. Eliminate waste: Delete idle resources, snapshots, unattached disks; Recommender (idle VMs, over-provisioned); lifecycle policies",
+      "3. Right-size and re-architect: Custom machine types, autoscaling, serverless, Autoclass, BigQuery partitioning/clustering",
+      "4. Price better: Committed use discounts (resource-based and flexible), sustained use discounts, Spot VMs, BigQuery editions/reservations, enterprise agreements",
+      "5. Governance: Quotas, organization policy limits on machine types and regions, showback/chargeback, FinOps culture"
+    ]
+  },
+  "api-management-apigee-diagram-1": {
+    "lesson": "api-management-apigee",
+    "section": "Why API management",
+    "caption": "Apigee as a façade. Consumers use stable, secured API products; the proxy layer applies policies and routes to diverse backends.",
+    "notes": [
+      "Developers / apps: partners, mobile, web",
+      "Developer portal",
+      "Apigee: proxies + policies",
+      "Cloud Run / GKE",
+      "On-premises / legacy",
+      "Developers / apps → Developer portal (dashed connection)",
+      "Developers / apps → Apigee",
+      "Apigee → Cloud Run / GKE",
+      "Apigee → On-premises / legacy"
+    ]
+  },
+  "programmatic-access-terraform-diagram-1": {
+    "lesson": "programmatic-access-terraform",
+    "section": "Infrastructure as code with Terraform",
+    "caption": "Terraform workflow. State records what exists; plan shows the diff; apply changes it; pipelines add review and policy checks.",
+    "notes": [
+      "1. Write: Modules, variables, providers",
+      "2. Init: Providers, remote backend (GCS)",
+      "3. Plan: Diff against state; policy checks",
+      "4. Apply: Create/update with approvals",
+      "5. Detect drift: Plan on schedule; fix manually changed resources"
+    ]
+  },
+  "observability-monitoring-diagram-1": {
+    "lesson": "observability-monitoring",
+    "section": "The observability suite",
+    "caption": "Telemetry flows from workloads into Monitoring and Logging, which feed alerts, dashboards and long-term analysis in BigQuery or Cloud Storage.",
+    "notes": [
+      "Workloads: GCE, GKE, Cloud Run",
+      "Monitoring: metrics, SLOs",
+      "Logging: buckets, sinks",
+      "Alerts + dashboards",
+      "Sinks: BigQuery, GCS, Pub/Sub",
+      "Workloads → Monitoring",
+      "Workloads → Logging",
+      "Monitoring → Alerts + dashboards",
+      "Logging → Sinks",
+      "Logging → Monitoring: log-based metrics (dashed connection)"
+    ]
+  },
+  "release-reliability-sre-diagram-1": {
+    "lesson": "release-reliability-sre",
+    "section": "Release management and support",
+    "caption": "Progressive delivery with guardrails. Each step has an automatic check and a rollback.",
+    "notes": [
+      "1. Deploy dark: Feature flag off",
+      "2. Canary 1%: Watch SLIs",
+      "3. Ramp 10 → 50%: Automated analysis",
+      "4. Full: Bake time",
+      "5. Cleanup: Remove flag, old revisions"
+    ]
+  },
+  "case-study-technique-diagram-1": {
+    "lesson": "case-study-technique",
+    "section": "A method for any case study",
+    "caption": "Extract, map, then answer. Build the requirement list once and reuse it for every question tied to the case.",
+    "notes": [
+      "1. Business drivers: Why the company is changing; success metrics",
+      "2. Existing estate: Current systems, locations, teams, licences",
+      "3. Requirements: Technical, security, compliance, cost, timeline",
+      "4. Constraints: Skills, contracts, data location, uptime windows",
+      "5. Map to services: One line per requirement",
+      "6. Answer: Choose the option that satisfies the most stated requirements"
+    ]
+  },
+  "scenario-retail-modernization-diagram-1": {
+    "lesson": "scenario-retail-modernization",
+    "section": "Reference design",
+    "caption": "Target architecture. Stateless services on Cloud Run behind a global load balancer, transactional data in Spanner, events through Pub/Sub, and a private link to the on-premises ERP.",
+    "notes": [
+      "Shoppers",
+      "Global ALB: Cloud Armor + CDN",
+      "Cloud Run: storefront + checkout: regions: EU, US, APAC",
+      "Spanner multi-region: orders, inventory",
+      "Pub/Sub: order events",
+      "BigQuery + Vertex AI Search: analytics, personalised search",
+      "On-premises ERP: Interconnect + Cloud Router",
+      "Shoppers → Global ALB",
+      "Global ALB → Cloud Run: storefront + checkout",
+      "Cloud Run: storefront + checkout → Spanner multi-region",
+      "Cloud Run: storefront + checkout → Pub/Sub",
+      "Pub/Sub → BigQuery + Vertex AI Search",
+      "Pub/Sub → On-premises ERP: orders",
+      "Cloud Run: storefront + checkout → BigQuery + Vertex AI Search (dashed connection)"
+    ]
+  },
+  "scenario-regulated-hybrid-diagram-1": {
+    "lesson": "scenario-regulated-hybrid",
+    "section": "Reference architecture",
+    "caption": "Secured zone (perimeter) holds identifiable data; a de-identification pipeline feeds an analytics zone; connectivity and keys are controlled.",
+    "notes": [
+      "Boundary: VPC Service Controls perimeter (EU)",
+      "On-premises EHR / clinics: HL7 / FHIR",
+      "Interconnect + HA VPN backup",
+      "Cloud Healthcare API: FHIR store, EU regions",
+      "De-identification: Sensitive Data Protection",
+      "Analytics BigQuery: de-identified only",
+      "Clinician assistant: Gemini + Model Armor",
+      "On-premises EHR / clinics → Interconnect + HA VPN backup",
+      "Interconnect + HA VPN backup → Cloud Healthcare API",
+      "Cloud Healthcare API → De-identification",
+      "De-identification → Analytics BigQuery",
+      "Cloud Healthcare API → Clinician assistant (dashed connection)"
+    ]
+  },
+  "lab-secure-three-tier-diagram-1": {
+    "lesson": "lab-secure-three-tier",
+    "section": "What you will build",
+    "caption": "Lab architecture. Requests pass Cloud Armor and the load balancer to Cloud Run, which reaches Cloud SQL over a private IP using Direct VPC egress.",
+    "notes": [
+      "Users",
+      "Cloud Armor: rate limit + WAF",
+      "Global ALB: managed certificate",
+      "Cloud Run service: dedicated SA",
+      "VPC subnet: Direct VPC egress",
+      "Cloud SQL: private IP only",
+      "Users → Cloud Armor",
+      "Cloud Armor → Global ALB",
+      "Global ALB → Cloud Run service",
+      "Cloud Run service → VPC subnet",
+      "VPC subnet → Cloud SQL"
+    ]
+  },
+  "exam-technique-and-review-diagram-1": {
+    "lesson": "exam-technique-and-review",
+    "section": "Reading the question",
+    "caption": "A four-pass reading method. Constraint words decide the answer, not familiar service names.",
+    "notes": [
+      "1. Ask: What exactly must I choose?",
+      "2. Constraints: Cost, latency, residency, skills, effort, time",
+      "3. Eliminate: Cross out options violating a constraint",
+      "4. Pick: Most managed option that satisfies all"
+    ]
+  },
+  "lab-secure-three-tier-diagram-2": {
+    "lesson": "lab-secure-three-tier",
+    "section": "Build it",
+    "caption": "Build it",
+    "notes": [
+      "1. Enable APIs: run, compute, sqladmin, servicenetworking",
+      "2. Network: VPC, subnet, private services access",
+      "3. Cloud SQL: Private IP, no public IP",
+      "4. Cloud Run: Service account, secrets, egress",
+      "5. Load balancer: Serverless NEG, cert, Cloud Armor",
+      "6. Verify: Test, logs, cleanup"
+    ]
+  }
+}

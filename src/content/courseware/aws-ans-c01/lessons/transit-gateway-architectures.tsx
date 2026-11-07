@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -46,27 +47,7 @@ export const lesson: Lesson = {
       title: "Segmentation example",
       body: (
         <>
-          <Figure caption="Prod and dev VPCs are isolated from each other but both reach shared services and on-premises. Each spoke associates with its own route table; the shared and on-premises attachments propagate into both.">
-            <Graph
-              label="Transit Gateway with separate route tables for prod and dev and a shared services and on-premises attachment"
-              cellW={200}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "prod", label: "Prod VPC", sub: "assoc: RT-Prod", col: 0, row: 0, tone: "lime" },
-                { id: "dev", label: "Dev VPC", sub: "assoc: RT-Dev", col: 0, row: 1, tone: "sky" },
-                { id: "tgw", label: "Transit Gateway", sub: "RT-Prod / RT-Dev / RT-Shared", col: 1, row: 0.5, tone: "amber" },
-                { id: "sh", label: "Shared services VPC", sub: "assoc: RT-Shared", col: 2, row: 0, tone: "plain" },
-                { id: "onp", label: "DX gateway to on-premises", sub: "assoc: RT-Shared", col: 2, row: 1, tone: "plain" },
-              ]}
-              edges={[
-                { from: "prod", to: "tgw", both: true },
-                { from: "dev", to: "tgw", both: true },
-                { from: "tgw", to: "sh", both: true },
-                { from: "tgw", to: "onp", both: true },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="transit-gateway-architectures-diagram-1" />
           <Table
             head={["Route table", "Associated attachments", "Contains routes propagated from"]}
             rows={[

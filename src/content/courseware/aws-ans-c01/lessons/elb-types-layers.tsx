@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -17,20 +18,7 @@ export const lesson: Lesson = {
       title: "Three load balancers, three layers",
       body: (
         <>
-          <Figure caption="Which load balancer works at which layer. The Classic Load Balancer is legacy and is rarely the right answer on the exam.">
-            <Graph
-              label="Elastic Load Balancing types by OSI layer"
-              cellW={200}
-              cellH={100}
-              nodeW={175}
-              nodes={[
-                { id: "alb", label: "Application Load Balancer", sub: "Layer 7: HTTP, HTTPS, gRPC, WebSocket", col: 0, row: 0, tone: "lime" },
-                { id: "nlb", label: "Network Load Balancer", sub: "Layer 4: TCP, UDP, TLS", col: 1, row: 0, tone: "sky" },
-                { id: "gwlb", label: "Gateway Load Balancer", sub: "Layer 3 gateway + L4 balancing, GENEVE", col: 2, row: 0, tone: "amber" },
-                { id: "clb", label: "Classic Load Balancer", sub: "Legacy L4/L7", col: 3, row: 0, tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="elb-types-layers-diagram-1" />
           <Table
             head={["", "ALB", "NLB", "GWLB"]}
             rows={[
@@ -59,25 +47,7 @@ export const lesson: Lesson = {
             <li><strong>Insert third-party virtual appliances transparently in the path:</strong> Gateway Load Balancer.</li>
             <li><strong>Both a static IP and layer 7 features:</strong> NLB in front of an ALB (ALB-type target group), or Global Accelerator in front of the ALB.</li>
           </ul>
-          <Figure caption="Static IPs with Layer 7 routing. An NLB with Elastic IPs forwards to an ALB target group, which applies host and path rules.">
-            <Graph
-              label="NLB with static IPs forwarding to an ALB"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "c", label: "Client", sub: "allow-lists 2 IPs", col: 0, row: 0, tone: "sky", shape: "pill" },
-                { id: "n", label: "NLB", sub: "Elastic IP per AZ", col: 1, row: 0, tone: "sky" },
-                { id: "a", label: "ALB", sub: "path / host rules", col: 2, row: 0, tone: "lime" },
-                { id: "t", label: "Targets", sub: "ECS / EC2", col: 3, row: 0, tone: "plain" },
-              ]}
-              edges={[
-                { from: "c", to: "n" },
-                { from: "n", to: "a" },
-                { from: "a", to: "t" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="elb-types-layers-diagram-2" />
           <Exercise
             title="Pick the load balancer"
             task={<p>A fleet of next-generation firewall appliances must inspect all traffic leaving 40 VPCs, scale out horizontally and keep each flow on the same appliance. What do you deploy?</p>}

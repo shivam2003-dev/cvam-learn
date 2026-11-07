@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -17,29 +18,7 @@ export const lesson: Lesson = {
       title: "What you will build",
       body: (
         <>
-          <Figure caption="Lab architecture. Requests pass Cloud Armor and the load balancer to Cloud Run, which reaches Cloud SQL over a private IP using Direct VPC egress.">
-            <Graph
-              label="Internet to global load balancer with Cloud Armor, serverless NEG, Cloud Run, Direct VPC egress and Cloud SQL private IP"
-              cellW={190}
-              cellH={92}
-              nodeW={160}
-              nodes={[
-                { id: "u", label: "Users", col: 0, row: 0, tone: "sky", shape: "pill" },
-                { id: "ca", label: "Cloud Armor", sub: "rate limit + WAF", col: 1, row: 0, tone: "rose" },
-                { id: "lb", label: "Global ALB", sub: "managed certificate", col: 2, row: 0, tone: "lime" },
-                { id: "run", label: "Cloud Run service", sub: "dedicated SA", col: 3, row: 0, tone: "lime" },
-                { id: "vpc", label: "VPC subnet", sub: "Direct VPC egress", col: 3, row: 1, tone: "amber" },
-                { id: "sql", label: "Cloud SQL", sub: "private IP only", col: 4, row: 1, tone: "plain", shape: "db" },
-              ]}
-              edges={[
-                { from: "u", to: "ca" },
-                { from: "ca", to: "lb" },
-                { from: "lb", to: "run" },
-                { from: "run", to: "vpc" },
-                { from: "vpc", to: "sql" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="lab-secure-three-tier-diagram-1" />
           <Callout tone="warn" title="Cost and safety">
             Cloud SQL, load balancer forwarding rules and static IPs bill by the hour. Use a
             sandbox project with a budget alert and complete the cleanup task the same day. Replace
@@ -54,17 +33,7 @@ export const lesson: Lesson = {
       title: "Build it",
       body: (
         <>
-          <Flow
-            numbered
-            steps={[
-              { title: "Enable APIs", note: "run, compute, sqladmin, servicenetworking", tone: "sky" },
-              { title: "Network", note: "VPC, subnet, private services access", tone: "lime" },
-              { title: "Cloud SQL", note: "Private IP, no public IP", tone: "lime" },
-              { title: "Cloud Run", note: "Service account, secrets, egress", tone: "amber" },
-              { title: "Load balancer", note: "Serverless NEG, cert, Cloud Armor", tone: "amber" },
-              { title: "Verify", note: "Test, logs, cleanup", tone: "rose" },
-            ]}
-          />
+          <CloudDiagram course="gcp-pca" id="lab-secure-three-tier-diagram-2" />
           <p>1. Project, APIs and network:</p>
           <pre>
             <code>{`gcloud config set project PROJECT_ID

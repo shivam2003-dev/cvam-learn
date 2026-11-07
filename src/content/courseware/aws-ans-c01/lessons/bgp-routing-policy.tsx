@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -25,18 +26,7 @@ export const lesson: Lesson = {
             lowest IGP metric. Before any BGP attribute is used, the router applies{" "}
             <strong>longest prefix match</strong>: a more specific route always wins.
           </p>
-          <Figure caption="Traffic engineering levers, strongest first. Prefix length beats all attributes; local preference is the main outbound control.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Longest prefix", note: "/25 beats /24 regardless of attributes", tone: "rose" },
-                { title: "Local preference", note: "Highest wins; local to your AS", tone: "amber" },
-                { title: "AS_PATH length", note: "Shortest wins; prepend to de-prefer", tone: "lime" },
-                { title: "MED", note: "Lowest wins; hints to a neighbour", tone: "sky" },
-                { title: "Other tie-breakers", note: "eBGP over iBGP, router ID", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="bgp-routing-policy-diagram-1" />
         </>
       ),
     },
@@ -63,26 +53,7 @@ export const lesson: Lesson = {
             <strong>active/active</strong> load sharing (AWS can ECMP over equal paths on the same
             VIF type).
           </p>
-          <Figure caption="Active/passive over two Direct Connect locations using local preference communities. Traffic from AWS prefers DX-1; DX-2 takes over if the primary BGP session drops.">
-            <Graph
-              label="Two Direct Connect connections with local preference communities selecting DX-1 as primary"
-              cellW={200}
-              cellH={100}
-              nodeW={170}
-              nodes={[
-                { id: "aws", label: "AWS (VGW / DXGW)", col: 0, row: 0.5, tone: "lime" },
-                { id: "d1", label: "DX-1 primary", sub: "7224:7300 high", col: 1, row: 0, tone: "amber" },
-                { id: "d2", label: "DX-2 standby", sub: "7224:7100 low", col: 1, row: 1, tone: "plain" },
-                { id: "onp", label: "On-premises", sub: "10.0.0.0/8", col: 2, row: 0.5, tone: "sky" },
-              ]}
-              edges={[
-                { from: "aws", to: "d1", label: "preferred" },
-                { from: "aws", to: "d2", dashed: true, label: "backup" },
-                { from: "d1", to: "onp" },
-                { from: "d2", to: "onp", dashed: true },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="bgp-routing-policy-diagram-2" />
         </>
       ),
     },

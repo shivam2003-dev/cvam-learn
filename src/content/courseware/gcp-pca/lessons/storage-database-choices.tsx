@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -51,17 +52,7 @@ export const lesson: Lesson = {
               ["Bare Metal Solution", "Oracle and specialised databases", "Dedicated hardware", "Oracle that cannot be re-platformed"],
             ]}
           />
-          <Figure caption="A simple decision flow. Start with the access pattern and the consistency and scale needs, then check operational constraints.">
-            <Flow
-              steps={[
-                { title: "Analytics / warehouse?", note: "Yes → BigQuery", tone: "lime" },
-                { title: "Relational + SQL?", note: "Global scale, 99.999% → Spanner; Postgres performance → AlloyDB; otherwise Cloud SQL", tone: "sky" },
-                { title: "Massive key-value / time series?", note: "Bigtable", tone: "amber" },
-                { title: "Documents, mobile?", note: "Firestore", tone: "amber" },
-                { title: "Cache?", note: "Memorystore", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="storage-database-choices-diagram-1" />
           <Callout tone="warn" title="Cloud SQL limits">
             Cloud SQL scales reads with replicas but writes scale vertically on a single primary. If
             the scenario needs write scale across regions or horizontal sharding without application

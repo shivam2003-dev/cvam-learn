@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -57,27 +58,7 @@ export const lesson: Lesson = {
               ["Ingress with edge routing", "Route table on the IGW sends inbound traffic to firewall endpoint then to the ALB subnet", "Inspect internet inbound traffic", "Careful route design"],
             ]}
           />
-          <Figure caption="Centralized inspection with Transit Gateway. Spoke route tables send 0.0.0.0/0 to the inspection attachment; the inspection VPC sends cleaned traffic to the egress NAT or back to another spoke.">
-            <Graph
-              label="Spoke VPCs send traffic through Transit Gateway to an inspection VPC with Network Firewall, then to an egress VPC with NAT and the internet gateway"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "s1", label: "Spoke VPC A", col: 0, row: 0, tone: "sky" },
-                { id: "s2", label: "Spoke VPC B", col: 0, row: 1, tone: "sky" },
-                { id: "tgw", label: "Transit Gateway", sub: "appliance mode", col: 1, row: 0.5, tone: "lime" },
-                { id: "ins", label: "Inspection VPC", sub: "Network Firewall endpoints", col: 2, row: 0.5, tone: "amber" },
-                { id: "eg", label: "Egress VPC", sub: "NAT + IGW", col: 3, row: 0.5, tone: "plain" },
-              ]}
-              edges={[
-                { from: "s1", to: "tgw" },
-                { from: "s2", to: "tgw" },
-                { from: "tgw", to: "ins", both: true },
-                { from: "ins", to: "eg" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="outbound-inspection-firewall-diagram-1" />
         </>
       ),
     },

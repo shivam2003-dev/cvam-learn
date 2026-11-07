@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -51,25 +52,7 @@ export const lesson: Lesson = {
               ["Cloud VPN / Interconnect", "Hybrid connectivity to on-premises or other clouds", "Next lesson"],
             ]}
           />
-          <Figure caption="Shared VPC. A central host project owns the network; application teams run workloads in service projects without managing the network.">
-            <Graph
-              label="Shared VPC host project with service projects"
-              cellW={200}
-              cellH={96}
-              nodeW={170}
-              nodes={[
-                { id: "host", label: "Host project", sub: "VPC, subnets, firewall, NAT, VPN", col: 1, row: 0, tone: "amber" },
-                { id: "s1", label: "Service project: web", col: 0, row: 1, tone: "sky" },
-                { id: "s2", label: "Service project: data", col: 1, row: 1, tone: "sky" },
-                { id: "s3", label: "Service project: ml", col: 2, row: 1, tone: "sky" },
-              ]}
-              edges={[
-                { from: "host", to: "s1", label: "subnet" },
-                { from: "host", to: "s2" },
-                { from: "host", to: "s3" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="networking-design-diagram-1" />
           <Callout tone="tip" title="When to use which">
             Many teams, one organization, central governance: <strong>Shared VPC</strong>. Few
             independent teams or other organizations, simple full-network connectivity, no overlap:{" "}

@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -22,18 +23,7 @@ export const lesson: Lesson = {
             build steps, poisoned images, stolen credentials. Defend each stage and <em>verify</em>{" "}
             before deploy.
           </p>
-          <Figure caption="A secured delivery chain. Each stage produces evidence that the next stage checks.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Source", note: "Protected branches, code review, signed commits, Secret scanning", tone: "sky" },
-                { title: "Build", note: "Cloud Build, hermetic and isolated; SLSA provenance", tone: "lime" },
-                { title: "Store", note: "Artifact Registry, vulnerability scanning, immutable tags", tone: "lime" },
-                { title: "Attest", note: "Sign images; attestations after tests and scans", tone: "amber" },
-                { title: "Admit", note: "Binary Authorization policy at deploy time", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="supply-chain-ai-security-diagram-1" />
           <Table
             head={["Control", "What it does"]}
             rows={[

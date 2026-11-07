@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -37,34 +38,7 @@ export const lesson: Lesson = {
       title: "Reference architecture",
       body: (
         <>
-          <Figure caption="Landing zone network. A dedicated Network account owns the Transit Gateways, Direct Connect gateway, inspection VPC and DNS; workload accounts attach through RAM-shared Transit Gateways.">
-            <Graph
-              label="Two data centers connect by Direct Connect gateway to Transit Gateways in two Regions, with inspection VPC, shared services and workload VPCs"
-              cellW={200}
-              cellH={96}
-              nodeW={170}
-              nodes={[
-                { id: "dc1", label: "Data center 1", col: 0, row: 0, tone: "sky" },
-                { id: "dc2", label: "Data center 2", col: 0, row: 2, tone: "sky" },
-                { id: "dxgw", label: "Direct Connect gateway", sub: "transit VIFs, 2 locations", col: 1, row: 1, tone: "amber" },
-                { id: "tgw1", label: "TGW us-east-1", sub: "RT-Prod / RT-NonProd / RT-Shared", col: 2, row: 0, tone: "lime" },
-                { id: "tgw2", label: "TGW eu-west-1", col: 2, row: 2, tone: "lime" },
-                { id: "ins", label: "Inspection VPC", sub: "Network Firewall, appliance mode", col: 3, row: 0, tone: "rose" },
-                { id: "wl", label: "Workload VPCs", sub: "prod, non-prod", col: 3, row: 1, tone: "plain" },
-                { id: "sh", label: "Shared services", sub: "DNS, endpoints", col: 3, row: 2, tone: "plain" },
-              ]}
-              edges={[
-                { from: "dc1", to: "dxgw" },
-                { from: "dc2", to: "dxgw" },
-                { from: "dxgw", to: "tgw1" },
-                { from: "dxgw", to: "tgw2" },
-                { from: "tgw1", to: "tgw2", label: "TGW peering", both: true },
-                { from: "tgw1", to: "ins" },
-                { from: "tgw1", to: "wl" },
-                { from: "tgw2", to: "sh" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="scenario-enterprise-hybrid-diagram-1" />
           <Table
             head={["Requirement", "Design decision"]}
             rows={[

@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -79,18 +80,7 @@ bq query --use_legacy_sql=false 'SELECT COUNT(*) FROM \`proj.ds.events\` WHERE d
       title: "Infrastructure as code with Terraform",
       body: (
         <>
-          <Figure caption="Terraform workflow. State records what exists; plan shows the diff; apply changes it; pipelines add review and policy checks.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Write", note: "Modules, variables, providers", tone: "sky" },
-                { title: "Init", note: "Providers, remote backend (GCS)", tone: "lime" },
-                { title: "Plan", note: "Diff against state; policy checks", tone: "amber" },
-                { title: "Apply", note: "Create/update with approvals", tone: "lime" },
-                { title: "Detect drift", note: "Plan on schedule; fix manually changed resources", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="programmatic-access-terraform-diagram-1" />
           <ul>
             <li><strong>State:</strong> store in a versioned Cloud Storage bucket with locking; restrict access; never commit state; separate state per environment/team.</li>
             <li><strong>Modules:</strong> reuse the Cloud Foundation Toolkit modules for projects, networks, IAM and GKE.</li>

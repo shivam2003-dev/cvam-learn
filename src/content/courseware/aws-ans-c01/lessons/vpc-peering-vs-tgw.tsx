@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -31,24 +32,7 @@ export const lesson: Lesson = {
             <li>Optional DNS resolution of the peer&apos;s private hostnames to private IPs.</li>
             <li>One peering connection per VPC pair; the quota on active peerings per VPC is adjustable up to 125.</li>
           </ul>
-          <Figure caption="Transitivity trap. A reaches B and B reaches C, but A cannot reach C unless it has its own peering (or a transit gateway).">
-            <Graph
-              label="Three VPCs peered in a chain showing that peering is not transitive"
-              cellW={200}
-              cellH={96}
-              nodeW={150}
-              nodes={[
-                { id: "a", label: "VPC A", col: 0, row: 0, tone: "sky" },
-                { id: "b", label: "VPC B", col: 1, row: 0, tone: "lime" },
-                { id: "c", label: "VPC C", col: 2, row: 0, tone: "sky" },
-              ]}
-              edges={[
-                { from: "a", to: "b", both: true, label: "peering" },
-                { from: "b", to: "c", both: true, label: "peering" },
-                { from: "a", to: "c", dashed: true, bend: 40, label: "no path" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="vpc-peering-vs-tgw-diagram-1" />
         </>
       ),
     },

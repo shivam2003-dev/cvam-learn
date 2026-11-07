@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -31,25 +32,7 @@ export const lesson: Lesson = {
               ["Participant", "Create resources and security groups in shared subnets; manage its own resources", "Change route tables, subnets, NACLs, IGW/NAT; see or modify other participants' resources (instances, ENIs)"],
             ]}
           />
-          <Figure caption="One network account owns the VPC and shares subnets; app teams in other accounts deploy into them and keep their own billing and IAM boundaries.">
-            <Graph
-              label="A network account shares subnets with application accounts through AWS RAM"
-              cellW={200}
-              cellH={96}
-              nodeW={170}
-              nodes={[
-                { id: "own", label: "Network account", sub: "owns VPC and subnets", col: 0, row: 0.5, tone: "amber" },
-                { id: "ram", label: "AWS RAM", sub: "share subnets", col: 1, row: 0.5, tone: "lime", shape: "pill" },
-                { id: "a", label: "App account A", sub: "launches in subnet-a", col: 2, row: 0, tone: "sky" },
-                { id: "b", label: "App account B", sub: "launches in subnet-b", col: 2, row: 1, tone: "sky" },
-              ]}
-              edges={[
-                { from: "own", to: "ram" },
-                { from: "ram", to: "a" },
-                { from: "ram", to: "b" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="vpc-sharing-organizations-diagram-1" />
           <ul>
             <li>Sharing works only within the same <strong>organization</strong> (with RAM sharing with Organizations enabled).</li>
             <li>Use <strong>AZ IDs</strong>; AZ names differ per account.</li>

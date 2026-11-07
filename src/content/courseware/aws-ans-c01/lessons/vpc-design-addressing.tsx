@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,31 +25,7 @@ export const lesson: Lesson = {
             in private subnets reach the internet outbound through a NAT gateway placed in a public
             subnet of the same AZ.
           </p>
-          <Figure caption="A three-tier VPC across two AZs. NAT gateways are per AZ so a zone failure does not break egress for the other zone.">
-            <Graph
-              label="VPC with public, application and database subnets across two Availability Zones, an internet gateway and NAT gateways"
-              cellW={180}
-              cellH={92}
-              nodeW={150}
-              nodes={[
-                { id: "igw", label: "Internet gateway", col: 0, row: 1, tone: "sky", shape: "pill" },
-                { id: "pa", label: "Public AZ-a", sub: "ALB, NAT gw", col: 1, row: 0, tone: "amber" },
-                { id: "pb", label: "Public AZ-b", sub: "ALB, NAT gw", col: 1, row: 2, tone: "amber" },
-                { id: "aa", label: "App AZ-a", sub: "private", col: 2, row: 0, tone: "lime" },
-                { id: "ab", label: "App AZ-b", sub: "private", col: 2, row: 2, tone: "lime" },
-                { id: "da", label: "DB AZ-a", sub: "isolated", col: 3, row: 0, tone: "plain" },
-                { id: "db", label: "DB AZ-b", sub: "isolated", col: 3, row: 2, tone: "plain" },
-              ]}
-              edges={[
-                { from: "igw", to: "pa" },
-                { from: "igw", to: "pb" },
-                { from: "pa", to: "aa" },
-                { from: "pb", to: "ab" },
-                { from: "aa", to: "da" },
-                { from: "ab", to: "db" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="vpc-design-addressing-diagram-1" />
           <ul>
             <li>Plan CIDR sizes for growth: VPC from /16 to /28; leave unallocated space for new subnets.</li>
             <li>Use separate route tables per tier so only public subnets have an IGW route.</li>

@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -40,18 +41,7 @@ export const lesson: Lesson = {
       title: "Release management and support",
       body: (
         <>
-          <Figure caption="Progressive delivery with guardrails. Each step has an automatic check and a rollback.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Deploy dark", note: "Feature flag off", tone: "sky" },
-                { title: "Canary 1%", note: "Watch SLIs", tone: "lime" },
-                { title: "Ramp 10 → 50%", note: "Automated analysis", tone: "lime" },
-                { title: "Full", note: "Bake time", tone: "amber" },
-                { title: "Cleanup", note: "Remove flag, old revisions", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="release-reliability-sre-diagram-1" />
           <ul>
             <li><strong>Release management:</strong> versioning, release notes, change calendars/freezes around peak events, approvals proportional to risk, automated rollback, post-release verification.</li>
             <li><strong>Supporting deployed solutions:</strong> on-call rotations with clear escalation; severity definitions; runbooks linked from alerts; incident command roles and communication templates; status pages; Google Cloud support plans (Standard, Enhanced, Premium) and TAM engagement for critical systems; Personalized Service Health and Service Health alerts for Google Cloud incidents.</li>

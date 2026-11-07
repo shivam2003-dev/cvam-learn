@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -38,19 +39,7 @@ export const lesson: Lesson = {
       title: "A method for any case study",
       body: (
         <>
-          <Figure caption="Extract, map, then answer. Build the requirement list once and reuse it for every question tied to the case.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Business drivers", note: "Why the company is changing; success metrics", tone: "sky" },
-                { title: "Existing estate", note: "Current systems, locations, teams, licences", tone: "sky" },
-                { title: "Requirements", note: "Technical, security, compliance, cost, timeline", tone: "lime" },
-                { title: "Constraints", note: "Skills, contracts, data location, uptime windows", tone: "amber" },
-                { title: "Map to services", note: "One line per requirement", tone: "lime" },
-                { title: "Answer", note: "Choose the option that satisfies the most stated requirements", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="case-study-technique-diagram-1" />
           <ol>
             <li>On the first question, spend two minutes jotting a compact table: drivers, estate, must-haves, constraints. Reuse it.</li>
             <li>Highlight numbers (users, data size, latency, uptime, RPO/RTO, budget, dates) and words like &ldquo;must&rdquo;, &ldquo;cannot&rdquo;, &ldquo;minimise&rdquo;.</li>

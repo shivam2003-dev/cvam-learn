@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -40,27 +41,7 @@ export const lesson: Lesson = {
       title: "Redundancy and SLAs",
       body: (
         <>
-          <Figure caption="Interconnect 99.99% topology. Two metros, each with two connections on separate edge availability domains, and Cloud Routers in the VPC region.">
-            <Graph
-              label="On-premises routers connected by four Dedicated Interconnect circuits across two metros to Cloud Routers in a Google Cloud region"
-              cellW={200}
-              cellH={96}
-              nodeW={170}
-              nodes={[
-                { id: "dc1", label: "Data center A", sub: "two routers", col: 0, row: 0, tone: "sky" },
-                { id: "dc2", label: "Data center B", sub: "two routers", col: 0, row: 1, tone: "sky" },
-                { id: "m1", label: "Metro 1 colo", sub: "2 circuits, 2 EADs", col: 1, row: 0, tone: "amber" },
-                { id: "m2", label: "Metro 2 colo", sub: "2 circuits, 2 EADs", col: 1, row: 1, tone: "amber" },
-                { id: "cr", label: "Cloud Routers", sub: "VPC region, global routing", col: 2, row: 0.5, tone: "lime" },
-              ]}
-              edges={[
-                { from: "dc1", to: "m1" },
-                { from: "dc2", to: "m2" },
-                { from: "m1", to: "cr" },
-                { from: "m2", to: "cr" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="hybrid-multicloud-connectivity-diagram-1" />
           <ul>
             <li><strong>Interconnect 99.99%:</strong> at least four connections across two metropolitan areas, two per metro in different edge availability domains. <strong>99.9%:</strong> two connections in one metro in different domains.</li>
             <li><strong>HA VPN 99.99%:</strong> two interfaces and at least two tunnels to a peer gateway (or one tunnel per peer interface on a redundant peer), with BGP. Use more tunnels or Interconnect for throughput.</li>

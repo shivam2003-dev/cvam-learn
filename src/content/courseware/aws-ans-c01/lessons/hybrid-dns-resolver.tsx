@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -48,28 +49,7 @@ export const lesson: Lesson = {
             queries to on-premises DNS servers, driven by <strong>forwarding rules</strong> such as
             <code> corp.example.com → 192.168.10.10, 192.168.10.11</code>.
           </p>
-          <Figure caption="Hybrid DNS with both endpoint types. On-premises forwards aws.example.com to the inbound endpoint; the VPC forwards corp.example.com to the outbound endpoint.">
-            <Graph
-              label="Hybrid DNS: on-premises DNS and VPC resolver connected through inbound and outbound Resolver endpoints"
-              cellW={200}
-              cellH={104}
-              nodeW={170}
-              nodes={[
-                { id: "onp", label: "On-prem DNS servers", sub: "corp.example.com", col: 0, row: 0, tone: "amber" },
-                { id: "in", label: "Inbound endpoint", sub: "ENIs in 2+ AZs", col: 1, row: 0, tone: "lime" },
-                { id: "res", label: "VPC Resolver", sub: "PHZ aws.example.com", col: 2, row: 0, tone: "lime" },
-                { id: "out", label: "Outbound endpoint", sub: "ENIs in 2+ AZs", col: 1, row: 1, tone: "lime" },
-                { id: "ec2", label: "EC2 instance", col: 2, row: 1, tone: "sky" },
-              ]}
-              groups={[{ label: "AWS VPC", c1: 1, r1: 0, c2: 2, r2: 1, tone: "lime" }]}
-              edges={[
-                { from: "onp", to: "in", label: "aws.example.com" },
-                { from: "in", to: "res" },
-                { from: "ec2", to: "out", label: "corp.example.com" },
-                { from: "out", to: "onp", label: "forward rule", dashed: true },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="hybrid-dns-resolver-diagram-1" />
           <Table
             head={["Design point", "Guidance"]}
             rows={[

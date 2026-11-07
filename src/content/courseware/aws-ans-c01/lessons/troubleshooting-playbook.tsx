@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -17,19 +18,7 @@ export const lesson: Lesson = {
       title: "A repeatable method",
       body: (
         <>
-          <Figure caption="Work from the bottom up or divide in half. Each step uses a specific tool, so you eliminate layers rather than guess.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Define the flow", note: "Source, destination, port, protocol, direction", tone: "sky" },
-                { title: "Name resolution", note: "dig/nslookup, Resolver logs", tone: "lime" },
-                { title: "Route", note: "Route tables, TGW, Reachability Analyzer", tone: "lime" },
-                { title: "Filters", note: "SG, NACL, firewall, flow logs REJECT", tone: "amber" },
-                { title: "Path quality", note: "MTU, loss, latency, asymmetry", tone: "amber" },
-                { title: "Application", note: "Listener, TLS, health, mirror", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="troubleshooting-playbook-diagram-1" />
           <Table
             head={["Symptom", "Likely cause", "First tool"]}
             rows={[

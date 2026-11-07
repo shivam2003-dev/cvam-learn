@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -17,18 +18,7 @@ export const lesson: Lesson = {
       title: "A method for incidents",
       body: (
         <>
-          <Figure caption="Stabilise first, then diagnose, then fix the cause, then learn.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Detect + triage", note: "Alert, severity, owner", tone: "rose" },
-                { title: "Mitigate", note: "Rollback, failover, scale, disable feature", tone: "amber" },
-                { title: "Diagnose", note: "Hypotheses from signals, narrow the scope", tone: "sky" },
-                { title: "Fix", note: "Permanent change via normal pipeline", tone: "lime" },
-                { title: "Learn", note: "Postmortem, actions, tests", tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="troubleshooting-dr-testing-diagram-1" />
           <ul>
             <li><strong>Mitigate before you understand.</strong> Restore service first (rollback, shift traffic), then find root cause.</li>
             <li><strong>Check what changed:</strong> deployments, config, flags, quotas, certificates, dependencies, traffic. Audit logs and release history answer this fast.</li>

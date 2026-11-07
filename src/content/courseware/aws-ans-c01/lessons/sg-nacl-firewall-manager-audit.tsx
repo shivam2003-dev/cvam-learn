@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -61,17 +62,7 @@ export const lesson: Lesson = {
               ["Third-party firewalls", "Partner firewall policies"],
             ]}
           />
-          <Figure caption="Firewall Manager flow. The administrator defines a policy and scope; Config detects resources; non-compliant resources are reported or auto-remediated in member accounts.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Define policy", note: "Type, scope (OUs, tags), remediation", tone: "sky" },
-                { title: "Detect", note: "AWS Config inventory", tone: "lime" },
-                { title: "Apply / remediate", note: "Create or fix resources in member accounts", tone: "amber" },
-                { title: "Report", note: "Compliance dashboard, SNS notifications", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="sg-nacl-firewall-manager-audit-diagram-1" />
         </>
       ),
     },

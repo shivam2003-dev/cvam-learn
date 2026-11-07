@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -32,17 +33,7 @@ export const lesson: Lesson = {
               ["Storage Insights, Autoclass", "Inventory and automatic class changes", "Governance and cost"],
             ]}
           />
-          <Figure caption="A lifecycle for log archives: hot for a month, then cheaper classes, then deleted after the retention period.">
-            <Flow
-              steps={[
-                { title: "Standard", note: "0 to 30 days, frequent access", tone: "lime" },
-                { title: "Nearline", note: "30 to 90 days", tone: "sky" },
-                { title: "Coldline", note: "90 to 365 days", tone: "sky" },
-                { title: "Archive", note: "1 to 7 years, retention lock", tone: "amber" },
-                { title: "Delete", note: "After policy expires", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="storage-configuration-lifecycle-diagram-1" />
         </>
       ),
     },

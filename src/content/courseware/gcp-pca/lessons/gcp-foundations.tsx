@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -44,31 +45,7 @@ export const lesson: Lesson = {
       title: "The resource hierarchy",
       body: (
         <>
-          <Figure caption="The hierarchy. IAM policies and organization policies attach at any level and are inherited downward; projects are the unit of resource ownership, billing linkage and API enablement.">
-            <Graph
-              label="Resource hierarchy: organization, folders, projects, resources"
-              cellW={190}
-              cellH={92}
-              nodeW={150}
-              nodes={[
-                { id: "org", label: "Organization", sub: "example.com", col: 1.5, row: 0, tone: "amber" },
-                { id: "f1", label: "Folder: Production", col: 0.5, row: 1, tone: "lime" },
-                { id: "f2", label: "Folder: Development", col: 2.5, row: 1, tone: "lime" },
-                { id: "p1", label: "Project: shop-prod", col: 0, row: 2, tone: "sky" },
-                { id: "p2", label: "Project: data-prod", col: 1, row: 2, tone: "sky" },
-                { id: "p3", label: "Project: shop-dev", col: 2.5, row: 2, tone: "sky" },
-                { id: "r", label: "Resources", sub: "VMs, buckets, datasets", col: 1, row: 3, tone: "plain", shape: "pill" },
-              ]}
-              edges={[
-                { from: "org", to: "f1" },
-                { from: "org", to: "f2" },
-                { from: "f1", to: "p1" },
-                { from: "f1", to: "p2" },
-                { from: "f2", to: "p3" },
-                { from: "p2", to: "r" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="gcp-foundations-diagram-1" />
           <ul>
             <li><strong>Organization</strong> is the root, tied to a Cloud Identity or Google Workspace domain. It enables central IAM, organization policies, and visibility.</li>
             <li><strong>Folders</strong> group projects (by environment, team, business unit) and carry policies.</li>

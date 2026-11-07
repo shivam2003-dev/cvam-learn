@@ -59,7 +59,7 @@ export default async function CoursewarePage({ params }: Props) {
             </ul>
             <div className="mt-7 flex flex-wrap items-center gap-5">
               <ContinueButton course={nav} base="courseware" />
-              {slug === "fde" && <Link href="/courseware/fde/visual-summary" className="text-sm font-semibold text-lime underline underline-offset-4">Explore the chapter recap diagrams →</Link>}
+              {["fde", "gcp-pca", "aws-ans-c01"].includes(slug) && <Link href={`/courseware/${slug}/visual-summary`} className="text-sm font-semibold text-lime underline underline-offset-4">Explore the chapter recap diagrams →</Link>}
             </div>
             <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-2 font-mono text-sm text-faint">
               <div><dt className="inline text-text">{stats.total}</dt> <dd className="inline">lessons</dd></div>

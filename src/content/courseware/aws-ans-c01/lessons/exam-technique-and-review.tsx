@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -17,17 +18,7 @@ export const lesson: Lesson = {
       title: "Reading the question",
       body: (
         <>
-          <Figure caption="A four-pass method for scenario questions. The constraint words decide the answer, not the services you recognise.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Ask", note: "Read the last sentence first: what must I choose?", tone: "sky" },
-                { title: "Constraints", note: "Underline cost, time, scale, security, minimal change", tone: "amber" },
-                { title: "Eliminate", note: "Cross out options that break any constraint", tone: "lime" },
-                { title: "Choose", note: "Pick the simplest option that satisfies all", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="exam-technique-and-review-diagram-1" />
           <ul>
             <li><strong>Qualifiers:</strong> &ldquo;most cost-effective&rdquo;, &ldquo;least operational overhead&rdquo;, &ldquo;highest availability&rdquo;, &ldquo;without changing the application&rdquo;, &ldquo;fastest to implement&rdquo;.</li>
             <li><strong>Multiple response:</strong> the question says how many to choose; each chosen option must be independently correct and together satisfy the scenario. Partial credit is not given.</li>

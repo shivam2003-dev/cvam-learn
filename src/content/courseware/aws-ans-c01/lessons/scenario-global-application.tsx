@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -43,32 +44,7 @@ export const lesson: Lesson = {
       title: "A design that satisfies every requirement",
       body: (
         <>
-          <Figure caption="Reference design. Storefront and API use different edge services because they have different protocol and addressing requirements.">
-            <Graph
-              label="StreamCart design: Route 53 geolocation to CloudFront and WAF for the storefront, Global Accelerator with static IPs for the partner API, ALBs in two Regions, and private DNS shared with on-premises"
-              cellW={200}
-              cellH={96}
-              nodeW={170}
-              nodes={[
-                { id: "shop", label: "Shoppers", col: 0, row: 0, tone: "sky", shape: "pill" },
-                { id: "part", label: "Partners", col: 0, row: 2, tone: "sky", shape: "pill" },
-                { id: "r53", label: "Route 53", sub: "geolocation: EU → EU", col: 1, row: 0, tone: "lime" },
-                { id: "cf", label: "CloudFront + WAF", sub: "OAC for S3 assets", col: 2, row: 0, tone: "lime" },
-                { id: "ga", label: "Global Accelerator", sub: "2 static IPs, TCP port", col: 1, row: 2, tone: "amber" },
-                { id: "us", label: "us-east-1", sub: "ALB + NLB + VPC", col: 3, row: 0, tone: "plain" },
-                { id: "eu", label: "eu-west-1", sub: "ALB + NLB + VPC", col: 3, row: 2, tone: "plain" },
-              ]}
-              edges={[
-                { from: "shop", to: "r53" },
-                { from: "r53", to: "cf" },
-                { from: "cf", to: "us", label: "origin groups" },
-                { from: "part", to: "ga" },
-                { from: "ga", to: "us", label: "dial 50%" },
-                { from: "ga", to: "eu", label: "dial 50%" },
-                { from: "cf", to: "eu" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="aws-ans-c01" id="scenario-global-application-diagram-1" />
           <Table
             head={["Requirement", "Choice", "Why"]}
             rows={[

@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -23,27 +24,7 @@ export const lesson: Lesson = {
             security, traffic management, transformation, analytics and a developer experience
             consistently, so backend teams do not each rebuild these features.
           </p>
-          <Figure caption="Apigee as a façade. Consumers use stable, secured API products; the proxy layer applies policies and routes to diverse backends.">
-            <Graph
-              label="API consumers call Apigee proxies which apply policies and route to Cloud Run, GKE and on-premises backends"
-              cellW={190}
-              cellH={96}
-              nodeW={160}
-              nodes={[
-                { id: "dev", label: "Developers / apps", sub: "partners, mobile, web", col: 0, row: 0.5, tone: "sky" },
-                { id: "portal", label: "Developer portal", col: 1, row: 0, tone: "plain" },
-                { id: "apigee", label: "Apigee", sub: "proxies + policies", col: 1, row: 1, tone: "lime" },
-                { id: "b1", label: "Cloud Run / GKE", col: 2, row: 0.5, tone: "amber" },
-                { id: "b2", label: "On-premises / legacy", col: 2, row: 1.5, tone: "amber" },
-              ]}
-              edges={[
-                { from: "dev", to: "portal", dashed: true },
-                { from: "dev", to: "apigee" },
-                { from: "apigee", to: "b1" },
-                { from: "apigee", to: "b2" },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="api-management-apigee-diagram-1" />
         </>
       ),
     },

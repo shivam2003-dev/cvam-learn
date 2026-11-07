@@ -1,5 +1,6 @@
+import { CloudDiagram } from "@/components/CloudVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -39,32 +40,7 @@ export const lesson: Lesson = {
       title: "Reference design",
       body: (
         <>
-          <Figure caption="Target architecture. Stateless services on Cloud Run behind a global load balancer, transactional data in Spanner, events through Pub/Sub, and a private link to the on-premises ERP.">
-            <Graph
-              label="Retail platform: global load balancer with Cloud Armor and CDN to Cloud Run services, Spanner, Pub/Sub and BigQuery, with Interconnect to the on-premises ERP"
-              cellW={190}
-              cellH={92}
-              nodeW={160}
-              nodes={[
-                { id: "u", label: "Shoppers", col: 0, row: 1, tone: "sky", shape: "pill" },
-                { id: "lb", label: "Global ALB", sub: "Cloud Armor + CDN", col: 1, row: 1, tone: "lime" },
-                { id: "web", label: "Cloud Run: storefront + checkout", sub: "regions: EU, US, APAC", col: 2, row: 1, tone: "lime" },
-                { id: "db", label: "Spanner multi-region", sub: "orders, inventory", col: 3, row: 0, tone: "amber", shape: "db" },
-                { id: "ps", label: "Pub/Sub", sub: "order events", col: 3, row: 1, tone: "amber" },
-                { id: "bq", label: "BigQuery + Vertex AI Search", sub: "analytics, personalised search", col: 3, row: 2, tone: "plain" },
-                { id: "erp", label: "On-premises ERP", sub: "Interconnect + Cloud Router", col: 4, row: 1, tone: "sky" },
-              ]}
-              edges={[
-                { from: "u", to: "lb" },
-                { from: "lb", to: "web" },
-                { from: "web", to: "db" },
-                { from: "web", to: "ps" },
-                { from: "ps", to: "bq" },
-                { from: "ps", to: "erp", label: "orders" },
-                { from: "web", to: "bq", dashed: true },
-              ]}
-            />
-          </Figure>
+          <CloudDiagram course="gcp-pca" id="scenario-retail-modernization-diagram-1" />
           <Table
             head={["Requirement", "Decision", "Reason"]}
             rows={[
