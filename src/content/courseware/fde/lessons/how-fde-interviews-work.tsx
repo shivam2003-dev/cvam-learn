@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -32,18 +33,7 @@ export const lesson: Lesson = {
             same activity.
           </p>
 
-          <Figure caption="The competencies FDE interviews sample. Strong candidates show evidence in every layer, not only the engineering base.">
-            <Layers
-              layers={[
-                { title: "Ownership and judgment", note: "Do they decide, take responsibility, and know when to escalate or say no?", tone: "amber" },
-                { title: "Customer communication", note: "Can they run discovery, explain trade-offs plainly, and handle pushback calmly?", tone: "amber" },
-                { title: "Problem decomposition", note: "Can they turn a vague request into a scoped, sequenced plan?", tone: "sky" },
-                { title: "Systems and integration design", note: "Can they design data flows, auth, failure handling and security for real environments?", tone: "sky" },
-                { title: "AI and data fluency", note: "Do they understand LLM systems, retrieval, agents and evaluation well enough to build and critique them?", tone: "lime" },
-                { title: "Coding and debugging", note: "Can they write and reason about working code, often on messy data and APIs?", tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="how-fde-interviews-work" panel={1} />
 
           <Callout tone="note" title="Processes differ">
             Companies vary in stages, names and emphasis, and they change over time. Treat this
@@ -63,17 +53,7 @@ export const lesson: Lesson = {
             Most processes combine several of the following stages, over about three to six weeks.
           </p>
 
-          <Figure caption="A common FDE interview pipeline. Not every company uses every stage, and the order varies.">
-            <Timeline
-              phases={[
-                { label: "Recruiter screen", when: "20 to 30 min", tone: "sky", items: ["Background and motivation", "Role fit and logistics", "Compensation range"] },
-                { label: "Technical screen", when: "45 to 60 min", tone: "lime", items: ["Coding or data task", "API or SQL practice", "Debugging"] },
-                { label: "Take-home (some)", when: "Several hours to days", tone: "lime", items: ["Build an integration or LLM app", "README and trade-offs", "Walk-through video"] },
-                { label: "Onsite loop", when: "3 to 5 sessions", tone: "amber", weight: 1.5, items: ["System design", "Customer scenario", "Coding or take-home deep dive", "Behavioural"] },
-                { label: "Decision", when: "Days", tone: "plain", items: ["Debrief", "References", "Offer"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="how-fde-interviews-work" panel={2} />
 
           <Table
             head={["Stage", "What they evaluate", "How to prepare"]}
@@ -118,18 +98,7 @@ export const lesson: Lesson = {
             </li>
           </ul>
 
-          <Figure caption="How a single design answer is typically judged, from raw correctness to the signals that separate strong candidates.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Understands the problem", note: "Clarifies before building", tone: "sky" },
-                { title: "Sound design", note: "Components, data flow, failure handling", tone: "sky" },
-                { title: "Trade-offs", note: "Names options and chooses with reasons", tone: "lime" },
-                { title: "Communication", note: "Clear, structured, adapts to the listener", tone: "lime" },
-                { title: "Judgment", note: "Scopes, de-risks, knows what to skip", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="how-fde-interviews-work" panel={3} />
         </>
       ),
     },

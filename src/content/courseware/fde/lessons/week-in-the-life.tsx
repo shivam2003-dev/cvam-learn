@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Sequence, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -33,17 +34,7 @@ export const lesson: Lesson = {
             You are the forward deployed engineer. Today is Monday of week one.
           </p>
 
-          <Figure caption="The shape of the week. Early days are about access and understanding, the middle is about building on real data, and the end is about showing evidence.">
-            <Timeline
-              phases={[
-                { label: "Monday", when: "Align and unlock", tone: "sky", items: ["Kickoff with sponsor and clerks", "Request access and data", "Shadow a clerk"] },
-                { label: "Tuesday", when: "Understand the data", tone: "sky", items: ["Profile invoice samples", "List supplier quirks", "Agree success metric"] },
-                { label: "Wednesday", when: "Build the slice", tone: "lime", items: ["Extraction for one supplier", "PO matching logic", "First end-to-end run"] },
-                { label: "Thursday", when: "Hit the wall", tone: "amber", items: ["Security blocks the ERP call", "Fix the plan, not the rule", "Rework the integration"] },
-                { label: "Friday", when: "Show evidence", tone: "lime", items: ["Accuracy on held-out set", "Demo to the clerks", "Status note to sponsor"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="week-in-the-life" panel={1} />
         </>
       ),
     },
@@ -144,18 +135,7 @@ export const lesson: Lesson = {
             and show the result.
           </p>
 
-          <Figure caption="The thin slice built on Wednesday. Every box touches real data, but only Supplier A is handled.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Invoice PDF", note: "From a shared mailbox export", tone: "sky" },
-                { title: "Extract fields", note: "Vendor, PO number, total, date", tone: "lime" },
-                { title: "Validate", note: "Schema and range checks", tone: "lime" },
-                { title: "Match to PO", note: "PO + supplier + plant", tone: "lime" },
-                { title: "Review screen", note: "Confirm or correct", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="week-in-the-life" panel={2} />
 
           <p>
             By late afternoon it runs end to end on 40 invoices. Accuracy is 91%, below the 95% target,
@@ -197,26 +177,7 @@ export const lesson: Lesson = {
             reads from a queue, and your service only writes matched results to that queue.
           </p>
 
-          <Figure caption="How the blocked direct call was redesigned. The service never touches ERP credentials; the customer's own job does the write.">
-            <Sequence
-              label="Sequence of the redesigned write-back: service posts to a queue, ERP job reads from it and writes to the ERP"
-              actors={[
-                { id: "svc", label: "Matching service" },
-                { id: "q", label: "Customer queue" },
-                { id: "job", label: "ERP import job" },
-                { id: "erp", label: "ERP" },
-              ]}
-              messages={[
-                { from: "svc", to: "q", text: "Publish matched invoice (signed message)" },
-                { note: "No ERP key in our service. Only a queue write permission.", over: ["svc", "q"] },
-                { from: "job", to: "q", text: "Poll for new messages" },
-                { from: "q", to: "job", text: "Matched invoice", dashed: true },
-                { from: "job", to: "job", text: "Validate and apply business rules" },
-                { from: "job", to: "erp", text: "Write invoice match" },
-                { from: "erp", to: "job", text: "Confirmation", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="week-in-the-life" panel={3} />
 
           <p>
             The redesign costs most of Thursday. It also produces a better system: the customer owns

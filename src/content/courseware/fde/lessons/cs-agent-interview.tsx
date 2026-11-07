@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -86,18 +87,7 @@ export const lesson: Lesson = {
             title="Question 4: Wrong policy answer"
             task={<p>&ldquo;The agent told a customer they could return an item after 90 days. The policy says 30. What now?&rdquo;</p>}
           >
-            <Figure caption="Response to a policy error. Fix the customer, then the system, then the process that let it through.">
-              <Flow
-                numbered
-                steps={[
-                  { title: "Make it right", note: "Human reviews; honour per business decision", tone: "amber" },
-                  { title: "Find the cause", note: "Retrieval miss? Outdated document? Prompt?", tone: "sky" },
-                  { title: "Fix", note: "Update source; tighten retrieval; deterministic check", tone: "lime" },
-                  { title: "Test", note: "Add the case to the policy test set", tone: "lime" },
-                  { title: "Prevent", note: "Move return-window checks into the policy engine", tone: "rose" },
-                ]}
-              />
-            </Figure>
+            <DiagramReference lesson="cs-agent-interview" panel={1} />
             <p>
               The lasting fix is to stop asking the model to state a rule that code can evaluate:
               the return-eligibility tool computes the window from the order date, and the agent

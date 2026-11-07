@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,42 +25,9 @@ export const lesson: Lesson = {
             model call is perhaps a fifth of the code.
           </p>
 
-          <Figure caption="The stages of a production LLM feature. Each stage exists to handle a specific failure of the raw model call.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Receive and check input", note: "Size limits, language, PII handling", tone: "sky" },
-                { title: "Gather context", note: "Retrieval, user data, history", tone: "sky" },
-                { title: "Build the prompt", note: "Instructions, context, format", tone: "lime" },
-                { title: "Call the model", note: "Timeouts, retries, fallback", tone: "lime" },
-                { title: "Parse and validate", note: "Schema, rules, citations", tone: "amber" },
-                { title: "Act or escalate", note: "Return, review queue or refuse", tone: "amber" },
-                { title: "Log and measure", note: "Trace, cost, feedback", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="llm-based-systems" panel={1} />
 
-          <Figure caption="One request through the pipeline, showing where each component sits.">
-            <Sequence
-              label="Sequence of one LLM feature request through app, retriever, model and validator"
-              actors={[
-                { id: "app", label: "Application" },
-                { id: "ret", label: "Retriever" },
-                { id: "llm", label: "Model API" },
-                { id: "val", label: "Validator" },
-              ]}
-              messages={[
-                { from: "app", to: "ret", text: "Query for relevant context" },
-                { from: "ret", to: "app", text: "Top passages with sources", dashed: true },
-                { from: "app", to: "app", text: "Assemble prompt within token budget" },
-                { from: "app", to: "llm", text: "Prompt + structured output schema" },
-                { from: "llm", to: "app", text: "Draft JSON answer", dashed: true },
-                { from: "app", to: "val", text: "Validate schema, citations, policy" },
-                { note: "If validation fails: retry once with the error, then route to a person.", over: ["app", "val"] },
-                { from: "val", to: "app", text: "Approved result or failure reason", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="llm-based-systems" panel={2} />
         </>
       ),
     },
@@ -170,17 +138,7 @@ def get_answer(question, passages, known_ids, call_model):
             prompt can fix the answer.
           </p>
 
-          <Figure caption="Where a retrieval-backed answer can go wrong. Most failures are upstream of the model.">
-            <Layers
-              layers={[
-                { title: "Generation", note: "Model ignores or misreads the passages; invents a detail.", tone: "rose" },
-                { title: "Prompt assembly", note: "Too much text; the key passage is buried or truncated.", tone: "amber" },
-                { title: "Ranking", note: "The right passage is retrieved but ranked below the cut-off.", tone: "amber" },
-                { title: "Retrieval", note: "Query and document wording differ; the passage is never found.", tone: "sky" },
-                { title: "Chunking and ingestion", note: "Tables, headings or scans were parsed badly; the passage does not exist in the index.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="llm-based-systems" panel={3} />
 
           <p>Practical ways to raise retrieval quality:</p>
           <ul>

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -22,19 +23,7 @@ export const lesson: Lesson = {
             because speed and clarity are being measured. The reviewer does not reward novelty; they
             reward a working, readable solution.
           </p>
-          <Figure caption="A decision path for the stack. Each question favours familiarity and simplicity.">
-            <Flow
-              direction="col"
-              numbered
-              steps={[
-                { title: "Does the brief name a language or tool?", note: "Use it, unless it blocks you badly.", tone: "sky" },
-                { title: "Which language are you fastest and clearest in?", note: "For data and AI work that is usually Python.", tone: "lime" },
-                { title: "Do you need a database?", note: "Often files or SQLite are enough for the time and data size.", tone: "lime" },
-                { title: "Does a user need an interface?", note: "A simple page or notebook can beat a hand-built web app.", tone: "amber" },
-                { title: "Can a stranger run it in one command?", note: "If not, simplify the stack.", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-stack" panel={1} />
           <Table
             head={["Need", "Good default", "Why"]}
             rows={[
@@ -84,16 +73,7 @@ export const lesson: Lesson = {
   docs/
     architecture.png        # one simple diagram`}</code>
           </pre>
-          <Figure caption="Layering inside the repository. Keep the model call, the business rules and the interface separate so each can be tested and replaced.">
-            <Layers
-              layers={[
-                { title: "Interface (cli.py or app.py)", note: "Parses input, prints or displays output. No business logic.", tone: "amber" },
-                { title: "Business rules (match.py)", note: "Deterministic logic with unit tests. Where correctness lives.", tone: "lime" },
-                { title: "Extraction and model calls (extract.py, llm.py)", note: "The only place that touches files or the model API. Easy to mock.", tone: "lime" },
-                { title: "Schemas and config (models.py, config.py)", note: "Types and settings; one source of truth.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-stack" panel={2} />
         </>
       ),
     },

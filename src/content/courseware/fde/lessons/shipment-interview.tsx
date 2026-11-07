@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -132,21 +133,7 @@ export const lesson: Lesson = {
       title: "Strong versus weak answers",
       body: (
         <>
-          <Figure caption="Answers plotted by how much they reveal about practical judgment and how specific they are. Aim for the top right.">
-            <Quadrant
-              label="Answer styles plotted by specificity and evidence of judgment"
-              xLabel="Specificity"
-              yLabel="Evidence of judgment"
-              corners={["Wise but vague", "Strong answer", "Weak answer", "Specific but naive"]}
-              items={[
-                { label: "Trade-offs with numbers", x: 0.84, y: 0.86, tone: "lime" },
-                { label: "'It depends' only", x: 0.18, y: 0.6, tone: "amber" },
-                { label: "Name-dropping frameworks", x: 0.62, y: 0.2, tone: "rose" },
-                { label: "'Use the best model'", x: 0.16, y: 0.12, tone: "rose" },
-                { label: "Design, no failure cases", x: 0.78, y: 0.4, tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="shipment-interview" panel={1} />
           <Table
             head={["Weak", "Why it fails", "Better"]}
             rows={[

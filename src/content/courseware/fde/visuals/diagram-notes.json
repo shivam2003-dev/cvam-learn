@@ -1,0 +1,2986 @@
+{
+  "who-is-an-fde": {
+    "title": "Who Is a Forward Deployed Engineer?",
+    "panels": [
+      {
+        "section": "The last-mile problem",
+        "caption": "The product team builds for the general case. The customer lives in the specific one. The gap between them is the last mile.",
+        "notes": [
+          "General product: Built for many customers",
+          "The last mile: Integration, data, workflow, trust, security",
+          "Customer reality: Legacy systems, rules, people, habits",
+          "General product → The last mile (dashed connection)",
+          "The last mile → Customer reality (dashed connection)"
+        ]
+      },
+      {
+        "section": "A working definition",
+        "caption": "The FDE loop. Each pass through it turns a customer's problem into a working system, and turns what was learned into product.",
+        "notes": [
+          "1. Discover: Find the real problem and the people who have it",
+          "2. Scope: Choose a first slice that proves value in weeks",
+          "3. Build: Code, integrate and configure on real data",
+          "4. Deploy: Run it in the customer's environment, securely",
+          "5. Prove: Measure the result in the customer's terms",
+          "6. Feed back: Turn repeated custom work into product"
+        ]
+      },
+      {
+        "section": "How the role differs from its neighbours",
+        "caption": "An approximate map. Companies draw these lines in different places, but the FDE is the one that combines high customer proximity with real code ownership.",
+        "notes": [
+          "Horizontal axis: Customer proximity; vertical axis: Production code ownership",
+          "Top left: Builds for everyone",
+          "Top right: Forward deployed",
+          "Bottom left: Advises from outside",
+          "Bottom right: Advises and demos",
+          "Product engineer: lower Customer proximity; higher Production code ownership",
+          "Data scientist: lower Customer proximity; higher Production code ownership",
+          "Support engineer: higher Customer proximity; lower Production code ownership",
+          "Solutions engineer: higher Customer proximity; lower Production code ownership",
+          "Consultant: higher Customer proximity; lower Production code ownership",
+          "FDE: higher Customer proximity; higher Production code ownership"
+        ]
+      },
+      {
+        "section": "What FDEs actually build",
+        "caption": "A typical deployment. The FDE builds the layer in the middle, which connects customer systems to the product and to the people who use it.",
+        "notes": [
+          "Boundary: Customer environment",
+          "ERP: Orders, finance",
+          "Document store: PDFs, contracts",
+          "CRM: Accounts, tickets",
+          "FDE-built layer: Connectors, data prep, auth, workflow glue",
+          "The product: Models, platform, agents",
+          "End users: Operators, analysts",
+          "ERP → FDE-built layer: API",
+          "Document store → FDE-built layer: files",
+          "CRM → FDE-built layer: events",
+          "FDE-built layer → The product",
+          "FDE-built layer → End users: UI + alerts",
+          "The product → End users (dashed connection)"
+        ]
+      },
+      {
+        "section": "The skill stack",
+        "caption": "The skill stack, from the engineering base to the human skills at the top. Strength in the upper layers separates a good FDE from a good engineer.",
+        "notes": [
+          "1. Judgment and ownership: Decide what to build, what to cut, and when to say no. Take responsibility for the outcome.",
+          "2. Communication: Run discovery calls, write clearly, explain risk to executives and detail to engineers.",
+          "3. Domain and business sense: Understand the customer's workflow, constraints and how they measure value.",
+          "4. AI and data systems: LLMs, retrieval, agents, evaluation, pipelines and data quality.",
+          "5. Integration and platform: APIs, authentication, cloud, containers, networking and security.",
+          "6. Software engineering core: A language or two, data structures, version control, testing, debugging."
+        ]
+      }
+    ]
+  },
+  "week-in-the-life": {
+    "title": "A Week in the Life of an FDE",
+    "panels": [
+      {
+        "section": "The engagement we will follow",
+        "caption": "The shape of the week. Early days are about access and understanding, the middle is about building on real data, and the end is about showing evidence.",
+        "notes": [
+          "Monday: Align and unlock: Kickoff with sponsor and clerks; Request access and data; Shadow a clerk",
+          "Tuesday: Understand the data: Profile invoice samples; List supplier quirks; Agree success metric",
+          "Wednesday: Build the slice: Extraction for one supplier; PO matching logic; First end-to-end run",
+          "Thursday: Hit the wall: Security blocks the ERP call; Fix the plan, not the rule; Rework the integration",
+          "Friday: Show evidence: Accuracy on held-out set; Demo to the clerks; Status note to sponsor"
+        ]
+      },
+      {
+        "section": "Wednesday: build the thin slice",
+        "caption": "The thin slice built on Wednesday. Every box touches real data, but only Supplier A is handled.",
+        "notes": [
+          "1. Invoice PDF: From a shared mailbox export",
+          "2. Extract fields: Vendor, PO number, total, date",
+          "3. Validate: Schema and range checks",
+          "4. Match to PO: PO + supplier + plant",
+          "5. Review screen: Confirm or correct"
+        ]
+      },
+      {
+        "section": "Thursday: the wall",
+        "caption": "How the blocked direct call was redesigned. The service never touches ERP credentials; the customer's own job does the write.",
+        "notes": [
+          "Matching service → Customer queue: Publish matched invoice (signed message)",
+          "Note: No ERP key in our service. Only a queue write permission.",
+          "ERP import job → Customer queue: Poll for new messages",
+          "Customer queue → ERP import job: Matched invoice",
+          "ERP import job → ERP import job: Validate and apply business rules",
+          "ERP import job → ERP: Write invoice match",
+          "ERP → ERP import job: Confirmation"
+        ]
+      }
+    ]
+  },
+  "course-readiness": {
+    "title": "Are You Ready for This Course?",
+    "panels": [
+      {
+        "section": "How the course is organised",
+        "caption": "The course in four movements. Each movement builds on the last, and the case studies pull everything together.",
+        "notes": [
+          "1 · The method: Chapters 1 to 4: The FDE role; Discovery and scoping; POC sprint; Pilot, handoff, feedback; Enterprise constraints",
+          "2 · The systems: Chapter 5: AI system types; LLM systems; Harness engineering; Multi-agent patterns",
+          "3 · Design and cases: Chapters 6 to 13: Interview basics; FDE system design; Five case studies; Projects and a cloud lab",
+          "4 · Getting hired: Chapters 14 to 17: Company guides; Take-home masterclass; Delivering and defending; Capstones"
+        ]
+      },
+      {
+        "section": "How to learn from this course",
+        "caption": "A study loop for each lesson. The exercise and the written recap are where most of the learning happens.",
+        "notes": [
+          "1. Read: Once through at a steady pace",
+          "2. Attempt: Do each exercise before opening the answer",
+          "3. Compare: Check yours against the model answer",
+          "4. Recap: Write three sentences in your own words",
+          "5. Apply: Use it on a real situation this week"
+        ]
+      },
+      {
+        "section": "Set up your practice environment",
+        "caption": "The practice stack, from your machine up to the model providers you will call.",
+        "notes": [
+          "1. Model access: An API key for at least one LLM provider. Free or low-cost tiers are enough for the projects.",
+          "2. Libraries: Python packages for LangChain, an embeddings client and a vector store; AutoGen for the multi-agent project.",
+          "3. Language and tooling: Python 3.11 or later, a virtual environment, and a code editor.",
+          "4. Cloud account (optional): A personal account with budget alerts, for the cloud lab only. Never use a company account.",
+          "5. Your machine: Terminal, Git, and a place to keep an engagement notebook."
+        ]
+      }
+    ]
+  },
+  "customer-discovery": {
+    "title": "Running Customer Discovery",
+    "panels": [
+      {
+        "section": "Why discovery decides the project",
+        "caption": "Discovery narrows from a vague wish to something you can build and measure. Each step removes a layer of ambiguity.",
+        "notes": [
+          "1. Stated request: \"We need a chatbot\"",
+          "2. Underlying problem: Agents spend 40 minutes finding policies",
+          "3. Workflow: Who does what, with which systems",
+          "4. Success metric: Median lookup time under 5 min",
+          "5. Constraints: Security, data, people, deadline"
+        ]
+      },
+      {
+        "section": "Map the people before you meet them",
+        "caption": "A typical stakeholder map for an enterprise AI project. Solid lines show who reports on or decides; dashed lines show who can block you.",
+        "notes": [
+          "Executive sponsor: Owns budget and outcome",
+          "Champion: Day-to-day owner",
+          "End users: Do the work today",
+          "You (FDE): Build and deliver",
+          "IT and security: Access, risk, approvals",
+          "Legal and privacy: Data and contract terms",
+          "Executive sponsor → Champion",
+          "Champion → You (FDE)",
+          "End users ↔ You (FDE): shadow",
+          "IT and security → You (FDE): approve (dashed connection)",
+          "Legal and privacy → You (FDE): approve (dashed connection)"
+        ]
+      },
+      {
+        "section": "Map the current workflow",
+        "caption": "A current-state workflow for escalated support tickets. Amber steps are the pain points that become candidates for the solution.",
+        "notes": [
+          "1. Ticket escalated: To tier 2, any hour",
+          "2. Search policies: Three systems, ~25 min",
+          "3. Ask a colleague: When unsure, ~10 min",
+          "4. Draft reply: Copy from templates",
+          "5. Manager approval: Above a threshold",
+          "6. Send and log: Update CRM"
+        ]
+      },
+      {
+        "section": "Size the opportunity",
+        "caption": "Five factors for sizing an opportunity before committing weeks of work.",
+        "notes": [
+          "1. Frequency: How often does the problem occur?",
+          "2. Duration: How long does each occurrence take today?",
+          "3. Cost of error: What does a mistake cost when it happens?",
+          "4. Number of people: How many are affected, and how senior are they?",
+          "5. Strategic weight: Is it tied to a goal leadership already cares about?"
+        ]
+      }
+    ]
+  },
+  "scoping-solution-architecture": {
+    "title": "Scoping and Solution Architecture",
+    "panels": [
+      {
+        "section": "Scope by slices, not layers",
+        "caption": "Layers versus slices for the same project. Slice 1 touches every layer for a narrow case and is demonstrable in the first sprint.",
+        "notes": [
+          "Boundary: By layers (risky)",
+          "Boundary: Slice 1: works in sprint 1",
+          "Boundary: Slice 2: grows it",
+          "Boundary: Slice 3: scale out",
+          "Data pipeline",
+          "Model",
+          "Interface",
+          "Data: 1 source",
+          "Model: 1 task",
+          "UI: 1 screen",
+          "Data: 3 sources",
+          "Model: tuned",
+          "UI: review queue",
+          "Data: all feeds",
+          "Model: at scale",
+          "UI: rollout",
+          "Data pipeline → Model",
+          "Model → Interface",
+          "Data: 1 source → Model: 1 task",
+          "Model: 1 task → UI: 1 screen",
+          "Data: 3 sources → Model: tuned",
+          "Model: tuned → UI: review queue",
+          "Data: all feeds → Model: at scale",
+          "Model: at scale → UI: rollout"
+        ]
+      },
+      {
+        "section": "Choose what comes first",
+        "caption": "Value against effort for candidate work items. Start in the top left (high value, low effort); start risky items early even if they sit elsewhere.",
+        "notes": [
+          "Horizontal axis: Effort; vertical axis: Value",
+          "Top left: Do first",
+          "Top right: Plan carefully",
+          "Bottom left: Quick extras",
+          "Bottom right: Avoid for now",
+          "Search one policy set: lower Effort; higher Value",
+          "Show source citations: lower Effort; higher Value",
+          "SSO login: lower Effort; lower Value",
+          "Roll out to all agents: higher Effort; higher Value",
+          "Auto-draft replies: higher Effort; higher Value",
+          "Analytics dashboard: higher Effort; lower Value",
+          "Custom theme: lower Effort; lower Value"
+        ]
+      },
+      {
+        "section": "Sketch the solution architecture",
+        "caption": "Context diagram for the policy assistant. The dashed zone is the customer's network; every arrow crossing it is something security will want to review.",
+        "notes": [
+          "Boundary: Customer network",
+          "Support agents: Ticketing tool plugin",
+          "Assistant API: Auth, logging, rate limits",
+          "Search index: Chunks + embeddings",
+          "SharePoint: Policy PDFs (read only)",
+          "Company SSO: Identity provider",
+          "Model API: Region-locked, no retention",
+          "Support agents → Assistant API: HTTPS",
+          "Assistant API → Search index: query",
+          "SharePoint → Search index: nightly sync (dashed connection)",
+          "Support agents → Company SSO: login (dashed connection)",
+          "Assistant API → Model API: prompt + chunks"
+        ]
+      },
+      {
+        "section": "Build, configure, or reuse",
+        "caption": "A decision path for each capability. Favour the cheapest option that meets the requirement, and build only where you add real value.",
+        "notes": [
+          "1. Does the product already do it?: Use it, configure it, and stop.",
+          "2. Does a managed service or open-source library do it?: Integrate it behind a thin interface.",
+          "3. Does the customer already own a tool for it?: Plug into it rather than adding another system.",
+          "4. Is it core to the value and not available elsewhere?: Build it, and plan to hand it over."
+        ]
+      }
+    ]
+  },
+  "poc-sprint": {
+    "title": "The Proof of Concept (POC) Sprint",
+    "panels": [
+      {
+        "section": "Plan the sprint",
+        "caption": "A two-week POC sprint. The demo date is fixed on day one; the plan works backwards from it.",
+        "notes": [
+          "Days 1 to 2: Set up: Access, data and environment; Success and kill criteria; Ground-truth test set",
+          "Days 3 to 6: Thin slice: End-to-end on one case; First measurement; Fix the biggest error class",
+          "Days 7 to 9: Improve: Broaden to second case; Error analysis; Cost and latency check",
+          "Day 10: Evidence: Final measurement; Freeze the code; Write the readout",
+          "Demo: Readout: Live demo; Results vs criteria; Go/no-go"
+        ]
+      },
+      {
+        "section": "Plan the sprint",
+        "caption": "A daily loop. Short feedback cycles keep a two-week sprint honest.",
+        "notes": [
+          "1. Measure: Run the test set; record the score",
+          "2. Find the worst errors: Read the failures, group them",
+          "3. Fix the biggest group: One change at a time",
+          "4. Re-measure: Did the score move? Did anything regress?",
+          "5. Show a user: Ten minutes with a real operator"
+        ]
+      },
+      {
+        "section": "Build for learning, not for show",
+        "caption": "The POC stack. Everything above the measurement line may be rough; the measurement line itself must be trustworthy.",
+        "notes": [
+          "1. Demo surface: A notebook, CLI or one simple page. Looks are irrelevant.",
+          "2. Solution logic: Prompts, retrieval, rules, glue code. Change it fast.",
+          "3. Measurement harness: Test set, scoring script, results table. Must be correct and repeatable.",
+          "4. Real data access: A genuine sample of the customer's data, under agreed handling rules."
+        ]
+      },
+      {
+        "section": "The demo and the decision",
+        "caption": "A POC readout meeting. The decision at the end is the point of the whole sprint.",
+        "notes": [
+          "FDE → Sponsor: Recap the question and the agreed criteria",
+          "FDE → Users: Live demo on real, unseen cases",
+          "Users → FDE: Try to break it; ask hard questions",
+          "FDE → Sponsor: Results against each criterion; failures shown honestly",
+          "Note: State clearly what was NOT tested and what would be needed for production.",
+          "Sponsor → FDE: Decision: go, adjust, or stop"
+        ]
+      }
+    ]
+  },
+  "pilot-phase": {
+    "title": "The Pilot Phase",
+    "panels": [
+      {
+        "section": "From \"can it work\" to \"does it work for them\"",
+        "caption": "The journey from POC to production. The pilot is the controlled step in which a real team uses the system and the measured outcome decides whether to scale.",
+        "notes": [
+          "1. POC: Feasibility on real data",
+          "2. Harden: Security, reliability, monitoring",
+          "3. Pilot: Real team, real work, measured",
+          "4. Decide: Scale, extend or stop",
+          "5. Production: Everyone, with support"
+        ]
+      },
+      {
+        "section": "Harden before you launch",
+        "caption": "The hardening checklist, grouped by what it protects. Each layer must be good enough for real users, not perfect.",
+        "notes": [
+          "1. Support and training: A short guide, a named contact, a feedback button, and a 30-minute kickoff session for the cohort.",
+          "2. Observability: Structured logs with request IDs, dashboards for usage, errors and latency, alerts that reach a human.",
+          "3. Reliability: Timeouts, retries with backoff, graceful degradation when a dependency is down, a tested rollback.",
+          "4. Security and privacy: SSO, least-privilege access, secrets management, data handling approved by the customer.",
+          "5. Data and quality: Validation on inputs, a review path for low-confidence output, a regression test set."
+        ]
+      },
+      {
+        "section": "Run the pilot",
+        "caption": "A six-week pilot. Early weeks are about adoption and fixing friction; later weeks are about proving the outcome.",
+        "notes": [
+          "Week 0: Prepare: Hardening done; Baseline captured; Cohort briefed",
+          "Weeks 1 to 2: Adopt: Daily check-ins; Fix friction fast; Watch usage drop-off",
+          "Week 3: Midpoint: Review metrics; Adjust scope or prompts; Share early wins",
+          "Weeks 4 to 5: Prove: Stable system; Collect outcome data; Compare with baseline",
+          "Week 6: Decide: Readout; Scale/extend/stop; Plan next phase"
+        ]
+      },
+      {
+        "section": "Run the pilot",
+        "caption": "The pilot feedback loop. Users produce signals, the FDE triages them, fixes ship back to users, and metrics go to the sponsor.",
+        "notes": [
+          "Pilot users: Use it daily",
+          "Signals: Logs, feedback, surveys",
+          "Triage: Bug, quality, feature, training",
+          "Fix and release: Twice-weekly cadence",
+          "Weekly report: Metrics, risks, asks",
+          "Sponsor: Decisions and support",
+          "Pilot users → Signals",
+          "Signals → Triage",
+          "Triage → Fix and release",
+          "Fix and release → Pilot users: better version (dashed connection)",
+          "Triage → Weekly report",
+          "Weekly report → Sponsor"
+        ]
+      }
+    ]
+  },
+  "project-handoff": {
+    "title": "The Project Handoff",
+    "panels": [
+      {
+        "section": "Handoff is the product",
+        "caption": "The handoff thread. Preparation starts in the pilot, and ownership shifts gradually, so there is no cliff edge at the end.",
+        "notes": [
+          "From day one: Design for handover: Prefer tools the customer's team knows; Keep config separate from code; Write decisions down as you go",
+          "During the pilot: Shadow: Customer engineer shadows you; Runbook drafted from real incidents; Access set up for their team",
+          "Before go-live: Reverse shadow: They operate, you watch; Fix gaps in docs; Practise a failure drill",
+          "After go-live: Support window: Agreed hypercare period; Escalation path; Planned exit date"
+        ]
+      },
+      {
+        "section": "The handoff package",
+        "caption": "What goes into a handoff package, from understanding down to the practical details of keeping the system alive.",
+        "notes": [
+          "1. Overview and purpose: What the system does, who uses it, what outcome it serves, and a one-page architecture diagram.",
+          "2. Design decisions: The decision log: why key choices were made, and what was rejected.",
+          "3. Operations runbook: How to deploy, monitor, scale, back up and roll back; the top failure modes with exact commands.",
+          "4. Access and secrets: Who has access to what, how credentials are rotated, where secrets live, and how to revoke people.",
+          "5. Data and quality: Schemas, data sources, test sets, how quality is measured and what triggers a review.",
+          "6. Known issues and backlog: Open bugs, shortcuts taken, planned improvements, and honest limitations.",
+          "7. Contacts and escalation: Who to call for what, with response times, including the vendor and your own team."
+        ]
+      },
+      {
+        "section": "Transfer ownership in stages",
+        "caption": "Staged handoff. Responsibility moves from the FDE to the customer team one step at a time, with a checkpoint between each.",
+        "notes": [
+          "1. I do, you watch: FDE operates; customer engineers observe and ask questions",
+          "2. We do together: Pair on deploys and incidents; customer drives when ready",
+          "3. You do, I watch: Customer operates; FDE reviews and corrects",
+          "4. You do: Customer owns it; FDE available on request"
+        ]
+      },
+      {
+        "section": "Transfer ownership in stages",
+        "caption": "A handoff session in which the customer team runs a deployment while the FDE observes.",
+        "notes": [
+          "Customer engineer → Runbook: Open the deploy section",
+          "Customer engineer → System: Run deploy steps",
+          "System → Customer engineer: Fails: missing config value",
+          "Customer engineer → Runbook: Search for the error",
+          "Note: Gap found: the config value is not documented. FDE notes it; does not intervene.",
+          "Customer engineer → FDE (observing): Ask for help only after trying",
+          "FDE (observing) → Runbook: Update the runbook with the missing step"
+        ]
+      }
+    ]
+  },
+  "field-feedback-loop": {
+    "title": "The Field Feedback Loop",
+    "panels": [
+      {
+        "section": "The leverage in the model",
+        "caption": "Two trajectories. With the feedback loop, custom work per customer falls over time. Without it, it stays flat or grows.",
+        "notes": [
+          "Boundary: No loop: services business",
+          "Boundary: With a loop: product business",
+          "Customer 1: Heavy custom work",
+          "Customer 2: Heavy custom work",
+          "Customer 3: Heavy custom work",
+          "Customer 1: Heavy custom work",
+          "Product update: Pattern becomes feature",
+          "Customer 3: Mostly configuration",
+          "Customer 1 → Customer 2",
+          "Customer 2 → Customer 3",
+          "Customer 1 → Product update: learn",
+          "Product update → Customer 3: reuse"
+        ]
+      },
+      {
+        "section": "What becomes product, and what stays custom",
+        "caption": "Triage of field signals. Frequent and on-strategy requests become product features; rare or off-strategy ones stay as customer-specific configuration or custom code.",
+        "notes": [
+          "Horizontal axis: Fit with product strategy; vertical axis: Number of customers affected",
+          "Top left: Rethink the strategy?",
+          "Top right: Build into the product",
+          "Bottom left: Leave to the customer",
+          "Bottom right: Offer as an extension",
+          "Native OCR: higher Fit with product strategy; higher Number of customers affected",
+          "SSO connector: higher Fit with product strategy; higher Number of customers affected",
+          "Audit export: higher Fit with product strategy; higher Number of customers affected",
+          "Custom PDF theme: lower Fit with product strategy; lower Number of customers affected",
+          "ERP-specific fields: lower Fit with product strategy; lower Number of customers affected",
+          "Social media feed: lower Fit with product strategy; higher Number of customers affected"
+        ]
+      },
+      {
+        "section": "Write a request product will act on",
+        "caption": "The structure of a product request that gets acted on: problem, evidence, impact, workaround and proposal.",
+        "notes": [
+          "1. Problem: Who is affected and what they cannot do",
+          "2. Evidence: Counts, quotes, recordings, tickets",
+          "3. Impact: Time, money, deals or renewals at risk",
+          "4. Workaround: What you built, with a link",
+          "5. Proposal: A suggested direction, held loosely"
+        ]
+      }
+    ]
+  },
+  "enterprise-constraints": {
+    "title": "Navigating Enterprise Constraints",
+    "panels": [
+      {
+        "section": "Constraints are not obstacles to engineer around",
+        "caption": "The six families of enterprise constraint. Most blockers you will meet belong to one of them.",
+        "notes": [
+          "Security and access: SSO, least privilege, review",
+          "Data and privacy: Residency, retention, PII",
+          "Network: Private, no outbound, allow-lists",
+          "Your project",
+          "Procurement and legal: Vendors, contracts, terms",
+          "Change control: Release windows, CAB",
+          "Legacy systems: Old APIs, batch jobs",
+          "Security and access → Your project (dashed connection)",
+          "Data and privacy → Your project (dashed connection)",
+          "Network → Your project (dashed connection)",
+          "Procurement and legal → Your project (dashed connection)",
+          "Change control → Your project (dashed connection)",
+          "Legacy systems → Your project (dashed connection)"
+        ]
+      },
+      {
+        "section": "Discover constraints in week one",
+        "caption": "Typical approval lead times vary enormously. Start every long one on day one; they run alongside your build.",
+        "notes": [
+          "Account and VPN access: 2 to 5 days",
+          "Data extract approval: 1 to 2 weeks",
+          "Firewall / allow-list change: 1 to 3 weeks",
+          "Security architecture review: 2 to 6 weeks",
+          "Vendor / legal onboarding: 4 to 12 weeks"
+        ]
+      },
+      {
+        "section": "Passing a security review",
+        "caption": "What a security reviewer wants to see. Preparing these in advance usually cuts weeks from the review.",
+        "notes": [
+          "1. Architecture and data-flow diagram: Components, trust boundaries, and exactly what data crosses each.",
+          "2. Data inventory: What data is processed, its classification, where it is stored and for how long.",
+          "3. Access model: Who can do what, how authentication works, how access is granted and revoked.",
+          "4. Third parties and sub-processors: Each external service, what it receives, its certifications and retention terms.",
+          "5. Controls and evidence: Encryption, logging, vulnerability scanning, incident response, and relevant certifications.",
+          "6. Risks and mitigations: Known risks, owners and how they are handled, including prompt injection for AI features."
+        ]
+      },
+      {
+        "section": "Designing for restricted environments",
+        "caption": "Deployment options for a model-backed feature, ordered from least to most restricted. Each step trades convenience for control.",
+        "notes": [
+          "1. Vendor-hosted SaaS: Easiest to run. Data leaves the customer; often unacceptable for sensitive data.",
+          "2. Single-tenant in vendor cloud: Isolated resources and a dedicated environment; data still leaves the customer's account.",
+          "3. Customer's cloud account (VPC): Runs in their account with their controls; models via their cloud's private endpoints.",
+          "4. On-premises: Runs in their data centre; you ship installable artifacts and self-hosted models.",
+          "5. Air-gapped: No internet at all: offline updates, mirrored registries, signed bundles, local models."
+        ]
+      }
+    ]
+  },
+  "stakeholder-communication": {
+    "title": "Communicating Across Stakeholder Types",
+    "panels": [
+      {
+        "section": "One truth, four audiences",
+        "caption": "The same project status, framed for four audiences. The facts are identical; the question each audience is asking is not.",
+        "notes": [
+          "The same project: Accuracy 94%, 2 risks, launch in 3 weeks",
+          "Executive: Is it worth it, and what do you need from me?",
+          "Operator / user: Will this make my day easier?",
+          "Security / legal: What can go wrong, and how is it contained?",
+          "Engineer: How does it work, and how do I run it?",
+          "The same project → Executive",
+          "The same project → Operator / user",
+          "The same project → Security / legal",
+          "The same project → Engineer"
+        ]
+      },
+      {
+        "section": "Structure messages so decisions get made",
+        "caption": "The answer-first structure. Each part has a job; if the reader stops after the first two, they still have what they need.",
+        "notes": [
+          "1. Headline: The conclusion in one line",
+          "2. Ask: The decision or action you need",
+          "3. Evidence: Two or three facts that support it",
+          "4. Options: Alternatives and their trade-offs",
+          "5. Next steps: Who does what by when"
+        ]
+      },
+      {
+        "section": "Running customer meetings",
+        "caption": "A customer working session from preparation to follow-up. The follow-up note, sent the same day, is the artefact that survives the meeting.",
+        "notes": [
+          "You → Customer team: Send agenda and goal a day ahead",
+          "You → Customer team: Run: goal, update, decisions, risks, next steps",
+          "Customer team → You: Questions, decisions, objections",
+          "You → Customer team: Same-day summary: decisions, owners, dates",
+          "Note: If it is not written down, it was not decided.",
+          "Customer team → You: Confirm or correct the summary"
+        ]
+      },
+      {
+        "section": "Disagreement, resistance and shifting priorities",
+        "caption": "Stakeholder map by influence and support. Spend most effort on the high-influence people who are not yet supportive.",
+        "notes": [
+          "Horizontal axis: Support for the project; vertical axis: Influence",
+          "Top left: Influential sceptics: win them over",
+          "Top right: Champions: equip them",
+          "Bottom left: Low priority: keep informed",
+          "Bottom right: Fans: use as advocates",
+          "Sponsor: higher Support for the project; higher Influence",
+          "Head of security: lower Support for the project; higher Influence",
+          "Team lead: higher Support for the project; higher Influence",
+          "Skeptical analyst: lower Support for the project; lower Influence",
+          "End users: higher Support for the project; lower Influence"
+        ]
+      }
+    ]
+  },
+  "ai-system-landscape": {
+    "title": "The AI System Landscape",
+    "panels": [
+      {
+        "section": "Start from the problem, not the model",
+        "caption": "The ladder of AI system types. Higher rungs handle more open-ended problems and cost more to build, run and trust.",
+        "notes": [
+          "1. Agents: A model chooses actions and tools over multiple steps to reach a goal.",
+          "2. Fine-tuned models: A model whose weights are adapted to your task, style or format.",
+          "3. Retrieval (RAG): A model answers from documents fetched at question time.",
+          "4. LLM prompting: A general model, instructed with prompts and examples.",
+          "5. Classical ML: Trained models on structured data: classification, regression, ranking, forecasting.",
+          "6. Rules and code: Deterministic logic written by people. Fast, cheap, explainable."
+        ]
+      },
+      {
+        "section": "A decision path",
+        "caption": "Choosing a system type. Start at the top and stop at the first rung that works; move down only when the problem forces it.",
+        "notes": [
+          "1. Can a rule or query solve it exactly?: Yes: use code. It is cheaper, faster and fully explainable.",
+          "2. Is it a prediction on structured data with labels?: Yes: classical ML (scoring, forecasting, anomaly detection).",
+          "3. Is it language understanding or generation with no private knowledge needed?: Yes: LLM with a good prompt and a small test set.",
+          "4. Must it answer from private or changing documents?: Yes: add retrieval (RAG) with citations and permissions.",
+          "5. Must output follow a strict style or format a prompt cannot hold?: Yes: consider fine-tuning a smaller model.",
+          "6. Are the steps unknown in advance and tool use needed?: Yes: an agent, with limits and approvals."
+        ]
+      },
+      {
+        "section": "A decision path",
+        "caption": "A hybrid support system. Rules route, a classifier detects intent, retrieval finds policy, a model drafts, and a person approves.",
+        "notes": [
+          "Ticket",
+          "Rules: Spam, VIP, language",
+          "Classifier: Intent and urgency",
+          "RAG: Find policy passages",
+          "LLM: Draft the reply",
+          "Agent approves: Edits and sends",
+          "Customer",
+          "Ticket → Rules",
+          "Rules → Classifier",
+          "Classifier → RAG",
+          "RAG → LLM",
+          "LLM → Agent approves",
+          "Agent approves → Customer"
+        ]
+      }
+    ]
+  },
+  "llm-based-systems": {
+    "title": "LLM-Based Systems",
+    "panels": [
+      {
+        "section": "Anatomy of an LLM feature",
+        "caption": "The stages of a production LLM feature. Each stage exists to handle a specific failure of the raw model call.",
+        "notes": [
+          "1. Receive and check input: Size limits, language, PII handling",
+          "2. Gather context: Retrieval, user data, history",
+          "3. Build the prompt: Instructions, context, format",
+          "4. Call the model: Timeouts, retries, fallback",
+          "5. Parse and validate: Schema, rules, citations",
+          "6. Act or escalate: Return, review queue or refuse",
+          "7. Log and measure: Trace, cost, feedback"
+        ]
+      },
+      {
+        "section": "Anatomy of an LLM feature",
+        "caption": "One request through the pipeline, showing where each component sits.",
+        "notes": [
+          "Application → Retriever: Query for relevant context",
+          "Retriever → Application: Top passages with sources",
+          "Application → Application: Assemble prompt within token budget",
+          "Application → Model API: Prompt + structured output schema",
+          "Model API → Application: Draft JSON answer",
+          "Application → Validator: Validate schema, citations, policy",
+          "Note: If validation fails: retry once with the error, then route to a person.",
+          "Validator → Application: Approved result or failure reason"
+        ]
+      },
+      {
+        "section": "Grounding with retrieval",
+        "caption": "Where a retrieval-backed answer can go wrong. Most failures are upstream of the model.",
+        "notes": [
+          "1. Generation: Model ignores or misreads the passages; invents a detail.",
+          "2. Prompt assembly: Too much text; the key passage is buried or truncated.",
+          "3. Ranking: The right passage is retrieved but ranked below the cut-off.",
+          "4. Retrieval: Query and document wording differ; the passage is never found.",
+          "5. Chunking and ingestion: Tables, headings or scans were parsed badly; the passage does not exist in the index."
+        ]
+      }
+    ]
+  },
+  "harness-tools-memory-context": {
+    "title": "Harness Engineering: Tools, Memory, and Context",
+    "panels": [
+      {
+        "section": "The model is not the agent",
+        "caption": "The harness around a model. The model decides; everything else is code you control. This lesson covers the left side (tools, memory, context); the next covers guardrails and observability.",
+        "notes": [
+          "Context builder: Instructions, history, retrieved data",
+          "Memory: Session state, long-term facts",
+          "Model loop: Reason, choose action",
+          "Tools: APIs, search, code, DB",
+          "Guardrails: Permissions, approvals, limits",
+          "Observability: Traces, cost, feedback",
+          "Context builder → Model loop",
+          "Memory ↔ Context builder",
+          "Model loop → Tools: calls",
+          "Tools → Model loop: results (dashed connection)",
+          "Model loop → Guardrails (dashed connection)",
+          "Model loop → Observability (dashed connection)"
+        ]
+      },
+      {
+        "section": "The agent loop",
+        "caption": "One run of the loop. The harness, not the model, executes tools and decides when to stop.",
+        "notes": [
+          "User → Harness: Goal: where is order A-1001?",
+          "Harness → Model: Context + tool definitions",
+          "Model → Harness: Call get_order(order_id=A-1001)",
+          "Harness → Tool: Validate arguments, then run",
+          "Tool → Harness: status: shipped, eta 2 days",
+          "Harness → Model: Append tool result; ask again",
+          "Model → Harness: Final answer in plain language",
+          "Harness → User: Answer + log of steps"
+        ]
+      },
+      {
+        "section": "Memory and state",
+        "caption": "Four kinds of memory and where each lives. The model's window is temporary; durable state belongs in your own storage.",
+        "notes": [
+          "1. Working context: What is in the model's window right now: the goal, recent turns, tool results. Disappears after the call.",
+          "2. Session state: Task progress, collected fields, approvals, plan. Stored by your app, keyed by session, so runs can resume.",
+          "3. Long-term memory: Preferences, past decisions and learned facts across sessions. Stored, searched and loaded on demand.",
+          "4. Knowledge: Company documents and data. Accessed through retrieval, not remembered."
+        ]
+      }
+    ]
+  },
+  "harness-guardrails-observability": {
+    "title": "Harness Engineering: Guardrails, Observability, and Review",
+    "panels": [
+      {
+        "section": "Autonomy needs fences",
+        "caption": "Defence in depth for an agent. A harmful action must get past every layer; each layer catches different failures.",
+        "notes": [
+          "1. Environment and permissions: The agent's credentials can only do what it is meant to. Read-only by default; narrow scopes; network limits.",
+          "2. Tool-level checks: Validate arguments, enforce limits (amounts, counts), require approval for high-impact actions.",
+          "3. Output checks: Schema and policy validation, grounding checks, PII redaction, tone and safety filters.",
+          "4. Input checks: Size limits, injection detection, separation of instructions from untrusted data.",
+          "5. Prompt and model behaviour: Clear instructions and refusals. Helpful, but the weakest layer because it can be bypassed."
+        ]
+      },
+      {
+        "section": "Least privilege and human approval",
+        "caption": "An approval flow for a high-impact action. The agent proposes; a person decides; the system records everything.",
+        "notes": [
+          "Agent → Harness: Propose: refund $620 on order A-1001",
+          "Harness → Harness: Check limits and policy rules",
+          "Harness → Approver: Request approval with reason and evidence",
+          "Approver → Harness: Approve (or reject with a note)",
+          "Harness → Billing system: Execute refund with the approver's ID",
+          "Billing system → Harness: Confirmation",
+          "Note: Audit log: who proposed, who approved, what changed, when."
+        ]
+      },
+      {
+        "section": "Prompt injection and data leakage",
+        "caption": "Break the trifecta. If an agent has all three capabilities at once, an injected instruction can exfiltrate data. Split or restrict them.",
+        "notes": [
+          "1. Reads untrusted content: Emails, web pages, uploaded files",
+          "2. Accesses private data: Records, documents, secrets",
+          "3. Can act externally: Send, post, call out"
+        ]
+      },
+      {
+        "section": "Review and continuous improvement",
+        "caption": "The review cycle. Sampling and feedback produce labelled failures, which become tests, fixes and then fresh monitoring.",
+        "notes": [
+          "1. Sample runs: Random plus all low-confidence and flagged runs",
+          "2. Human review: Label correct, wrong, unsafe",
+          "3. Add to test set: Each failure becomes a regression test",
+          "4. Fix: Prompt, tool, retrieval or guardrail",
+          "5. Evaluate and release: Compare with the previous version",
+          "6. Monitor: Watch the metrics after release"
+        ]
+      }
+    ]
+  },
+  "multi-agent-orchestration": {
+    "title": "Multi-Agent Orchestration Patterns",
+    "panels": [
+      {
+        "section": "The core patterns",
+        "caption": "Pipeline: a fixed sequence with a gate between steps. Predictable and easy to test.",
+        "notes": [
+          "Extract",
+          "Gate: Schema + rules",
+          "Draft",
+          "Review",
+          "Extract → Gate",
+          "Gate → Draft: pass",
+          "Draft → Review"
+        ]
+      },
+      {
+        "section": "The core patterns",
+        "caption": "Router: classify, then dispatch. Each branch is simple and testable on its own.",
+        "notes": [
+          "Request",
+          "Router: Cheap classifier",
+          "Billing agent",
+          "Technical agent",
+          "General agent",
+          "Request → Router",
+          "Router → Billing agent: billing",
+          "Router → Technical agent: technical",
+          "Router → General agent: other"
+        ]
+      },
+      {
+        "section": "The core patterns",
+        "caption": "Orchestrator-workers: the lead plans and synthesises; workers run in isolated contexts and return short results.",
+        "notes": [
+          "Orchestrator: Plan, delegate, merge",
+          "Worker: search",
+          "Worker: read",
+          "Worker: analyse",
+          "Orchestrator → Worker: search",
+          "Orchestrator → Worker: read",
+          "Orchestrator → Worker: analyse",
+          "Worker: search → Orchestrator (dashed connection)"
+        ]
+      }
+    ]
+  },
+  "choosing-agentic-framework": {
+    "title": "Choosing an Agentic Framework",
+    "panels": [
+      {
+        "section": "What a framework gives you",
+        "caption": "Where a framework sits. It wraps the loop, tools and state; you still own the product logic, evaluation and operations.",
+        "notes": [
+          "1. Your product logic: Prompts, tools, business rules, evaluations, UI. Always yours.",
+          "2. Agent framework (optional): Loop, tool registry, state and memory, multi-agent orchestration, tracing hooks.",
+          "3. Model SDK or API: Messages, tool calling, streaming, structured output from a provider.",
+          "4. Model: Hosted or self-hosted language model."
+        ]
+      },
+      {
+        "section": "Criteria for choosing",
+        "caption": "A decision path. Most projects exit at the first or second box; frameworks earn their place only when a concrete need appears.",
+        "notes": [
+          "1. Single model call or fixed workflow?: Use plain SDK code and ordinary functions.",
+          "2. One agent with a few tools?: Plain loop (about 30 lines) is usually enough.",
+          "3. Durable state, approvals or graph-shaped flows needed?: Evaluate a framework against the criteria above.",
+          "4. Customer already standardised on one?: Follow their standard unless it blocks the requirement."
+        ]
+      }
+    ]
+  },
+  "how-fde-interviews-work": {
+    "title": "How FDE Interviews Work",
+    "panels": [
+      {
+        "section": "What the interview is trying to find out",
+        "caption": "The competencies FDE interviews sample. Strong candidates show evidence in every layer, not only the engineering base.",
+        "notes": [
+          "1. Ownership and judgment: Do they decide, take responsibility, and know when to escalate or say no?",
+          "2. Customer communication: Can they run discovery, explain trade-offs plainly, and handle pushback calmly?",
+          "3. Problem decomposition: Can they turn a vague request into a scoped, sequenced plan?",
+          "4. Systems and integration design: Can they design data flows, auth, failure handling and security for real environments?",
+          "5. AI and data fluency: Do they understand LLM systems, retrieval, agents and evaluation well enough to build and critique them?",
+          "6. Coding and debugging: Can they write and reason about working code, often on messy data and APIs?"
+        ]
+      },
+      {
+        "section": "The typical process",
+        "caption": "A common FDE interview pipeline. Not every company uses every stage, and the order varies.",
+        "notes": [
+          "Recruiter screen: 20 to 30 min: Background and motivation; Role fit and logistics; Compensation range",
+          "Technical screen: 45 to 60 min: Coding or data task; API or SQL practice; Debugging",
+          "Take-home (some): Several hours to days: Build an integration or LLM app; README and trade-offs; Walk-through video",
+          "Onsite loop: 3 to 5 sessions: System design; Customer scenario; Coding or take-home deep dive; Behavioural",
+          "Decision: Days: Debrief; References; Offer"
+        ]
+      },
+      {
+        "section": "How candidates are scored",
+        "caption": "How a single design answer is typically judged, from raw correctness to the signals that separate strong candidates.",
+        "notes": [
+          "1. Understands the problem: Clarifies before building",
+          "2. Sound design: Components, data flow, failure handling",
+          "3. Trade-offs: Names options and chooses with reasons",
+          "4. Communication: Clear, structured, adapts to the listener",
+          "5. Judgment: Scopes, de-risks, knows what to skip"
+        ]
+      }
+    ]
+  },
+  "four-interview-rounds": {
+    "title": "The Four Interview Rounds",
+    "panels": [
+      {
+        "section": "Round 1: practical coding",
+        "caption": "A reliable rhythm for any coding round. Narrate as you go; interviewers score your process as much as your result.",
+        "notes": [
+          "1. Clarify: Inputs, outputs, edge cases, scale",
+          "2. Plan aloud: Outline the approach in a few sentences",
+          "3. Build simply: Get a correct version first",
+          "4. Run and test: Try normal and awkward inputs",
+          "5. Harden: Errors, retries, validation",
+          "6. Discuss: Complexity, scale, what you would change"
+        ]
+      },
+      {
+        "section": "Round 3: the customer scenario",
+        "caption": "A strong scenario round. The candidate asks, listens, summarises, then proposes a small first step and confirms next actions.",
+        "notes": [
+          "Customer (interviewer) → You: We want an AI to handle our customer emails.",
+          "You → Customer (interviewer): Tell me about the last difficult email. What happened?",
+          "Customer (interviewer) → You: Refund disputes take forever; agents hunt through three systems.",
+          "You → Customer (interviewer): How long, how often, and what does a mistake cost?",
+          "You → Customer (interviewer): So the pain is slow policy lookup on refund disputes. Right?",
+          "Customer (interviewer) → You: Yes, mostly that.",
+          "You → Customer (interviewer): Propose a two-week pilot: search policies for refund tickets, agent approves",
+          "Note: Agree success metric, who to shadow, and the first access request before ending."
+        ]
+      }
+    ]
+  },
+  "how-design-rounds-work": {
+    "title": "How FDE System Design Rounds Work",
+    "panels": [
+      {
+        "section": "Typical prompt shapes",
+        "caption": "Four common prompt shapes in FDE design rounds and the main concern of each.",
+        "notes": [
+          "FDE design prompt",
+          "Integration: Sync orders between CRM and ERP",
+          "AI feature: Assistant over policies; support agent",
+          "Data platform: Unify records from many sources",
+          "Migration: Replace a legacy workflow safely",
+          "FDE design prompt → Integration",
+          "FDE design prompt → AI feature",
+          "FDE design prompt → Data platform",
+          "FDE design prompt → Migration"
+        ]
+      },
+      {
+        "section": "The building blocks you will reuse",
+        "caption": "Reusable building blocks. Most designs are a selection and arrangement of these, adapted to the customer's systems.",
+        "notes": [
+          "1. Experience: Where users meet the system: embedded in existing tools, a review queue, alerts, or a simple web page.",
+          "2. Application and orchestration: Business logic, workflows, agents, approval steps, rules.",
+          "3. AI services: Model calls, retrieval, evaluation, guardrails, caching.",
+          "4. Integration layer: Connectors, queues, webhooks, batch jobs, transformations, contracts.",
+          "5. Data stores: Operational database, search index, object storage, audit log.",
+          "6. Identity and security: SSO, service identity, secrets, encryption, audit, network controls.",
+          "7. Operations: Monitoring, alerting, deployment, rollback, runbooks."
+        ]
+      }
+    ]
+  },
+  "client-approach": {
+    "title": "The CLIENT Approach for FDE System Design",
+    "panels": [
+      {
+        "section": "A repeatable structure",
+        "caption": "The CLIENT approach. Each step has a question to answer and an output to produce on the whiteboard.",
+        "notes": [
+          "1. C: Context: Who, why, success measure",
+          "2. L: Landscape: Existing systems and data",
+          "3. I: Integration design: Components, flows, interfaces",
+          "4. E: Edge cases: Failures, errors, data quality",
+          "5. N: Non-functionals: Security, scale, deployment",
+          "6. T: Trade-offs and rollout: Options, phases, measures"
+        ]
+      },
+      {
+        "section": "C and L: understand before you draw",
+        "caption": "After C and L, the board holds a goal and a map of existing systems, with constraints marked. Design begins only now.",
+        "notes": [
+          "Sales reps: 120 users, work in CRM",
+          "CRM: System of record: customers",
+          "ERP: System of record: orders. REST + rate limit",
+          "Contract store: PDFs; some scans",
+          "Constraints: No ERP changes; EU data only; SSO required",
+          "Sales reps → CRM (dashed connection)",
+          "CRM → ERP: manual re-entry today (dashed connection)"
+        ]
+      },
+      {
+        "section": "I and E: design the flow, then break it",
+        "caption": "A first design for the CRM to ERP sync. Every arrow names a mechanism, and the dead-letter queue is already on the board.",
+        "notes": [
+          "CRM: Order won",
+          "Connector: Verify signature",
+          "Queue: Durable, ordered by order ID",
+          "Transformer: Map fields, validate, idempotency key",
+          "ERP: Create order",
+          "Dead-letter queue: Failed after retries",
+          "Reconciler: Nightly diff of CRM vs ERP",
+          "CRM → Connector: webhook",
+          "Connector → Queue",
+          "Queue → Transformer",
+          "Transformer → ERP: POST",
+          "Transformer → Dead-letter queue: after retries (dashed connection)",
+          "Reconciler → CRM (dashed connection)",
+          "Reconciler → ERP (dashed connection)"
+        ]
+      },
+      {
+        "section": "N and T: constraints, trade-offs and rollout",
+        "caption": "A rollout plan for the sync. Each phase has an exit measure, and a rollback is available at every step.",
+        "notes": [
+          "Phase 1: shadow: Weeks 1 to 2: Read-only; compute what we would write; Compare with manual entries; No ERP writes",
+          "Phase 2: pilot: Weeks 3 to 4: Write for one region; Daily reconciliation; Manual fallback ready",
+          "Phase 3: scale: Weeks 5 to 8: All regions; Alerts and runbook; Handover to ops"
+        ]
+      }
+    ]
+  },
+  "running-design-round": {
+    "title": "Running an FDE Design Round",
+    "panels": [
+      {
+        "section": "Pacing the 45 minutes",
+        "caption": "A pacing plan with checkpoints. Glance at the clock at each checkpoint and adjust.",
+        "notes": [
+          "0 to 9 min: Discover: Restate the problem; Ask clarifying questions; State assumptions; Write goal and metric",
+          "9 to 24 min: Design: Draw systems and flow; Choose data movement; Add AI or app parts",
+          "24 to 36 min: Harden: Failure paths; Security and auth; Deployment",
+          "36 to 45 min: Close: Trade-offs; Phased rollout; Summary and risks"
+        ]
+      },
+      {
+        "section": "Thinking aloud, hints and interruptions",
+        "caption": "Using an interruption well. The candidate treats a challenge as information, not an attack.",
+        "notes": [
+          "You → Interviewer: I will poll the ERP every minute for changes.",
+          "Interviewer → You: The ERP rate-limits you to 10 requests a minute.",
+          "You → Interviewer: Good point. Polling every minute is too heavy for 10/min across many resources.",
+          "You → Interviewer: Alternatives: webhooks if supported, or poll with a change cursor and batch.",
+          "Interviewer → You: No webhooks available.",
+          "You → Interviewer: Then a change-cursor poll every 2 minutes, with a nightly full reconcile."
+        ]
+      },
+      {
+        "section": "When you are stuck",
+        "caption": "What to do when you are stuck: pause, restate, list what you know, simplify and ask.",
+        "notes": [
+          "1. Pause and say so: I want to think about this for a moment.",
+          "2. Restate the problem: Often reveals the missing piece.",
+          "3. List what you know: Write facts and constraints on the board.",
+          "4. Try the simplest version: Solve a smaller case or one component.",
+          "5. Ask a focused question: Is it fine to assume X?"
+        ]
+      }
+    ]
+  },
+  "data-movement-patterns": {
+    "title": "Choosing How Data Moves Between Systems",
+    "panels": [
+      {
+        "section": "How each looks in practice",
+        "caption": "Pull versus push. Polling puts the effort on the consumer and risks gaps; webhooks push events but need a reliable receiver.",
+        "notes": [
+          "Boundary: Polling (pull)",
+          "Boundary: Webhook (push)",
+          "Source A",
+          "Consumer B: Polls every minute",
+          "Source A",
+          "Receiver + queue: Verify, enqueue, ack fast",
+          "Consumer B: Processes at its own pace",
+          "Consumer B → Source A: GET changes since cursor",
+          "Source A → Receiver + queue: POST event",
+          "Receiver + queue → Consumer B"
+        ]
+      },
+      {
+        "section": "How each looks in practice",
+        "caption": "Change data capture and file batches. CDC reads the database log for every change; batch drops a file on a schedule.",
+        "notes": [
+          "Boundary: Change data capture",
+          "Boundary: File batch",
+          "Source DB: Write-ahead log",
+          "CDC reader: Row changes as events",
+          "Stream: Ordered per key",
+          "Legacy system: Nightly export",
+          "SFTP drop: orders_20260312.csv",
+          "Batch loader: Validate, load, archive",
+          "Source DB → CDC reader",
+          "CDC reader → Stream",
+          "Legacy system → SFTP drop: 02:00",
+          "SFTP drop → Batch loader"
+        ]
+      },
+      {
+        "section": "Choosing the pattern",
+        "caption": "A map of patterns by freshness need and operational complexity. Pick the simplest one that meets the freshness requirement.",
+        "notes": [
+          "Horizontal axis: Operational complexity; vertical axis: Freshness",
+          "Top left: Fast and simple: use if available",
+          "Top right: Fast, but heavy",
+          "Bottom left: Slow and simple",
+          "Bottom right: Avoid: slow and complex",
+          "Webhook: lower Operational complexity; higher Freshness",
+          "Event stream: higher Operational complexity; higher Freshness",
+          "CDC: higher Operational complexity; higher Freshness",
+          "Polling: lower Operational complexity; higher Freshness",
+          "File batch: lower Operational complexity; lower Freshness",
+          "Direct API call: lower Operational complexity; higher Freshness"
+        ]
+      },
+      {
+        "section": "Choosing the pattern",
+        "caption": "A decision path for choosing how data moves. Take the first option that meets the real freshness need.",
+        "notes": [
+          "1. Does B need the data only at the moment a user acts?: Call the API on demand; cache if needed.",
+          "2. Is a day-old copy acceptable?: Use a nightly batch. It is the simplest and most robust.",
+          "3. Does A support webhooks or events?: Use them, with a queue in front and a reconciliation job behind.",
+          "4. Only an API with no push?: Poll with a change cursor or updated-since filter.",
+          "5. No API but database access is allowed?: Consider CDC, with the owner's approval and care for schema changes."
+        ]
+      }
+    ]
+  },
+  "auth-bridging": {
+    "title": "Bridging Authentication Across Systems",
+    "panels": [
+      {
+        "section": "Single sign-on with OIDC",
+        "caption": "OIDC authorisation code flow with PKCE. The app never sees the user's password; it receives short-lived tokens from the identity provider.",
+        "notes": [
+          "User's browser → Your application: Open the app",
+          "Your application → User's browser: Redirect to IdP with state and PKCE challenge",
+          "User's browser → Identity provider: Authenticate (password, MFA)",
+          "Identity provider → User's browser: Redirect back with an authorisation code",
+          "User's browser → Your application: Deliver the code",
+          "Your application → Identity provider: Exchange code + PKCE verifier for tokens",
+          "Identity provider → Your application: ID token (who) and access token (what)",
+          "Note: App verifies the ID token signature, issuer, audience and expiry, then creates a session."
+        ]
+      },
+      {
+        "section": "Calling other systems: as the user or as the service?",
+        "caption": "Two models for downstream calls. Acting as the service is simple but flattens permissions; acting on behalf of the user preserves them.",
+        "notes": [
+          "Boundary: Service identity",
+          "Boundary: Delegated (on behalf of)",
+          "Users: Different permissions",
+          "Your service: One shared credential",
+          "Downstream: Sees one broad caller",
+          "Users: Different permissions",
+          "Your service: Exchanges user token",
+          "Downstream: Enforces each user's rights",
+          "Users → Your service",
+          "Your service → Downstream: service token",
+          "Users → Your service",
+          "Your service → Downstream: user-scoped token"
+        ]
+      },
+      {
+        "section": "Secrets, rotation and revocation",
+        "caption": "Zero-downtime key rotation. The new key is issued and stored first, the service picks it up, and only then is the old key revoked.",
+        "notes": [
+          "Operator → Downstream API: Issue new key (old still valid)",
+          "Operator → Secrets vault: Store new key as version 2",
+          "Service → Secrets vault: Fetch current key on refresh",
+          "Service → Downstream API: Calls succeed with version 2",
+          "Operator → Downstream API: Revoke the old key after verification"
+        ]
+      }
+    ]
+  },
+  "failures-rate-limits-silent-errors": {
+    "title": "Handling Failures, Rate Limits, and Silent Errors",
+    "panels": [
+      {
+        "section": "Rate limits and backpressure",
+        "caption": "Absorbing a burst against a slow, rate-limited system. The queue smooths traffic, the throttle sets the pace, and backpressure protects upstream callers.",
+        "notes": [
+          "Producers: Bursts of events",
+          "Durable queue: Absorbs the burst",
+          "Throttled worker: Max 10 calls / min",
+          "Rate-limited system: 429 above 10/min",
+          "Dead-letter queue: Permanent failures",
+          "Alert and review",
+          "Producers → Durable queue",
+          "Durable queue → Throttled worker",
+          "Throttled worker → Rate-limited system",
+          "Throttled worker → Dead-letter queue (dashed connection)",
+          "Dead-letter queue → Alert and review",
+          "Durable queue → Producers: backpressure (dashed connection)"
+        ]
+      },
+      {
+        "section": "Containing failures",
+        "caption": "The states of a circuit breaker. Closed passes calls; open fails fast; half-open tests recovery.",
+        "notes": [
+          "1. Closed: Calls pass through; failures are counted",
+          "2. Open: Too many failures: fail fast for a cool-down",
+          "3. Half-open: Allow a few trial calls",
+          "4. Closed again: Trials succeed: resume normal"
+        ]
+      },
+      {
+        "section": "Making silent errors visible",
+        "caption": "Layers of detection for silent failure, from cheap checks on every record to periodic audits across systems.",
+        "notes": [
+          "1. Reconciliation: Periodically compare source and target by counts, totals and IDs; repair differences.",
+          "2. Business invariants: Checks such as 'invoice total equals sum of lines' or 'every shipped order has a tracking number'.",
+          "3. Volume and freshness monitors: Alert when throughput drops, the newest record is too old, or a job processes zero rows.",
+          "4. Schema and value validation: Reject or quarantine records with missing fields, wrong types or out-of-range values.",
+          "5. End-to-end canary: A synthetic test record sent through the whole path regularly; alert if it does not arrive."
+        ]
+      }
+    ]
+  },
+  "data-contracts-schema-changes": {
+    "title": "Data Contracts, Validation, and Schema Changes",
+    "panels": [
+      {
+        "section": "What a data contract is",
+        "caption": "What a contract covers, from the shape of the data up to who is responsible for it.",
+        "notes": [
+          "1. Ownership and support: Who owns the data, who to contact, how changes are announced and with what notice.",
+          "2. Quality guarantees: Freshness, completeness, uniqueness, acceptable null rates, valid ranges.",
+          "3. Semantics: What each field means: units, time zones, currency, status codes, how nulls are used.",
+          "4. Schema: Field names, types, required or optional, formats, allowed values.",
+          "5. Delivery: Mechanism, schedule, volume, ordering, retention."
+        ]
+      },
+      {
+        "section": "Validate at the boundary",
+        "caption": "Validation at the boundary. Good records flow on; bad ones are quarantined with the reason, and counts are reported.",
+        "notes": [
+          "1. Receive: Raw record, stored untouched",
+          "2. Validate: Schema, types, ranges, business rules",
+          "3. Normalise: Units, time zones, casing, IDs",
+          "4. Accept: Load valid records",
+          "5. Quarantine: Invalid ones with reason and source",
+          "6. Report: Counts and rates to a dashboard"
+        ]
+      },
+      {
+        "section": "Migrating safely: expand and contract",
+        "caption": "Expand and contract. Add the new, move consumers across at their own pace, then remove the old.",
+        "notes": [
+          "1. Expand: Add new alongside old: Add total_cents next to total; Producer writes both; Version the contract (2.4)",
+          "2. Migrate: Consumers move: Each consumer switches to total_cents; Monitor who still reads total; Support both during this window",
+          "3. Contract: Remove old: No readers of total remain; Stop writing it; Remove in version 3.0"
+        ]
+      }
+    ]
+  },
+  "client-security-deployment": {
+    "title": "Designing for Client Security and Deployment Environments",
+    "panels": [
+      {
+        "section": "Where does it run?",
+        "caption": "Deployment models by who operates the system and where data lives. Moving right gives the customer more control and you more operational burden.",
+        "notes": [
+          "Vendor SaaS: Shared, vendor cloud",
+          "Single-tenant: Dedicated, vendor cloud",
+          "Customer VPC: Customer's cloud account",
+          "On-premises: Customer data centre",
+          "Air-gapped: No external network",
+          "Vendor SaaS → Single-tenant: more isolation",
+          "Single-tenant → Customer VPC: data stays",
+          "Customer VPC → On-premises: own hardware",
+          "On-premises → Air-gapped: no internet"
+        ]
+      },
+      {
+        "section": "Draw the trust boundaries",
+        "caption": "A deployment in the customer's cloud with a model call to a managed service. Every dashed boundary crossing is a review item.",
+        "notes": [
+          "Boundary: Customer VPC",
+          "Boundary: Provider boundary",
+          "Employees: Corporate network, SSO",
+          "Application: Containers, private subnet",
+          "Database: Encrypted at rest",
+          "Search index: Access lists per chunk",
+          "Secrets vault: Customer-managed keys",
+          "Model endpoint: Private link, no retention",
+          "Employees → Application: HTTPS + SSO",
+          "Application → Database",
+          "Application → Search index",
+          "Application → Secrets vault (dashed connection)",
+          "Application → Model endpoint: prompt + context"
+        ]
+      },
+      {
+        "section": "The standard controls",
+        "caption": "Security controls by layer. A good answer to a questionnaire walks through each layer with the concrete mechanism used.",
+        "notes": [
+          "1. Governance and audit: Audit logs of access and changes, retention, incident response plan, vulnerability management, certifications such as SOC 2 or ISO 27001.",
+          "2. Application: SSO, role-based access, input validation, rate limits, secure defaults, dependency scanning.",
+          "3. Data: Encryption at rest and in transit, key management, field-level masking, retention and deletion, residency.",
+          "4. Tenant isolation: Separate data stores or enforced tenant IDs on every query; isolation tests; no cross-tenant caches.",
+          "5. Network: Private subnets, security groups, private endpoints, egress allow-lists, WAF where public.",
+          "6. Platform and supply chain: Hardened images, signed artifacts, SBOM, patching, least-privilege roles for deployment."
+        ]
+      }
+    ]
+  },
+  "financial-decompose": {
+    "title": "Decomposing the Problem: The RAG System",
+    "panels": [
+      {
+        "section": "From wish to requirements",
+        "caption": "The request decomposed into three requirement groups. The compliance group is what turns a demo into something a financial firm can use.",
+        "notes": [
+          "Knowledge assistant: Answer analyst questions from documents",
+          "Functional: Ask, answer, cite, filter by company or date",
+          "Quality: Accurate figures, no invented claims, fast",
+          "Compliance: Permissions, audit trail, retention, no leakage",
+          "Knowledge assistant → Functional",
+          "Knowledge assistant → Quality",
+          "Knowledge assistant → Compliance"
+        ]
+      },
+      {
+        "section": "What makes this hard",
+        "caption": "Risks ranked by likelihood and impact. Start work with the high-impact items, which here are numbers and permissions.",
+        "notes": [
+          "Horizontal axis: Likelihood; vertical axis: Impact",
+          "Top left: Watch",
+          "Top right: Fix first",
+          "Bottom left: Accept",
+          "Bottom right: Mitigate cheaply",
+          "Wrong figure quoted: higher Likelihood; higher Impact",
+          "Permission leak: lower Likelihood; higher Impact",
+          "Wrong year or version: higher Likelihood; higher Impact",
+          "Poor table parsing: higher Likelihood; higher Impact",
+          "Slow answers: higher Likelihood; lower Impact",
+          "Licensing limits: lower Likelihood; higher Impact"
+        ]
+      },
+      {
+        "section": "Choose the first slice",
+        "caption": "Proposed pilot sequence. Each step adds one hard problem, and a measurement gates the next.",
+        "notes": [
+          "1. Weeks 1 to 2: 100 internal policy manuals; fact lookups; baseline and test set",
+          "2. Weeks 3 to 4: Add annual reports for 20 companies; table-aware parsing; numeric checks",
+          "3. Weeks 5 to 6: Add permissions and audit log; adversarial access tests",
+          "4. Weeks 7 to 8: Pilot with 15 analysts; measure time saved and accuracy"
+        ]
+      }
+    ]
+  },
+  "financial-design": {
+    "title": "System Design: The RAG System",
+    "panels": [
+      {
+        "section": "Architecture overview",
+        "caption": "Architecture of the financial knowledge assistant. Ingestion builds a permission-aware index; the query path retrieves, generates and verifies before answering.",
+        "notes": [
+          "Boundary: Offline: ingestion",
+          "Boundary: Online: query",
+          "Document sources: SharePoint, filings, notes",
+          "Ingestion: Parse, chunk, enrich, embed",
+          "Index: Vectors + keywords + ACLs",
+          "Analyst: SSO, web or chat",
+          "Query API: Auth, rewrite, retrieve",
+          "Generator + verifier: Cite, check numbers",
+          "Audit log: Query, sources, answer",
+          "Document sources → Ingestion",
+          "Ingestion → Index",
+          "Analyst → Query API",
+          "Query API → Index: filtered search",
+          "Query API → Generator + verifier",
+          "Generator + verifier → Analyst: answer + sources (dashed connection)",
+          "Generator + verifier → Audit log (dashed connection)"
+        ]
+      },
+      {
+        "section": "Ingestion: where quality is won",
+        "caption": "The ingestion pipeline. Each stage preserves structure and attaches the metadata that retrieval and compliance need later.",
+        "notes": [
+          "1. Fetch: Connector with source ACLs and version",
+          "2. Parse: Layout-aware; tables as structure; OCR for scans",
+          "3. Chunk: By section; tables kept whole with headers",
+          "4. Enrich: Company, period, doc type, page, ACL",
+          "5. Embed and index: Vector and keyword indexes",
+          "6. Validate: Sample checks and counts"
+        ]
+      },
+      {
+        "section": "The query path",
+        "caption": "One question end to end. Permission filters are applied inside the search, and numbers are verified before display.",
+        "notes": [
+          "Analyst → Query API: Question (with SSO identity)",
+          "Query API → Query API: Resolve groups; rewrite query; extract company and period",
+          "Query API → Index: Hybrid search + metadata filters + ACL filter",
+          "Index → Query API: Top 30 chunks",
+          "Query API → Query API: Re-rank to top 6; check version freshness",
+          "Query API → Model: Prompt: answer only from chunks; cite; abstain if absent",
+          "Model → Query API: Draft answer with citations",
+          "Query API → Query API: Verify cited numbers appear in cited chunks",
+          "Query API → Analyst: Answer, sources, confidence; log to audit"
+        ]
+      },
+      {
+        "section": "Evaluation, monitoring and rollout",
+        "caption": "Layers of evaluation. Retrieval is measured separately from generation, because they fail for different reasons.",
+        "notes": [
+          "1. Online monitoring: Thumbs up or down, abstention rate, latency, cost, share of answers failing numeric verification.",
+          "2. Answer quality set: 150 labelled questions across lookup, comparison and synthesis; scored for correctness and citation.",
+          "3. Retrieval set: For each question, the passages that must be found; measure recall at 5 and 30.",
+          "4. Permission test suite: Scripted queries across users and barriers; zero tolerance for leaks, run on every deploy.",
+          "5. Ingestion checks: Table fidelity samples, OCR confidence, counts per source, deletion propagation tests."
+        ]
+      }
+    ]
+  },
+  "financial-interview": {
+    "title": "FDE Interview Questions: The RAG System",
+    "panels": [
+      {
+        "section": "How to use this lesson",
+        "caption": "A reliable shape for answering any design follow-up. It keeps answers short while still showing judgment.",
+        "notes": [
+          "1. Restate: Show you understood",
+          "2. Position: Give your answer first",
+          "3. Reason: Why, with a trade-off",
+          "4. Risk: What could go wrong",
+          "5. Measure: How you would know"
+        ]
+      }
+    ]
+  },
+  "financial-project": {
+    "title": "Build a RAG Using LangChain with Google Gemini",
+    "panels": [
+      {
+        "section": "Project goal and plan",
+        "caption": "Project plan. Each step produces something you can run and test before moving on.",
+        "notes": [
+          "1. Set up: Environment, API key, folder of PDFs",
+          "2. Ingest: Load, chunk, tag, embed, store",
+          "3. Retrieve: Filtered similarity search",
+          "4. Answer: Structured output with citations",
+          "5. Verify: Check figures against sources",
+          "6. Evaluate: Run a labelled question set"
+        ]
+      },
+      {
+        "section": "Step 1: set up",
+        "caption": "Project files and their roles, from the question loop to the evaluation script.",
+        "notes": [
+          "1. app.py: Question loop: retrieve, answer, verify, print.",
+          "2. ingest.py: Builds the vector store from the docs folder.",
+          "3. eval.py: Runs a labelled question set and prints a score.",
+          "4. chroma/ and docs/: Local vector store and your source PDFs."
+        ]
+      }
+    ]
+  },
+  "shipment-decompose": {
+    "title": "Decomposing the Problem: Multi-Agent System",
+    "panels": [
+      {
+        "section": "Map the human process first",
+        "caption": "The current planner workflow for one delayed shipment. Times are from shadowing; the right-hand column notes the kind of work each step is.",
+        "notes": [
+          "Detect: 5 min: Alert from carrier or customer; Check shipment record; Deterministic lookup",
+          "Assess: 10 min: How late? Which customers?; Contract deadlines and penalties; Mostly rules and data",
+          "Find options: 20 min: Query carriers, check schedules; Compare routes and modes; Tool calls with judgment",
+          "Evaluate: 10 min: Cost, time, risk, customer impact; Arithmetic plus trade-offs",
+          "Decide and act: 10 min: Approval by senior planner; Rebook, notify customer; Irreversible actions"
+        ]
+      },
+      {
+        "section": "Do we need several agents?",
+        "caption": "Candidate decomposition. Most of the system is deterministic code; two bounded agents handle the open-ended parts, and people approve the actions.",
+        "notes": [
+          "Disruption event: Carrier alert, customer call",
+          "Impact rules: Code: deadlines, penalties",
+          "Route-search agent: Tools: carriers, schedules",
+          "Cost engine: Code: rates and time",
+          "Ranking agent: Weigh options, explain",
+          "Planner approval: Accept, edit or reject",
+          "Execute + notify: Booking APIs, draft email",
+          "Disruption event → Impact rules",
+          "Impact rules → Route-search agent",
+          "Route-search agent → Cost engine",
+          "Cost engine → Ranking agent",
+          "Ranking agent → Planner approval",
+          "Planner approval → Execute + notify: approved"
+        ]
+      },
+      {
+        "section": "Data, tools, permissions and success",
+        "caption": "Rollout stages for a system that could rebook cargo: advise, recommend, then act on low-risk lanes.",
+        "notes": [
+          "1. Pilot 1: advise: Drafts options; planners compare with their own",
+          "2. Pilot 2: recommend: Ranked plan with reasons; one-click approval",
+          "3. Pilot 3: act: Executes approved plans; low-risk lanes first"
+        ]
+      }
+    ]
+  },
+  "shipment-design": {
+    "title": "System Design: Multi-Agent System",
+    "panels": [
+      {
+        "section": "Architecture",
+        "caption": "The orchestrated design. A durable workflow coordinates deterministic steps, two agents and a human approval, with state persisted at every step.",
+        "notes": [
+          "Workflow engine: Durable state, retries, timeouts",
+          "State store + audit: Every step and decision",
+          "Impact rules: Code",
+          "Search agent: Read-only carrier tools",
+          "Cost engine: Code: rates, time, penalties",
+          "Ranking agent: Contracts + cost, no write",
+          "Planner approval: Review UI",
+          "Executor: Booking APIs, idempotent",
+          "Workflow engine ↔ State store + audit",
+          "Workflow engine → Impact rules (dashed connection)",
+          "Workflow engine → Search agent (dashed connection)",
+          "Workflow engine → Cost engine (dashed connection)",
+          "Workflow engine → Ranking agent (dashed connection)",
+          "Workflow engine → Planner approval (dashed connection)",
+          "Planner approval → Executor: approved plan"
+        ]
+      },
+      {
+        "section": "One disruption end to end",
+        "caption": "Sequence for one delayed shipment. Note where code, agents and a person each act, and that the executor only ever receives an approved plan.",
+        "notes": [
+          "Workflow → Workflow: Alert received; load shipment; compute impact",
+          "Workflow → Search agent: Find routes (constraints, deadline)",
+          "Search agent → Workflow: Structured options with evidence",
+          "Workflow → Cost engine: Price each option",
+          "Cost engine → Workflow: Cost, time, penalty exposure",
+          "Workflow → Ranking agent: Options + contracts + costs",
+          "Ranking agent → Workflow: Ranked list with reasons",
+          "Workflow → Planner: Request approval",
+          "Planner → Workflow: Approve option 2 (edited note)",
+          "Note: Executor books idempotently, then drafts the customer notice for human review."
+        ]
+      },
+      {
+        "section": "Safety around write actions",
+        "caption": "Safety layers around write actions, from approval through to audit.",
+        "notes": [
+          "1. Approval: No write without an approved plan tied to a specific option ID, planner and timestamp.",
+          "2. Limits: Cost ceiling and cargo-value ceiling per plan; rebooking only on lanes enabled for automation.",
+          "3. Idempotent execution: Booking requests carry an idempotency key from the plan ID, so retries cannot double-book.",
+          "4. Re-validation before execution: Recheck capacity and price just before booking; if changed beyond a tolerance, return to the planner.",
+          "5. Compensation: A defined cancel-and-restore path if a later step fails after an earlier booking succeeded.",
+          "6. Audit: Immutable record of inputs, options, reasoning, approval and actions."
+        ]
+      },
+      {
+        "section": "Failure, staleness and conflict",
+        "caption": "State of one disruption workflow. Persisting state at every step makes the process resumable and auditable.",
+        "notes": [
+          "1. Detected",
+          "2. Assessed",
+          "3. Options found",
+          "4. Ranked",
+          "5. Awaiting approval",
+          "6. Executing",
+          "7. Closed"
+        ]
+      }
+    ]
+  },
+  "shipment-interview": {
+    "title": "FDE Interview Questions: Multi-Agent System",
+    "panels": [
+      {
+        "section": "Strong versus weak answers",
+        "caption": "Answers plotted by how much they reveal about practical judgment and how specific they are. Aim for the top right.",
+        "notes": [
+          "Horizontal axis: Specificity; vertical axis: Evidence of judgment",
+          "Top left: Wise but vague",
+          "Top right: Strong answer",
+          "Bottom left: Weak answer",
+          "Bottom right: Specific but naive",
+          "Trade-offs with numbers: higher Specificity; higher Evidence of judgment",
+          "'It depends' only: lower Specificity; higher Evidence of judgment",
+          "Name-dropping frameworks: higher Specificity; lower Evidence of judgment",
+          "'Use the best model': lower Specificity; lower Evidence of judgment",
+          "Design, no failure cases: higher Specificity; lower Evidence of judgment"
+        ]
+      }
+    ]
+  },
+  "shipment-project": {
+    "title": "Develop a Multi-Agent Research Assistant Using AutoGen",
+    "panels": [
+      {
+        "section": "Project goal",
+        "caption": "Roles in the research assistant. The planner and researcher gather; the writer drafts; the critic verifies against sources. The orchestrator is ordinary code.",
+        "notes": [
+          "Question",
+          "Orchestrator: Python: order, limits, trace",
+          "Planner: Splits into sub-questions",
+          "Researcher: Tool: search_notes",
+          "Writer: Drafts from findings only",
+          "Critic: Checks claims vs sources",
+          "Notes folder: Local .txt files",
+          "Question → Orchestrator",
+          "Orchestrator → Planner",
+          "Planner → Researcher: sub-questions",
+          "Researcher → Notes folder (dashed connection)",
+          "Researcher → Writer: findings + sources",
+          "Writer → Critic",
+          "Critic → Writer: revise (dashed connection)"
+        ]
+      },
+      {
+        "section": "Step 4: evaluate against a single agent",
+        "caption": "The comparison you will run. Same questions, same notes, three systems, scored the same way.",
+        "notes": [
+          "1. Write 15 questions: Include 3 unanswerable and 3 with conflicting notes",
+          "2. Run single-call baseline: One model call over top passages",
+          "3. Run plain multi-agent: Planner, researcher, writer, critic",
+          "4. Run AutoGen team: Optional comparison",
+          "5. Score: Correct, cited, abstained, conflicts reported, cost, time"
+        ]
+      }
+    ]
+  },
+  "billing-decompose": {
+    "title": "Decomposing the Problem: Fine-Tuning the Model",
+    "panels": [
+      {
+        "section": "Understand the task",
+        "caption": "Where errors come from in a coding pipeline. A model sits in the middle; the surrounding rules and review decide whether its errors reach a claim.",
+        "notes": [
+          "1. Clinical note: Unstructured text, abbreviations, templates",
+          "2. Code suggestion: Candidate codes with confidence",
+          "3. Rule checks: Code validity, sequencing, payer rules",
+          "4. Coder review: Accept, edit, reject",
+          "5. Claim: Submitted, later audited or denied"
+        ]
+      },
+      {
+        "section": "Is fine-tuning the right tool?",
+        "caption": "A decision aid for the fine-tuning question. Tuning pays off when behaviour, not knowledge, is the gap and you have good labelled data.",
+        "notes": [
+          "What is the gap?",
+          "Missing knowledge: Facts, current code set",
+          "Behaviour / pattern: Style, choices, format",
+          "Use retrieval: Update by re-indexing",
+          "Good labelled data and volume?",
+          "Fine-tune: After a baseline",
+          "Better prompts + rules: Cheaper first step",
+          "What is the gap? → Missing knowledge",
+          "What is the gap? → Behaviour / pattern",
+          "Missing knowledge → Use retrieval",
+          "Behaviour / pattern → Good labelled data and volume?",
+          "Good labelled data and volume? → Fine-tune: yes",
+          "Good labelled data and volume? → Better prompts + rules: no"
+        ]
+      },
+      {
+        "section": "Data, privacy and metrics",
+        "caption": "Data questions to settle before any training starts, from privacy down to leakage-free splits.",
+        "notes": [
+          "1. Privacy: Notes contain protected health information. Training must happen in an approved environment; de-identify where possible; track who can access data and models.",
+          "2. Label quality: Were the historical codes correct? Audited and denied claims show where coders erred. Training on wrong labels teaches wrong habits.",
+          "3. Drift: Code sets, guidelines and note templates change. Old data may use retired codes.",
+          "4. Coverage: Most codes are rare. Count examples per code; very rare codes cannot be learned.",
+          "5. Splits: Split by patient or by time, never randomly by note, to avoid leakage and measure real-world performance."
+        ]
+      },
+      {
+        "section": "Human in the loop and rollout",
+        "caption": "A staged rollout for coding suggestions: shadow, then assist with confirmation, then selective automation.",
+        "notes": [
+          "1. Shadow: Model scores historical charts and live charts invisibly; compare with coders",
+          "2. Assist: Coders see suggestions with evidence; every code is confirmed by a person",
+          "3. Selective automation: Pre-fill the highest-confidence, lowest-risk codes with sampling audits"
+        ]
+      }
+    ]
+  },
+  "billing-design": {
+    "title": "System Design: Fine-Tuning the Model",
+    "panels": [
+      {
+        "section": "System architecture",
+        "caption": "Inference architecture. Rules and code sets are updated without retraining; only the ranker is learned.",
+        "notes": [
+          "Boundary: Inside the hospital's secure environment",
+          "Clinical note: From the EHR",
+          "Preprocess: Section split, abbreviations",
+          "Candidate generator: Code-set index + history",
+          "Fine-tuned ranker: Scores each candidate",
+          "Rule engine: Validity, sequencing, payer",
+          "Coder workbench: Suggestions + evidence spans",
+          "Audit log: Suggestion, decision, version",
+          "Code set + rules: Versioned yearly",
+          "Clinical note → Preprocess",
+          "Preprocess → Candidate generator",
+          "Candidate generator → Fine-tuned ranker",
+          "Fine-tuned ranker → Rule engine",
+          "Rule engine → Coder workbench",
+          "Coder workbench → Audit log",
+          "Code set + rules → Candidate generator (dashed connection)",
+          "Code set + rules → Rule engine (dashed connection)"
+        ]
+      },
+      {
+        "section": "The training pipeline",
+        "caption": "From raw history to a deployed model. Each stage has a gate; a model that fails a gate does not advance.",
+        "notes": [
+          "1. Extract: Notes and final coded claims, with denial and audit outcomes",
+          "2. Clean labels: Drop retired codes; down-weight or exclude audited errors",
+          "3. De-identify and secure: Remove direct identifiers; restrict access",
+          "4. Split: By patient and time: train, validation, test",
+          "5. Tune: Fine-tune on training; tune threshold on validation",
+          "6. Evaluate: Held-out test, by code group and by clinic",
+          "7. Review and release: Compliance and coder sign-off; version"
+        ]
+      },
+      {
+        "section": "Evaluation that matches the business",
+        "caption": "Evaluation layers for the coding model, from baselines up to business outcomes after launch.",
+        "notes": [
+          "1. Online outcomes: Coder time per chart, acceptance rate, denial rate and audit findings after launch.",
+          "2. Coder-in-the-loop study: Blind comparison: coders with and without suggestions on the same charts; accuracy and time.",
+          "3. Slice analysis: Metrics by specialty, clinic, code group, note length and demographic group to find hidden weak spots and bias.",
+          "4. Held-out test: Precision, recall and F1 (micro and macro) by code group; calibration curve; high-confidence error rate.",
+          "5. Baselines: Prompted model, classical classifier and last year's performance, on identical data."
+        ]
+      },
+      {
+        "section": "Deployment, drift and yearly updates",
+        "caption": "Annual code-set update plan. The model is only retrained if evaluation shows it is needed; most of the update is data and rules.",
+        "notes": [
+          "Release notes: Code set published: Diff old and new codes; Identify retired and new codes",
+          "Update data: Weeks 1 to 2: Load new code set and rules; Rebuild candidate index; Map retired codes",
+          "Evaluate: Weeks 2 to 3: Run held-out and recent charts; Check new-code behaviour",
+          "Retrain if needed: Weeks 3 to 5: Adapter update with new labels; Compare with current model",
+          "Release: Before effective date: Shadow, then assist; Rollback ready"
+        ]
+      }
+    ]
+  },
+  "billing-interview": {
+    "title": "FDE Interview Questions: Fine-Tuning the Model",
+    "panels": [
+      {
+        "section": "The answer map",
+        "caption": "Map of topics an interviewer may probe in a fine-tuning case, and the two or three ideas to reach for in each.",
+        "notes": [
+          "Fine-tuning case",
+          "Whether to tune: Behaviour vs knowledge; baselines first",
+          "Data: Label audit, splits, leakage, long tail",
+          "Evaluation: Per-code metrics, slices, coder study",
+          "Privacy and risk: Secure env, memorisation, audit",
+          "Operations: Versions, drift, yearly update, rollback",
+          "People: Coders in loop; thresholds agreed",
+          "Fine-tuning case → Whether to tune",
+          "Fine-tuning case → Data",
+          "Fine-tuning case → Evaluation",
+          "Fine-tuning case → Privacy and risk",
+          "Fine-tuning case → Operations",
+          "Fine-tuning case → People"
+        ]
+      }
+    ]
+  },
+  "health-hub-decompose": {
+    "title": "Decomposing the Problem: The Health Data Hub",
+    "panels": [
+      {
+        "section": "Three purposes, three rulebooks",
+        "caption": "One platform, three zones with different identification levels. Data flows outward only through controlled, audited transformations.",
+        "notes": [
+          "Source systems: EHRs, lab, pharmacy",
+          "Raw zone: Immutable copies, identified",
+          "Clinical view: Matched, curated, identified",
+          "Analytics zone: Pseudonymised",
+          "Research zone: De-identified, approved projects",
+          "Clinicians",
+          "Managers",
+          "Researchers",
+          "Source systems → Raw zone",
+          "Raw zone → Clinical view",
+          "Raw zone → Analytics zone",
+          "Raw zone → Research zone",
+          "Clinical view → Clinicians",
+          "Analytics zone → Managers",
+          "Research zone → Researchers"
+        ]
+      },
+      {
+        "section": "The hard problems",
+        "caption": "The hard problems in a health data hub, from lineage and consent down to legacy interfaces.",
+        "notes": [
+          "1. Lineage and audit: For any value, show which source it came from, when, and who accessed it. Regulators ask.",
+          "2. Consent and purpose: Patients may opt out of research or sharing. Consent changes over time and must be enforced per record.",
+          "3. Data quality: Missing fields, wrong units, free-text diagnoses, duplicated and conflicting entries.",
+          "4. Semantics and standards: Each system names things differently. Map to common standards (for example FHIR resources and standard terminologies) and keep source values.",
+          "5. Patient identity: Is 'J. Smith, born 1980' in system A the same person as 'John Smith, born 1980' in system B? Wrong merges and missed merges both harm.",
+          "6. Integration with legacy: Old interfaces (HL7 v2 messages, file exports, vendor APIs), different schedules and uptimes."
+        ]
+      },
+      {
+        "section": "Prioritise risks and choose the first slice",
+        "caption": "Risk ranking. Wrong merges and privacy breaches are rare but severe; data quality problems are certain and need continuous handling.",
+        "notes": [
+          "Horizontal axis: Likelihood; vertical axis: Severity",
+          "Top left: Guard rigorously",
+          "Top right: Address first",
+          "Bottom left: Accept and monitor",
+          "Bottom right: Reduce systematically",
+          "Wrong patient merge: lower Likelihood; higher Severity",
+          "Unauthorised access: lower Likelihood; higher Severity",
+          "Consent not honoured: lower Likelihood; higher Severity",
+          "Poor data quality: higher Likelihood; higher Severity",
+          "Source outages: higher Likelihood; lower Severity",
+          "Terminology mismatch: higher Likelihood; higher Severity"
+        ]
+      }
+    ]
+  },
+  "health-hub-design": {
+    "title": "System Design: The Health Data Hub",
+    "panels": [
+      {
+        "section": "Ingestion and mapping",
+        "caption": "Ingestion pipeline. Raw data is stored untouched, then mapped to a common model, with rejects tracked rather than discarded.",
+        "notes": [
+          "1. Receive: HL7 v2, FHIR, files; authenticated; encrypted",
+          "2. Store raw: Immutable copy with source, time and checksum",
+          "3. Parse and validate: Syntax, required fields, units",
+          "4. Map: To a common model and standard terminologies; keep source codes",
+          "5. Match identity: Link to a master patient identifier",
+          "6. Publish: To the clinical view and downstream zones"
+        ]
+      },
+      {
+        "section": "Patient identity matching",
+        "caption": "Match decision bands. Only the most certain matches merge automatically; the middle band goes to trained staff; the rest stay separate.",
+        "notes": [
+          "New record: Name, DOB, address, IDs",
+          "Blocking: Find plausible candidates cheaply",
+          "Pairwise scoring: Weighted field agreement",
+          "High score: Auto-link",
+          "Middle score: Steward review queue",
+          "Low score: New identity",
+          "New record → Blocking",
+          "Blocking → Pairwise scoring",
+          "Pairwise scoring → High score",
+          "Pairwise scoring → Middle score",
+          "Pairwise scoring → Low score"
+        ]
+      },
+      {
+        "section": "Consent, access and audit",
+        "caption": "A clinician's request for a patient's record. Authorisation, consent and purpose checks happen before any data returns, and every outcome is logged.",
+        "notes": [
+          "Clinician → Hub API: Request record for patient P (SSO identity)",
+          "Hub API → Policy engine: Check role, care relationship, consent flags, purpose",
+          "Policy engine → Hub API: Allow with filters, or deny with reason",
+          "Hub API → Audit log: Write who, what, why, outcome",
+          "Hub API → Clinician: Filtered record with source and freshness",
+          "Note: If denied and an emergency applies, 'break glass' grants time-limited access and triggers review."
+        ]
+      }
+    ]
+  },
+  "health-hub-interview": {
+    "title": "FDE Interview Questions: The Health Data Hub",
+    "panels": [
+      {
+        "section": "Themes interviewers listen for",
+        "caption": "What strong answers in regulated-data cases have in common. Each layer reflects a habit of mind, not a technology.",
+        "notes": [
+          "1. Humility about regulation: You know the rules vary, defer to legal and privacy owners, and design for configurability.",
+          "2. Safety before completeness: You will ship less data if it is safer, and explain why.",
+          "3. Recoverability: Raw preservation, lineage, reversibility and audit let mistakes be found and fixed.",
+          "4. Plain communication: You can explain matching, consent and risk to executives and clinicians without jargon.",
+          "5. Incremental delivery: Narrow slices, quality gates and repeatable onboarding rather than a big bang."
+        ]
+      }
+    ]
+  },
+  "otc-decompose": {
+    "title": "Decomposing the Problem: Order-to-Cash Sync",
+    "panels": [
+      {
+        "section": "The order-to-cash lifecycle",
+        "caption": "The lifecycle across four systems. Each stage has an owner system; most problems occur at the hand-offs between them.",
+        "notes": [
+          "Quote and order: CRM: Opportunity won; Quote accepted; Order created",
+          "Fulfil: ERP: Order accepted; Stock reserved; Shipped, delivery note",
+          "Invoice: ERP / billing: Invoice raised; Tax and currency applied; Sent to customer",
+          "Collect: Payment provider: Payment received; Failed or partial payments; Refunds",
+          "Reconcile: ERP / finance: Match payments to invoices; Post to ledger; Close the period"
+        ]
+      },
+      {
+        "section": "Where it breaks",
+        "caption": "Typical failure points in the synchronisation chain. Each arrow is a place where events can be lost, duplicated, reordered or misread.",
+        "notes": [
+          "CRM: Orders and accounts",
+          "ERP: Fulfilment, invoices, ledger",
+          "Billing platform: Subscriptions, usage",
+          "Payment provider: Cards, bank transfers",
+          "CRM → ERP: duplicates, edits after sync",
+          "ERP → Billing platform: out-of-order updates",
+          "Billing platform → Payment provider: partial failures",
+          "Payment provider → ERP: payment matching (dashed connection)"
+        ]
+      },
+      {
+        "section": "Requirements and first slice",
+        "caption": "Delivery in slices. Each slice adds one flow once the previous one is trusted.",
+        "notes": [
+          "1. Slice 1: Orders CRM to ERP, one region; reconcile daily",
+          "2. Slice 2: Order changes and cancellations; state machine",
+          "3. Slice 3: Invoices and statuses back to CRM",
+          "4. Slice 4: Billing platform and payments matching"
+        ]
+      }
+    ]
+  },
+  "otc-design": {
+    "title": "System Design: Order-to-Cash Sync",
+    "panels": [
+      {
+        "section": "Architecture",
+        "caption": "The order backbone. Each system talks only to the integration layer, which owns queues, mapping, idempotency and the audit trail.",
+        "notes": [
+          "CRM: Webhooks + API",
+          "Receiver: Verify, store, ack fast",
+          "Durable queue: Partitioned by order ID",
+          "Order service: Map, state machine, idempotency",
+          "ERP: System of record",
+          "Error queue: Reason, owner, retry",
+          "Reconciler: Nightly diff and repair",
+          "Audit log: Every event and decision",
+          "CRM → Receiver: webhook",
+          "Receiver → Durable queue",
+          "Durable queue → Order service",
+          "Order service → ERP: idempotent write",
+          "Order service → Error queue (dashed connection)",
+          "Order service → Audit log (dashed connection)",
+          "Reconciler → CRM (dashed connection)",
+          "Reconciler → ERP (dashed connection)"
+        ]
+      },
+      {
+        "section": "Order lifecycle as a state machine",
+        "caption": "Order states in the integration layer. Cancelling after shipment is not allowed; it becomes a return process.",
+        "notes": [
+          "1. Received",
+          "2. Validated",
+          "3. Created in ERP",
+          "4. Fulfilled",
+          "5. Invoiced",
+          "6. Paid"
+        ]
+      },
+      {
+        "section": "Multi-step operations without distributed transactions",
+        "caption": "A saga for order creation with compensation. If billing fails after the ERP succeeds, the ERP order is cancelled and the failure is recorded.",
+        "notes": [
+          "Order service → ERP: Step 1: create order (idempotency key)",
+          "ERP → Order service: ERP order ID",
+          "Order service → Billing: Step 2: create subscription",
+          "Billing → Order service: Failure: account blocked",
+          "Order service → ERP: Compensate: cancel ERP order",
+          "Order service → Error queue: Record failure with reason for finance"
+        ]
+      },
+      {
+        "section": "Reconciliation and the finance-friendly error queue",
+        "caption": "Operational layers around the sync: error queue, reconciliation, alerts, audit and runbooks.",
+        "notes": [
+          "1. Finance error queue: Each failed event shows order, reason in plain words, suggested fix, owner, age; buttons to retry, edit and retry, or dismiss with a note.",
+          "2. Reconciliation: Nightly comparison of CRM and ERP by order ID, total, line count and status; differences listed and, for safe categories, auto-repaired.",
+          "3. Alerts: Queue depth, age of oldest event, error rate, and a canary order that should flow through daily.",
+          "4. Audit trail: For any invoice, the chain from CRM order to ERP order, with timestamps and the user or process involved.",
+          "5. Runbooks: Procedures for ERP downtime, a bad deploy and replay of a day of events."
+        ]
+      }
+    ]
+  },
+  "otc-interview": {
+    "title": "FDE Interview Questions: Order-to-Cash Sync",
+    "panels": [
+      {
+        "section": "Questions 3 to 6",
+        "caption": "Investigation path for missing orders. Work from the source forward, narrowing to the first point where events stop appearing.",
+        "notes": [
+          "1. Confirm scope: Which orders, what in common (time, product, region)?",
+          "2. Check source: Did the CRM emit events for them?",
+          "3. Check receiver and queue: Stored? Dead-lettered? Consumer lag?",
+          "4. Check order service: Rejected by validation or state rules?",
+          "5. Check ERP calls: Failures, timeouts, partial writes?",
+          "6. Fix and replay: Idempotent replay; confirm via reconciliation"
+        ]
+      }
+    ]
+  },
+  "cs-agent-decompose": {
+    "title": "Decomposing the Problem: Customer Service AI Agent",
+    "panels": [
+      {
+        "section": "Segment the traffic",
+        "caption": "Intents plotted by volume and risk. Automate the high-volume, low-risk corner first; keep high-risk intents human-led regardless of volume.",
+        "notes": [
+          "Horizontal axis: Risk; vertical axis: Volume",
+          "Top left: Automate first",
+          "Top right: Automate with limits",
+          "Bottom left: Leave for later",
+          "Bottom right: Human-led",
+          "Order status: lower Risk; higher Volume",
+          "Returns: lower Risk; higher Volume",
+          "Address change: higher Risk; higher Volume",
+          "Product questions: lower Risk; higher Volume",
+          "Refunds: higher Risk; higher Volume",
+          "Complaints: higher Risk; lower Volume",
+          "Fraud and safety: higher Risk; lower Volume"
+        ]
+      },
+      {
+        "section": "What the agent may read, say and do",
+        "caption": "The handling decision for each message. The agent always has a route to a human, and the human receives a summary so the customer never repeats themselves.",
+        "notes": [
+          "1. Identify and verify: Who is this; what do they want",
+          "2. Classify: Intent, sentiment, risk",
+          "3. Route: Automate, assist or escalate",
+          "4. Act within limits: Tools and policy checks",
+          "5. Confirm and close: Summarise; ask if resolved",
+          "6. Learn: Log, review, feedback"
+        ]
+      },
+      {
+        "section": "Risks to design against from day one",
+        "caption": "The main risks around a customer-facing agent. Each one is designed against from the first day.",
+        "notes": [
+          "Customer-facing agent",
+          "Wrong or invented answers: Policy hallucination",
+          "Data leakage: Other customers' details",
+          "Unauthorised actions: Refund abuse, account takeover",
+          "Prompt injection: Customer or email text",
+          "Brand harm: Tone, claims, offence",
+          "Social engineering: Pretext to gain access",
+          "Wrong or invented answers → Customer-facing agent (dashed connection)",
+          "Data leakage → Customer-facing agent (dashed connection)",
+          "Unauthorised actions → Customer-facing agent (dashed connection)",
+          "Prompt injection → Customer-facing agent (dashed connection)",
+          "Brand harm → Customer-facing agent (dashed connection)",
+          "Social engineering → Customer-facing agent (dashed connection)"
+        ]
+      }
+    ]
+  },
+  "cs-agent-design": {
+    "title": "System Design: Customer Service AI Agent",
+    "panels": [
+      {
+        "section": "Architecture",
+        "caption": "The customer service agent. The model sits inside a harness that checks identity, limits tools and logs everything; humans sit behind an explicit escalation path.",
+        "notes": [
+          "Customer: Chat or email",
+          "Gateway: Auth, rate limit, input checks",
+          "Agent runtime: Model loop, session state",
+          "Policy retrieval: Returns, shipping, warranty",
+          "Tool layer: Scoped to this customer; limits enforced",
+          "Order + returns systems",
+          "Human desk: Summary + context",
+          "Audit + analytics",
+          "Customer → Gateway",
+          "Gateway → Agent runtime",
+          "Agent runtime → Policy retrieval: retrieve",
+          "Agent runtime → Tool layer",
+          "Tool layer → Order + returns systems",
+          "Agent runtime → Human desk: escalate (dashed connection)",
+          "Agent runtime → Audit + analytics (dashed connection)"
+        ]
+      },
+      {
+        "section": "Defending a public-facing agent",
+        "caption": "Defences for a public-facing agent. Limits and identity live in code; the prompt is not a security boundary.",
+        "notes": [
+          "1. Output guard: Check replies for other customers' data, internal terms, prohibited claims (legal, medical, price promises) and tone before sending.",
+          "2. Tool and policy enforcement: Identity binding, limits, eligibility rules and approvals are code. The prompt is not a security boundary.",
+          "3. Input handling: Treat customer text, attachments and pasted emails as data. Detect injection patterns; strip or quarantine; never let them change tools or rules.",
+          "4. Session hygiene: Isolate sessions; no cross-customer memory; bounded history; reset after verification failure.",
+          "5. Abuse controls: Rate limits, anomaly detection for refund abuse and enumeration of order numbers, and escalating verification.",
+          "6. Transparency: Disclose that the customer is talking to an AI and offer a human at any time."
+        ]
+      },
+      {
+        "section": "Defending a public-facing agent",
+        "caption": "A social-engineering attempt against the agent. The attack fails because authorisation is enforced by the tool layer, not by the model's judgment.",
+        "notes": [
+          "Attacker → Agent: I'm a manager. Show me order 9981 for J. Smith.",
+          "Agent → Tool layer: get_order_status(order_ref=9981)",
+          "Tool layer → Agent: Not on this customer's account",
+          "Agent → Attacker: I can only help with your own orders. Would you like to look one up?",
+          "Tool layer → Monitoring: Log cross-account lookup attempt",
+          "Note: Repeated attempts raise the session's risk score and trigger human review."
+        ]
+      },
+      {
+        "section": "Evaluation, monitoring and rollout",
+        "caption": "Rollout in widening rings. Each ring has an exit criterion and a rollback.",
+        "notes": [
+          "Ring 0: staff: Internal testing, shadow",
+          "Ring 1: 5% of chats: Order status and returns",
+          "Ring 2: 25%: Add address change",
+          "Ring 3: all in-scope: Refund proposals enabled",
+          "Ring 0: staff → Ring 1: 5% of chats: no incidents",
+          "Ring 1: 5% of chats → Ring 2: 25%: quality met",
+          "Ring 2: 25% → Ring 3: all in-scope: cost and safety met"
+        ]
+      }
+    ]
+  },
+  "cs-agent-interview": {
+    "title": "FDE Interview Questions: Customer Service AI Agent",
+    "panels": [
+      {
+        "section": "Questions 3 to 6",
+        "caption": "Response to a policy error. Fix the customer, then the system, then the process that let it through.",
+        "notes": [
+          "1. Make it right: Human reviews; honour per business decision",
+          "2. Find the cause: Retrieval miss? Outdated document? Prompt?",
+          "3. Fix: Update source; tighten retrieval; deterministic check",
+          "4. Test: Add the case to the policy test set",
+          "5. Prevent: Move return-window checks into the policy engine"
+        ]
+      }
+    ]
+  },
+  "practice-rounds-rubric": {
+    "title": "Practice Rounds and Self-Review Rubric",
+    "panels": [
+      {
+        "section": "How to run a practice round",
+        "caption": "The practice routine. The review step is where most of the learning happens, so do not skip it.",
+        "notes": [
+          "1. Set a 45-minute timer: No notes, one blank page",
+          "2. Speak and draw: Record audio or ask a partner to play customer",
+          "3. Score with the rubric: Immediately, before you check any answers",
+          "4. Compare: Read the model approach notes",
+          "5. Fix one habit: Redo the weakest segment for 10 minutes"
+        ]
+      },
+      {
+        "section": "How to run a practice round",
+        "caption": "Time allocation for a 45-minute practice round.",
+        "notes": [
+          "0 to 9: Clarify: Users, data, systems; Success measure; Constraints",
+          "9 to 24: Design: Components and flows; Mechanisms labelled",
+          "24 to 36: Harden: Failures; Security; Deployment",
+          "36 to 45: Close: Trade-offs; Rollout; Summary"
+        ]
+      }
+    ]
+  },
+  "lab-image-classification": {
+    "title": "Fine-Tune a SageMaker JumpStart Model for Image Classification",
+    "panels": [
+      {
+        "section": "The scenario and what you will build",
+        "caption": "The lab pipeline. Each stage is a place something can go wrong, and each has a check.",
+        "notes": [
+          "1. Prepare data: Folder per class; train / validation / test split",
+          "2. Upload to S3: Private bucket in your region",
+          "3. Fine-tune: JumpStart estimator on a GPU instance",
+          "4. Deploy: Real-time endpoint",
+          "5. Evaluate: Confusion matrix on the untouched test set",
+          "6. Clean up: Delete endpoint and resources"
+        ]
+      },
+      {
+        "section": "Step 4: deploy and call the endpoint",
+        "caption": "What the deployed endpoint looks like to the rest of the system. A real customer deployment would add authentication, a queue for bursts and monitoring around it.",
+        "notes": [
+          "Line camera: Captures part image",
+          "API layer: Auth, resize, validate",
+          "SageMaker endpoint: Fine-tuned classifier",
+          "S3: Model artefacts, images",
+          "CloudWatch: Latency, errors, invocations",
+          "Line camera → API layer: image",
+          "API layer → SageMaker endpoint: invoke",
+          "SageMaker endpoint → S3 (dashed connection)",
+          "SageMaker endpoint → CloudWatch (dashed connection)"
+        ]
+      }
+    ]
+  },
+  "guide-palantir": {
+    "title": "Interview Guide: Palantir Forward Deployed AI Engineers",
+    "panels": [
+      {
+        "section": "What the role tends to value",
+        "caption": "Themes visible in public descriptions of the role, from the engineering base to the judgment on top. Treat as a preparation guide rather than a scorecard.",
+        "notes": [
+          "1. Mission and customer orientation: Genuine interest in the customer's problem domain, whether logistics, health or public services, and in working on consequential problems.",
+          "2. Ownership in ambiguity: Taking a vague problem, defining it, and driving it to a deployed outcome without detailed instructions.",
+          "3. Problem decomposition: Breaking a messy operational situation into data, models, workflows and users.",
+          "4. Data fluency: Comfort exploring, cleaning, joining and reasoning about large, imperfect datasets; SQL and a scripting language.",
+          "5. Software engineering: Writing and debugging real code; building applications and pipelines others can use.",
+          "6. Communication and travel readiness: Working on site with customers, explaining trade-offs plainly, and adapting to different environments."
+        ]
+      },
+      {
+        "section": "A six-week preparation plan",
+        "caption": "Suggested plan. Adjust to your starting point; the same structure works for most FDE processes.",
+        "notes": [
+          "Weeks 1 to 2: Understand the role: Read the JD line by line; Read customer stories on the company site; Note recurring skills and domains",
+          "Weeks 2 to 3: Data and coding: SQL and scripting on messy data; Build one small data application end to end; Practise explaining your code aloud",
+          "Weeks 3 to 5: Decomposition and design: Practise turning ambiguous operational prompts into plans; Use the CLIENT approach and case studies; Record yourself thinking aloud",
+          "Week 6: Stories and mock loops: Six behavioural stories; Two full mock interviews; Questions for interviewers"
+        ]
+      }
+    ]
+  },
+  "guide-openai": {
+    "title": "Interview Guide: OpenAI Forward Deployed Engineers",
+    "panels": [
+      {
+        "section": "Technical themes to prepare",
+        "caption": "Where to invest your preparation effort. The top right (high impact, achievable in weeks) is where a strong portfolio project and evaluation practice sit.",
+        "notes": [
+          "Horizontal axis: Effort; vertical axis: Impact",
+          "Top left: Quick wins",
+          "Top right: Invest here",
+          "Bottom left: Skip",
+          "Bottom right: Only if time",
+          "Portfolio project with evals: higher Effort; higher Impact",
+          "Practise customer scenarios: lower Effort; higher Impact",
+          "Read model docs deeply: lower Effort; higher Impact",
+          "Design practice: higher Effort; higher Impact",
+          "Memorise benchmarks: lower Effort; lower Impact",
+          "Train a model from scratch: higher Effort; lower Impact"
+        ]
+      },
+      {
+        "section": "A portfolio project that signals the right skills",
+        "caption": "A project shape that covers the main themes. The evaluation and write-up are what separate it from a tutorial.",
+        "notes": [
+          "1. Pick a real workflow: e.g. triage support tickets or extract data from contracts",
+          "2. Build with a model API: Structured output, retrieval or tools as needed",
+          "3. Create an evaluation set: 50 to 100 labelled examples; metrics; failure analysis",
+          "4. Compare options: Two models or prompts on quality, cost and latency",
+          "5. Add guardrails: Validation, abstention, a red-team set",
+          "6. Write it up: README, trade-offs, limits, and a short demo video"
+        ]
+      }
+    ]
+  },
+  "guide-anthropic": {
+    "title": "Interview Guide: Anthropic Applied AI Engineers",
+    "panels": [
+      {
+        "section": "Themes to prepare",
+        "caption": "Themes worth preparing for applied roles at a safety-conscious AI company. The upper layers are less about code and more about judgment.",
+        "notes": [
+          "1. Honest communication: Calibrated claims, clear about limits and uncertainty, no hype; able to say what a system cannot do.",
+          "2. Responsible deployment: Misuse and failure analysis, guardrails, human oversight, privacy and data handling, escalation paths.",
+          "3. Evaluation rigour: Datasets, graders, sample sizes, error analysis, avoiding overfitting to your tests.",
+          "4. Agents and tool use: Designing harnesses, tools, context and permissions; debugging long-running tasks.",
+          "5. Production engineering: Reliability, latency, cost, observability, deployment in customer environments.",
+          "6. Teaching and enablement: Writing clear guides and examples that help other engineers succeed."
+        ]
+      },
+      {
+        "section": "How the pieces connect in an applied role",
+        "caption": "An applied AI engineer's position. Value comes from moving information in both directions: customer needs inward, validated patterns outward.",
+        "notes": [
+          "Customers: Problems, constraints, data",
+          "Applied AI engineer: Build, evaluate, advise",
+          "Product and research: Models, features, safety",
+          "Docs, guides, examples: Reusable patterns",
+          "Customers → Applied AI engineer: needs",
+          "Applied AI engineer → Customers: solutions (dashed connection)",
+          "Applied AI engineer → Product and research: feedback",
+          "Applied AI engineer → Docs, guides, examples: patterns",
+          "Product and research → Applied AI engineer (dashed connection)"
+        ]
+      }
+    ]
+  },
+  "guide-google-cloud": {
+    "title": "Interview Guide: Google Cloud GenAI FDE",
+    "panels": [
+      {
+        "section": "Think in components, then name the services",
+        "caption": "A generic GenAI application mapped to cloud service categories. Learn the categories, then the specific names for your target provider.",
+        "notes": [
+          "Users: Web, chat, internal tools",
+          "App hosting: Serverless containers or functions",
+          "Orchestration: Agents, workflows, queues",
+          "Model access: Hosted foundation models, tuning",
+          "Retrieval: Vector and search services",
+          "Data platform: Warehouse, lake, databases",
+          "Identity and security: IAM, keys, network controls",
+          "Observability and cost: Logs, traces, budgets",
+          "Users → App hosting",
+          "App hosting → Orchestration",
+          "Orchestration → Model access",
+          "Orchestration → Retrieval",
+          "Retrieval → Data platform",
+          "App hosting → Identity and security (dashed connection)",
+          "Orchestration → Observability and cost (dashed connection)"
+        ]
+      },
+      {
+        "section": "Preparation plan",
+        "caption": "Suggested preparation for a cloud GenAI field role. Hands-on time on the platform is the most important ingredient.",
+        "notes": [
+          "Week 1: Platform basics: Core services and identity model; Networking and security basics; Free-tier or sandbox account with budgets",
+          "Weeks 2 to 3: Build: RAG app on the platform; An agent with tools; Deploy it and secure it",
+          "Week 4: Cost and ops: Estimate cost per request; Monitoring and evaluation; Governance checklist",
+          "Weeks 5 to 6: Customer scenarios: Mock architecture conversations; Workshop-style explanations; Stories and questions"
+        ]
+      }
+    ]
+  },
+  "takehome-scoring": {
+    "title": "How FDE Take-Homes Are Scored",
+    "panels": [
+      {
+        "section": "Imagine the reviewer",
+        "caption": "A typical reviewer's path through a submission. Most decisions form in the first few minutes, so what they see first matters most.",
+        "notes": [
+          "1. Read the README: What is this and how do I run it?",
+          "2. Run it: Does it work on a clean machine?",
+          "3. Try the demo or video: Does it solve the problem?",
+          "4. Skim the code and tests: Is it clear and sensible?",
+          "5. Read the trade-offs: Did they understand the limits?",
+          "6. Score and compare: Against the scorecard and other candidates"
+        ]
+      },
+      {
+        "section": "What the scorecard rewards",
+        "caption": "The same submission seen in layers. Reviewers reward the whole stack, and a missing layer is more costly than a polished top one.",
+        "notes": [
+          "1. Communication: README, trade-offs, demo, walk-through",
+          "2. Judgment: Scope, assumptions, limits, what you chose not to build",
+          "3. Quality: Tests, structure, errors, reproducibility",
+          "4. Function: It works on realistic inputs",
+          "5. Understanding: It solves the actual problem"
+        ]
+      }
+    ]
+  },
+  "takehome-types": {
+    "title": "Types of FDE Take-Home Assignments",
+    "panels": [
+      {
+        "section": "Five common shapes",
+        "caption": "The five take-home families and the main skill each probes. Hybrid assignments combine two or three.",
+        "notes": [
+          "Take-home",
+          "Data integration: Join and clean messy sources",
+          "LLM application: Prompts, retrieval, evaluation",
+          "Analytics + dashboard: Insight and presentation",
+          "Debug and repair: Find and fix in an unfamiliar repo",
+          "API service: Design and build an interface",
+          "Take-home → Data integration",
+          "Take-home → LLM application",
+          "Take-home → Analytics + dashboard",
+          "Take-home → Debug and repair",
+          "Take-home → API service"
+        ]
+      }
+    ]
+  },
+  "takehome-reading-brief": {
+    "title": "Reading the Brief",
+    "panels": [
+      {
+        "section": "Read it three times",
+        "caption": "Three passes through the brief. Each has a different purpose, and the output is a checklist you will use at the end.",
+        "notes": [
+          "1. Pass 1: understand: Read for the story: who, what problem, why",
+          "2. Pass 2: extract: Highlight every requirement, constraint, deliverable and deadline",
+          "3. Pass 3: interrogate: What is unclear, missing or contradictory? What is unstated but implied?",
+          "4. Write the checklist: One line per requirement, tagged must / should / could"
+        ]
+      }
+    ]
+  },
+  "takehome-ambiguity": {
+    "title": "Handling Ambiguity and Documenting Assumptions",
+    "panels": [
+      {
+        "section": "A stance toward ambiguity",
+        "caption": "Three responses to an ambiguous requirement. The best choice depends on cost of being wrong and whether someone can answer.",
+        "notes": [
+          "Ambiguous requirement",
+          "Ask: If cheap to ask and costly to get wrong",
+          "Assume and record: If low cost of being wrong, or no one to ask",
+          "Build flexibly: If both options are cheap to support",
+          "Ambiguous requirement → Ask",
+          "Ambiguous requirement → Assume and record",
+          "Ambiguous requirement → Build flexibly"
+        ]
+      }
+    ]
+  },
+  "takehome-mvp": {
+    "title": "Scoping the MVP",
+    "panels": [
+      {
+        "section": "Rank by value and cost",
+        "caption": "Value versus build cost for candidate features. Build the top left, consider the top right, skip the bottom right, and describe rather than build the rest.",
+        "notes": [
+          "Horizontal axis: Build cost; vertical axis: Value to the user",
+          "Top left: Build now",
+          "Top right: Build if time",
+          "Bottom left: Skip",
+          "Bottom right: Describe in README",
+          "Core extraction: lower Build cost; higher Value to the user",
+          "PO matching: lower Build cost; higher Value to the user",
+          "Review table UI: lower Build cost; higher Value to the user",
+          "Evaluation report: lower Build cost; higher Value to the user",
+          "OCR fallback: higher Build cost; higher Value to the user",
+          "Login: higher Build cost; lower Value to the user",
+          "Cloud deploy: higher Build cost; lower Value to the user",
+          "Dark mode: lower Build cost; lower Value to the user"
+        ]
+      },
+      {
+        "section": "Plan the hours with a cut line",
+        "caption": "A six-hour plan with checkpoints. If you are behind at a checkpoint, you cut from the 'if time' list rather than squeezing the final hour.",
+        "notes": [
+          "0:00 to 0:45: Read and plan: Checklist; Assumptions; Open every input file",
+          "0:45 to 1:30: Spike the risk: Prove extraction on 5 files; Pick the approach; Repo and environment",
+          "1:30 to 3:30: Core build: Main path end to end; Result view; Commit often",
+          "3:30 to 4:30: Evaluate and fix: Labelled set; Error analysis; Top two fixes",
+          "4:30 to 5:15: Harden: Edge cases; Tests; Cleanup",
+          "5:15 to 6:00: Package: README; Demo video; Clean-checkout run"
+        ]
+      }
+    ]
+  },
+  "takehome-stack": {
+    "title": "Choosing a Stack and Project Structure",
+    "panels": [
+      {
+        "section": "Choose boring tools you can finish with",
+        "caption": "A decision path for the stack. Each question favours familiarity and simplicity.",
+        "notes": [
+          "1. Does the brief name a language or tool?: Use it, unless it blocks you badly.",
+          "2. Which language are you fastest and clearest in?: For data and AI work that is usually Python.",
+          "3. Do you need a database?: Often files or SQLite are enough for the time and data size.",
+          "4. Does a user need an interface?: A simple page or notebook can beat a hand-built web app.",
+          "5. Can a stranger run it in one command?: If not, simplify the stack."
+        ]
+      },
+      {
+        "section": "A repository a reviewer can read in a minute",
+        "caption": "Layering inside the repository. Keep the model call, the business rules and the interface separate so each can be tested and replaced.",
+        "notes": [
+          "1. Interface (cli.py or app.py): Parses input, prints or displays output. No business logic.",
+          "2. Business rules (match.py): Deterministic logic with unit tests. Where correctness lives.",
+          "3. Extraction and model calls (extract.py, llm.py): The only place that touches files or the model API. Easy to mock.",
+          "4. Schemas and config (models.py, config.py): Types and settings; one source of truth."
+        ]
+      }
+    ]
+  },
+  "takehome-messy-data": {
+    "title": "Working with Messy Data",
+    "panels": [
+      {
+        "section": "Profile before you clean",
+        "caption": "A repeatable profiling routine. Each step answers a question and produces a note you will reuse in the README.",
+        "notes": [
+          "1. Shape: Rows, columns, types, file encodings",
+          "2. Missing: Null rates per column; hidden nulls like 'N/A' or 0",
+          "3. Uniqueness: Candidate keys; duplicates",
+          "4. Ranges and formats: Dates, currencies, units, casing, whitespace",
+          "5. Relationships: Do foreign keys match? orphans?",
+          "6. Outliers: Impossible or suspicious values"
+        ]
+      },
+      {
+        "section": "Duplicates and joins",
+        "caption": "How a join silently inflates totals. A one-to-many relationship repeats the parent row for every child, so summing the parent's value gives the wrong total.",
+        "notes": [
+          "1. Before the join: orders: 3 rows, total 300. order_lines: 7 rows.",
+          "2. After joining orders to lines: 7 rows. Each order's total is repeated once per line.",
+          "3. Summing order.total now: Over-counts (for example 520 instead of 300). Looks plausible; is wrong.",
+          "4. The fix: Aggregate lines to order level first, or sum line amounts, then join. Assert row counts after every join."
+        ]
+      }
+    ]
+  },
+  "takehome-third-party-apis": {
+    "title": "Integrating Third-Party APIs",
+    "panels": [
+      {
+        "section": "A robust client in one file",
+        "caption": "How the client treats each response class. Retrying the wrong failures wastes time or hammers the service.",
+        "notes": [
+          "Your code → Client wrapper: paginate('/customers')",
+          "Client wrapper → Third-party API: GET page 1",
+          "Third-party API → Client wrapper: 429 Retry-After: 2",
+          "Client wrapper → Client wrapper: Wait 2 seconds, retry",
+          "Client wrapper → Third-party API: GET page 1 (retry)",
+          "Third-party API → Client wrapper: 200 items + next_cursor",
+          "Client wrapper → Your code: Yield items; fetch next page lazily",
+          "Note: A 400 or 404 is raised at once: retrying cannot fix a bad request."
+        ]
+      },
+      {
+        "section": "Good citizenship and documentation",
+        "caption": "Where third-party calls sit in a small solution. Everything outside your boundary is untrusted and fallible, so it is wrapped, cached and tested with fakes.",
+        "notes": [
+          "Your logic: Business rules",
+          "API client: Throttle, retry, cache",
+          "Third-party API: Untrusted, fallible",
+          "Fixtures + fakes: Used in tests and demo mode",
+          "Your logic → API client",
+          "API client → Third-party API: HTTPS",
+          "Fixtures + fakes → API client: replaces in tests (dashed connection)"
+        ]
+      }
+    ]
+  },
+  "takehome-llm-solutions": {
+    "title": "Building LLM-Powered Solutions",
+    "panels": [
+      {
+        "section": "Use the model where it earns its place",
+        "caption": "The shape of a good LLM-backed take-home. The model handles language; code handles rules; a validation gate sits between them.",
+        "notes": [
+          "1. Input: Emails, documents, records",
+          "2. Prepare: Clean, trim, add context",
+          "3. LLM call: Schema-bound output",
+          "4. Validate: Types, ranges, grounding",
+          "5. Business rules: Deterministic code",
+          "6. Result + confidence: Review path for low confidence"
+        ]
+      },
+      {
+        "section": "Cost, latency and a no-key mode",
+        "caption": "Levers that keep a small LLM project cheap and quick. Each is a few lines of code and worth mentioning in the README.",
+        "notes": [
+          "1. Mock or recorded mode: A flag that replays saved model outputs so the project runs without a key and tests are deterministic.",
+          "2. Batching and concurrency: Process independent items in parallel with a small worker pool and a rate cap.",
+          "3. Caching: Hash inputs; reuse results; never pay twice for the same call.",
+          "4. Right-sized model: A smaller, cheaper model for easy extraction; escalate only low-confidence cases.",
+          "5. Input and output limits: Trim long documents; cap output tokens; stop on step or spend limits."
+        ]
+      }
+    ]
+  },
+  "takehome-evaluating-llm": {
+    "title": "Evaluating and Guardrailing LLM Output",
+    "panels": [
+      {
+        "section": "A small evaluation set that still counts",
+        "caption": "Building an evaluation set in about 45 minutes. The mix of cases matters more than the count.",
+        "notes": [
+          "1. Sample: 30 to 60 real inputs from the provided data",
+          "2. Cover: Include easy, hard, ambiguous, empty and adversarial cases",
+          "3. Label: Write the expected output yourself, from the source text, in a file",
+          "4. Hold out: Keep 15 to 20 untouched for the final score",
+          "5. Script: One command computes metrics and lists failures"
+        ]
+      },
+      {
+        "section": "Metrics that match the cost of errors",
+        "caption": "Precision and recall trade off as the threshold moves. Choose a threshold from the cost of each error, and show your reasoning.",
+        "notes": [
+          "Horizontal axis: Recall (urgent emails caught); vertical axis: Precision (flags that were right)",
+          "Top left: Ideal",
+          "Top right: Cautious flagging",
+          "Bottom left: Weak",
+          "Bottom right: Noisy flagging",
+          "High threshold: higher Recall (urgent emails caught); higher Precision (flags that were right)",
+          "Medium threshold: higher Recall (urgent emails caught); higher Precision (flags that were right)",
+          "Low threshold: higher Recall (urgent emails caught); lower Precision (flags that were right)"
+        ]
+      }
+    ]
+  },
+  "takehome-code-quality": {
+    "title": "Code Quality, Testing, and Reproducibility",
+    "panels": [
+      {
+        "section": "Test the risky logic, not everything",
+        "caption": "A test pyramid sized for a take-home. Many small tests on rules, a few on the pipeline, and one smoke test that proves the whole thing runs.",
+        "notes": [
+          "1. Smoke test (1): Run the whole thing on sample data and check the output file exists and reconciles.",
+          "2. Pipeline tests (2 to 4): Feed small crafted inputs through several steps; check outputs and the rejected list.",
+          "3. Unit tests (8 to 15): Matching rules, parsers, validators, thresholds, with edge cases: empty, duplicate, malformed, boundary.",
+          "4. Property or invariant checks: Row counts reconcile; totals equal source; no duplicate keys."
+        ]
+      },
+      {
+        "section": "The pre-submission checklist",
+        "caption": "A last-hour routine. Each step is quick, and together they catch most avoidable problems.",
+        "notes": [
+          "T-60: Freeze features: No new features; Remove half-built code; Run formatter and linter",
+          "T-45: Verify: Clone into a new folder; Follow only the README; Fix every snag",
+          "T-30: Test and evaluate: Run the tests; Run the evaluation; Paste final numbers into the README",
+          "T-15: Secrets and cleanup: Search for keys; Check .gitignore; Delete stray files",
+          "T-0: Submit: Tag the commit; Re-read the submission instructions; Send"
+        ]
+      }
+    ]
+  },
+  "delivery-user-workflow": {
+    "title": "Designing Around the End User's Workflow",
+    "panels": [
+      {
+        "section": "Start from the user's day",
+        "caption": "Two ways to start. Building from the architecture produces a system nobody can use; building from the workflow produces something that fits a day of work.",
+        "notes": [
+          "Boundary: Architecture-first",
+          "Boundary: Workflow-first",
+          "Pick technologies",
+          "Build components",
+          "User must adapt: Awkward fit",
+          "Observe the task",
+          "Find the painful step",
+          "Fit the tool in: Natural place in the day",
+          "Pick technologies → Build components",
+          "Build components → User must adapt",
+          "Observe the task → Find the painful step",
+          "Find the painful step → Fit the tool in"
+        ]
+      },
+      {
+        "section": "Map the workflow, then place the tool",
+        "caption": "A clerk's invoice workflow with the solution inserted at the slow, error-prone steps. Everything else stays as it is, which makes adoption easy.",
+        "notes": [
+          "1. Invoice arrives: Email or portal",
+          "2. Key fields into ERP: Slow and error-prone: automate",
+          "3. Match to purchase order: Lookup by hand: automate",
+          "4. Resolve mismatches: Judgment: human with the tool's help",
+          "5. Approve for payment: Accountability: stays human"
+        ]
+      }
+    ]
+  },
+  "delivery-interface": {
+    "title": "Building a Demonstrable Interface",
+    "panels": [
+      {
+        "section": "Designing a review screen",
+        "caption": "Anatomy of a review screen. Evidence beside the answer lets the user verify in seconds, and the controls make the common decision one click.",
+        "notes": [
+          "1. Header: progress and filters: '12 of 40 reviewed'; filter to show only flagged or low-confidence items first.",
+          "2. Left pane: the source: The original document or message with the relevant passages highlighted.",
+          "3. Right pane: the result: Extracted fields or suggested answer, each with a confidence cue and an edit box.",
+          "4. Why this result: A short reason or the evidence text, so the user does not have to hunt.",
+          "5. Actions: Accept, edit and accept, flag for later; keyboard shortcuts for speed."
+        ]
+      },
+      {
+        "section": "States that separate demos from products",
+        "caption": "The lifecycle of one item in the review queue. Every item ends in a recorded decision, which also becomes feedback data.",
+        "notes": [
+          "1. Queued: Sorted by confidence",
+          "2. Shown: Source and suggestion side by side",
+          "3. Decided: Accept, edit or flag",
+          "4. Recorded: Stored with who and when",
+          "5. Learned from: Edits feed the next evaluation"
+        ]
+      }
+    ]
+  },
+  "delivery-readme": {
+    "title": "Writing the README",
+    "panels": [
+      {
+        "section": "The README is the front door",
+        "caption": "Sections in the order a reviewer needs them. Each answers one question and earns its place by being short.",
+        "notes": [
+          "1. 1. What and why: Two or three sentences: the problem, the user and what this does.",
+          "2. 2. Quick start: Three commands to run it, with and without an API key (demo mode).",
+          "3. 3. Demo: A screenshot or short output example, and a link to the walk-through video.",
+          "4. 4. How it works: One diagram and a short description of the main components and data flow.",
+          "5. 5. Results: Evaluation numbers, a failure analysis and what changed because of it.",
+          "6. 6. Assumptions and trade-offs: The assumptions log and the key decisions with reasons.",
+          "7. 7. Limitations and next steps: Honest limits and what you would build with more time or in production."
+        ]
+      }
+    ]
+  },
+  "delivery-tradeoffs": {
+    "title": "Documenting Trade-Offs and Limitations",
+    "panels": [
+      {
+        "section": "Why trade-offs are scored",
+        "caption": "The four parts of a documented trade-off. Skipping the 'revisit' part is the most common gap.",
+        "notes": [
+          "1. Choice: What you did",
+          "2. Alternative: What you considered instead",
+          "3. Reason: Why this fit the brief and time",
+          "4. Revisit: What would make you change it"
+        ]
+      },
+      {
+        "section": "Worked examples",
+        "caption": "The same idea as a map. Each box on the left is something you chose to leave out and what would bring it in; this is the honest scope of a take-home.",
+        "notes": [
+          "Script + JSON files: Built",
+          "Review page: Built",
+          "Database + queue: When volume or users grow",
+          "Auth + audit log: When used on real data",
+          "Monitoring + drift alerts: When in production",
+          "Script + JSON files → Database + queue (dashed connection)",
+          "Review page → Auth + audit log (dashed connection)",
+          "Review page → Monitoring + drift alerts (dashed connection)"
+        ]
+      }
+    ]
+  },
+  "delivery-walkthrough-video": {
+    "title": "Recording the Walk-Through Video",
+    "panels": [
+      {
+        "section": "What the video is for",
+        "caption": "A five-minute structure. The demo comes early, since the reviewer's attention is highest at the start.",
+        "notes": [
+          "0:00 to 0:30: The problem: Who has it; What it costs them; What you built, in one sentence",
+          "0:30 to 2:00: Live demo: Real input in; Result in the user's terms; A flagged edge case",
+          "2:00 to 3:30: How it works: One diagram; The key design choice; Where the model and code split",
+          "3:30 to 4:30: Evidence: Evaluation result; One failure and what you did; Honest limits",
+          "4:30 to 5:00: Close: Trade-off; Next steps"
+        ]
+      }
+    ]
+  },
+  "delivery-defending": {
+    "title": "Presenting and Defending Your Decisions",
+    "panels": [
+      {
+        "section": "What the session is",
+        "caption": "A typical session. The presentation is short; most of the value is in the discussion.",
+        "notes": [
+          "1. Present: 10 minutes: problem, demo, design, results",
+          "2. Probe: 20 minutes: why this, what if that",
+          "3. Extend or change: 10 to 15 minutes: new requirement or live change",
+          "4. Your questions: 5 minutes"
+        ]
+      },
+      {
+        "section": "The answer pattern: acknowledge, reason, adapt",
+        "caption": "A challenge handled well. The candidate neither caves instantly nor defends rigidly.",
+        "notes": [
+          "Interviewer → You: Why did you store results in JSON files instead of a database?",
+          "You → Interviewer: Fair question. It is a deliberate shortcut.",
+          "You → Interviewer: With 40 records and one reviewer, files kept setup to zero and the code simple.",
+          "Interviewer → You: What if ten clerks used it at once?",
+          "You → Interviewer: Then files would break: concurrent writes. I would move to a database with row-level updates and a queue for new documents.",
+          "Note: Acknowledge, reason from constraints, state the condition that changes the decision."
+        ]
+      }
+    ]
+  },
+  "delivery-live-extension": {
+    "title": "Handling Live Extension Exercises",
+    "panels": [
+      {
+        "section": "What a live extension is",
+        "caption": "Extension points worth building in. Each is cheap and makes the most likely requests small changes.",
+        "notes": [
+          "1. Rules in one place: Thresholds and policies as named constants or a small config, not scattered literals.",
+          "2. Schemas for entities: Adding a field means editing one model and one test.",
+          "3. Adapters for inputs and outputs: A new data source is a new reader behind the same interface.",
+          "4. A single model-call seam: Swapping models or prompts touches one module.",
+          "5. Tests and an evaluation command: You can prove the change works in a minute."
+        ]
+      },
+      {
+        "section": "A method for live changes",
+        "caption": "Six steps for any live extension. Saying them aloud keeps you calm and gives the interviewer a map.",
+        "notes": [
+          "1. Clarify: Restate the request and confirm edge cases",
+          "2. Locate: Say where in the code the change belongs and why",
+          "3. Plan: Name the steps: schema, logic, test",
+          "4. Change: Smallest working edit first",
+          "5. Test: Add or run a test that proves it",
+          "6. Reflect: Risks, what you skipped, what you would tidy"
+        ]
+      }
+    ]
+  },
+  "delivery-role-play": {
+    "title": "Customer Role-Play and Scope Changes",
+    "panels": [
+      {
+        "section": "What the role-play tests",
+        "caption": "A scope-change conversation done well. The candidate clarifies, offers options with costs, recommends, and confirms.",
+        "notes": [
+          "Customer → You: We also need email attachments and French, by next week.",
+          "You → Customer: Understood. What is driving the deadline, and which matters most for the first release?",
+          "Customer → You: A French-speaking region pilots Monday; attachments can wait.",
+          "You → Customer: Options: A) French only by Monday; B) both, a week later; C) both Monday with lower accuracy and human review.",
+          "You → Customer: I recommend A: it meets the pilot date with tested quality; attachments follow.",
+          "Customer → You: Agreed.",
+          "You → Customer: I will send a summary today with the decision, scope and dates."
+        ]
+      },
+      {
+        "section": "A structure for scope change",
+        "caption": "Five moves for any scope change. None requires saying no; all require saying what it costs.",
+        "notes": [
+          "1. Listen and restate: Show you understood the request",
+          "2. Find the need: What outcome and deadline drive it?",
+          "3. Offer options: Two or three, each with cost and risk",
+          "4. Recommend: One, with a reason tied to their goal",
+          "5. Confirm: Decision, owner, date, in writing"
+        ]
+      }
+    ]
+  },
+  "delivery-mistakes": {
+    "title": "Common Take-Home Mistakes",
+    "panels": [
+      {
+        "section": "Which hurt most",
+        "caption": "The twelve mistakes by damage and how avoidable they are. Start your final checks with the top right: severe and easy to avoid.",
+        "notes": [
+          "Horizontal axis: Ease of avoiding; vertical axis: Damage to your score",
+          "Top left: Hard and severe: plan early",
+          "Top right: Fix first",
+          "Bottom left: Hard, minor",
+          "Bottom right: Easy, minor",
+          "Won't run: higher Ease of avoiding; higher Damage to your score",
+          "No README: higher Ease of avoiding; higher Damage to your score",
+          "Secrets committed: higher Ease of avoiding; higher Damage to your score",
+          "No evidence: higher Ease of avoiding; higher Damage to your score",
+          "Ignores the user: lower Ease of avoiding; higher Damage to your score",
+          "Over-engineering: lower Ease of avoiding; higher Damage to your score",
+          "Silent data handling: higher Ease of avoiding; higher Damage to your score",
+          "Hidden assumptions: higher Ease of avoiding; lower Damage to your score",
+          "Overclaiming: higher Ease of avoiding; lower Damage to your score",
+          "Weak video: higher Ease of avoiding; lower Damage to your score"
+        ]
+      }
+    ]
+  },
+  "capstone-data-integration": {
+    "title": "Capstone: Data Integration Challenge",
+    "panels": [
+      {
+        "section": "Plan and scope",
+        "caption": "A suggested six-hour plan for the capstone. Adjust to your pace, but keep the checkpoints and the packaging hour.",
+        "notes": [
+          "0:00 to 0:45: Read and plan: Checklist and assumptions; Define 'same customer'; Generate synthetic data",
+          "0:45 to 1:30: Profile: Profile all three sources; List problems found; Decide matching keys",
+          "1:30 to 3:15: Core build: Normalise and clean with ledger; Match and merge customers; Compute spend per customer",
+          "3:15 to 4:15: Quality and API: Validation and reconciliation; Small read-only API or report; Confidence for merges",
+          "4:15 to 5:15: Tests and evaluation: Unit tests on rules; Evaluate matching on labelled pairs; Error analysis",
+          "5:15 to 6:00: Package: README and trade-offs; Demo video; Clean-clone run"
+        ]
+      },
+      {
+        "section": "Build guide",
+        "caption": "Target architecture for the capstone. Raw files are never modified; every stage writes outputs and a ledger, and the API reads only the final tables.",
+        "notes": [
+          "web_customers.json",
+          "store_loyalty.csv",
+          "marketplace_orders.csv",
+          "Normalise + validate: Ledger, rejects",
+          "Match + merge: Keys, similarity, confidence",
+          "Aggregate spend: No fan-out",
+          "Quality report: Counts, rates, issues",
+          "Read-only API / report",
+          "web_customers.json → Normalise + validate",
+          "store_loyalty.csv → Normalise + validate",
+          "marketplace_orders.csv → Normalise + validate",
+          "Normalise + validate → Match + merge",
+          "Match + merge → Aggregate spend",
+          "Match + merge → Quality report",
+          "Match + merge → Read-only API / report"
+        ]
+      }
+    ]
+  },
+  "capstone-llm-application": {
+    "title": "Capstone: LLM Application Challenge",
+    "panels": [
+      {
+        "section": "The brief",
+        "caption": "What a reviewer should be able to do within the first five minutes: run it, see a grounded draft with citations, see an abstention, and read the evaluation.",
+        "notes": [
+          "1. Run: make setup && make run",
+          "2. Ask: A normal question: draft with citations",
+          "3. Ask again: An unanswerable question: abstains and says why",
+          "4. Inspect: Sources shown beside the draft",
+          "5. Evaluate: make eval: scores and failures"
+        ]
+      },
+      {
+        "section": "Plan and scope",
+        "caption": "A suggested six-hour plan. The evaluation phase is large on purpose, because the brief explicitly asks how well it works.",
+        "notes": [
+          "0:00 to 0:45: Read, plan: Checklist, assumptions; Write help centre articles; Write 40 test questions",
+          "0:45 to 2:15: Core build: Load and chunk articles; Retrieve top passages; Structured, cited draft",
+          "2:15 to 3:00: Review UI: Simple page: question, draft, sources, flags",
+          "3:00 to 4:30: Evaluate and improve: Run 40 questions; Group failures; Fix the biggest group; Re-score",
+          "4:30 to 5:15: Guardrails and tests: Abstention, injection test; Unit tests; Cost cap",
+          "5:15 to 6:00: Package: README, trade-offs; Video; Clean-clone check"
+        ]
+      },
+      {
+        "section": "Build guide",
+        "caption": "Target design. The model drafts; code retrieves, validates, verifies citations and decides when to hand off to a human.",
+        "notes": [
+          "Question",
+          "Retriever: Top passages + scores",
+          "Generator: Schema-bound draft",
+          "Validator: Schema, citations, policy",
+          "Review page: Draft, sources, flag",
+          "Help centre: Markdown articles",
+          "Evaluation harness: 40 questions, metrics",
+          "Question → Retriever",
+          "Help centre → Retriever (dashed connection)",
+          "Retriever → Generator",
+          "Generator → Validator",
+          "Validator → Review page",
+          "Evaluation harness → Generator (dashed connection)"
+        ]
+      },
+      {
+        "section": "Evaluate and improve",
+        "caption": "The improvement loop that the reviewer should be able to see in your README: a table of failure groups with before and after counts.",
+        "notes": [
+          "1. Score: Run all 40 questions",
+          "2. Read failures: Group by cause",
+          "3. Fix the biggest: Retrieval, prompt or rule",
+          "4. Re-score: Check nothing regressed",
+          "5. Record: Before/after table in README"
+        ]
+      }
+    ]
+  },
+  "whats-next": {
+    "title": "What's Next?",
+    "panels": [
+      {
+        "section": "What you can now do",
+        "caption": "The course as a delivery loop. Each chapter equips one part of it, and the case studies and take-homes practise the whole loop.",
+        "notes": [
+          "1. Discover and scope: Chapters 2 and 4",
+          "2. Design and build: Chapters 5 to 7",
+          "3. Prove and pilot: Chapters 2, 3 and 8 to 13",
+          "4. Hand off and operate: Chapter 3",
+          "5. Feed back: Chapter 3",
+          "6. Communicate and interview: Chapters 4, 6, 14 to 16"
+        ]
+      },
+      {
+        "section": "Choose your next three months",
+        "caption": "A twelve-week plan for the interview-focused path. Adjust the mix to your starting point; keep the weekly rhythm of build, practise, review.",
+        "notes": [
+          "Weeks 1 to 4: Strengthen: Redo cases 8 to 13 from memory; Fill the weakest rubric rows; Two coding sessions a week",
+          "Weeks 5 to 8: Prove: Build a portfolio project; Write it up publicly; One full take-home",
+          "Weeks 9 to 12: Perform: Company research; Mock loops with feedback; Apply and iterate"
+        ]
+      }
+    ]
+  }
+}

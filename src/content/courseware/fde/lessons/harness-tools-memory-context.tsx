@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Layers, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -29,30 +30,7 @@ export const lesson: Lesson = {
             the harness is ordinary engineering, and it is where reliability comes from.
           </p>
 
-          <Figure caption="The harness around a model. The model decides; everything else is code you control. This lesson covers the left side (tools, memory, context); the next covers guardrails and observability.">
-            <Graph
-              label="An agent harness: a central model loop connected to tools, memory, a context builder, guardrails and observability"
-              cellW={205}
-              cellH={106}
-              nodeW={166}
-              nodes={[
-                { id: "ctx", label: "Context builder", sub: "Instructions, history, retrieved data", col: 0, row: 0, tone: "sky" },
-                { id: "mem", label: "Memory", sub: "Session state, long-term facts", col: 0, row: 1, tone: "sky", shape: "db" },
-                { id: "model", label: "Model loop", sub: "Reason, choose action", col: 1.5, row: 0.5, tone: "lime", w: 176 },
-                { id: "tools", label: "Tools", sub: "APIs, search, code, DB", col: 3, row: 0, tone: "amber" },
-                { id: "guard", label: "Guardrails", sub: "Permissions, approvals, limits", col: 3, row: 1, tone: "rose" },
-                { id: "obs", label: "Observability", sub: "Traces, cost, feedback", col: 1.5, row: 2, tone: "plain" },
-              ]}
-              edges={[
-                { from: "ctx", to: "model" },
-                { from: "mem", to: "ctx", both: true },
-                { from: "model", to: "tools", label: "calls" },
-                { from: "tools", to: "model", dashed: true, bend: 22, label: "results" },
-                { from: "model", to: "guard", dashed: true },
-                { from: "model", to: "obs", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="harness-tools-memory-context" panel={1} />
         </>
       ),
     },
@@ -67,27 +45,7 @@ export const lesson: Lesson = {
             result, and repeats.
           </p>
 
-          <Figure caption="One run of the loop. The harness, not the model, executes tools and decides when to stop.">
-            <Sequence
-              label="Sequence of the agent loop: user goal, model requests a tool, harness runs it, result returned, model answers"
-              actors={[
-                { id: "user", label: "User" },
-                { id: "h", label: "Harness" },
-                { id: "m", label: "Model" },
-                { id: "t", label: "Tool" },
-              ]}
-              messages={[
-                { from: "user", to: "h", text: "Goal: where is order A-1001?" },
-                { from: "h", to: "m", text: "Context + tool definitions" },
-                { from: "m", to: "h", text: "Call get_order(order_id=A-1001)", dashed: true },
-                { from: "h", to: "t", text: "Validate arguments, then run" },
-                { from: "t", to: "h", text: "status: shipped, eta 2 days", dashed: true },
-                { from: "h", to: "m", text: "Append tool result; ask again" },
-                { from: "m", to: "h", text: "Final answer in plain language", dashed: true },
-                { from: "h", to: "user", text: "Answer + log of steps" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="harness-tools-memory-context" panel={2} />
 
           <pre>
             <code>{`MAX_STEPS = 10
@@ -169,16 +127,7 @@ def run_agent(goal, tools, model, ctx):
             retrieved differently:
           </p>
 
-          <Figure caption="Four kinds of memory and where each lives. The model's window is temporary; durable state belongs in your own storage.">
-            <Layers
-              layers={[
-                { title: "Working context", note: "What is in the model's window right now: the goal, recent turns, tool results. Disappears after the call.", tone: "lime" },
-                { title: "Session state", note: "Task progress, collected fields, approvals, plan. Stored by your app, keyed by session, so runs can resume.", tone: "sky" },
-                { title: "Long-term memory", note: "Preferences, past decisions and learned facts across sessions. Stored, searched and loaded on demand.", tone: "amber" },
-                { title: "Knowledge", note: "Company documents and data. Accessed through retrieval, not remembered.", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="harness-tools-memory-context" panel={3} />
 
           <ul>
             <li>

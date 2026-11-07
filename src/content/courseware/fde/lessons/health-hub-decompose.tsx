@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Layers, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -55,33 +56,7 @@ export const lesson: Lesson = {
               ["Research", "Researchers", "De-identified or consented", "Ethics approval; consent; data use agreements; no re-identification", "Low for validity, but not life-critical"],
             ]}
           />
-          <Figure caption="One platform, three zones with different identification levels. Data flows outward only through controlled, audited transformations.">
-            <Graph
-              label="Hub architecture zones: source systems, a raw identified zone, a curated identified clinical view, a pseudonymised analytics zone and a de-identified research zone"
-              cellW={196}
-              cellH={104}
-              nodeW={160}
-              nodes={[
-                { id: "src", label: "Source systems", sub: "EHRs, lab, pharmacy", col: 0, row: 1, tone: "sky", shape: "db" },
-                { id: "raw", label: "Raw zone", sub: "Immutable copies, identified", col: 1, row: 1, tone: "rose", shape: "db" },
-                { id: "clin", label: "Clinical view", sub: "Matched, curated, identified", col: 2, row: 0, tone: "lime", shape: "db" },
-                { id: "ana", label: "Analytics zone", sub: "Pseudonymised", col: 2, row: 1, tone: "amber", shape: "db" },
-                { id: "res", label: "Research zone", sub: "De-identified, approved projects", col: 2, row: 2, tone: "sky", shape: "db" },
-                { id: "cl", label: "Clinicians", col: 3, row: 0, tone: "lime", shape: "pill" },
-                { id: "mg", label: "Managers", col: 3, row: 1, tone: "amber", shape: "pill" },
-                { id: "rs", label: "Researchers", col: 3, row: 2, tone: "sky", shape: "pill" },
-              ]}
-              edges={[
-                { from: "src", to: "raw" },
-                { from: "raw", to: "clin" },
-                { from: "raw", to: "ana" },
-                { from: "raw", to: "res" },
-                { from: "clin", to: "cl" },
-                { from: "ana", to: "mg" },
-                { from: "res", to: "rs" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="health-hub-decompose" panel={1} />
         </>
       ),
     },
@@ -90,18 +65,7 @@ export const lesson: Lesson = {
       title: "The hard problems",
       body: (
         <>
-          <Figure caption="The hard problems in a health data hub, from lineage and consent down to legacy interfaces.">
-            <Layers
-              layers={[
-                { title: "Lineage and audit", note: "For any value, show which source it came from, when, and who accessed it. Regulators ask.", tone: "rose" },
-                { title: "Consent and purpose", note: "Patients may opt out of research or sharing. Consent changes over time and must be enforced per record.", tone: "rose" },
-                { title: "Data quality", note: "Missing fields, wrong units, free-text diagnoses, duplicated and conflicting entries.", tone: "amber" },
-                { title: "Semantics and standards", note: "Each system names things differently. Map to common standards (for example FHIR resources and standard terminologies) and keep source values.", tone: "amber" },
-                { title: "Patient identity", note: "Is 'J. Smith, born 1980' in system A the same person as 'John Smith, born 1980' in system B? Wrong merges and missed merges both harm.", tone: "lime" },
-                { title: "Integration with legacy", note: "Old interfaces (HL7 v2 messages, file exports, vendor APIs), different schedules and uptimes.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="health-hub-decompose" panel={2} />
           <p>
             <strong>Identity matching deserves special attention.</strong> Two kinds of error have
             very different consequences:
@@ -130,22 +94,7 @@ export const lesson: Lesson = {
       title: "Prioritise risks and choose the first slice",
       body: (
         <>
-          <Figure caption="Risk ranking. Wrong merges and privacy breaches are rare but severe; data quality problems are certain and need continuous handling.">
-            <Quadrant
-              label="Risks plotted by likelihood and severity"
-              xLabel="Likelihood"
-              yLabel="Severity"
-              corners={["Guard rigorously", "Address first", "Accept and monitor", "Reduce systematically"]}
-              items={[
-                { label: "Wrong patient merge", x: 0.3, y: 0.94, tone: "rose" },
-                { label: "Unauthorised access", x: 0.4, y: 0.86, tone: "rose" },
-                { label: "Consent not honoured", x: 0.34, y: 0.7, tone: "rose" },
-                { label: "Poor data quality", x: 0.9, y: 0.5, tone: "amber" },
-                { label: "Source outages", x: 0.72, y: 0.3, tone: "sky" },
-                { label: "Terminology mismatch", x: 0.82, y: 0.62, tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="health-hub-decompose" panel={3} />
           <p>
             A sensible first slice delivers clinical value quickly with limited scope:
           </p>

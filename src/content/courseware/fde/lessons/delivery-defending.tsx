@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,17 +25,7 @@ export const lesson: Lesson = {
             understood it, how you reason, and how you handle challenge. It is the closest simulation
             of a customer review you will get.
           </p>
-          <Figure caption="A typical session. The presentation is short; most of the value is in the discussion.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Present", note: "10 minutes: problem, demo, design, results", tone: "sky" },
-                { title: "Probe", note: "20 minutes: why this, what if that", tone: "lime" },
-                { title: "Extend or change", note: "10 to 15 minutes: new requirement or live change", tone: "amber" },
-                { title: "Your questions", note: "5 minutes", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-defending" panel={1} />
         </>
       ),
     },
@@ -51,23 +42,7 @@ export const lesson: Lesson = {
             <li><strong>Reason</strong> from the constraints you had and the evidence you gathered.</li>
             <li><strong>Adapt</strong>: say what you would change given the new information.</li>
           </ol>
-          <Figure caption="A challenge handled well. The candidate neither caves instantly nor defends rigidly.">
-            <Sequence
-              label="Sequence of a challenge: interviewer questions the choice of files over a database; candidate acknowledges, explains with evidence, and states the condition for change"
-              actors={[
-                { id: "i", label: "Interviewer" },
-                { id: "you", label: "You" },
-              ]}
-              messages={[
-                { from: "i", to: "you", text: "Why did you store results in JSON files instead of a database?", dashed: true },
-                { from: "you", to: "i", text: "Fair question. It is a deliberate shortcut." },
-                { from: "you", to: "i", text: "With 40 records and one reviewer, files kept setup to zero and the code simple." },
-                { from: "i", to: "you", text: "What if ten clerks used it at once?", dashed: true },
-                { from: "you", to: "i", text: "Then files would break: concurrent writes. I would move to a database with row-level updates and a queue for new documents." },
-                { note: "Acknowledge, reason from constraints, state the condition that changes the decision.", over: ["i", "you"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-defending" panel={2} />
         </>
       ),
     },

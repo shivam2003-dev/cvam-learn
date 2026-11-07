@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Layers, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -32,22 +33,7 @@ export const lesson: Lesson = {
             product simply does not <em>fit</em> yet.
           </p>
 
-          <Figure caption="The product team builds for the general case. The customer lives in the specific one. The gap between them is the last mile.">
-            <Graph
-              label="A product team on the left, a customer environment on the right, and a gap between them labelled the last mile"
-              cellW={215}
-              cellH={120}
-              nodes={[
-                { id: "product", label: "General product", sub: "Built for many customers", col: 0, row: 0, tone: "lime" },
-                { id: "gap", label: "The last mile", sub: "Integration, data, workflow, trust, security", col: 1.5, row: 0, tone: "amber", shape: "pill", w: 190 },
-                { id: "customer", label: "Customer reality", sub: "Legacy systems, rules, people, habits", col: 3, row: 0, tone: "sky" },
-              ]}
-              edges={[
-                { from: "product", to: "gap", dashed: true },
-                { from: "gap", to: "customer", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="who-is-an-fde" panel={1} />
 
           <p>
             Closing that gap is real engineering work: writing connectors, cleaning data, adjusting
@@ -100,19 +86,7 @@ export const lesson: Lesson = {
             can do afterwards that they could not before.
           </p>
 
-          <Figure caption="The FDE loop. Each pass through it turns a customer's problem into a working system, and turns what was learned into product.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Discover", note: "Find the real problem and the people who have it", tone: "sky" },
-                { title: "Scope", note: "Choose a first slice that proves value in weeks", tone: "sky" },
-                { title: "Build", note: "Code, integrate and configure on real data", tone: "lime" },
-                { title: "Deploy", note: "Run it in the customer's environment, securely", tone: "lime" },
-                { title: "Prove", note: "Measure the result in the customer's terms", tone: "amber" },
-                { title: "Feed back", note: "Turn repeated custom work into product", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="who-is-an-fde" panel={2} />
 
           <p>
             Notice the last step. A good FDE team does not accumulate a pile of one-off projects. The
@@ -133,22 +107,7 @@ export const lesson: Lesson = {
             is the person to the customer, and how much production code do they own?
           </p>
 
-          <Figure caption="An approximate map. Companies draw these lines in different places, but the FDE is the one that combines high customer proximity with real code ownership.">
-            <Quadrant
-              label="A chart of roles by customer proximity and code ownership"
-              xLabel="Customer proximity"
-              yLabel="Production code ownership"
-              corners={["Builds for everyone", "Forward deployed", "Advises from outside", "Advises and demos"]}
-              items={[
-                { label: "Product engineer", x: 0.12, y: 0.9, tone: "plain" },
-                { label: "Data scientist", x: 0.3, y: 0.62, tone: "plain" },
-                { label: "Support engineer", x: 0.58, y: 0.28, tone: "sky" },
-                { label: "Solutions engineer", x: 0.78, y: 0.34, tone: "sky" },
-                { label: "Consultant", x: 0.86, y: 0.1, tone: "amber" },
-                { label: "FDE", x: 0.9, y: 0.82, tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="who-is-an-fde" panel={3} />
 
           <Table
             head={["Role", "Main job", "Measured on", "Code they keep"]}
@@ -181,32 +140,7 @@ export const lesson: Lesson = {
             the skill set is so broad.
           </p>
 
-          <Figure caption="A typical deployment. The FDE builds the layer in the middle, which connects customer systems to the product and to the people who use it.">
-            <Graph
-              label="Customer systems connect through an FDE-built integration layer to the product and to end users"
-              cellW={205}
-              cellH={118}
-              nodes={[
-                { id: "erp", label: "ERP", sub: "Orders, finance", col: 0, row: 0, tone: "sky", shape: "db" },
-                { id: "docs", label: "Document store", sub: "PDFs, contracts", col: 0, row: 1, tone: "sky", shape: "db" },
-                { id: "crm", label: "CRM", sub: "Accounts, tickets", col: 0, row: 2, tone: "sky", shape: "db" },
-                { id: "layer", label: "FDE-built layer", sub: "Connectors, data prep, auth, workflow glue", col: 1.5, row: 1, tone: "lime", w: 190 },
-                { id: "product", label: "The product", sub: "Models, platform, agents", col: 3, row: 0.4, tone: "plain" },
-                { id: "users", label: "End users", sub: "Operators, analysts", col: 3, row: 1.6, tone: "amber", shape: "pill" },
-              ]}
-              groups={[
-                { label: "Customer environment", c1: 0, r1: 0, c2: 0, r2: 2, tone: "sky" },
-              ]}
-              edges={[
-                { from: "erp", to: "layer", label: "API" },
-                { from: "docs", to: "layer", label: "files" },
-                { from: "crm", to: "layer", label: "events" },
-                { from: "layer", to: "product" },
-                { from: "layer", to: "users", label: "UI + alerts" },
-                { from: "product", to: "users", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="who-is-an-fde" panel={4} />
 
           <p>Across engagements, the same kinds of work keep appearing:</p>
           <ul>
@@ -250,18 +184,7 @@ export const lesson: Lesson = {
             customer.
           </p>
 
-          <Figure caption="The skill stack, from the engineering base to the human skills at the top. Strength in the upper layers separates a good FDE from a good engineer.">
-            <Layers
-              layers={[
-                { title: "Judgment and ownership", note: "Decide what to build, what to cut, and when to say no. Take responsibility for the outcome.", tone: "amber" },
-                { title: "Communication", note: "Run discovery calls, write clearly, explain risk to executives and detail to engineers.", tone: "amber" },
-                { title: "Domain and business sense", note: "Understand the customer's workflow, constraints and how they measure value.", tone: "sky" },
-                { title: "AI and data systems", note: "LLMs, retrieval, agents, evaluation, pipelines and data quality.", tone: "lime" },
-                { title: "Integration and platform", note: "APIs, authentication, cloud, containers, networking and security.", tone: "lime" },
-                { title: "Software engineering core", note: "A language or two, data structures, version control, testing, debugging.", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="who-is-an-fde" panel={5} />
 
           <p>
             Nobody arrives strong in every layer. Most people come in strong at the bottom and learn

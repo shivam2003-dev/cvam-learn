@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Formula, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -55,52 +56,14 @@ export const lesson: Lesson = {
             Each step feeds the next in a fixed order, with a check between steps. Use it when the
             task splits cleanly (extract, then validate, then draft).
           </p>
-          <Figure caption="Pipeline: a fixed sequence with a gate between steps. Predictable and easy to test.">
-            <Graph
-              label="Pipeline: extract, validate gate, draft, review"
-              cellW={176}
-              cellH={84}
-              nodeW={140}
-              nodes={[
-                { id: "a", label: "Extract", col: 0, row: 0, tone: "sky" },
-                { id: "g", label: "Gate", sub: "Schema + rules", col: 1, row: 0, tone: "rose", shape: "pill" },
-                { id: "b", label: "Draft", col: 2, row: 0, tone: "lime" },
-                { id: "c", label: "Review", col: 3, row: 0, tone: "amber" },
-              ]}
-              edges={[
-                { from: "a", to: "g" },
-                { from: "g", to: "b", label: "pass" },
-                { from: "b", to: "c" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="multi-agent-orchestration" panel={1} />
 
           <h3>2. Router</h3>
           <p>
             A cheap first step classifies the request and sends it to a specialised path. Each path
             has a short, focused prompt and its own tools.
           </p>
-          <Figure caption="Router: classify, then dispatch. Each branch is simple and testable on its own.">
-            <Graph
-              label="Router sends requests to billing, technical or general handlers"
-              cellW={186}
-              cellH={84}
-              nodeW={150}
-              nodes={[
-                { id: "in", label: "Request", col: 0, row: 1, tone: "plain", shape: "pill" },
-                { id: "r", label: "Router", sub: "Cheap classifier", col: 1, row: 1, tone: "amber" },
-                { id: "b", label: "Billing agent", col: 2.4, row: 0, tone: "lime" },
-                { id: "t", label: "Technical agent", col: 2.4, row: 1, tone: "lime" },
-                { id: "g", label: "General agent", col: 2.4, row: 2, tone: "lime" },
-              ]}
-              edges={[
-                { from: "in", to: "r" },
-                { from: "r", to: "b", label: "billing" },
-                { from: "r", to: "t", label: "technical" },
-                { from: "r", to: "g", label: "other" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="multi-agent-orchestration" panel={2} />
 
           <h3>3. Orchestrator and workers</h3>
           <p>
@@ -108,26 +71,7 @@ export const lesson: Lesson = {
             Useful when sub-tasks cannot be predicted in advance, such as researching an open
             question.
           </p>
-          <Figure caption="Orchestrator-workers: the lead plans and synthesises; workers run in isolated contexts and return short results.">
-            <Graph
-              label="An orchestrator delegating to three workers and combining the results"
-              cellW={186}
-              cellH={84}
-              nodeW={150}
-              nodes={[
-                { id: "o", label: "Orchestrator", sub: "Plan, delegate, merge", col: 0.5, row: 1, tone: "amber", w: 170 },
-                { id: "w1", label: "Worker: search", col: 2.4, row: 0, tone: "lime" },
-                { id: "w2", label: "Worker: read", col: 2.4, row: 1, tone: "lime" },
-                { id: "w3", label: "Worker: analyse", col: 2.4, row: 2, tone: "lime" },
-              ]}
-              edges={[
-                { from: "o", to: "w1" },
-                { from: "o", to: "w2" },
-                { from: "o", to: "w3" },
-                { from: "w1", to: "o", dashed: true, bend: 14 },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="multi-agent-orchestration" panel={3} />
 
           <h3>4. Parallel fan-out and merge</h3>
           <p>

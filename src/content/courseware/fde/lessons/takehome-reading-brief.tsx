@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -21,17 +22,7 @@ export const lesson: Lesson = {
             Many candidates read a brief once, start coding, and discover in hour five that they
             missed a requirement. A disciplined reading takes twenty minutes and saves hours.
           </p>
-          <Figure caption="Three passes through the brief. Each has a different purpose, and the output is a checklist you will use at the end.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Pass 1: understand", note: "Read for the story: who, what problem, why", tone: "sky" },
-                { title: "Pass 2: extract", note: "Highlight every requirement, constraint, deliverable and deadline", tone: "lime" },
-                { title: "Pass 3: interrogate", note: "What is unclear, missing or contradictory? What is unstated but implied?", tone: "amber" },
-                { title: "Write the checklist", note: "One line per requirement, tagged must / should / could", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-reading-brief" panel={1} />
         </>
       ),
     },

@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated image sources and local tooling (WebP files are what the site serves)
+/public/images/courseware/**/*.png
+/.playwright-cli/
+/Professional_Cloud_Architect_Question_Bank.pdf

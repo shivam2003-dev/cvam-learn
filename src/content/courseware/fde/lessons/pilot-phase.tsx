@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Layers, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -31,17 +32,7 @@ export const lesson: Lesson = {
             conditions.
           </p>
 
-          <Figure caption="The journey from POC to production. The pilot is the controlled step in which a real team uses the system and the measured outcome decides whether to scale.">
-            <Flow
-              steps={[
-                { title: "POC", note: "Feasibility on real data", tone: "sky" },
-                { title: "Harden", note: "Security, reliability, monitoring", tone: "amber" },
-                { title: "Pilot", note: "Real team, real work, measured", tone: "lime" },
-                { title: "Decide", note: "Scale, extend or stop", tone: "amber" },
-                { title: "Production", note: "Everyone, with support", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="pilot-phase" panel={1} />
         </>
       ),
     },
@@ -89,17 +80,7 @@ export const lesson: Lesson = {
             minimum set:
           </p>
 
-          <Figure caption="The hardening checklist, grouped by what it protects. Each layer must be good enough for real users, not perfect.">
-            <Layers
-              layers={[
-                { title: "Support and training", note: "A short guide, a named contact, a feedback button, and a 30-minute kickoff session for the cohort.", tone: "amber" },
-                { title: "Observability", note: "Structured logs with request IDs, dashboards for usage, errors and latency, alerts that reach a human.", tone: "lime" },
-                { title: "Reliability", note: "Timeouts, retries with backoff, graceful degradation when a dependency is down, a tested rollback.", tone: "lime" },
-                { title: "Security and privacy", note: "SSO, least-privilege access, secrets management, data handling approved by the customer.", tone: "sky" },
-                { title: "Data and quality", note: "Validation on inputs, a review path for low-confidence output, a regression test set.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="pilot-phase" panel={2} />
 
           <p>Three items are non-negotiable even for a small pilot:</p>
           <ol>
@@ -129,17 +110,7 @@ export const lesson: Lesson = {
             to act on it.
           </p>
 
-          <Figure caption="A six-week pilot. Early weeks are about adoption and fixing friction; later weeks are about proving the outcome.">
-            <Timeline
-              phases={[
-                { label: "Week 0", when: "Prepare", tone: "sky", items: ["Hardening done", "Baseline captured", "Cohort briefed"] },
-                { label: "Weeks 1 to 2", when: "Adopt", tone: "lime", weight: 1.4, items: ["Daily check-ins", "Fix friction fast", "Watch usage drop-off"] },
-                { label: "Week 3", when: "Midpoint", tone: "amber", items: ["Review metrics", "Adjust scope or prompts", "Share early wins"] },
-                { label: "Weeks 4 to 5", when: "Prove", tone: "lime", weight: 1.4, items: ["Stable system", "Collect outcome data", "Compare with baseline"] },
-                { label: "Week 6", when: "Decide", tone: "plain", items: ["Readout", "Scale/extend/stop", "Plan next phase"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="pilot-phase" panel={3} />
 
           <p>Habits that make pilots succeed:</p>
           <ul>
@@ -167,30 +138,7 @@ export const lesson: Lesson = {
             </li>
           </ul>
 
-          <Figure caption="The pilot feedback loop. Users produce signals, the FDE triages them, fixes ship back to users, and metrics go to the sponsor.">
-            <Graph
-              label="The pilot feedback loop: users produce signals, the FDE triages them, fixes ship back to users, and metrics are reported to the sponsor"
-              cellW={190}
-              cellH={100}
-              nodeW={152}
-              nodes={[
-                { id: "users", label: "Pilot users", sub: "Use it daily", col: 0, row: 0, tone: "sky", shape: "pill" },
-                { id: "signals", label: "Signals", sub: "Logs, feedback, surveys", col: 1, row: 0, tone: "sky" },
-                { id: "triage", label: "Triage", sub: "Bug, quality, feature, training", col: 2, row: 0, tone: "lime" },
-                { id: "fix", label: "Fix and release", sub: "Twice-weekly cadence", col: 1, row: 1, tone: "lime" },
-                { id: "report", label: "Weekly report", sub: "Metrics, risks, asks", col: 3, row: 0, tone: "amber" },
-                { id: "sponsor", label: "Sponsor", sub: "Decisions and support", col: 3, row: 1, tone: "amber", shape: "pill" },
-              ]}
-              edges={[
-                { from: "users", to: "signals" },
-                { from: "signals", to: "triage" },
-                { from: "triage", to: "fix" },
-                { from: "fix", to: "users", label: "better version", dashed: true },
-                { from: "triage", to: "report" },
-                { from: "report", to: "sponsor" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="pilot-phase" panel={4} />
         </>
       ),
     },

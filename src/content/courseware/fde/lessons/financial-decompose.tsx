@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -71,25 +72,7 @@ export const lesson: Lesson = {
       title: "From wish to requirements",
       body: (
         <>
-          <Figure caption="The request decomposed into three requirement groups. The compliance group is what turns a demo into something a financial firm can use.">
-            <Graph
-              label="Requirements decomposition: functional, quality and compliance requirements branching from the knowledge assistant request"
-              cellW={196}
-              cellH={104}
-              nodeW={164}
-              nodes={[
-                { id: "r", label: "Knowledge assistant", sub: "Answer analyst questions from documents", col: 1.5, row: 0, tone: "lime", w: 190 },
-                { id: "f", label: "Functional", sub: "Ask, answer, cite, filter by company or date", col: 0, row: 1.4, tone: "sky" },
-                { id: "q", label: "Quality", sub: "Accurate figures, no invented claims, fast", col: 1.5, row: 1.4, tone: "amber" },
-                { id: "c", label: "Compliance", sub: "Permissions, audit trail, retention, no leakage", col: 3, row: 1.4, tone: "rose" },
-              ]}
-              edges={[
-                { from: "r", to: "f" },
-                { from: "r", to: "q" },
-                { from: "r", to: "c" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="financial-decompose" panel={1} />
 
           <Table
             head={["Type", "Requirement", "Measure"]}
@@ -144,22 +127,7 @@ export const lesson: Lesson = {
             </li>
           </ul>
 
-          <Figure caption="Risks ranked by likelihood and impact. Start work with the high-impact items, which here are numbers and permissions.">
-            <Quadrant
-              label="Project risks plotted by likelihood and impact"
-              xLabel="Likelihood"
-              yLabel="Impact"
-              corners={["Watch", "Fix first", "Accept", "Mitigate cheaply"]}
-              items={[
-                { label: "Wrong figure quoted", x: 0.8, y: 0.9, tone: "rose" },
-                { label: "Permission leak", x: 0.32, y: 0.94, tone: "rose" },
-                { label: "Wrong year or version", x: 0.7, y: 0.66, tone: "amber" },
-                { label: "Poor table parsing", x: 0.84, y: 0.56, tone: "amber" },
-                { label: "Slow answers", x: 0.5, y: 0.3, tone: "sky" },
-                { label: "Licensing limits", x: 0.22, y: 0.5, tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="financial-decompose" panel={2} />
         </>
       ),
     },
@@ -172,17 +140,7 @@ export const lesson: Lesson = {
             Eight weeks is short. Resist indexing everything. Choose a slice that exercises the
             hardest parts with the lowest compliance risk.
           </p>
-          <Figure caption="Proposed pilot sequence. Each step adds one hard problem, and a measurement gates the next.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Weeks 1 to 2", note: "100 internal policy manuals; fact lookups; baseline and test set", tone: "sky" },
-                { title: "Weeks 3 to 4", note: "Add annual reports for 20 companies; table-aware parsing; numeric checks", tone: "lime" },
-                { title: "Weeks 5 to 6", note: "Add permissions and audit log; adversarial access tests", tone: "amber" },
-                { title: "Weeks 7 to 8", note: "Pilot with 15 analysts; measure time saved and accuracy", tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="financial-decompose" panel={3} />
           <p>
             Policy manuals first because they are text-heavy, have little licensing concern, and let
             you build the evaluation harness before the harder numeric content. Reports come next to

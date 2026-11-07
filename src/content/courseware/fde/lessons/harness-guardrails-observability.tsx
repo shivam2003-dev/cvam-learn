@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -31,17 +32,7 @@ export const lesson: Lesson = {
             mean disaster.
           </p>
 
-          <Figure caption="Defence in depth for an agent. A harmful action must get past every layer; each layer catches different failures.">
-            <Layers
-              layers={[
-                { title: "Environment and permissions", note: "The agent's credentials can only do what it is meant to. Read-only by default; narrow scopes; network limits.", tone: "rose" },
-                { title: "Tool-level checks", note: "Validate arguments, enforce limits (amounts, counts), require approval for high-impact actions.", tone: "rose" },
-                { title: "Output checks", note: "Schema and policy validation, grounding checks, PII redaction, tone and safety filters.", tone: "amber" },
-                { title: "Input checks", note: "Size limits, injection detection, separation of instructions from untrusted data.", tone: "amber" },
-                { title: "Prompt and model behaviour", note: "Clear instructions and refusals. Helpful, but the weakest layer because it can be bypassed.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="harness-guardrails-observability" panel={1} />
 
           <Callout tone="note" title="Rely on enforcement, not instruction">
             Telling the model &ldquo;never refund over $500&rdquo; is a request. Making the refund
@@ -69,26 +60,7 @@ export const lesson: Lesson = {
             ]}
           />
 
-          <Figure caption="An approval flow for a high-impact action. The agent proposes; a person decides; the system records everything.">
-            <Sequence
-              label="Sequence of a human-approved refund: agent proposes, harness checks limits, approver confirms, tool executes, audit log records"
-              actors={[
-                { id: "agent", label: "Agent" },
-                { id: "h", label: "Harness" },
-                { id: "human", label: "Approver" },
-                { id: "sys", label: "Billing system" },
-              ]}
-              messages={[
-                { from: "agent", to: "h", text: "Propose: refund $620 on order A-1001" },
-                { from: "h", to: "h", text: "Check limits and policy rules" },
-                { from: "h", to: "human", text: "Request approval with reason and evidence" },
-                { from: "human", to: "h", text: "Approve (or reject with a note)", dashed: true },
-                { from: "h", to: "sys", text: "Execute refund with the approver's ID" },
-                { from: "sys", to: "h", text: "Confirmation", dashed: true },
-                { note: "Audit log: who proposed, who approved, what changed, when.", over: ["h", "sys"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="harness-guardrails-observability" panel={2} />
 
           <p>
             Approval has a cost: it slows things and tires reviewers. Start with approval on every
@@ -122,15 +94,7 @@ export const lesson: Lesson = {
             Remove any one and the worst attack shrinks.
           </p>
 
-          <Figure caption="Break the trifecta. If an agent has all three capabilities at once, an injected instruction can exfiltrate data. Split or restrict them.">
-            <Flow
-              steps={[
-                { title: "Reads untrusted content", note: "Emails, web pages, uploaded files", tone: "rose" },
-                { title: "Accesses private data", note: "Records, documents, secrets", tone: "rose" },
-                { title: "Can act externally", note: "Send, post, call out", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="harness-guardrails-observability" panel={3} />
 
           <ul>
             <li>
@@ -217,19 +181,7 @@ export const lesson: Lesson = {
             the system. A lightweight review process keeps quality honest.
           </p>
 
-          <Figure caption="The review cycle. Sampling and feedback produce labelled failures, which become tests, fixes and then fresh monitoring.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Sample runs", note: "Random plus all low-confidence and flagged runs", tone: "sky" },
-                { title: "Human review", note: "Label correct, wrong, unsafe", tone: "sky" },
-                { title: "Add to test set", note: "Each failure becomes a regression test", tone: "lime" },
-                { title: "Fix", note: "Prompt, tool, retrieval or guardrail", tone: "lime" },
-                { title: "Evaluate and release", note: "Compare with the previous version", tone: "amber" },
-                { title: "Monitor", note: "Watch the metrics after release", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="harness-guardrails-observability" panel={4} />
 
           <ul>
             <li>Review a fixed number of runs weekly (for example 30), including some that looked fine.</li>

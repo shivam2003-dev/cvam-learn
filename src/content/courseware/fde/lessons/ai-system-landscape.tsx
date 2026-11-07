@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -30,18 +31,7 @@ export const lesson: Lesson = {
             problem requires.
           </p>
 
-          <Figure caption="The ladder of AI system types. Higher rungs handle more open-ended problems and cost more to build, run and trust.">
-            <Layers
-              layers={[
-                { title: "Agents", note: "A model chooses actions and tools over multiple steps to reach a goal.", tone: "rose" },
-                { title: "Fine-tuned models", note: "A model whose weights are adapted to your task, style or format.", tone: "amber" },
-                { title: "Retrieval (RAG)", note: "A model answers from documents fetched at question time.", tone: "amber" },
-                { title: "LLM prompting", note: "A general model, instructed with prompts and examples.", tone: "lime" },
-                { title: "Classical ML", note: "Trained models on structured data: classification, regression, ranking, forecasting.", tone: "sky" },
-                { title: "Rules and code", note: "Deterministic logic written by people. Fast, cheap, explainable.", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="ai-system-landscape" panel={1} />
         </>
       ),
     },
@@ -112,51 +102,14 @@ export const lesson: Lesson = {
             stop at the first &ldquo;yes&rdquo;.
           </p>
 
-          <Figure caption="Choosing a system type. Start at the top and stop at the first rung that works; move down only when the problem forces it.">
-            <Flow
-              direction="col"
-              numbered
-              steps={[
-                { title: "Can a rule or query solve it exactly?", note: "Yes: use code. It is cheaper, faster and fully explainable.", tone: "plain" },
-                { title: "Is it a prediction on structured data with labels?", note: "Yes: classical ML (scoring, forecasting, anomaly detection).", tone: "sky" },
-                { title: "Is it language understanding or generation with no private knowledge needed?", note: "Yes: LLM with a good prompt and a small test set.", tone: "lime" },
-                { title: "Must it answer from private or changing documents?", note: "Yes: add retrieval (RAG) with citations and permissions.", tone: "amber" },
-                { title: "Must output follow a strict style or format a prompt cannot hold?", note: "Yes: consider fine-tuning a smaller model.", tone: "amber" },
-                { title: "Are the steps unknown in advance and tool use needed?", note: "Yes: an agent, with limits and approvals.", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="ai-system-landscape" panel={2} />
 
           <p>
             Notice how many problems stop in the first three rows. Starting from the top is a habit
             worth building: it keeps systems small and customers happy with cost.
           </p>
 
-          <Figure caption="A hybrid support system. Rules route, a classifier detects intent, retrieval finds policy, a model drafts, and a person approves.">
-            <Graph
-              label="A hybrid support system: rules route, a classifier detects intent, RAG retrieves policy, an LLM drafts, a person approves"
-              cellW={176}
-              cellH={100}
-              nodeW={146}
-              nodes={[
-                { id: "in", label: "Ticket", col: 0, row: 0, tone: "plain", shape: "pill" },
-                { id: "rules", label: "Rules", sub: "Spam, VIP, language", col: 1, row: 0, tone: "plain" },
-                { id: "ml", label: "Classifier", sub: "Intent and urgency", col: 2, row: 0, tone: "sky" },
-                { id: "rag", label: "RAG", sub: "Find policy passages", col: 3, row: 0, tone: "amber" },
-                { id: "llm", label: "LLM", sub: "Draft the reply", col: 3, row: 1, tone: "lime" },
-                { id: "human", label: "Agent approves", sub: "Edits and sends", col: 2, row: 1, tone: "rose", shape: "pill" },
-                { id: "out", label: "Customer", col: 1, row: 1, tone: "plain", shape: "pill" },
-              ]}
-              edges={[
-                { from: "in", to: "rules" },
-                { from: "rules", to: "ml" },
-                { from: "ml", to: "rag" },
-                { from: "rag", to: "llm" },
-                { from: "llm", to: "human" },
-                { from: "human", to: "out" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="ai-system-landscape" panel={3} />
         </>
       ),
     },

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -55,26 +56,7 @@ export const lesson: Lesson = {
             alternative.
           </p>
 
-          <Figure caption="OIDC authorisation code flow with PKCE. The app never sees the user's password; it receives short-lived tokens from the identity provider.">
-            <Sequence
-              label="Sequence of OIDC sign-in: browser redirects to the identity provider, user authenticates, code returned, app exchanges code for tokens"
-              actors={[
-                { id: "user", label: "User's browser" },
-                { id: "app", label: "Your application" },
-                { id: "idp", label: "Identity provider" },
-              ]}
-              messages={[
-                { from: "user", to: "app", text: "Open the app" },
-                { from: "app", to: "user", text: "Redirect to IdP with state and PKCE challenge", dashed: true },
-                { from: "user", to: "idp", text: "Authenticate (password, MFA)" },
-                { from: "idp", to: "user", text: "Redirect back with an authorisation code", dashed: true },
-                { from: "user", to: "app", text: "Deliver the code" },
-                { from: "app", to: "idp", text: "Exchange code + PKCE verifier for tokens" },
-                { from: "idp", to: "app", text: "ID token (who) and access token (what)", dashed: true },
-                { note: "App verifies the ID token signature, issuer, audience and expiry, then creates a session.", over: ["app", "idp"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="auth-bridging" panel={1} />
 
           <ul>
             <li>Verify tokens properly: signature, issuer, audience, expiry and nonce. Never trust unverified claims.</li>
@@ -95,32 +77,7 @@ export const lesson: Lesson = {
             The central design question is whose identity that call carries.
           </p>
 
-          <Figure caption="Two models for downstream calls. Acting as the service is simple but flattens permissions; acting on behalf of the user preserves them.">
-            <Graph
-              label="Service identity: all users share one broad downstream credential. Delegated identity: each call carries the user's own permissions."
-              cellW={196}
-              cellH={96}
-              nodeW={156}
-              nodes={[
-                { id: "u1", label: "Users", sub: "Different permissions", col: 0, row: 0, tone: "amber", shape: "pill" },
-                { id: "s1", label: "Your service", sub: "One shared credential", col: 1, row: 0, tone: "rose" },
-                { id: "d1", label: "Downstream", sub: "Sees one broad caller", col: 2, row: 0, tone: "sky" },
-                { id: "u2", label: "Users", sub: "Different permissions", col: 0, row: 1, tone: "amber", shape: "pill" },
-                { id: "s2", label: "Your service", sub: "Exchanges user token", col: 1, row: 1, tone: "lime" },
-                { id: "d2", label: "Downstream", sub: "Enforces each user's rights", col: 2, row: 1, tone: "sky" },
-              ]}
-              groups={[
-                { label: "Service identity", c1: 0, r1: 0, c2: 2, r2: 0, tone: "rose" },
-                { label: "Delegated (on behalf of)", c1: 0, r1: 1, c2: 2, r2: 1, tone: "lime" },
-              ]}
-              edges={[
-                { from: "u1", to: "s1" },
-                { from: "s1", to: "d1", label: "service token" },
-                { from: "u2", to: "s2" },
-                { from: "s2", to: "d2", label: "user-scoped token" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="auth-bridging" panel={2} />
 
           <Table
             head={["Model", "Pros", "Cons", "Use when"]}
@@ -173,24 +130,7 @@ export const lesson: Lesson = {
               regulator.
             </li>
           </ul>
-          <Figure caption="Zero-downtime key rotation. The new key is issued and stored first, the service picks it up, and only then is the old key revoked.">
-            <Sequence
-              label="Zero-downtime key rotation: create new key, deploy it, verify, then revoke the old one"
-              actors={[
-                { id: "ops", label: "Operator" },
-                { id: "vault", label: "Secrets vault" },
-                { id: "svc", label: "Service" },
-                { id: "api", label: "Downstream API" },
-              ]}
-              messages={[
-                { from: "ops", to: "api", text: "Issue new key (old still valid)" },
-                { from: "ops", to: "vault", text: "Store new key as version 2" },
-                { from: "svc", to: "vault", text: "Fetch current key on refresh" },
-                { from: "svc", to: "api", text: "Calls succeed with version 2" },
-                { from: "ops", to: "api", text: "Revoke the old key after verification" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="auth-bridging" panel={3} />
         </>
       ),
     },

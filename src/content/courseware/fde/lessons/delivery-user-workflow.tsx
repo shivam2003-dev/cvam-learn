@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -23,32 +24,7 @@ export const lesson: Lesson = {
             not want to run a Python script. The brief names a user. Treat that person as the
             customer for the whole assignment.
           </p>
-          <Figure caption="Two ways to start. Building from the architecture produces a system nobody can use; building from the workflow produces something that fits a day of work.">
-            <Graph
-              label="Architecture-first versus workflow-first: the first leads from components to a tool the user must adapt to; the second leads from the user's task to a fitting tool"
-              cellW={206}
-              cellH={96}
-              nodeW={168}
-              nodes={[
-                { id: "a1", label: "Pick technologies", col: 0, row: 0, tone: "rose" },
-                { id: "a2", label: "Build components", col: 1, row: 0, tone: "rose" },
-                { id: "a3", label: "User must adapt", sub: "Awkward fit", col: 2, row: 0, tone: "rose" },
-                { id: "b1", label: "Observe the task", col: 0, row: 1, tone: "lime" },
-                { id: "b2", label: "Find the painful step", col: 1, row: 1, tone: "lime" },
-                { id: "b3", label: "Fit the tool in", sub: "Natural place in the day", col: 2, row: 1, tone: "lime" },
-              ]}
-              groups={[
-                { label: "Architecture-first", c1: 0, r1: 0, c2: 2, r2: 0, tone: "rose" },
-                { label: "Workflow-first", c1: 0, r1: 1, c2: 2, r2: 1, tone: "lime" },
-              ]}
-              edges={[
-                { from: "a1", to: "a2" },
-                { from: "a2", to: "a3" },
-                { from: "b1", to: "b2" },
-                { from: "b2", to: "b3" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-user-workflow" panel={1} />
         </>
       ),
     },
@@ -61,18 +37,7 @@ export const lesson: Lesson = {
             Even without access to real users, you can reason about the workflow from the brief. Write
             a short story of one task, step by step, then mark where your solution intervenes.
           </p>
-          <Figure caption="A clerk's invoice workflow with the solution inserted at the slow, error-prone steps. Everything else stays as it is, which makes adoption easy.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Invoice arrives", note: "Email or portal", tone: "plain" },
-                { title: "Key fields into ERP", note: "Slow and error-prone: automate", tone: "amber" },
-                { title: "Match to purchase order", note: "Lookup by hand: automate", tone: "amber" },
-                { title: "Resolve mismatches", note: "Judgment: human with the tool's help", tone: "lime" },
-                { title: "Approve for payment", note: "Accountability: stays human", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-user-workflow" panel={2} />
           <Table
             head={["Question about the user", "Design consequence"]}
             rows={[

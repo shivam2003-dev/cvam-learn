@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -73,16 +74,7 @@ export const lesson: Lesson = {
             then practice that turns it into interview-ready skill.
           </p>
 
-          <Figure caption="The course in four movements. Each movement builds on the last, and the case studies pull everything together.">
-            <Timeline
-              phases={[
-                { label: "1 · The method", when: "Chapters 1 to 4", tone: "sky", weight: 1, items: ["The FDE role", "Discovery and scoping", "POC sprint", "Pilot, handoff, feedback", "Enterprise constraints"] },
-                { label: "2 · The systems", when: "Chapter 5", tone: "lime", weight: 1, items: ["AI system types", "LLM systems", "Harness engineering", "Multi-agent patterns"] },
-                { label: "3 · Design and cases", when: "Chapters 6 to 13", tone: "amber", weight: 1.3, items: ["Interview basics", "FDE system design", "Five case studies", "Projects and a cloud lab"] },
-                { label: "4 · Getting hired", when: "Chapters 14 to 17", tone: "plain", weight: 1.1, items: ["Company guides", "Take-home masterclass", "Delivering and defending", "Capstones"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="course-readiness" panel={1} />
 
           <p>
             Even if you are not interviewing, movements 1 and 2 are the ones that make you good at the
@@ -103,18 +95,7 @@ export const lesson: Lesson = {
             with it. A routine that works well:
           </p>
 
-          <Figure caption="A study loop for each lesson. The exercise and the written recap are where most of the learning happens.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Read", note: "Once through at a steady pace", tone: "sky" },
-                { title: "Attempt", note: "Do each exercise before opening the answer", tone: "lime" },
-                { title: "Compare", note: "Check yours against the model answer", tone: "lime" },
-                { title: "Recap", note: "Write three sentences in your own words", tone: "amber" },
-                { title: "Apply", note: "Use it on a real situation this week", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="course-readiness" panel={2} />
 
           <ul>
             <li>
@@ -151,17 +132,7 @@ export const lesson: Lesson = {
             later.
           </p>
 
-          <Figure caption="The practice stack, from your machine up to the model providers you will call.">
-            <Layers
-              layers={[
-                { title: "Model access", note: "An API key for at least one LLM provider. Free or low-cost tiers are enough for the projects.", tone: "amber" },
-                { title: "Libraries", note: "Python packages for LangChain, an embeddings client and a vector store; AutoGen for the multi-agent project.", tone: "lime" },
-                { title: "Language and tooling", note: "Python 3.11 or later, a virtual environment, and a code editor.", tone: "lime" },
-                { title: "Cloud account (optional)", note: "A personal account with budget alerts, for the cloud lab only. Never use a company account.", tone: "sky" },
-                { title: "Your machine", note: "Terminal, Git, and a place to keep an engagement notebook.", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="course-readiness" panel={3} />
 
           <pre>
             <code>{`# One-time setup (macOS or Linux)

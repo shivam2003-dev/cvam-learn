@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,24 +25,7 @@ export const lesson: Lesson = {
             handle the most characteristic moment of the job: a stakeholder who wants more, faster,
             with no change in the date.
           </p>
-          <Figure caption="A scope-change conversation done well. The candidate clarifies, offers options with costs, recommends, and confirms.">
-            <Sequence
-              label="Sequence of a scope change: customer asks for more; candidate clarifies need, presents options with trade-offs, recommends one, and confirms next steps"
-              actors={[
-                { id: "c", label: "Customer" },
-                { id: "you", label: "You" },
-              ]}
-              messages={[
-                { from: "c", to: "you", text: "We also need email attachments and French, by next week.", dashed: true },
-                { from: "you", to: "c", text: "Understood. What is driving the deadline, and which matters most for the first release?" },
-                { from: "c", to: "you", text: "A French-speaking region pilots Monday; attachments can wait.", dashed: true },
-                { from: "you", to: "c", text: "Options: A) French only by Monday; B) both, a week later; C) both Monday with lower accuracy and human review." },
-                { from: "you", to: "c", text: "I recommend A: it meets the pilot date with tested quality; attachments follow." },
-                { from: "c", to: "you", text: "Agreed.", dashed: true },
-                { from: "you", to: "c", text: "I will send a summary today with the decision, scope and dates." },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-role-play" panel={1} />
         </>
       ),
     },
@@ -50,18 +34,7 @@ export const lesson: Lesson = {
       title: "A structure for scope change",
       body: (
         <>
-          <Figure caption="Five moves for any scope change. None requires saying no; all require saying what it costs.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Listen and restate", note: "Show you understood the request", tone: "sky" },
-                { title: "Find the need", note: "What outcome and deadline drive it?", tone: "sky" },
-                { title: "Offer options", note: "Two or three, each with cost and risk", tone: "lime" },
-                { title: "Recommend", note: "One, with a reason tied to their goal", tone: "amber" },
-                { title: "Confirm", note: "Decision, owner, date, in writing", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-role-play" panel={2} />
           <Table
             head={["Customer says", "Weak reply", "Strong reply"]}
             rows={[

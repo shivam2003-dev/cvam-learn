@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -55,18 +56,7 @@ export const lesson: Lesson = {
       title: "Plan and scope",
       body: (
         <>
-          <Figure caption="A suggested six-hour plan for the capstone. Adjust to your pace, but keep the checkpoints and the packaging hour.">
-            <Timeline
-              phases={[
-                { label: "0:00 to 0:45", when: "Read and plan", tone: "sky", items: ["Checklist and assumptions", "Define 'same customer'", "Generate synthetic data"] },
-                { label: "0:45 to 1:30", when: "Profile", tone: "sky", items: ["Profile all three sources", "List problems found", "Decide matching keys"] },
-                { label: "1:30 to 3:15", when: "Core build", tone: "lime", weight: 1.7, items: ["Normalise and clean with ledger", "Match and merge customers", "Compute spend per customer"] },
-                { label: "3:15 to 4:15", when: "Quality and API", tone: "lime", items: ["Validation and reconciliation", "Small read-only API or report", "Confidence for merges"] },
-                { label: "4:15 to 5:15", when: "Tests and evaluation", tone: "amber", items: ["Unit tests on rules", "Evaluate matching on labelled pairs", "Error analysis"] },
-                { label: "5:15 to 6:00", when: "Package", tone: "rose", items: ["README and trade-offs", "Demo video", "Clean-clone run"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="capstone-data-integration" panel={1} />
           <ol>
             <li>Write the <strong>assumptions log</strong> first: what makes two records the same customer (email is the primary key; name and postcode as supporting evidence), how conflicts resolve (most recent wins, recorded), and how currencies are handled (detect and flag; convert only with an explicit rate).</li>
             <li>Decide the <strong>MVP</strong>: clean unified customer table, duplicate groups with confidence, spend per customer, a data quality report, a small API or HTML report.</li>
@@ -80,33 +70,7 @@ export const lesson: Lesson = {
       title: "Build guide",
       body: (
         <>
-          <Figure caption="Target architecture for the capstone. Raw files are never modified; every stage writes outputs and a ledger, and the API reads only the final tables.">
-            <Graph
-              label="Pipeline from three raw sources through normalise, match and merge, aggregate, quality report and a read-only API"
-              cellW={196}
-              cellH={100}
-              nodeW={160}
-              nodes={[
-                { id: "w", label: "web_customers.json", col: 0, row: 0, tone: "sky", shape: "db" },
-                { id: "l", label: "store_loyalty.csv", col: 0, row: 1, tone: "sky", shape: "db" },
-                { id: "m", label: "marketplace_orders.csv", col: 0, row: 2, tone: "sky", shape: "db" },
-                { id: "n", label: "Normalise + validate", sub: "Ledger, rejects", col: 1, row: 1, tone: "lime" },
-                { id: "mm", label: "Match + merge", sub: "Keys, similarity, confidence", col: 2, row: 1, tone: "lime" },
-                { id: "ag", label: "Aggregate spend", sub: "No fan-out", col: 3, row: 0, tone: "lime" },
-                { id: "q", label: "Quality report", sub: "Counts, rates, issues", col: 3, row: 1, tone: "amber" },
-                { id: "api", label: "Read-only API / report", col: 3, row: 2, tone: "amber", shape: "pill" },
-              ]}
-              edges={[
-                { from: "w", to: "n" },
-                { from: "l", to: "n" },
-                { from: "m", to: "n" },
-                { from: "n", to: "mm" },
-                { from: "mm", to: "ag" },
-                { from: "mm", to: "q" },
-                { from: "mm", to: "api" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="capstone-data-integration" panel={2} />
           <pre>
             <code>{`# match.py: a defensible, explainable matching approach
 import re, difflib

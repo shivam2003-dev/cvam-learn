@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -34,19 +35,7 @@ export const lesson: Lesson = {
               ["Decide whether an invoice is paid", "Code, using the model only to read it", "Business decisions need determinism"],
             ]}
           />
-          <Figure caption="The shape of a good LLM-backed take-home. The model handles language; code handles rules; a validation gate sits between them.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Input", note: "Emails, documents, records", tone: "sky" },
-                { title: "Prepare", note: "Clean, trim, add context", tone: "sky" },
-                { title: "LLM call", note: "Schema-bound output", tone: "lime" },
-                { title: "Validate", note: "Types, ranges, grounding", tone: "amber" },
-                { title: "Business rules", note: "Deterministic code", tone: "lime" },
-                { title: "Result + confidence", note: "Review path for low confidence", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-llm-solutions" panel={1} />
         </>
       ),
     },
@@ -109,17 +98,7 @@ def extract(text: str, call_model) -> Extraction:
       title: "Cost, latency and a no-key mode",
       body: (
         <>
-          <Figure caption="Levers that keep a small LLM project cheap and quick. Each is a few lines of code and worth mentioning in the README.">
-            <Layers
-              layers={[
-                { title: "Mock or recorded mode", note: "A flag that replays saved model outputs so the project runs without a key and tests are deterministic.", tone: "amber" },
-                { title: "Batching and concurrency", note: "Process independent items in parallel with a small worker pool and a rate cap.", tone: "lime" },
-                { title: "Caching", note: "Hash inputs; reuse results; never pay twice for the same call.", tone: "lime" },
-                { title: "Right-sized model", note: "A smaller, cheaper model for easy extraction; escalate only low-confidence cases.", tone: "sky" },
-                { title: "Input and output limits", note: "Trim long documents; cap output tokens; stop on step or spend limits.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-llm-solutions" panel={2} />
           <Callout tone="warn" title="Spend limits protect you too">
             Add a hard cap on the number of model calls per run (for example 200) and an environment
             variable to raise it. A loop bug that makes 5,000 paid calls during a take-home is both

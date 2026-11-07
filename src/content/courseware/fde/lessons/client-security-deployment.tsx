@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -23,27 +24,7 @@ export const lesson: Lesson = {
             goes. Your answer shapes the architecture more than any other choice, so settle it early
             in discovery.
           </p>
-          <Figure caption="Deployment models by who operates the system and where data lives. Moving right gives the customer more control and you more operational burden.">
-            <Graph
-              label="Five deployment models: vendor SaaS, single-tenant cloud, customer VPC, on-premises and air-gapped, with data location for each"
-              cellW={180}
-              cellH={112}
-              nodeW={150}
-              nodes={[
-                { id: "saas", label: "Vendor SaaS", sub: "Shared, vendor cloud", col: 0, row: 0, tone: "lime" },
-                { id: "single", label: "Single-tenant", sub: "Dedicated, vendor cloud", col: 1, row: 0, tone: "sky" },
-                { id: "vpc", label: "Customer VPC", sub: "Customer's cloud account", col: 2, row: 0, tone: "amber" },
-                { id: "onprem", label: "On-premises", sub: "Customer data centre", col: 3, row: 0, tone: "rose" },
-                { id: "air", label: "Air-gapped", sub: "No external network", col: 4, row: 0, tone: "rose" },
-              ]}
-              edges={[
-                { from: "saas", to: "single", label: "more isolation" },
-                { from: "single", to: "vpc", label: "data stays" },
-                { from: "vpc", to: "onprem", label: "own hardware" },
-                { from: "onprem", to: "air", label: "no internet" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="client-security-deployment" panel={1} />
           <Table
             head={["Model", "Data location", "Who operates", "Typical customers", "Cost to you"]}
             rows={[
@@ -68,33 +49,7 @@ export const lesson: Lesson = {
             Mark them, and state for each crossing: what data, which protocol, which authentication,
             and which controls.
           </p>
-          <Figure caption="A deployment in the customer's cloud with a model call to a managed service. Every dashed boundary crossing is a review item.">
-            <Graph
-              label="Customer VPC containing app, database and vector index, calling a private model endpoint, with trust boundaries and external dependencies"
-              cellW={202}
-              cellH={106}
-              nodeW={162}
-              nodes={[
-                { id: "user", label: "Employees", sub: "Corporate network, SSO", col: 0, row: 1, tone: "amber", shape: "pill" },
-                { id: "app", label: "Application", sub: "Containers, private subnet", col: 1, row: 1, tone: "lime" },
-                { id: "db", label: "Database", sub: "Encrypted at rest", col: 2, row: 0, tone: "sky", shape: "db" },
-                { id: "idx", label: "Search index", sub: "Access lists per chunk", col: 2, row: 1, tone: "sky", shape: "db" },
-                { id: "vault", label: "Secrets vault", sub: "Customer-managed keys", col: 2, row: 2, tone: "rose" },
-                { id: "llm", label: "Model endpoint", sub: "Private link, no retention", col: 3, row: 1, tone: "plain" },
-              ]}
-              groups={[
-                { label: "Customer VPC", c1: 1, r1: 0, c2: 2, r2: 2, tone: "sky" },
-                { label: "Provider boundary", c1: 3, r1: 0, c2: 3, r2: 2, tone: "rose" },
-              ]}
-              edges={[
-                { from: "user", to: "app", label: "HTTPS + SSO" },
-                { from: "app", to: "db" },
-                { from: "app", to: "idx" },
-                { from: "app", to: "vault", dashed: true },
-                { from: "app", to: "llm", label: "prompt + context" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="client-security-deployment" panel={2} />
           <ul>
             <li>The arrow to the model endpoint is the one most reviewers focus on for AI: what is sent, whether it is retained or used for training, and where it is processed.</li>
             <li>Show where encryption keys live and who controls them.</li>
@@ -108,18 +63,7 @@ export const lesson: Lesson = {
       title: "The standard controls",
       body: (
         <>
-          <Figure caption="Security controls by layer. A good answer to a questionnaire walks through each layer with the concrete mechanism used.">
-            <Layers
-              layers={[
-                { title: "Governance and audit", note: "Audit logs of access and changes, retention, incident response plan, vulnerability management, certifications such as SOC 2 or ISO 27001.", tone: "amber" },
-                { title: "Application", note: "SSO, role-based access, input validation, rate limits, secure defaults, dependency scanning.", tone: "amber" },
-                { title: "Data", note: "Encryption at rest and in transit, key management, field-level masking, retention and deletion, residency.", tone: "lime" },
-                { title: "Tenant isolation", note: "Separate data stores or enforced tenant IDs on every query; isolation tests; no cross-tenant caches.", tone: "lime" },
-                { title: "Network", note: "Private subnets, security groups, private endpoints, egress allow-lists, WAF where public.", tone: "sky" },
-                { title: "Platform and supply chain", note: "Hardened images, signed artifacts, SBOM, patching, least-privilege roles for deployment.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="client-security-deployment" panel={3} />
 
           <Table
             head={["Topic", "A strong, specific answer"]}

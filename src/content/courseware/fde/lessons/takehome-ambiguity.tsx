@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -22,25 +23,7 @@ export const lesson: Lesson = {
             candidates freeze, build a giant system to cover every interpretation, or silently pick
             one. Strong candidates make a visible decision.
           </p>
-          <Figure caption="Three responses to an ambiguous requirement. The best choice depends on cost of being wrong and whether someone can answer.">
-            <Graph
-              label="Decision among three responses to ambiguity: ask, assume and record, or build flexibly"
-              cellW={210}
-              cellH={104}
-              nodeW={174}
-              nodes={[
-                { id: "a", label: "Ambiguous requirement", col: 1.5, row: 0, tone: "lime", shape: "pill", w: 190 },
-                { id: "ask", label: "Ask", sub: "If cheap to ask and costly to get wrong", col: 0, row: 1.4, tone: "sky" },
-                { id: "as", label: "Assume and record", sub: "If low cost of being wrong, or no one to ask", col: 1.5, row: 1.4, tone: "lime" },
-                { id: "flex", label: "Build flexibly", sub: "If both options are cheap to support", col: 3, row: 1.4, tone: "amber" },
-              ]}
-              edges={[
-                { from: "a", to: "ask" },
-                { from: "a", to: "as" },
-                { from: "a", to: "flex" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-ambiguity" panel={1} />
         </>
       ),
     },

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -23,19 +24,7 @@ export const lesson: Lesson = {
             newer ones, CSV exports from small clinics. The hub receives all of them in the same
             careful way.
           </p>
-          <Figure caption="Ingestion pipeline. Raw data is stored untouched, then mapped to a common model, with rejects tracked rather than discarded.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Receive", note: "HL7 v2, FHIR, files; authenticated; encrypted", tone: "sky" },
-                { title: "Store raw", note: "Immutable copy with source, time and checksum", tone: "rose" },
-                { title: "Parse and validate", note: "Syntax, required fields, units", tone: "lime" },
-                { title: "Map", note: "To a common model and standard terminologies; keep source codes", tone: "lime" },
-                { title: "Match identity", note: "Link to a master patient identifier", tone: "amber" },
-                { title: "Publish", note: "To the clinical view and downstream zones", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="health-hub-design" panel={1} />
           <ul>
             <li><strong>Keep raw forever</strong> (within retention rules). Mapping bugs are inevitable, and raw data lets you reprocess.</li>
             <li><strong>Keep source codes alongside mapped codes.</strong> A mapping that loses the original makes errors undetectable.</li>
@@ -51,29 +40,7 @@ export const lesson: Lesson = {
       title: "Patient identity matching",
       body: (
         <>
-          <Figure caption="Match decision bands. Only the most certain matches merge automatically; the middle band goes to trained staff; the rest stay separate.">
-            <Graph
-              label="Matching service: candidate generation by blocking, pairwise scoring, then three outcomes by score: auto-link, human review, no link"
-              cellW={196}
-              cellH={104}
-              nodeW={160}
-              nodes={[
-                { id: "in", label: "New record", sub: "Name, DOB, address, IDs", col: 0, row: 1, tone: "sky", shape: "pill" },
-                { id: "blk", label: "Blocking", sub: "Find plausible candidates cheaply", col: 1, row: 1, tone: "lime" },
-                { id: "sc", label: "Pairwise scoring", sub: "Weighted field agreement", col: 2, row: 1, tone: "lime" },
-                { id: "hi", label: "High score", sub: "Auto-link", col: 3, row: 0, tone: "amber" },
-                { id: "mid", label: "Middle score", sub: "Steward review queue", col: 3, row: 1, tone: "amber" },
-                { id: "lo", label: "Low score", sub: "New identity", col: 3, row: 2, tone: "plain" },
-              ]}
-              edges={[
-                { from: "in", to: "blk" },
-                { from: "blk", to: "sc" },
-                { from: "sc", to: "hi" },
-                { from: "sc", to: "mid" },
-                { from: "sc", to: "lo" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="health-hub-design" panel={2} />
           <ul>
             <li><strong>Blocking</strong> avoids comparing every pair: group by features such as date of birth and phonetic surname.</li>
             <li><strong>Scoring</strong> combines weighted agreements: exact national or insurance ID is strong; matching common names is weak. Probabilistic methods or a trained model can learn the weights.</li>
@@ -93,25 +60,7 @@ export const lesson: Lesson = {
       title: "Consent, access and audit",
       body: (
         <>
-          <Figure caption="A clinician's request for a patient's record. Authorisation, consent and purpose checks happen before any data returns, and every outcome is logged.">
-            <Sequence
-              label="Sequence of a record access: clinician requests, policy engine checks role, care relationship and consent, data returned with watermark, audit written"
-              actors={[
-                { id: "doc", label: "Clinician" },
-                { id: "api", label: "Hub API" },
-                { id: "pol", label: "Policy engine" },
-                { id: "aud", label: "Audit log" },
-              ]}
-              messages={[
-                { from: "doc", to: "api", text: "Request record for patient P (SSO identity)" },
-                { from: "api", to: "pol", text: "Check role, care relationship, consent flags, purpose" },
-                { from: "pol", to: "api", text: "Allow with filters, or deny with reason", dashed: true },
-                { from: "api", to: "aud", text: "Write who, what, why, outcome" },
-                { from: "api", to: "doc", text: "Filtered record with source and freshness", dashed: true },
-                { note: "If denied and an emergency applies, 'break glass' grants time-limited access and triggers review.", over: ["doc", "pol"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="health-hub-design" panel={3} />
           <Table
             head={["Control", "Design"]}
             rows={[

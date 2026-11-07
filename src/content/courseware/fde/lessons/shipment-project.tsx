@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,32 +25,7 @@ export const lesson: Lesson = {
             narrow workers, workers return structured results, and a critic checks the output before
             anything is returned. Nothing external is called except your model, so it is safe to run.
           </p>
-          <Figure caption="Roles in the research assistant. The planner and researcher gather; the writer drafts; the critic verifies against sources. The orchestrator is ordinary code.">
-            <Graph
-              label="An orchestrator coordinating planner, researcher with a notes search tool, writer and critic, with a loop back to the writer on critic feedback"
-              cellW={196}
-              cellH={104}
-              nodeW={158}
-              nodes={[
-                { id: "q", label: "Question", col: 0, row: 0, tone: "amber", shape: "pill" },
-                { id: "o", label: "Orchestrator", sub: "Python: order, limits, trace", col: 1, row: 0, tone: "lime" },
-                { id: "p", label: "Planner", sub: "Splits into sub-questions", col: 2, row: 0, tone: "sky" },
-                { id: "r", label: "Researcher", sub: "Tool: search_notes", col: 3, row: 0, tone: "sky" },
-                { id: "w", label: "Writer", sub: "Drafts from findings only", col: 3, row: 1, tone: "lime" },
-                { id: "c", label: "Critic", sub: "Checks claims vs sources", col: 2, row: 1, tone: "amber" },
-                { id: "n", label: "Notes folder", sub: "Local .txt files", col: 3, row: 2, tone: "plain", shape: "db" },
-              ]}
-              edges={[
-                { from: "q", to: "o" },
-                { from: "o", to: "p" },
-                { from: "p", to: "r", label: "sub-questions" },
-                { from: "r", to: "n", dashed: true },
-                { from: "r", to: "w", label: "findings + sources" },
-                { from: "w", to: "c" },
-                { from: "c", to: "w", dashed: true, bend: 22, label: "revise" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="shipment-project" panel={1} />
           <Callout tone="note" title="Why build it twice">
             You will write the orchestration in plain Python first so you understand every moving
             part, then express the same design in AutoGen. Doing both is the quickest way to judge
@@ -263,18 +239,7 @@ asyncio.run(main("your question here"))`}</code>
             one call that receives the question and the top passages from <code>search_notes</code>
             and answers directly.
           </p>
-          <Figure caption="The comparison you will run. Same questions, same notes, three systems, scored the same way.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Write 15 questions", note: "Include 3 unanswerable and 3 with conflicting notes", tone: "sky" },
-                { title: "Run single-call baseline", note: "One model call over top passages", tone: "lime" },
-                { title: "Run plain multi-agent", note: "Planner, researcher, writer, critic", tone: "lime" },
-                { title: "Run AutoGen team", note: "Optional comparison", tone: "amber" },
-                { title: "Score", note: "Correct, cited, abstained, conflicts reported, cost, time", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="shipment-project" panel={2} />
           <Table
             head={["Measure", "How to compute"]}
             rows={[

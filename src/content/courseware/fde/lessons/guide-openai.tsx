@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -57,22 +58,7 @@ export const lesson: Lesson = {
               ["Customer skill", "Discovery, scoping, communicating limits and uncertainty honestly", "Chapters 2 to 4"],
             ]}
           />
-          <Figure caption="Where to invest your preparation effort. The top right (high impact, achievable in weeks) is where a strong portfolio project and evaluation practice sit.">
-            <Quadrant
-              label="Preparation activities plotted by effort and interview impact"
-              xLabel="Effort"
-              yLabel="Impact"
-              corners={["Quick wins", "Invest here", "Skip", "Only if time"]}
-              items={[
-                { label: "Portfolio project with evals", x: 0.55, y: 0.9, tone: "lime" },
-                { label: "Practise customer scenarios", x: 0.32, y: 0.82, tone: "lime" },
-                { label: "Read model docs deeply", x: 0.28, y: 0.6, tone: "sky" },
-                { label: "Design practice", x: 0.5, y: 0.7, tone: "lime" },
-                { label: "Memorise benchmarks", x: 0.18, y: 0.18, tone: "rose" },
-                { label: "Train a model from scratch", x: 0.92, y: 0.32, tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="guide-openai" panel={1} />
         </>
       ),
     },
@@ -85,19 +71,7 @@ export const lesson: Lesson = {
             Build one project that you can demo, explain and defend. The best ones show not only that
             something works but how you know.
           </p>
-          <Figure caption="A project shape that covers the main themes. The evaluation and write-up are what separate it from a tutorial.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Pick a real workflow", note: "e.g. triage support tickets or extract data from contracts", tone: "sky" },
-                { title: "Build with a model API", note: "Structured output, retrieval or tools as needed", tone: "lime" },
-                { title: "Create an evaluation set", note: "50 to 100 labelled examples; metrics; failure analysis", tone: "lime" },
-                { title: "Compare options", note: "Two models or prompts on quality, cost and latency", tone: "amber" },
-                { title: "Add guardrails", note: "Validation, abstention, a red-team set", tone: "amber" },
-                { title: "Write it up", note: "README, trade-offs, limits, and a short demo video", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="guide-openai" panel={2} />
           <Exercise
             title="Customer scenario drill"
             task={

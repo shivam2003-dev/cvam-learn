@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -31,32 +32,7 @@ export const lesson: Lesson = {
             shifts to new problems.
           </p>
 
-          <Figure caption="Two trajectories. With the feedback loop, custom work per customer falls over time. Without it, it stays flat or grows.">
-            <Graph
-              label="Two flows: without a loop, every customer needs custom work; with a loop, field learning becomes product and later customers need less"
-              cellW={176}
-              cellH={96}
-              nodeW={146}
-              nodes={[
-                { id: "c1", label: "Customer 1", sub: "Heavy custom work", col: 0, row: 0, tone: "rose" },
-                { id: "c2", label: "Customer 2", sub: "Heavy custom work", col: 1, row: 0, tone: "rose" },
-                { id: "c3", label: "Customer 3", sub: "Heavy custom work", col: 2, row: 0, tone: "rose" },
-                { id: "d1", label: "Customer 1", sub: "Heavy custom work", col: 0, row: 1, tone: "amber" },
-                { id: "p", label: "Product update", sub: "Pattern becomes feature", col: 1, row: 1, tone: "lime" },
-                { id: "d3", label: "Customer 3", sub: "Mostly configuration", col: 2, row: 1, tone: "lime" },
-              ]}
-              groups={[
-                { label: "No loop: services business", c1: 0, r1: 0, c2: 2, r2: 0, tone: "rose" },
-                { label: "With a loop: product business", c1: 0, r1: 1, c2: 2, r2: 1, tone: "lime" },
-              ]}
-              edges={[
-                { from: "c1", to: "c2" },
-                { from: "c2", to: "c3" },
-                { from: "d1", to: "p", label: "learn" },
-                { from: "p", to: "d3", label: "reuse" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="field-feedback-loop" panel={1} />
         </>
       ),
     },
@@ -106,22 +82,7 @@ Idea:           Native OCR in the ingestion pipeline, with a confidence score.`}
             customers need it, and how well it fits the product&apos;s direction.
           </p>
 
-          <Figure caption="Triage of field signals. Frequent and on-strategy requests become product features; rare or off-strategy ones stay as customer-specific configuration or custom code.">
-            <Quadrant
-              label="Field signals plotted by how many customers need them and how well they fit product strategy"
-              xLabel="Fit with product strategy"
-              yLabel="Number of customers affected"
-              corners={["Rethink the strategy?", "Build into the product", "Leave to the customer", "Offer as an extension"]}
-              items={[
-                { label: "Native OCR", x: 0.82, y: 0.88, tone: "lime" },
-                { label: "SSO connector", x: 0.7, y: 0.72, tone: "lime" },
-                { label: "Audit export", x: 0.62, y: 0.58, tone: "lime" },
-                { label: "Custom PDF theme", x: 0.18, y: 0.14, tone: "plain" },
-                { label: "ERP-specific fields", x: 0.4, y: 0.3, tone: "amber" },
-                { label: "Social media feed", x: 0.1, y: 0.62, tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="field-feedback-loop" panel={2} />
 
           <Table
             head={["Signal", "Typical home", "Why"]}
@@ -159,18 +120,7 @@ Idea:           Native OCR in the ingestion pipeline, with a confidence score.`}
             ]}
           />
           <p>A structure that works:</p>
-          <Figure caption="The structure of a product request that gets acted on: problem, evidence, impact, workaround and proposal.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Problem", note: "Who is affected and what they cannot do", tone: "sky" },
-                { title: "Evidence", note: "Counts, quotes, recordings, tickets", tone: "sky" },
-                { title: "Impact", note: "Time, money, deals or renewals at risk", tone: "amber" },
-                { title: "Workaround", note: "What you built, with a link", tone: "lime" },
-                { title: "Proposal", note: "A suggested direction, held loosely", tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="field-feedback-loop" panel={3} />
           <p>
             Share your workaround code. It is often the best first draft of the feature, and it proves
             the need is real. State your proposal as a suggestion; the product team knows constraints

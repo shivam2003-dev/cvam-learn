@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Layers, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -18,34 +19,7 @@ export const lesson: Lesson = {
       title: "Architecture",
       body: (
         <>
-          <Figure caption="The order backbone. Each system talks only to the integration layer, which owns queues, mapping, idempotency and the audit trail.">
-            <Graph
-              label="Integration layer between CRM and ERP: webhook receiver, queue, mapper, order service with state machine and idempotency store, ERP adapter, error queue, reconciler and audit log"
-              cellW={196}
-              cellH={104}
-              nodeW={160}
-              nodes={[
-                { id: "crm", label: "CRM", sub: "Webhooks + API", col: 0, row: 1, tone: "sky" },
-                { id: "rcv", label: "Receiver", sub: "Verify, store, ack fast", col: 1, row: 0, tone: "lime" },
-                { id: "q", label: "Durable queue", sub: "Partitioned by order ID", col: 2, row: 0, tone: "lime", shape: "db" },
-                { id: "svc", label: "Order service", sub: "Map, state machine, idempotency", col: 2, row: 1, tone: "lime" },
-                { id: "erp", label: "ERP", sub: "System of record", col: 3, row: 1, tone: "sky" },
-                { id: "err", label: "Error queue", sub: "Reason, owner, retry", col: 3, row: 2, tone: "rose", shape: "db" },
-                { id: "rec", label: "Reconciler", sub: "Nightly diff and repair", col: 1, row: 2, tone: "amber" },
-                { id: "aud", label: "Audit log", sub: "Every event and decision", col: 2, row: 2, tone: "rose", shape: "db" },
-              ]}
-              edges={[
-                { from: "crm", to: "rcv", label: "webhook" },
-                { from: "rcv", to: "q" },
-                { from: "q", to: "svc" },
-                { from: "svc", to: "erp", label: "idempotent write" },
-                { from: "svc", to: "err", dashed: true },
-                { from: "svc", to: "aud", dashed: true },
-                { from: "rec", to: "crm", dashed: true },
-                { from: "rec", to: "erp", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="otc-design" panel={1} />
           <ul>
             <li><strong>Receiver acknowledges quickly</strong> after durably storing the event, so the CRM does not time out and retry.</li>
             <li><strong>Queue partitioned by order ID</strong> keeps events for one order in sequence while allowing parallelism across orders.</li>
@@ -63,18 +37,7 @@ export const lesson: Lesson = {
             Rather than applying events blindly, model allowed states and transitions. An event that
             implies an invalid transition is held or rejected, not applied.
           </p>
-          <Figure caption="Order states in the integration layer. Cancelling after shipment is not allowed; it becomes a return process.">
-            <Flow
-              steps={[
-                { title: "Received", tone: "sky" },
-                { title: "Validated", tone: "sky" },
-                { title: "Created in ERP", tone: "lime" },
-                { title: "Fulfilled", tone: "lime" },
-                { title: "Invoiced", tone: "amber" },
-                { title: "Paid", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="otc-design" panel={2} />
           <Table
             head={["Current state", "Event", "Action"]}
             rows={[
@@ -120,25 +83,7 @@ def apply(order, event):
             <strong>saga</strong>: a sequence of local steps, each with a defined compensating action
             to undo it if a later step fails.
           </p>
-          <Figure caption="A saga for order creation with compensation. If billing fails after the ERP succeeds, the ERP order is cancelled and the failure is recorded.">
-            <Sequence
-              label="Saga sequence: create ERP order, create billing account, on failure compensate by cancelling the ERP order and raising an error"
-              actors={[
-                { id: "svc", label: "Order service" },
-                { id: "erp", label: "ERP" },
-                { id: "bill", label: "Billing" },
-                { id: "err", label: "Error queue" },
-              ]}
-              messages={[
-                { from: "svc", to: "erp", text: "Step 1: create order (idempotency key)" },
-                { from: "erp", to: "svc", text: "ERP order ID", dashed: true },
-                { from: "svc", to: "bill", text: "Step 2: create subscription" },
-                { from: "bill", to: "svc", text: "Failure: account blocked", dashed: true },
-                { from: "svc", to: "erp", text: "Compensate: cancel ERP order" },
-                { from: "svc", to: "err", text: "Record failure with reason for finance" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="otc-design" panel={3} />
           <ul>
             <li>Every step and compensation must be idempotent, because they may be retried.</li>
             <li>Persist the saga&apos;s progress so a crash resumes mid-way.</li>
@@ -152,17 +97,7 @@ def apply(order, event):
       title: "Reconciliation and the finance-friendly error queue",
       body: (
         <>
-          <Figure caption="Operational layers around the sync: error queue, reconciliation, alerts, audit and runbooks.">
-            <Layers
-              layers={[
-                { title: "Finance error queue", note: "Each failed event shows order, reason in plain words, suggested fix, owner, age; buttons to retry, edit and retry, or dismiss with a note.", tone: "amber" },
-                { title: "Reconciliation", note: "Nightly comparison of CRM and ERP by order ID, total, line count and status; differences listed and, for safe categories, auto-repaired.", tone: "amber" },
-                { title: "Alerts", note: "Queue depth, age of oldest event, error rate, and a canary order that should flow through daily.", tone: "lime" },
-                { title: "Audit trail", note: "For any invoice, the chain from CRM order to ERP order, with timestamps and the user or process involved.", tone: "lime" },
-                { title: "Runbooks", note: "Procedures for ERP downtime, a bad deploy and replay of a day of events.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="otc-design" panel={4} />
           <Table
             head={["Reconciliation check", "Frequency", "On mismatch"]}
             rows={[

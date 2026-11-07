@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Sequence, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,16 +25,7 @@ export const lesson: Lesson = {
             or spending twenty minutes on one component the interviewer did not care about.
           </p>
 
-          <Figure caption="A pacing plan with checkpoints. Glance at the clock at each checkpoint and adjust.">
-            <Timeline
-              phases={[
-                { label: "0 to 9 min", when: "Discover", tone: "sky", weight: 1.1, items: ["Restate the problem", "Ask clarifying questions", "State assumptions", "Write goal and metric"] },
-                { label: "9 to 24 min", when: "Design", tone: "lime", weight: 1.6, items: ["Draw systems and flow", "Choose data movement", "Add AI or app parts"] },
-                { label: "24 to 36 min", when: "Harden", tone: "amber", weight: 1.3, items: ["Failure paths", "Security and auth", "Deployment"] },
-                { label: "36 to 45 min", when: "Close", tone: "plain", weight: 1, items: ["Trade-offs", "Phased rollout", "Summary and risks"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="running-design-round" panel={1} />
 
           <p>Practical rules:</p>
           <ul>
@@ -89,23 +81,7 @@ export const lesson: Lesson = {
             them, those who stay silent often do not notice them.
           </p>
 
-          <Figure caption="Using an interruption well. The candidate treats a challenge as information, not an attack.">
-            <Sequence
-              label="Sequence where the interviewer challenges a choice and the candidate acknowledges, restates, adapts and continues"
-              actors={[
-                { id: "i", label: "Interviewer" },
-                { id: "you", label: "You" },
-              ]}
-              messages={[
-                { from: "you", to: "i", text: "I will poll the ERP every minute for changes." },
-                { from: "i", to: "you", text: "The ERP rate-limits you to 10 requests a minute.", dashed: true },
-                { from: "you", to: "i", text: "Good point. Polling every minute is too heavy for 10/min across many resources." },
-                { from: "you", to: "i", text: "Alternatives: webhooks if supported, or poll with a change cursor and batch." },
-                { from: "i", to: "you", text: "No webhooks available.", dashed: true },
-                { from: "you", to: "i", text: "Then a change-cursor poll every 2 minutes, with a nightly full reconcile." },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="running-design-round" panel={2} />
 
           <Table
             head={["Situation", "Strong response", "Weak response"]}
@@ -125,19 +101,7 @@ export const lesson: Lesson = {
       title: "When you are stuck",
       body: (
         <>
-          <Figure caption="What to do when you are stuck: pause, restate, list what you know, simplify and ask.">
-            <Flow
-              direction="col"
-              numbered
-              steps={[
-                { title: "Pause and say so", note: "I want to think about this for a moment.", tone: "sky" },
-                { title: "Restate the problem", note: "Often reveals the missing piece.", tone: "sky" },
-                { title: "List what you know", note: "Write facts and constraints on the board.", tone: "lime" },
-                { title: "Try the simplest version", note: "Solve a smaller case or one component.", tone: "lime" },
-                { title: "Ask a focused question", note: "Is it fine to assume X?", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="running-design-round" panel={3} />
           <Callout tone="tip" title="Mistakes are not fatal">
             If you realise you drew something wrong, say &ldquo;I made an error: this arrow should go
             the other way because the ERP is the system of record,&rdquo; fix it, and continue. A

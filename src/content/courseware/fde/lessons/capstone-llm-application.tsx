@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -33,18 +34,7 @@ export const lesson: Lesson = {
             that overlap or conflict slightly, as real help centres do. Plant a few questions whose
             answers are <em>not</em> in the articles.
           </p>
-          <Figure caption="What a reviewer should be able to do within the first five minutes: run it, see a grounded draft with citations, see an abstention, and read the evaluation.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Run", note: "make setup && make run", tone: "sky" },
-                { title: "Ask", note: "A normal question: draft with citations", tone: "lime" },
-                { title: "Ask again", note: "An unanswerable question: abstains and says why", tone: "amber" },
-                { title: "Inspect", note: "Sources shown beside the draft", tone: "lime" },
-                { title: "Evaluate", note: "make eval: scores and failures", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="capstone-llm-application" panel={1} />
         </>
       ),
     },
@@ -53,18 +43,7 @@ export const lesson: Lesson = {
       title: "Plan and scope",
       body: (
         <>
-          <Figure caption="A suggested six-hour plan. The evaluation phase is large on purpose, because the brief explicitly asks how well it works.">
-            <Timeline
-              phases={[
-                { label: "0:00 to 0:45", when: "Read, plan", tone: "sky", items: ["Checklist, assumptions", "Write help centre articles", "Write 40 test questions"] },
-                { label: "0:45 to 2:15", when: "Core build", tone: "lime", weight: 1.7, items: ["Load and chunk articles", "Retrieve top passages", "Structured, cited draft"] },
-                { label: "2:15 to 3:00", when: "Review UI", tone: "lime", items: ["Simple page: question, draft, sources, flags"] },
-                { label: "3:00 to 4:30", when: "Evaluate and improve", tone: "amber", weight: 1.6, items: ["Run 40 questions", "Group failures", "Fix the biggest group", "Re-score"] },
-                { label: "4:30 to 5:15", when: "Guardrails and tests", tone: "amber", items: ["Abstention, injection test", "Unit tests", "Cost cap"] },
-                { label: "5:15 to 6:00", when: "Package", tone: "rose", items: ["README, trade-offs", "Video", "Clean-clone check"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="capstone-llm-application" panel={2} />
           <Table
             head={["Decision", "Recommended"]}
             rows={[
@@ -83,31 +62,7 @@ export const lesson: Lesson = {
       title: "Build guide",
       body: (
         <>
-          <Figure caption="Target design. The model drafts; code retrieves, validates, verifies citations and decides when to hand off to a human.">
-            <Graph
-              label="Question to retriever to generator with schema, then validator and citation verifier, then review page with human handoff, with an evaluation harness reading the same pipeline"
-              cellW={196}
-              cellH={100}
-              nodeW={160}
-              nodes={[
-                { id: "q", label: "Question", col: 0, row: 1, tone: "amber", shape: "pill" },
-                { id: "r", label: "Retriever", sub: "Top passages + scores", col: 1, row: 1, tone: "lime" },
-                { id: "g", label: "Generator", sub: "Schema-bound draft", col: 2, row: 1, tone: "lime" },
-                { id: "v", label: "Validator", sub: "Schema, citations, policy", col: 3, row: 1, tone: "amber" },
-                { id: "ui", label: "Review page", sub: "Draft, sources, flag", col: 3, row: 2, tone: "amber", shape: "pill" },
-                { id: "kb", label: "Help centre", sub: "Markdown articles", col: 1, row: 0, tone: "sky", shape: "db" },
-                { id: "ev", label: "Evaluation harness", sub: "40 questions, metrics", col: 2, row: 0, tone: "rose" },
-              ]}
-              edges={[
-                { from: "q", to: "r" },
-                { from: "kb", to: "r", dashed: true },
-                { from: "r", to: "g" },
-                { from: "g", to: "v" },
-                { from: "v", to: "ui" },
-                { from: "ev", to: "g", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="capstone-llm-application" panel={3} />
           <pre>
             <code>{`# answer.py (core idea; fill in retrieve() and call_model())
 from pydantic import BaseModel
@@ -168,18 +123,7 @@ def answer(question, retrieve, call_model, min_score=0.2):
               ["Cost and latency", "Per question, and for a full evaluation run"],
             ]}
           />
-          <Figure caption="The improvement loop that the reviewer should be able to see in your README: a table of failure groups with before and after counts.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Score", note: "Run all 40 questions", tone: "sky" },
-                { title: "Read failures", note: "Group by cause", tone: "sky" },
-                { title: "Fix the biggest", note: "Retrieval, prompt or rule", tone: "lime" },
-                { title: "Re-score", note: "Check nothing regressed", tone: "lime" },
-                { title: "Record", note: "Before/after table in README", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="capstone-llm-application" panel={4} />
           <Callout tone="tip" title="Hold out some questions">
             Tune on 30 questions and keep 10 untouched for the final number. State which is which.
             Reviewers value the honesty and it prevents overfitting to your own tests.

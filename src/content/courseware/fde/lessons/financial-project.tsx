@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -25,19 +26,7 @@ export const lesson: Lesson = {
             customer data is involved. Use public documents such as a company annual report or a
             public policy PDF.
           </p>
-          <Figure caption="Project plan. Each step produces something you can run and test before moving on.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Set up", note: "Environment, API key, folder of PDFs", tone: "sky" },
-                { title: "Ingest", note: "Load, chunk, tag, embed, store", tone: "lime" },
-                { title: "Retrieve", note: "Filtered similarity search", tone: "lime" },
-                { title: "Answer", note: "Structured output with citations", tone: "amber" },
-                { title: "Verify", note: "Check figures against sources", tone: "amber" },
-                { title: "Evaluate", note: "Run a labelled question set", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="financial-project" panel={1} />
           <Callout tone="warn" title="Library versions change quickly">
             LangChain and the Google integration packages change names and signatures often. The code
             below targets the common, current style, but check each package&apos;s documentation if an
@@ -69,16 +58,7 @@ GEMINI_EMBEDDING_MODEL=<embedding model name from Google's current docs>`}</code
             set a budget alert on the account. The project makes only a few hundred small calls, but
             good habits start now.
           </p>
-          <Figure caption="Project files and their roles, from the question loop to the evaluation script.">
-            <Layers
-              layers={[
-                { title: "app.py", note: "Question loop: retrieve, answer, verify, print.", tone: "lime" },
-                { title: "ingest.py", note: "Builds the vector store from the docs folder.", tone: "lime" },
-                { title: "eval.py", note: "Runs a labelled question set and prints a score.", tone: "amber" },
-                { title: "chroma/ and docs/", note: "Local vector store and your source PDFs.", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="financial-project" panel={2} />
         </>
       ),
     },

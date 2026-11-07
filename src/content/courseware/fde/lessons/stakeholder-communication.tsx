@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Quadrant, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,27 +25,7 @@ export const lesson: Lesson = {
             of them, in different words, for a different decision.
           </p>
 
-          <Figure caption="The same project status, framed for four audiences. The facts are identical; the question each audience is asking is not.">
-            <Graph
-              label="One project fact at the centre, with four audiences each asking a different question"
-              cellW={205}
-              cellH={106}
-              nodeW={170}
-              nodes={[
-                { id: "fact", label: "The same project", sub: "Accuracy 94%, 2 risks, launch in 3 weeks", col: 1.5, row: 1, tone: "lime", w: 190 },
-                { id: "exec", label: "Executive", sub: "Is it worth it, and what do you need from me?", col: 0, row: 0, tone: "amber" },
-                { id: "ops", label: "Operator / user", sub: "Will this make my day easier?", col: 3, row: 0, tone: "sky" },
-                { id: "sec", label: "Security / legal", sub: "What can go wrong, and how is it contained?", col: 0, row: 2, tone: "rose" },
-                { id: "eng", label: "Engineer", sub: "How does it work, and how do I run it?", col: 3, row: 2, tone: "plain" },
-              ]}
-              edges={[
-                { from: "fact", to: "exec" },
-                { from: "fact", to: "ops" },
-                { from: "fact", to: "sec" },
-                { from: "fact", to: "eng" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="stakeholder-communication" panel={1} />
 
           <Table
             head={["Audience", "Cares about", "Lead with", "Avoid"]}
@@ -68,18 +49,7 @@ export const lesson: Lesson = {
             the ask first, then supports them:
           </p>
 
-          <Figure caption="The answer-first structure. Each part has a job; if the reader stops after the first two, they still have what they need.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Headline", note: "The conclusion in one line", tone: "lime" },
-                { title: "Ask", note: "The decision or action you need", tone: "lime" },
-                { title: "Evidence", note: "Two or three facts that support it", tone: "sky" },
-                { title: "Options", note: "Alternatives and their trade-offs", tone: "sky" },
-                { title: "Next steps", note: "Who does what by when", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="stakeholder-communication" panel={2} />
 
           <pre>
             <code>{`Subject: Decision needed by Fri: how to connect to the ERP
@@ -145,23 +115,7 @@ Next: I will send the interface spec today; ERP team reviews Monday.`}</code>
             Meetings are where trust is built or lost. The work happens before and after the call.
           </p>
 
-          <Figure caption="A customer working session from preparation to follow-up. The follow-up note, sent the same day, is the artefact that survives the meeting.">
-            <Sequence
-              label="Sequence of a customer meeting: send agenda, run meeting, send same-day summary, owners act"
-              actors={[
-                { id: "fde", label: "You" },
-                { id: "cust", label: "Customer team" },
-              ]}
-              messages={[
-                { from: "fde", to: "cust", text: "Send agenda and goal a day ahead" },
-                { from: "fde", to: "cust", text: "Run: goal, update, decisions, risks, next steps" },
-                { from: "cust", to: "fde", text: "Questions, decisions, objections", dashed: true },
-                { from: "fde", to: "cust", text: "Same-day summary: decisions, owners, dates" },
-                { note: "If it is not written down, it was not decided.", over: ["fde", "cust"] },
-                { from: "cust", to: "fde", text: "Confirm or correct the summary", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="stakeholder-communication" panel={3} />
 
           <ul>
             <li>
@@ -195,21 +149,7 @@ Next: I will send the interface spec today; ERP team reviews Monday.`}</code>
             stakeholder before a difficult conversation.
           </p>
 
-          <Figure caption="Stakeholder map by influence and support. Spend most effort on the high-influence people who are not yet supportive.">
-            <Quadrant
-              label="Stakeholders plotted by influence and support"
-              xLabel="Support for the project"
-              yLabel="Influence"
-              corners={["Influential sceptics: win them over", "Champions: equip them", "Low priority: keep informed", "Fans: use as advocates"]}
-              items={[
-                { label: "Sponsor", x: 0.88, y: 0.88, tone: "lime" },
-                { label: "Head of security", x: 0.28, y: 0.8, tone: "rose" },
-                { label: "Team lead", x: 0.72, y: 0.55, tone: "lime" },
-                { label: "Skeptical analyst", x: 0.2, y: 0.34, tone: "amber" },
-                { label: "End users", x: 0.6, y: 0.2, tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="stakeholder-communication" panel={4} />
 
           <ul>
             <li>

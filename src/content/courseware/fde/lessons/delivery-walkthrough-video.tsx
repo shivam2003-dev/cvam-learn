@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -23,17 +24,7 @@ export const lesson: Lesson = {
             communication skill, the thing a written README cannot fully do. Keep it short: most
             reviewers stop caring after five minutes.
           </p>
-          <Figure caption="A five-minute structure. The demo comes early, since the reviewer's attention is highest at the start.">
-            <Timeline
-              phases={[
-                { label: "0:00 to 0:30", when: "The problem", tone: "sky", items: ["Who has it", "What it costs them", "What you built, in one sentence"] },
-                { label: "0:30 to 2:00", when: "Live demo", tone: "lime", weight: 1.6, items: ["Real input in", "Result in the user's terms", "A flagged edge case"] },
-                { label: "2:00 to 3:30", when: "How it works", tone: "amber", weight: 1.4, items: ["One diagram", "The key design choice", "Where the model and code split"] },
-                { label: "3:30 to 4:30", when: "Evidence", tone: "lime", items: ["Evaluation result", "One failure and what you did", "Honest limits"] },
-                { label: "4:30 to 5:00", when: "Close", tone: "plain", items: ["Trade-off", "Next steps"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-walkthrough-video" panel={1} />
         </>
       ),
     },

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -21,29 +22,7 @@ export const lesson: Lesson = {
             Take-homes vary, but most fall into a few families. Recognising which one you hold in the
             first ten minutes tells you where the traps are and where to spend your time.
           </p>
-          <Figure caption="The five take-home families and the main skill each probes. Hybrid assignments combine two or three.">
-            <Graph
-              label="Take-home assignment types: data integration, LLM application, analytics and dashboard, debugging and repair, and API service, each with its main skill"
-              cellW={206}
-              cellH={104}
-              nodeW={172}
-              nodes={[
-                { id: "t", label: "Take-home", col: 1.5, row: 1, tone: "lime", shape: "pill", w: 160 },
-                { id: "di", label: "Data integration", sub: "Join and clean messy sources", col: 0, row: 0, tone: "sky" },
-                { id: "llm", label: "LLM application", sub: "Prompts, retrieval, evaluation", col: 3, row: 0, tone: "amber" },
-                { id: "an", label: "Analytics + dashboard", sub: "Insight and presentation", col: 0, row: 2, tone: "sky" },
-                { id: "dbg", label: "Debug and repair", sub: "Find and fix in an unfamiliar repo", col: 1.5, row: 2.2, tone: "rose" },
-                { id: "api", label: "API service", sub: "Design and build an interface", col: 3, row: 2, tone: "amber" },
-              ]}
-              edges={[
-                { from: "t", to: "di" },
-                { from: "t", to: "llm" },
-                { from: "t", to: "an" },
-                { from: "t", to: "dbg" },
-                { from: "t", to: "api" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-types" panel={1} />
         </>
       ),
     },

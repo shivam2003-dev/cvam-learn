@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -39,17 +40,7 @@ export const lesson: Lesson = {
       title: "The order-to-cash lifecycle",
       body: (
         <>
-          <Figure caption="The lifecycle across four systems. Each stage has an owner system; most problems occur at the hand-offs between them.">
-            <Timeline
-              phases={[
-                { label: "Quote and order", when: "CRM", tone: "sky", items: ["Opportunity won", "Quote accepted", "Order created"] },
-                { label: "Fulfil", when: "ERP", tone: "lime", items: ["Order accepted", "Stock reserved", "Shipped, delivery note"] },
-                { label: "Invoice", when: "ERP / billing", tone: "amber", items: ["Invoice raised", "Tax and currency applied", "Sent to customer"] },
-                { label: "Collect", when: "Payment provider", tone: "amber", items: ["Payment received", "Failed or partial payments", "Refunds"] },
-                { label: "Reconcile", when: "ERP / finance", tone: "rose", items: ["Match payments to invoices", "Post to ledger", "Close the period"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="otc-decompose" panel={1} />
           <Table
             head={["Data or state", "System of record", "Others hold"]}
             rows={[
@@ -74,26 +65,7 @@ export const lesson: Lesson = {
       title: "Where it breaks",
       body: (
         <>
-          <Figure caption="Typical failure points in the synchronisation chain. Each arrow is a place where events can be lost, duplicated, reordered or misread.">
-            <Graph
-              label="Four systems connected in sequence, with labelled failure risks on each hand-off"
-              cellW={208}
-              cellH={108}
-              nodeW={162}
-              nodes={[
-                { id: "crm", label: "CRM", sub: "Orders and accounts", col: 0, row: 0, tone: "sky" },
-                { id: "erp", label: "ERP", sub: "Fulfilment, invoices, ledger", col: 1, row: 0, tone: "lime" },
-                { id: "bill", label: "Billing platform", sub: "Subscriptions, usage", col: 2, row: 0, tone: "amber" },
-                { id: "pay", label: "Payment provider", sub: "Cards, bank transfers", col: 3, row: 0, tone: "amber" },
-              ]}
-              edges={[
-                { from: "crm", to: "erp", label: "duplicates, edits after sync" },
-                { from: "erp", to: "bill", label: "out-of-order updates" },
-                { from: "bill", to: "pay", label: "partial failures" },
-                { from: "pay", to: "erp", label: "payment matching", bend: 52, dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="otc-decompose" panel={2} />
           <Table
             head={["Problem", "Example", "Impact"]}
             rows={[
@@ -129,17 +101,7 @@ export const lesson: Lesson = {
             region, in one currency, with reconciliation and the error queue. Billing and payments
             follow once the order backbone is trusted.
           </p>
-          <Figure caption="Delivery in slices. Each slice adds one flow once the previous one is trusted.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Slice 1", note: "Orders CRM to ERP, one region; reconcile daily", tone: "sky" },
-                { title: "Slice 2", note: "Order changes and cancellations; state machine", tone: "lime" },
-                { title: "Slice 3", note: "Invoices and statuses back to CRM", tone: "lime" },
-                { title: "Slice 4", note: "Billing platform and payments matching", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="otc-decompose" panel={3} />
           <Exercise
             title="Who owns the field?"
             task={

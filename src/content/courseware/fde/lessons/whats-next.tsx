@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -21,19 +22,7 @@ export const lesson: Lesson = {
             You started by asking what a forward deployed engineer is. You now have a working method
             and the technical depth to apply it. In one view:
           </p>
-          <Figure caption="The course as a delivery loop. Each chapter equips one part of it, and the case studies and take-homes practise the whole loop.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Discover and scope", note: "Chapters 2 and 4", tone: "sky" },
-                { title: "Design and build", note: "Chapters 5 to 7", tone: "lime" },
-                { title: "Prove and pilot", note: "Chapters 2, 3 and 8 to 13", tone: "lime" },
-                { title: "Hand off and operate", note: "Chapter 3", tone: "amber" },
-                { title: "Feed back", note: "Chapter 3", tone: "amber" },
-                { title: "Communicate and interview", note: "Chapters 4, 6, 14 to 16", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="whats-next" panel={1} />
           <Table
             head={["Skill", "Where you practised it", "Evidence you can show"]}
             rows={[
@@ -61,15 +50,7 @@ export const lesson: Lesson = {
               ["Lead or found something", "Productising", "Study packaging of repeated engagements; practise commercial scoping and pricing; build a reference architecture"],
             ]}
           />
-          <Figure caption="A twelve-week plan for the interview-focused path. Adjust the mix to your starting point; keep the weekly rhythm of build, practise, review.">
-            <Timeline
-              phases={[
-                { label: "Weeks 1 to 4", when: "Strengthen", tone: "sky", items: ["Redo cases 8 to 13 from memory", "Fill the weakest rubric rows", "Two coding sessions a week"] },
-                { label: "Weeks 5 to 8", when: "Prove", tone: "lime", weight: 1.3, items: ["Build a portfolio project", "Write it up publicly", "One full take-home"] },
-                { label: "Weeks 9 to 12", when: "Perform", tone: "amber", weight: 1.2, items: ["Company research", "Mock loops with feedback", "Apply and iterate"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="whats-next" panel={2} />
         </>
       ),
     },

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -132,17 +133,7 @@ export const lesson: Lesson = {
       title: "Themes interviewers listen for",
       body: (
         <>
-          <Figure caption="What strong answers in regulated-data cases have in common. Each layer reflects a habit of mind, not a technology.">
-            <Layers
-              layers={[
-                { title: "Humility about regulation", note: "You know the rules vary, defer to legal and privacy owners, and design for configurability.", tone: "amber" },
-                { title: "Safety before completeness", note: "You will ship less data if it is safer, and explain why.", tone: "amber" },
-                { title: "Recoverability", note: "Raw preservation, lineage, reversibility and audit let mistakes be found and fixed.", tone: "lime" },
-                { title: "Plain communication", note: "You can explain matching, consent and risk to executives and clinicians without jargon.", tone: "lime" },
-                { title: "Incremental delivery", note: "Narrow slices, quality gates and repeatable onboarding rather than a big bang.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="health-hub-interview" panel={1} />
           <Table
             head={["Probe", "Strong direction"]}
             rows={[

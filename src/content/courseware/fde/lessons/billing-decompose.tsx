@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -69,18 +70,7 @@ export const lesson: Lesson = {
               a missed code loses revenue; a wrong specificity may cause a denial.
             </li>
           </ul>
-          <Figure caption="Where errors come from in a coding pipeline. A model sits in the middle; the surrounding rules and review decide whether its errors reach a claim.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Clinical note", note: "Unstructured text, abbreviations, templates", tone: "sky" },
-                { title: "Code suggestion", note: "Candidate codes with confidence", tone: "lime" },
-                { title: "Rule checks", note: "Code validity, sequencing, payer rules", tone: "amber" },
-                { title: "Coder review", note: "Accept, edit, reject", tone: "amber" },
-                { title: "Claim", note: "Submitted, later audited or denied", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="billing-decompose" panel={1} />
         </>
       ),
     },
@@ -111,31 +101,7 @@ export const lesson: Lesson = {
             against simpler baselines first.
           </p>
 
-          <Figure caption="A decision aid for the fine-tuning question. Tuning pays off when behaviour, not knowledge, is the gap and you have good labelled data.">
-            <Graph
-              label="Decision aid: whether the gap is knowledge or behaviour, whether good labelled data exists, and whether volume justifies training"
-              cellW={200}
-              cellH={100}
-              nodeW={166}
-              nodes={[
-                { id: "g", label: "What is the gap?", col: 1.5, row: 0, tone: "lime", shape: "pill" },
-                { id: "k", label: "Missing knowledge", sub: "Facts, current code set", col: 0, row: 1, tone: "sky" },
-                { id: "b", label: "Behaviour / pattern", sub: "Style, choices, format", col: 3, row: 1, tone: "amber" },
-                { id: "rag", label: "Use retrieval", sub: "Update by re-indexing", col: 0, row: 2, tone: "sky" },
-                { id: "data", label: "Good labelled data and volume?", col: 3, row: 2, tone: "amber" },
-                { id: "ft", label: "Fine-tune", sub: "After a baseline", col: 2, row: 3, tone: "lime" },
-                { id: "pr", label: "Better prompts + rules", sub: "Cheaper first step", col: 3.9, row: 3, tone: "plain" },
-              ]}
-              edges={[
-                { from: "g", to: "k" },
-                { from: "g", to: "b" },
-                { from: "k", to: "rag" },
-                { from: "b", to: "data" },
-                { from: "data", to: "ft", label: "yes" },
-                { from: "data", to: "pr", label: "no" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="billing-decompose" panel={2} />
         </>
       ),
     },
@@ -147,17 +113,7 @@ export const lesson: Lesson = {
           <p>
             Five years of coded notes sound like a gift. Interrogate it:
           </p>
-          <Figure caption="Data questions to settle before any training starts, from privacy down to leakage-free splits.">
-            <Layers
-              layers={[
-                { title: "Privacy", note: "Notes contain protected health information. Training must happen in an approved environment; de-identify where possible; track who can access data and models.", tone: "rose" },
-                { title: "Label quality", note: "Were the historical codes correct? Audited and denied claims show where coders erred. Training on wrong labels teaches wrong habits.", tone: "amber" },
-                { title: "Drift", note: "Code sets, guidelines and note templates change. Old data may use retired codes.", tone: "amber" },
-                { title: "Coverage", note: "Most codes are rare. Count examples per code; very rare codes cannot be learned.", tone: "lime" },
-                { title: "Splits", note: "Split by patient or by time, never randomly by note, to avoid leakage and measure real-world performance.", tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="billing-decompose" panel={3} />
           <Table
             head={["Metric", "Why it matters here"]}
             rows={[
@@ -203,16 +159,7 @@ export const lesson: Lesson = {
             The target is not to replace coders. It is to give them ranked suggestions so they spend
             time on judgment, not typing. Plan three stages:
           </p>
-          <Figure caption="A staged rollout for coding suggestions: shadow, then assist with confirmation, then selective automation.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Shadow", note: "Model scores historical charts and live charts invisibly; compare with coders", tone: "sky" },
-                { title: "Assist", note: "Coders see suggestions with evidence; every code is confirmed by a person", tone: "lime" },
-                { title: "Selective automation", note: "Pre-fill the highest-confidence, lowest-risk codes with sampling audits", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="billing-decompose" panel={4} />
           <p>
             Success criteria for moving between stages should be agreed in advance: for example,
             precision on high-risk codes above a threshold, acceptance rate above a target, and no

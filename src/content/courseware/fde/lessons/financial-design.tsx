@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Layers, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -24,36 +25,7 @@ export const lesson: Lesson = {
             <strong>query path</strong> that answers questions. Around both sit evaluation, access
             control and audit.
           </p>
-          <Figure caption="Architecture of the financial knowledge assistant. Ingestion builds a permission-aware index; the query path retrieves, generates and verifies before answering.">
-            <Graph
-              label="Architecture: document sources feed ingestion into an index with access lists; analysts query through an API that retrieves, generates and verifies, with audit logging"
-              cellW={196}
-              cellH={104}
-              nodeW={160}
-              nodes={[
-                { id: "src", label: "Document sources", sub: "SharePoint, filings, notes", col: 0, row: 0, tone: "sky", shape: "db" },
-                { id: "ing", label: "Ingestion", sub: "Parse, chunk, enrich, embed", col: 1, row: 0, tone: "lime" },
-                { id: "idx", label: "Index", sub: "Vectors + keywords + ACLs", col: 2, row: 0, tone: "lime", shape: "db" },
-                { id: "ana", label: "Analyst", sub: "SSO, web or chat", col: 0, row: 2, tone: "amber", shape: "pill" },
-                { id: "api", label: "Query API", sub: "Auth, rewrite, retrieve", col: 1, row: 2, tone: "lime" },
-                { id: "gen", label: "Generator + verifier", sub: "Cite, check numbers", col: 2, row: 2, tone: "lime" },
-                { id: "aud", label: "Audit log", sub: "Query, sources, answer", col: 3, row: 1, tone: "rose", shape: "db" },
-              ]}
-              groups={[
-                { label: "Offline: ingestion", c1: 0, r1: 0, c2: 2, r2: 0, tone: "sky" },
-                { label: "Online: query", c1: 0, r1: 2, c2: 2, r2: 2, tone: "amber" },
-              ]}
-              edges={[
-                { from: "src", to: "ing" },
-                { from: "ing", to: "idx" },
-                { from: "ana", to: "api" },
-                { from: "api", to: "idx", label: "filtered search", bend: 0 },
-                { from: "api", to: "gen" },
-                { from: "gen", to: "ana", dashed: true, bend: 40, label: "answer + sources" },
-                { from: "gen", to: "aud", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="financial-design" panel={1} />
         </>
       ),
     },
@@ -65,19 +37,7 @@ export const lesson: Lesson = {
           <p>
             Most RAG quality is decided before any question is asked. For financial documents:
           </p>
-          <Figure caption="The ingestion pipeline. Each stage preserves structure and attaches the metadata that retrieval and compliance need later.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Fetch", note: "Connector with source ACLs and version", tone: "sky" },
-                { title: "Parse", note: "Layout-aware; tables as structure; OCR for scans", tone: "sky" },
-                { title: "Chunk", note: "By section; tables kept whole with headers", tone: "lime" },
-                { title: "Enrich", note: "Company, period, doc type, page, ACL", tone: "lime" },
-                { title: "Embed and index", note: "Vector and keyword indexes", tone: "amber" },
-                { title: "Validate", note: "Sample checks and counts", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="financial-design" panel={2} />
           <Table
             head={["Decision", "Choice", "Reason"]}
             rows={[
@@ -101,28 +61,7 @@ export const lesson: Lesson = {
       title: "The query path",
       body: (
         <>
-          <Figure caption="One question end to end. Permission filters are applied inside the search, and numbers are verified before display.">
-            <Sequence
-              label="Sequence of a query: authenticate, rewrite, filtered hybrid search, re-rank, generate with citations, verify numbers, log and return"
-              actors={[
-                { id: "user", label: "Analyst" },
-                { id: "api", label: "Query API" },
-                { id: "idx", label: "Index" },
-                { id: "llm", label: "Model" },
-              ]}
-              messages={[
-                { from: "user", to: "api", text: "Question (with SSO identity)" },
-                { from: "api", to: "api", text: "Resolve groups; rewrite query; extract company and period" },
-                { from: "api", to: "idx", text: "Hybrid search + metadata filters + ACL filter" },
-                { from: "idx", to: "api", text: "Top 30 chunks", dashed: true },
-                { from: "api", to: "api", text: "Re-rank to top 6; check version freshness" },
-                { from: "api", to: "llm", text: "Prompt: answer only from chunks; cite; abstain if absent" },
-                { from: "llm", to: "api", text: "Draft answer with citations", dashed: true },
-                { from: "api", to: "api", text: "Verify cited numbers appear in cited chunks" },
-                { from: "api", to: "user", text: "Answer, sources, confidence; log to audit", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="financial-design" panel={3} />
           <ul>
             <li>
               <strong>Hybrid retrieval.</strong> Keyword search catches exact terms such as tickers,
@@ -181,17 +120,7 @@ Return JSON: {"answerable": bool, "answer": str, "citations": [int], "figures": 
       title: "Evaluation, monitoring and rollout",
       body: (
         <>
-          <Figure caption="Layers of evaluation. Retrieval is measured separately from generation, because they fail for different reasons.">
-            <Layers
-              layers={[
-                { title: "Online monitoring", note: "Thumbs up or down, abstention rate, latency, cost, share of answers failing numeric verification.", tone: "amber" },
-                { title: "Answer quality set", note: "150 labelled questions across lookup, comparison and synthesis; scored for correctness and citation.", tone: "lime" },
-                { title: "Retrieval set", note: "For each question, the passages that must be found; measure recall at 5 and 30.", tone: "lime" },
-                { title: "Permission test suite", note: "Scripted queries across users and barriers; zero tolerance for leaks, run on every deploy.", tone: "rose" },
-                { title: "Ingestion checks", note: "Table fidelity samples, OCR confidence, counts per source, deletion propagation tests.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="financial-design" panel={4} />
 
           <Table
             head={["Choice", "Alternative", "Why we chose this"]}

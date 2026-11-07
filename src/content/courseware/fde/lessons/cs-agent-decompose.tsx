@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -56,23 +57,7 @@ export const lesson: Lesson = {
               ["Other", "13%", "Varies", "Varies", "Triage, then route"],
             ]}
           />
-          <Figure caption="Intents plotted by volume and risk. Automate the high-volume, low-risk corner first; keep high-risk intents human-led regardless of volume.">
-            <Quadrant
-              label="Customer service intents plotted by volume and risk"
-              xLabel="Risk"
-              yLabel="Volume"
-              corners={["Automate first", "Automate with limits", "Leave for later", "Human-led"]}
-              items={[
-                { label: "Order status", x: 0.12, y: 0.88, tone: "lime" },
-                { label: "Returns", x: 0.42, y: 0.66, tone: "lime" },
-                { label: "Address change", x: 0.5, y: 0.5, tone: "amber" },
-                { label: "Product questions", x: 0.3, y: 0.55, tone: "lime" },
-                { label: "Refunds", x: 0.76, y: 0.5, tone: "amber" },
-                { label: "Complaints", x: 0.84, y: 0.36, tone: "rose" },
-                { label: "Fraud and safety", x: 0.96, y: 0.14, tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="cs-agent-decompose" panel={1} />
         </>
       ),
     },
@@ -92,19 +77,7 @@ export const lesson: Lesson = {
               ["Escalate when", "Customer asks for a human; sentiment is very negative; repeated failures; sensitive topic; low confidence; any policy ambiguity", "Protect the customer experience"],
             ]}
           />
-          <Figure caption="The handling decision for each message. The agent always has a route to a human, and the human receives a summary so the customer never repeats themselves.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Identify and verify", note: "Who is this; what do they want", tone: "sky" },
-                { title: "Classify", note: "Intent, sentiment, risk", tone: "sky" },
-                { title: "Route", note: "Automate, assist or escalate", tone: "lime" },
-                { title: "Act within limits", note: "Tools and policy checks", tone: "lime" },
-                { title: "Confirm and close", note: "Summarise; ask if resolved", tone: "amber" },
-                { title: "Learn", note: "Log, review, feedback", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="cs-agent-decompose" panel={2} />
         </>
       ),
     },
@@ -155,31 +128,7 @@ export const lesson: Lesson = {
       title: "Risks to design against from day one",
       body: (
         <>
-          <Figure caption="The main risks around a customer-facing agent. Each one is designed against from the first day.">
-            <Graph
-              label="Main risks for a customer service agent around the agent: wrong answers, data leakage, unauthorised actions, prompt injection and brand harm"
-              cellW={208}
-              cellH={104}
-              nodeW={168}
-              nodes={[
-                { id: "a", label: "Customer-facing agent", col: 1.5, row: 1, tone: "lime", shape: "pill", w: 190 },
-                { id: "w", label: "Wrong or invented answers", sub: "Policy hallucination", col: 0, row: 0, tone: "rose" },
-                { id: "l", label: "Data leakage", sub: "Other customers' details", col: 1.5, row: 0, tone: "rose" },
-                { id: "u", label: "Unauthorised actions", sub: "Refund abuse, account takeover", col: 3, row: 0, tone: "rose" },
-                { id: "i", label: "Prompt injection", sub: "Customer or email text", col: 0, row: 2, tone: "amber" },
-                { id: "b", label: "Brand harm", sub: "Tone, claims, offence", col: 1.5, row: 2, tone: "amber" },
-                { id: "s", label: "Social engineering", sub: "Pretext to gain access", col: 3, row: 2, tone: "amber" },
-              ]}
-              edges={[
-                { from: "w", to: "a", dashed: true },
-                { from: "l", to: "a", dashed: true },
-                { from: "u", to: "a", dashed: true },
-                { from: "i", to: "a", dashed: true },
-                { from: "b", to: "a", dashed: true },
-                { from: "s", to: "a", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="cs-agent-decompose" panel={3} />
         </>
       ),
     },

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Formula, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -92,30 +93,7 @@ def call_with_retry(fn, max_attempts=5, base=0.5, cap=30):
             in production.
           </p>
 
-          <Figure caption="Absorbing a burst against a slow, rate-limited system. The queue smooths traffic, the throttle sets the pace, and backpressure protects upstream callers.">
-            <Graph
-              label="Producers feed a queue; a throttled worker calls a rate-limited system; failures go to a dead-letter queue; backpressure signals slow producers"
-              cellW={196}
-              cellH={98}
-              nodeW={158}
-              nodes={[
-                { id: "p", label: "Producers", sub: "Bursts of events", col: 0, row: 0, tone: "sky", shape: "pill" },
-                { id: "q", label: "Durable queue", sub: "Absorbs the burst", col: 1, row: 0, tone: "lime", shape: "db" },
-                { id: "w", label: "Throttled worker", sub: "Max 10 calls / min", col: 2, row: 0, tone: "lime" },
-                { id: "s", label: "Rate-limited system", sub: "429 above 10/min", col: 3, row: 0, tone: "rose" },
-                { id: "dlq", label: "Dead-letter queue", sub: "Permanent failures", col: 2, row: 1, tone: "amber", shape: "db" },
-                { id: "alert", label: "Alert and review", col: 3, row: 1, tone: "amber", shape: "pill" },
-              ]}
-              edges={[
-                { from: "p", to: "q" },
-                { from: "q", to: "w" },
-                { from: "w", to: "s" },
-                { from: "w", to: "dlq", dashed: true },
-                { from: "dlq", to: "alert" },
-                { from: "q", to: "p", dashed: true, bend: 22, label: "backpressure" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="failures-rate-limits-silent-errors" panel={1} />
 
           <ul>
             <li>
@@ -155,16 +133,7 @@ def call_with_retry(fn, max_attempts=5, base=0.5, cap=30):
               ["Timeout and deadline", "Bound the time spent on any call or task", "Always"],
             ]}
           />
-          <Figure caption="The states of a circuit breaker. Closed passes calls; open fails fast; half-open tests recovery.">
-            <Flow
-              steps={[
-                { title: "Closed", note: "Calls pass through; failures are counted", tone: "lime" },
-                { title: "Open", note: "Too many failures: fail fast for a cool-down", tone: "rose" },
-                { title: "Half-open", note: "Allow a few trial calls", tone: "amber" },
-                { title: "Closed again", note: "Trials succeed: resume normal", tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="failures-rate-limits-silent-errors" panel={2} />
         </>
       ),
     },
@@ -177,17 +146,7 @@ def call_with_retry(fn, max_attempts=5, base=0.5, cap=30):
             Silent errors need active detection. Build several independent checks, since each catches
             a different class of problem.
           </p>
-          <Figure caption="Layers of detection for silent failure, from cheap checks on every record to periodic audits across systems.">
-            <Layers
-              layers={[
-                { title: "Reconciliation", note: "Periodically compare source and target by counts, totals and IDs; repair differences.", tone: "amber" },
-                { title: "Business invariants", note: "Checks such as 'invoice total equals sum of lines' or 'every shipped order has a tracking number'.", tone: "amber" },
-                { title: "Volume and freshness monitors", note: "Alert when throughput drops, the newest record is too old, or a job processes zero rows.", tone: "lime" },
-                { title: "Schema and value validation", note: "Reject or quarantine records with missing fields, wrong types or out-of-range values.", tone: "lime" },
-                { title: "End-to-end canary", note: "A synthetic test record sent through the whole path regularly; alert if it does not arrive.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="failures-rate-limits-silent-errors" panel={3} />
 
           <Exercise
             title="Find the silent failure"

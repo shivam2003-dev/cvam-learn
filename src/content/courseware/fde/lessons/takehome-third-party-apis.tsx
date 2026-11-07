@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -93,26 +94,7 @@ class Client:
             if not cursor:
                 return`}</code>
           </pre>
-          <Figure caption="How the client treats each response class. Retrying the wrong failures wastes time or hammers the service.">
-            <Sequence
-              label="Sequence of one paginated call showing a 429 handled by waiting, a 500 handled by backoff, a 400 raised immediately and success returned"
-              actors={[
-                { id: "app", label: "Your code" },
-                { id: "cli", label: "Client wrapper" },
-                { id: "api", label: "Third-party API" },
-              ]}
-              messages={[
-                { from: "app", to: "cli", text: "paginate('/customers')" },
-                { from: "cli", to: "api", text: "GET page 1" },
-                { from: "api", to: "cli", text: "429 Retry-After: 2", dashed: true },
-                { from: "cli", to: "cli", text: "Wait 2 seconds, retry" },
-                { from: "cli", to: "api", text: "GET page 1 (retry)" },
-                { from: "api", to: "cli", text: "200 items + next_cursor", dashed: true },
-                { from: "cli", to: "app", text: "Yield items; fetch next page lazily", dashed: true },
-                { note: "A 400 or 404 is raised at once: retrying cannot fix a bad request.", over: ["cli", "api"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-third-party-apis" panel={1} />
         </>
       ),
     },
@@ -176,25 +158,7 @@ def test_permanent_error_is_not_retried(monkeypatch):
             <li><strong>Be explicit about side effects.</strong> A read-only integration is safer to run than one that writes. If you write, default to a dry run.</li>
             <li><strong>Document usage in the README:</strong> required environment variables, how to run in demo mode, rate limit assumptions, and what happens on failure.</li>
           </ul>
-          <Figure caption="Where third-party calls sit in a small solution. Everything outside your boundary is untrusted and fallible, so it is wrapped, cached and tested with fakes.">
-            <Graph
-              label="Your application calls a wrapped client with cache and throttle which talks to the third-party API; tests use fakes and fixtures instead"
-              cellW={200}
-              cellH={100}
-              nodeW={164}
-              nodes={[
-                { id: "app", label: "Your logic", sub: "Business rules", col: 0, row: 0, tone: "lime" },
-                { id: "cli", label: "API client", sub: "Throttle, retry, cache", col: 1, row: 0, tone: "lime" },
-                { id: "api", label: "Third-party API", sub: "Untrusted, fallible", col: 2, row: 0, tone: "rose" },
-                { id: "fix", label: "Fixtures + fakes", sub: "Used in tests and demo mode", col: 1, row: 1, tone: "sky", shape: "db" },
-              ]}
-              edges={[
-                { from: "app", to: "cli" },
-                { from: "cli", to: "api", label: "HTTPS" },
-                { from: "fix", to: "cli", dashed: true, label: "replaces in tests" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-third-party-apis" panel={2} />
           <Callout tone="warn" title="Do not hammer a live API in a loop">
             A bug that sends thousands of requests can get your key blocked, cost real money or
             disrupt a service. Add a global request cap and test with small inputs first.

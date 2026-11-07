@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -23,19 +24,7 @@ export const lesson: Lesson = {
             spent looking at the data, not transforming it. You are looking for the shapes of
             problems, so that you clean on purpose.
           </p>
-          <Figure caption="A repeatable profiling routine. Each step answers a question and produces a note you will reuse in the README.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Shape", note: "Rows, columns, types, file encodings", tone: "sky" },
-                { title: "Missing", note: "Null rates per column; hidden nulls like 'N/A' or 0", tone: "sky" },
-                { title: "Uniqueness", note: "Candidate keys; duplicates", tone: "lime" },
-                { title: "Ranges and formats", note: "Dates, currencies, units, casing, whitespace", tone: "lime" },
-                { title: "Relationships", note: "Do foreign keys match? orphans?", tone: "amber" },
-                { title: "Outliers", note: "Impossible or suspicious values", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-messy-data" panel={1} />
           <pre>
             <code>{`import pandas as pd
 
@@ -104,16 +93,7 @@ assert n_input == len(df) + len(rejected) + n_merged, "rows unaccounted for"`}</
             Two traps account for most wrong answers in data take-homes: undetected duplicates and
             fan-out joins.
           </p>
-          <Figure caption="How a join silently inflates totals. A one-to-many relationship repeats the parent row for every child, so summing the parent's value gives the wrong total.">
-            <Layers
-              layers={[
-                { title: "Before the join", note: "orders: 3 rows, total 300. order_lines: 7 rows.", tone: "sky" },
-                { title: "After joining orders to lines", note: "7 rows. Each order's total is repeated once per line.", tone: "amber" },
-                { title: "Summing order.total now", note: "Over-counts (for example 520 instead of 300). Looks plausible; is wrong.", tone: "rose" },
-                { title: "The fix", note: "Aggregate lines to order level first, or sum line amounts, then join. Assert row counts after every join.", tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-messy-data" panel={2} />
           <ul>
             <li><strong>Exact duplicates:</strong> identical rows; drop and count.</li>
             <li><strong>Near duplicates:</strong> the same entity with different spelling (&ldquo;ACME Ltd&rdquo; and &ldquo;Acme Limited&rdquo;). Normalise (case, punctuation, suffixes), then compare with a similarity measure; surface uncertain groups for review rather than auto-merging.</li>

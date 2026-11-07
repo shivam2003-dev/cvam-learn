@@ -1,0 +1,374 @@
+{
+  "who-is-an-fde": {
+    "width": 1536,
+    "height": 1024
+  },
+  "week-in-the-life": {
+    "width": 1536,
+    "height": 1024
+  },
+  "course-readiness": {
+    "width": 1752,
+    "height": 897
+  },
+  "foundations-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "customer-discovery": {
+    "width": 1536,
+    "height": 1024
+  },
+  "scoping-solution-architecture": {
+    "width": 1536,
+    "height": 1024
+  },
+  "poc-sprint": {
+    "width": 1536,
+    "height": 1024
+  },
+  "problem-to-poc-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "pilot-phase": {
+    "width": 1536,
+    "height": 1024
+  },
+  "project-handoff": {
+    "width": 1536,
+    "height": 1024
+  },
+  "field-feedback-loop": {
+    "width": 1752,
+    "height": 897
+  },
+  "poc-to-production-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "enterprise-constraints": {
+    "width": 1536,
+    "height": 1024
+  },
+  "stakeholder-communication": {
+    "width": 1536,
+    "height": 1024
+  },
+  "skills-that-compound-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "ai-system-landscape": {
+    "width": 1752,
+    "height": 897
+  },
+  "llm-based-systems": {
+    "width": 1536,
+    "height": 1024
+  },
+  "harness-tools-memory-context": {
+    "width": 1536,
+    "height": 1024
+  },
+  "harness-guardrails-observability": {
+    "width": 1536,
+    "height": 1024
+  },
+  "multi-agent-orchestration": {
+    "width": 1774,
+    "height": 887
+  },
+  "choosing-agentic-framework": {
+    "width": 1774,
+    "height": 887
+  },
+  "ai-systems-architecture-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "how-fde-interviews-work": {
+    "width": 1536,
+    "height": 1024
+  },
+  "four-interview-rounds": {
+    "width": 1752,
+    "height": 897
+  },
+  "interview-fundamentals-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "how-design-rounds-work": {
+    "width": 1536,
+    "height": 1024
+  },
+  "client-approach": {
+    "width": 1536,
+    "height": 1024
+  },
+  "running-design-round": {
+    "width": 1752,
+    "height": 897
+  },
+  "data-movement-patterns": {
+    "width": 1536,
+    "height": 1024
+  },
+  "auth-bridging": {
+    "width": 1752,
+    "height": 897
+  },
+  "failures-rate-limits-silent-errors": {
+    "width": 1752,
+    "height": 897
+  },
+  "data-contracts-schema-changes": {
+    "width": 1752,
+    "height": 897
+  },
+  "client-security-deployment": {
+    "width": 1752,
+    "height": 897
+  },
+  "system-design-integration-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "financial-decompose": {
+    "width": 1774,
+    "height": 887
+  },
+  "financial-design": {
+    "width": 1536,
+    "height": 1024
+  },
+  "financial-interview": {
+    "width": 1752,
+    "height": 897
+  },
+  "financial-project": {
+    "width": 1752,
+    "height": 897
+  },
+  "case-financial-assistant-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "shipment-decompose": {
+    "width": 1752,
+    "height": 897
+  },
+  "shipment-design": {
+    "width": 1536,
+    "height": 1024
+  },
+  "shipment-interview": {
+    "width": 1536,
+    "height": 1024
+  },
+  "shipment-project": {
+    "width": 1752,
+    "height": 897
+  },
+  "case-shipment-rerouting-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "billing-decompose": {
+    "width": 1536,
+    "height": 1024
+  },
+  "billing-design": {
+    "width": 1752,
+    "height": 897
+  },
+  "billing-interview": {
+    "width": 1536,
+    "height": 1024
+  },
+  "case-hospital-billing-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "health-hub-decompose": {
+    "width": 1752,
+    "height": 897
+  },
+  "health-hub-design": {
+    "width": 1536,
+    "height": 1024
+  },
+  "health-hub-interview": {
+    "width": 1536,
+    "height": 1024
+  },
+  "case-health-data-hub-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "otc-decompose": {
+    "width": 1752,
+    "height": 897
+  },
+  "otc-design": {
+    "width": 1536,
+    "height": 1024
+  },
+  "otc-interview": {
+    "width": 1752,
+    "height": 897
+  },
+  "case-order-to-cash-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "cs-agent-decompose": {
+    "width": 1752,
+    "height": 897
+  },
+  "cs-agent-design": {
+    "width": 1536,
+    "height": 1024
+  },
+  "cs-agent-interview": {
+    "width": 1774,
+    "height": 887
+  },
+  "practice-rounds-rubric": {
+    "width": 1774,
+    "height": 887
+  },
+  "lab-image-classification": {
+    "width": 1752,
+    "height": 897
+  },
+  "case-customer-service-agent-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "guide-palantir": {
+    "width": 1752,
+    "height": 897
+  },
+  "guide-openai": {
+    "width": 1752,
+    "height": 897
+  },
+  "guide-anthropic": {
+    "width": 1752,
+    "height": 897
+  },
+  "guide-google-cloud": {
+    "width": 1752,
+    "height": 897
+  },
+  "interview-guide-companies-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "takehome-scoring": {
+    "width": 1752,
+    "height": 897
+  },
+  "takehome-types": {
+    "width": 1536,
+    "height": 1024
+  },
+  "takehome-reading-brief": {
+    "width": 1774,
+    "height": 887
+  },
+  "takehome-ambiguity": {
+    "width": 1536,
+    "height": 1024
+  },
+  "takehome-mvp": {
+    "width": 1774,
+    "height": 887
+  },
+  "takehome-stack": {
+    "width": 1774,
+    "height": 887
+  },
+  "takehome-messy-data": {
+    "width": 1752,
+    "height": 897
+  },
+  "takehome-third-party-apis": {
+    "width": 1752,
+    "height": 897
+  },
+  "takehome-llm-solutions": {
+    "width": 1752,
+    "height": 897
+  },
+  "takehome-evaluating-llm": {
+    "width": 1752,
+    "height": 897
+  },
+  "takehome-code-quality": {
+    "width": 1752,
+    "height": 897
+  },
+  "takehome-building-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "delivery-user-workflow": {
+    "width": 1774,
+    "height": 887
+  },
+  "delivery-interface": {
+    "width": 1774,
+    "height": 887
+  },
+  "delivery-readme": {
+    "width": 1536,
+    "height": 1024
+  },
+  "delivery-tradeoffs": {
+    "width": 1774,
+    "height": 887
+  },
+  "delivery-walkthrough-video": {
+    "width": 1752,
+    "height": 897
+  },
+  "delivery-defending": {
+    "width": 1752,
+    "height": 897
+  },
+  "delivery-live-extension": {
+    "width": 1752,
+    "height": 897
+  },
+  "delivery-role-play": {
+    "width": 1752,
+    "height": 897
+  },
+  "delivery-mistakes": {
+    "width": 1536,
+    "height": 1024
+  },
+  "capstone-data-integration": {
+    "width": 1774,
+    "height": 887
+  },
+  "capstone-llm-application": {
+    "width": 1536,
+    "height": 1024
+  },
+  "takehome-delivering-summary": {
+    "width": 1536,
+    "height": 1024
+  },
+  "whats-next": {
+    "width": 1752,
+    "height": 897
+  },
+  "wrap-up-summary": {
+    "width": 1752,
+    "height": 897
+  }
+}

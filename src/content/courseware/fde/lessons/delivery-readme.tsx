@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -22,19 +23,7 @@ export const lesson: Lesson = {
             whether they approach the rest with confidence or irritation. A good README is the
             deliverable that explains all the others.
           </p>
-          <Figure caption="Sections in the order a reviewer needs them. Each answers one question and earns its place by being short.">
-            <Layers
-              layers={[
-                { title: "1. What and why", note: "Two or three sentences: the problem, the user and what this does.", tone: "amber" },
-                { title: "2. Quick start", note: "Three commands to run it, with and without an API key (demo mode).", tone: "amber" },
-                { title: "3. Demo", note: "A screenshot or short output example, and a link to the walk-through video.", tone: "lime" },
-                { title: "4. How it works", note: "One diagram and a short description of the main components and data flow.", tone: "lime" },
-                { title: "5. Results", note: "Evaluation numbers, a failure analysis and what changed because of it.", tone: "lime" },
-                { title: "6. Assumptions and trade-offs", note: "The assumptions log and the key decisions with reasons.", tone: "sky" },
-                { title: "7. Limitations and next steps", note: "Honest limits and what you would build with more time or in production.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-readme" panel={1} />
         </>
       ),
     },

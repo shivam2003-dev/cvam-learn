@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -22,28 +23,8 @@ export const lesson: Lesson = {
             it; it is producing one cold, aloud, in 45 minutes. This lesson gives you six unseen
             prompts and a rubric. Do at least three before moving on.
           </p>
-          <Figure caption="The practice routine. The review step is where most of the learning happens, so do not skip it.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Set a 45-minute timer", note: "No notes, one blank page", tone: "sky" },
-                { title: "Speak and draw", note: "Record audio or ask a partner to play customer", tone: "lime" },
-                { title: "Score with the rubric", note: "Immediately, before you check any answers", tone: "amber" },
-                { title: "Compare", note: "Read the model approach notes", tone: "amber" },
-                { title: "Fix one habit", note: "Redo the weakest segment for 10 minutes", tone: "rose" },
-              ]}
-            />
-          </Figure>
-          <Figure caption="Time allocation for a 45-minute practice round.">
-            <Timeline
-              phases={[
-                { label: "0 to 9", when: "Clarify", tone: "sky", items: ["Users, data, systems", "Success measure", "Constraints"] },
-                { label: "9 to 24", when: "Design", tone: "lime", weight: 1.5, items: ["Components and flows", "Mechanisms labelled"] },
-                { label: "24 to 36", when: "Harden", tone: "amber", weight: 1.2, items: ["Failures", "Security", "Deployment"] },
-                { label: "36 to 45", when: "Close", tone: "plain", items: ["Trade-offs", "Rollout", "Summary"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="practice-rounds-rubric" panel={1} />
+          <DiagramReference lesson="practice-rounds-rubric" panel={2} />
         </>
       ),
     },

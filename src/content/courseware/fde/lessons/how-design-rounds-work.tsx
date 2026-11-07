@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -55,27 +56,7 @@ export const lesson: Lesson = {
             building blocks and questions to reach for.
           </p>
 
-          <Figure caption="Four common prompt shapes in FDE design rounds and the main concern of each.">
-            <Graph
-              label="Four prompt shapes: integration, AI feature, data platform and migration, each with a main concern"
-              cellW={205}
-              cellH={104}
-              nodeW={168}
-              nodes={[
-                { id: "c", label: "FDE design prompt", col: 1.5, row: 0.5, tone: "lime", shape: "pill", w: 180 },
-                { id: "i", label: "Integration", sub: "Sync orders between CRM and ERP", col: 0, row: 0, tone: "sky" },
-                { id: "a", label: "AI feature", sub: "Assistant over policies; support agent", col: 3, row: 0, tone: "amber" },
-                { id: "d", label: "Data platform", sub: "Unify records from many sources", col: 0, row: 1, tone: "sky" },
-                { id: "m", label: "Migration", sub: "Replace a legacy workflow safely", col: 3, row: 1, tone: "amber" },
-              ]}
-              edges={[
-                { from: "c", to: "i" },
-                { from: "c", to: "a" },
-                { from: "c", to: "d" },
-                { from: "c", to: "m" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="how-design-rounds-work" panel={1} />
 
           <Table
             head={["Shape", "Example prompt", "What they probe"]}
@@ -145,19 +126,7 @@ export const lesson: Lesson = {
             place it, explain it and say when to leave it out.
           </p>
 
-          <Figure caption="Reusable building blocks. Most designs are a selection and arrangement of these, adapted to the customer's systems.">
-            <Layers
-              layers={[
-                { title: "Experience", note: "Where users meet the system: embedded in existing tools, a review queue, alerts, or a simple web page.", tone: "amber" },
-                { title: "Application and orchestration", note: "Business logic, workflows, agents, approval steps, rules.", tone: "amber" },
-                { title: "AI services", note: "Model calls, retrieval, evaluation, guardrails, caching.", tone: "lime" },
-                { title: "Integration layer", note: "Connectors, queues, webhooks, batch jobs, transformations, contracts.", tone: "lime" },
-                { title: "Data stores", note: "Operational database, search index, object storage, audit log.", tone: "sky" },
-                { title: "Identity and security", note: "SSO, service identity, secrets, encryption, audit, network controls.", tone: "rose" },
-                { title: "Operations", note: "Monitoring, alerting, deployment, rollback, runbooks.", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="how-design-rounds-work" panel={2} />
 
           <p>
             The rest of this chapter takes the most important of these in turn: how data moves, how

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -23,18 +24,7 @@ export const lesson: Lesson = {
             need a thousand examples. You need enough to be informative, labelled honestly, and
             covering the cases that matter.
           </p>
-          <Figure caption="Building an evaluation set in about 45 minutes. The mix of cases matters more than the count.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Sample", note: "30 to 60 real inputs from the provided data", tone: "sky" },
-                { title: "Cover", note: "Include easy, hard, ambiguous, empty and adversarial cases", tone: "sky" },
-                { title: "Label", note: "Write the expected output yourself, from the source text, in a file", tone: "lime" },
-                { title: "Hold out", note: "Keep 15 to 20 untouched for the final score", tone: "lime" },
-                { title: "Script", note: "One command computes metrics and lists failures", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-evaluating-llm" panel={1} />
           <Table
             head={["Case type", "Share", "Why"]}
             rows={[
@@ -72,19 +62,7 @@ export const lesson: Lesson = {
             error is calling an urgent email normal. Overall accuracy can hide this: with 5% urgent
             emails, a model that never says &ldquo;urgent&rdquo; is 95% accurate and useless.
           </p>
-          <Figure caption="Precision and recall trade off as the threshold moves. Choose a threshold from the cost of each error, and show your reasoning.">
-            <Quadrant
-              label="Operating points showing the trade-off between precision and recall at different thresholds"
-              xLabel="Recall (urgent emails caught)"
-              yLabel="Precision (flags that were right)"
-              corners={["Ideal", "Cautious flagging", "Weak", "Noisy flagging"]}
-              items={[
-                { label: "High threshold", x: 0.52, y: 0.92, tone: "sky" },
-                { label: "Medium threshold", x: 0.76, y: 0.74, tone: "lime" },
-                { label: "Low threshold", x: 0.94, y: 0.46, tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-evaluating-llm" panel={2} />
         </>
       ),
     },

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -26,19 +27,7 @@ export const lesson: Lesson = {
             it to your own style.
           </p>
 
-          <Figure caption="The CLIENT approach. Each step has a question to answer and an output to produce on the whiteboard.">
-            <Flow
-              numbered
-              steps={[
-                { title: "C: Context", note: "Who, why, success measure", tone: "sky" },
-                { title: "L: Landscape", note: "Existing systems and data", tone: "sky" },
-                { title: "I: Integration design", note: "Components, flows, interfaces", tone: "lime" },
-                { title: "E: Edge cases", note: "Failures, errors, data quality", tone: "amber" },
-                { title: "N: Non-functionals", note: "Security, scale, deployment", tone: "amber" },
-                { title: "T: Trade-offs and rollout", note: "Options, phases, measures", tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="client-approach" panel={1} />
 
           <Table
             head={["Step", "Core question", "Output on the board"]}
@@ -77,25 +66,7 @@ export const lesson: Lesson = {
             <li>What can we change, and what is off-limits?</li>
           </ul>
 
-          <Figure caption="After C and L, the board holds a goal and a map of existing systems, with constraints marked. Design begins only now.">
-            <Graph
-              label="Landscape sketch: users, CRM, ERP and a document store, with constraint notes"
-              cellW={205}
-              cellH={104}
-              nodeW={170}
-              nodes={[
-                { id: "u", label: "Sales reps", sub: "120 users, work in CRM", col: 0, row: 0, tone: "amber", shape: "pill" },
-                { id: "crm", label: "CRM", sub: "System of record: customers", col: 1.5, row: 0, tone: "sky" },
-                { id: "erp", label: "ERP", sub: "System of record: orders. REST + rate limit", col: 3, row: 0, tone: "sky" },
-                { id: "docs", label: "Contract store", sub: "PDFs; some scans", col: 1.5, row: 1, tone: "sky", shape: "db" },
-                { id: "con", label: "Constraints", sub: "No ERP changes; EU data only; SSO required", col: 3, row: 1, tone: "rose" },
-              ]}
-              edges={[
-                { from: "u", to: "crm", dashed: true },
-                { from: "crm", to: "erp", label: "manual re-entry today", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="client-approach" panel={2} />
 
           <Callout tone="tip" title="State your assumptions">
             When the interviewer says &ldquo;you decide&rdquo;, say your assumption and move on:
@@ -122,32 +93,7 @@ export const lesson: Lesson = {
             <li>Identify the system of record for each kind of data.</li>
           </ul>
 
-          <Figure caption="A first design for the CRM to ERP sync. Every arrow names a mechanism, and the dead-letter queue is already on the board.">
-            <Graph
-              label="Design: CRM webhook to connector to queue to transformer to ERP, with dead-letter queue and reconciliation job"
-              cellW={192}
-              cellH={100}
-              nodeW={156}
-              nodes={[
-                { id: "crm", label: "CRM", sub: "Order won", col: 0, row: 0, tone: "sky" },
-                { id: "conn", label: "Connector", sub: "Verify signature", col: 1, row: 0, tone: "lime" },
-                { id: "q", label: "Queue", sub: "Durable, ordered by order ID", col: 2, row: 0, tone: "lime", shape: "db" },
-                { id: "tr", label: "Transformer", sub: "Map fields, validate, idempotency key", col: 3, row: 0, tone: "lime" },
-                { id: "erp", label: "ERP", sub: "Create order", col: 3, row: 1, tone: "sky" },
-                { id: "dlq", label: "Dead-letter queue", sub: "Failed after retries", col: 2, row: 1, tone: "rose", shape: "db" },
-                { id: "rec", label: "Reconciler", sub: "Nightly diff of CRM vs ERP", col: 0.5, row: 1, tone: "amber" },
-              ]}
-              edges={[
-                { from: "crm", to: "conn", label: "webhook" },
-                { from: "conn", to: "q" },
-                { from: "q", to: "tr" },
-                { from: "tr", to: "erp", label: "POST" },
-                { from: "tr", to: "dlq", dashed: true, label: "after retries" },
-                { from: "rec", to: "crm", dashed: true },
-                { from: "rec", to: "erp", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="client-approach" panel={3} />
 
           <h3>Edge cases to walk</h3>
           <ul>
@@ -182,15 +128,7 @@ export const lesson: Lesson = {
             phased plan that starts small.
           </p>
 
-          <Figure caption="A rollout plan for the sync. Each phase has an exit measure, and a rollback is available at every step.">
-            <Timeline
-              phases={[
-                { label: "Phase 1: shadow", when: "Weeks 1 to 2", tone: "sky", items: ["Read-only; compute what we would write", "Compare with manual entries", "No ERP writes"] },
-                { label: "Phase 2: pilot", when: "Weeks 3 to 4", tone: "lime", items: ["Write for one region", "Daily reconciliation", "Manual fallback ready"] },
-                { label: "Phase 3: scale", when: "Weeks 5 to 8", tone: "amber", items: ["All regions", "Alerts and runbook", "Handover to ops"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="client-approach" panel={4} />
 
           <Callout tone="note" title="A sample trade-off statement">
             &ldquo;I chose a queue with at-least-once delivery plus idempotent writes over exactly-once

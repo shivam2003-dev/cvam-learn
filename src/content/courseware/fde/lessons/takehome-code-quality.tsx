@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Layers, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -46,16 +47,7 @@ export const lesson: Lesson = {
             With a few hours, tests are about evidence and risk, not coverage numbers. Test where a
             bug would hurt and where logic is subtle.
           </p>
-          <Figure caption="A test pyramid sized for a take-home. Many small tests on rules, a few on the pipeline, and one smoke test that proves the whole thing runs.">
-            <Layers
-              layers={[
-                { title: "Smoke test (1)", note: "Run the whole thing on sample data and check the output file exists and reconciles.", tone: "amber" },
-                { title: "Pipeline tests (2 to 4)", note: "Feed small crafted inputs through several steps; check outputs and the rejected list.", tone: "lime" },
-                { title: "Unit tests (8 to 15)", note: "Matching rules, parsers, validators, thresholds, with edge cases: empty, duplicate, malformed, boundary.", tone: "lime" },
-                { title: "Property or invariant checks", note: "Row counts reconcile; totals equal source; no duplicate keys.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-code-quality" panel={1} />
           <pre>
             <code>{`# tests/test_match.py: small, readable, edge-case focused
 import pytest
@@ -118,17 +110,7 @@ MAX_MODEL_CALLS = int(os.environ.get("MAX_MODEL_CALLS", "200"))`}</code>
       title: "The pre-submission checklist",
       body: (
         <>
-          <Figure caption="A last-hour routine. Each step is quick, and together they catch most avoidable problems.">
-            <Timeline
-              phases={[
-                { label: "T-60", when: "Freeze features", tone: "sky", items: ["No new features", "Remove half-built code", "Run formatter and linter"] },
-                { label: "T-45", when: "Verify", tone: "lime", items: ["Clone into a new folder", "Follow only the README", "Fix every snag"] },
-                { label: "T-30", when: "Test and evaluate", tone: "lime", items: ["Run the tests", "Run the evaluation", "Paste final numbers into the README"] },
-                { label: "T-15", when: "Secrets and cleanup", tone: "amber", items: ["Search for keys", "Check .gitignore", "Delete stray files"] },
-                { label: "T-0", when: "Submit", tone: "rose", items: ["Tag the commit", "Re-read the submission instructions", "Send"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-code-quality" panel={2} />
           <Table
             head={["Check", "Done?"]}
             rows={[

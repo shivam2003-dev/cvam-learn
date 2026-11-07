@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers, Sequence, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -92,31 +93,10 @@ export const lesson: Lesson = {
             Fix the end date first and let scope flex to fit, never the other way round.
           </p>
 
-          <Figure caption="A two-week POC sprint. The demo date is fixed on day one; the plan works backwards from it.">
-            <Timeline
-              phases={[
-                { label: "Days 1 to 2", when: "Set up", tone: "sky", items: ["Access, data and environment", "Success and kill criteria", "Ground-truth test set"] },
-                { label: "Days 3 to 6", when: "Thin slice", tone: "lime", weight: 1.3, items: ["End-to-end on one case", "First measurement", "Fix the biggest error class"] },
-                { label: "Days 7 to 9", when: "Improve", tone: "lime", weight: 1.3, items: ["Broaden to second case", "Error analysis", "Cost and latency check"] },
-                { label: "Day 10", when: "Evidence", tone: "amber", weight: 0.9, items: ["Final measurement", "Freeze the code", "Write the readout"] },
-                { label: "Demo", when: "Readout", tone: "plain", weight: 0.8, items: ["Live demo", "Results vs criteria", "Go/no-go"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="poc-sprint" panel={1} />
 
           <p>The daily rhythm matters more than the plan:</p>
-          <Figure caption="A daily loop. Short feedback cycles keep a two-week sprint honest.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Measure", note: "Run the test set; record the score", tone: "sky" },
-                { title: "Find the worst errors", note: "Read the failures, group them", tone: "sky" },
-                { title: "Fix the biggest group", note: "One change at a time", tone: "lime" },
-                { title: "Re-measure", note: "Did the score move? Did anything regress?", tone: "lime" },
-                { title: "Show a user", note: "Ten minutes with a real operator", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="poc-sprint" panel={2} />
 
           <p>
             Do a brief check-in with the customer champion every two or three days. It catches
@@ -149,16 +129,7 @@ export const lesson: Lesson = {
             </li>
           </ul>
 
-          <Figure caption="The POC stack. Everything above the measurement line may be rough; the measurement line itself must be trustworthy.">
-            <Layers
-              layers={[
-                { title: "Demo surface", note: "A notebook, CLI or one simple page. Looks are irrelevant.", tone: "plain" },
-                { title: "Solution logic", note: "Prompts, retrieval, rules, glue code. Change it fast.", tone: "lime" },
-                { title: "Measurement harness", note: "Test set, scoring script, results table. Must be correct and repeatable.", tone: "amber" },
-                { title: "Real data access", note: "A genuine sample of the customer's data, under agreed handling rules.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="poc-sprint" panel={3} />
 
           <pre>
             <code>{`# eval.py: one command, one number, a list of failures
@@ -190,24 +161,7 @@ for r in results:
             the evidence matters more.
           </p>
 
-          <Figure caption="A POC readout meeting. The decision at the end is the point of the whole sprint.">
-            <Sequence
-              label="Sequence of a POC readout: recap goal, live demo, results against criteria, limits, decision"
-              actors={[
-                { id: "fde", label: "FDE" },
-                { id: "users", label: "Users" },
-                { id: "sponsor", label: "Sponsor" },
-              ]}
-              messages={[
-                { from: "fde", to: "sponsor", text: "Recap the question and the agreed criteria" },
-                { from: "fde", to: "users", text: "Live demo on real, unseen cases" },
-                { from: "users", to: "fde", text: "Try to break it; ask hard questions", dashed: true },
-                { from: "fde", to: "sponsor", text: "Results against each criterion; failures shown honestly" },
-                { note: "State clearly what was NOT tested and what would be needed for production.", over: ["fde", "sponsor"] },
-                { from: "sponsor", to: "fde", text: "Decision: go, adjust, or stop", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="poc-sprint" panel={4} />
 
           <p>Structure the readout around the decision the customer must make:</p>
           <ol>

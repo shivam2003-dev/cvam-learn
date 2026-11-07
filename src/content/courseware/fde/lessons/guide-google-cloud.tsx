@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -44,33 +45,7 @@ export const lesson: Lesson = {
             provider&apos;s offering. This keeps you from reciting a product list and makes your
             design portable.
           </p>
-          <Figure caption="A generic GenAI application mapped to cloud service categories. Learn the categories, then the specific names for your target provider.">
-            <Graph
-              label="Generic architecture: users, application hosting, orchestration, model access, retrieval and vector store, data lake and warehouse, identity and security, observability"
-              cellW={206}
-              cellH={104}
-              nodeW={170}
-              nodes={[
-                { id: "u", label: "Users", sub: "Web, chat, internal tools", col: 0, row: 1, tone: "amber", shape: "pill" },
-                { id: "app", label: "App hosting", sub: "Serverless containers or functions", col: 1, row: 1, tone: "lime" },
-                { id: "orch", label: "Orchestration", sub: "Agents, workflows, queues", col: 2, row: 0, tone: "lime" },
-                { id: "model", label: "Model access", sub: "Hosted foundation models, tuning", col: 3, row: 0, tone: "sky" },
-                { id: "ret", label: "Retrieval", sub: "Vector and search services", col: 2, row: 1, tone: "sky", shape: "db" },
-                { id: "data", label: "Data platform", sub: "Warehouse, lake, databases", col: 3, row: 1, tone: "sky", shape: "db" },
-                { id: "sec", label: "Identity and security", sub: "IAM, keys, network controls", col: 1, row: 2, tone: "rose" },
-                { id: "obs", label: "Observability and cost", sub: "Logs, traces, budgets", col: 2, row: 2, tone: "plain" },
-              ]}
-              edges={[
-                { from: "u", to: "app" },
-                { from: "app", to: "orch" },
-                { from: "orch", to: "model" },
-                { from: "orch", to: "ret" },
-                { from: "ret", to: "data" },
-                { from: "app", to: "sec", dashed: true },
-                { from: "orch", to: "obs", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="guide-google-cloud" panel={1} />
           <Table
             head={["Generic component", "What to be able to explain on any cloud"]}
             rows={[
@@ -90,16 +65,7 @@ export const lesson: Lesson = {
       title: "Preparation plan",
       body: (
         <>
-          <Figure caption="Suggested preparation for a cloud GenAI field role. Hands-on time on the platform is the most important ingredient.">
-            <Timeline
-              phases={[
-                { label: "Week 1", when: "Platform basics", tone: "sky", items: ["Core services and identity model", "Networking and security basics", "Free-tier or sandbox account with budgets"] },
-                { label: "Weeks 2 to 3", when: "Build", tone: "lime", weight: 1.3, items: ["RAG app on the platform", "An agent with tools", "Deploy it and secure it"] },
-                { label: "Week 4", when: "Cost and ops", tone: "amber", items: ["Estimate cost per request", "Monitoring and evaluation", "Governance checklist"] },
-                { label: "Weeks 5 to 6", when: "Customer scenarios", tone: "plain", weight: 1.2, items: ["Mock architecture conversations", "Workshop-style explanations", "Stories and questions"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="guide-google-cloud" panel={2} />
           <ul>
             <li>Build at least one end-to-end solution on the target cloud, and be ready to walk through every service choice and its alternative.</li>
             <li>Learn the identity model deeply. Most real customer blockers are permissions and networking, not models.</li>

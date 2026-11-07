@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Layers, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -42,18 +43,7 @@ export const lesson: Lesson = {
       title: "What the role tends to value",
       body: (
         <>
-          <Figure caption="Themes visible in public descriptions of the role, from the engineering base to the judgment on top. Treat as a preparation guide rather than a scorecard.">
-            <Layers
-              layers={[
-                { title: "Mission and customer orientation", note: "Genuine interest in the customer's problem domain, whether logistics, health or public services, and in working on consequential problems.", tone: "amber" },
-                { title: "Ownership in ambiguity", note: "Taking a vague problem, defining it, and driving it to a deployed outcome without detailed instructions.", tone: "amber" },
-                { title: "Problem decomposition", note: "Breaking a messy operational situation into data, models, workflows and users.", tone: "lime" },
-                { title: "Data fluency", note: "Comfort exploring, cleaning, joining and reasoning about large, imperfect datasets; SQL and a scripting language.", tone: "lime" },
-                { title: "Software engineering", note: "Writing and debugging real code; building applications and pipelines others can use.", tone: "sky" },
-                { title: "Communication and travel readiness", note: "Working on site with customers, explaining trade-offs plainly, and adapting to different environments.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="guide-palantir" panel={1} />
         </>
       ),
     },
@@ -62,16 +52,7 @@ export const lesson: Lesson = {
       title: "A six-week preparation plan",
       body: (
         <>
-          <Figure caption="Suggested plan. Adjust to your starting point; the same structure works for most FDE processes.">
-            <Timeline
-              phases={[
-                { label: "Weeks 1 to 2", when: "Understand the role", tone: "sky", items: ["Read the JD line by line", "Read customer stories on the company site", "Note recurring skills and domains"] },
-                { label: "Weeks 2 to 3", when: "Data and coding", tone: "lime", items: ["SQL and scripting on messy data", "Build one small data application end to end", "Practise explaining your code aloud"] },
-                { label: "Weeks 3 to 5", when: "Decomposition and design", tone: "amber", weight: 1.3, items: ["Practise turning ambiguous operational prompts into plans", "Use the CLIENT approach and case studies", "Record yourself thinking aloud"] },
-                { label: "Week 6", when: "Stories and mock loops", tone: "plain", items: ["Six behavioural stories", "Two full mock interviews", "Questions for interviewers"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="guide-palantir" panel={2} />
           <Table
             head={["Area", "What to practise", "Example drill"]}
             rows={[

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -45,19 +46,7 @@ export const lesson: Lesson = {
             puzzles appear less often, though basic data structures still matter.
           </p>
 
-          <Figure caption="A reliable rhythm for any coding round. Narrate as you go; interviewers score your process as much as your result.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Clarify", note: "Inputs, outputs, edge cases, scale", tone: "sky" },
-                { title: "Plan aloud", note: "Outline the approach in a few sentences", tone: "sky" },
-                { title: "Build simply", note: "Get a correct version first", tone: "lime" },
-                { title: "Run and test", note: "Try normal and awkward inputs", tone: "lime" },
-                { title: "Harden", note: "Errors, retries, validation", tone: "amber" },
-                { title: "Discuss", note: "Complexity, scale, what you would change", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="four-interview-rounds" panel={1} />
 
           <pre>
             <code>{`# A typical practical task: pull all pages from a flaky API, keep valid records.
@@ -129,25 +118,7 @@ def fetch_all(url, token, max_retries=3):
             common error is to start solving after two sentences.
           </p>
 
-          <Figure caption="A strong scenario round. The candidate asks, listens, summarises, then proposes a small first step and confirms next actions.">
-            <Sequence
-              label="Sequence of a customer scenario round: customer states a wish, candidate asks about workflow, summarises, proposes a first slice, agrees next steps"
-              actors={[
-                { id: "c", label: "Customer (interviewer)" },
-                { id: "you", label: "You" },
-              ]}
-              messages={[
-                { from: "c", to: "you", text: "We want an AI to handle our customer emails." },
-                { from: "you", to: "c", text: "Tell me about the last difficult email. What happened?", dashed: true },
-                { from: "c", to: "you", text: "Refund disputes take forever; agents hunt through three systems." },
-                { from: "you", to: "c", text: "How long, how often, and what does a mistake cost?", dashed: true },
-                { from: "you", to: "c", text: "So the pain is slow policy lookup on refund disputes. Right?" },
-                { from: "c", to: "you", text: "Yes, mostly that.", dashed: true },
-                { from: "you", to: "c", text: "Propose a two-week pilot: search policies for refund tickets, agent approves" },
-                { note: "Agree success metric, who to shadow, and the first access request before ending.", over: ["c", "you"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="four-interview-rounds" panel={2} />
 
           <ul>
             <li>

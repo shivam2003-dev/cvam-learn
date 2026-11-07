@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -30,17 +31,7 @@ export const lesson: Lesson = {
             turns this into a visible, discussed change.
           </p>
 
-          <Figure caption="What a contract covers, from the shape of the data up to who is responsible for it.">
-            <Layers
-              layers={[
-                { title: "Ownership and support", note: "Who owns the data, who to contact, how changes are announced and with what notice.", tone: "amber" },
-                { title: "Quality guarantees", note: "Freshness, completeness, uniqueness, acceptable null rates, valid ranges.", tone: "amber" },
-                { title: "Semantics", note: "What each field means: units, time zones, currency, status codes, how nulls are used.", tone: "lime" },
-                { title: "Schema", note: "Field names, types, required or optional, formats, allowed values.", tone: "lime" },
-                { title: "Delivery", note: "Mechanism, schedule, volume, ordering, retention.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="data-contracts-schema-changes" panel={1} />
 
           <pre>
             <code>{`# orders.contract.yaml (excerpt)
@@ -72,19 +63,7 @@ change_policy: "30 days notice for breaking changes"`}</code>
             system, where the error is cheap to understand, and decide explicitly what to do with
             failures.
           </p>
-          <Figure caption="Validation at the boundary. Good records flow on; bad ones are quarantined with the reason, and counts are reported.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Receive", note: "Raw record, stored untouched", tone: "sky" },
-                { title: "Validate", note: "Schema, types, ranges, business rules", tone: "lime" },
-                { title: "Normalise", note: "Units, time zones, casing, IDs", tone: "lime" },
-                { title: "Accept", note: "Load valid records", tone: "lime" },
-                { title: "Quarantine", note: "Invalid ones with reason and source", tone: "rose" },
-                { title: "Report", note: "Counts and rates to a dashboard", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="data-contracts-schema-changes" panel={2} />
           <pre>
             <code>{`from pydantic import BaseModel, field_validator
 from decimal import Decimal
@@ -166,15 +145,7 @@ def ingest(raw_records):
             <strong> expand and contract</strong> pattern (also called parallel change) does this.
           </p>
 
-          <Figure caption="Expand and contract. Add the new, move consumers across at their own pace, then remove the old.">
-            <Timeline
-              phases={[
-                { label: "1. Expand", when: "Add new alongside old", tone: "sky", items: ["Add total_cents next to total", "Producer writes both", "Version the contract (2.4)"] },
-                { label: "2. Migrate", when: "Consumers move", tone: "lime", weight: 1.4, items: ["Each consumer switches to total_cents", "Monitor who still reads total", "Support both during this window"] },
-                { label: "3. Contract", when: "Remove old", tone: "amber", items: ["No readers of total remain", "Stop writing it", "Remove in version 3.0"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="data-contracts-schema-changes" panel={3} />
 
           <ul>
             <li>Announce changes with the notice period in the contract, and track which consumers have moved.</li>

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -30,18 +31,7 @@ export const lesson: Lesson = {
             to move from that statement to a problem that is specific, measurable and owned.
           </p>
 
-          <Figure caption="Discovery narrows from a vague wish to something you can build and measure. Each step removes a layer of ambiguity.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Stated request", note: "\"We need a chatbot\"", tone: "plain" },
-                { title: "Underlying problem", note: "Agents spend 40 minutes finding policies", tone: "sky" },
-                { title: "Workflow", note: "Who does what, with which systems", tone: "sky" },
-                { title: "Success metric", note: "Median lookup time under 5 min", tone: "lime" },
-                { title: "Constraints", note: "Security, data, people, deadline", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="customer-discovery" panel={1} />
 
           <Callout tone="note" title="Discovery is not a phase you finish">
             You do most of it in the first week, but it continues. Every call, demo and support ticket
@@ -62,28 +52,7 @@ export const lesson: Lesson = {
             tells you whom to speak to and what to ask each of them.
           </p>
 
-          <Figure caption="A typical stakeholder map for an enterprise AI project. Solid lines show who reports on or decides; dashed lines show who can block you.">
-            <Graph
-              label="Stakeholder map: sponsor, champion, end users, IT and security, legal, and the FDE"
-              cellW={200}
-              cellH={104}
-              nodes={[
-                { id: "sponsor", label: "Executive sponsor", sub: "Owns budget and outcome", col: 1.5, row: 0, tone: "amber" },
-                { id: "champion", label: "Champion", sub: "Day-to-day owner", col: 1.5, row: 1, tone: "lime" },
-                { id: "users", label: "End users", sub: "Do the work today", col: 0, row: 2, tone: "sky" },
-                { id: "fde", label: "You (FDE)", sub: "Build and deliver", col: 1.5, row: 2, tone: "lime", shape: "pill" },
-                { id: "it", label: "IT and security", sub: "Access, risk, approvals", col: 3, row: 1, tone: "rose" },
-                { id: "legal", label: "Legal and privacy", sub: "Data and contract terms", col: 3, row: 2, tone: "rose" },
-              ]}
-              edges={[
-                { from: "sponsor", to: "champion" },
-                { from: "champion", to: "fde" },
-                { from: "users", to: "fde", both: true, label: "shadow" },
-                { from: "it", to: "fde", dashed: true, label: "approve" },
-                { from: "legal", to: "fde", dashed: true, label: "approve" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="customer-discovery" panel={2} />
 
           <Table
             head={["Who", "Ask about", "Typical blind spot"]}
@@ -153,19 +122,7 @@ export const lesson: Lesson = {
             mark the steps that are slow, error-prone, repetitive or risky.
           </p>
 
-          <Figure caption="A current-state workflow for escalated support tickets. Amber steps are the pain points that become candidates for the solution.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Ticket escalated", note: "To tier 2, any hour", tone: "plain" },
-                { title: "Search policies", note: "Three systems, ~25 min", tone: "amber" },
-                { title: "Ask a colleague", note: "When unsure, ~10 min", tone: "amber" },
-                { title: "Draft reply", note: "Copy from templates", tone: "plain" },
-                { title: "Manager approval", note: "Above a threshold", tone: "plain" },
-                { title: "Send and log", note: "Update CRM", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="customer-discovery" panel={3} />
 
           <p>Questions to apply to each step on the map:</p>
           <ul>
@@ -210,17 +167,7 @@ Budget range the sponsor mentioned:  $150K to $250K  ->  plausible`}</code>
             hard sell regardless of how clever the technology is.
           </p>
 
-          <Figure caption="Five factors for sizing an opportunity before committing weeks of work.">
-            <Layers
-              layers={[
-                { title: "Frequency", note: "How often does the problem occur?", tone: "sky" },
-                { title: "Duration", note: "How long does each occurrence take today?", tone: "sky" },
-                { title: "Cost of error", note: "What does a mistake cost when it happens?", tone: "amber" },
-                { title: "Number of people", note: "How many are affected, and how senior are they?", tone: "amber" },
-                { title: "Strategic weight", note: "Is it tied to a goal leadership already cares about?", tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="customer-discovery" panel={4} />
         </>
       ),
     },

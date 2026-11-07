@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -28,17 +29,7 @@ export const lesson: Lesson = {
             The best preparation is the code itself. A solution with clear boundaries makes any
             reasonable extension a small, local change. A tangled one makes every request painful.
           </p>
-          <Figure caption="Extension points worth building in. Each is cheap and makes the most likely requests small changes.">
-            <Layers
-              layers={[
-                { title: "Rules in one place", note: "Thresholds and policies as named constants or a small config, not scattered literals.", tone: "amber" },
-                { title: "Schemas for entities", note: "Adding a field means editing one model and one test.", tone: "lime" },
-                { title: "Adapters for inputs and outputs", note: "A new data source is a new reader behind the same interface.", tone: "lime" },
-                { title: "A single model-call seam", note: "Swapping models or prompts touches one module.", tone: "sky" },
-                { title: "Tests and an evaluation command", note: "You can prove the change works in a minute.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-live-extension" panel={1} />
         </>
       ),
     },
@@ -47,19 +38,7 @@ export const lesson: Lesson = {
       title: "A method for live changes",
       body: (
         <>
-          <Figure caption="Six steps for any live extension. Saying them aloud keeps you calm and gives the interviewer a map.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Clarify", note: "Restate the request and confirm edge cases", tone: "sky" },
-                { title: "Locate", note: "Say where in the code the change belongs and why", tone: "sky" },
-                { title: "Plan", note: "Name the steps: schema, logic, test", tone: "lime" },
-                { title: "Change", note: "Smallest working edit first", tone: "lime" },
-                { title: "Test", note: "Add or run a test that proves it", tone: "amber" },
-                { title: "Reflect", note: "Risks, what you skipped, what you would tidy", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-live-extension" panel={2} />
           <Table
             head={["Request", "Where it goes", "Test"]}
             rows={[

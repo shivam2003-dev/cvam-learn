@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -31,16 +32,7 @@ export const lesson: Lesson = {
             out of date quickly.
           </p>
 
-          <Figure caption="Where a framework sits. It wraps the loop, tools and state; you still own the product logic, evaluation and operations.">
-            <Layers
-              layers={[
-                { title: "Your product logic", note: "Prompts, tools, business rules, evaluations, UI. Always yours.", tone: "lime" },
-                { title: "Agent framework (optional)", note: "Loop, tool registry, state and memory, multi-agent orchestration, tracing hooks.", tone: "amber" },
-                { title: "Model SDK or API", note: "Messages, tool calling, streaming, structured output from a provider.", tone: "sky" },
-                { title: "Model", note: "Hosted or self-hosted language model.", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="choosing-agentic-framework" panel={1} />
         </>
       ),
     },
@@ -109,18 +101,7 @@ def run(goal):
             ]}
           />
 
-          <Figure caption="A decision path. Most projects exit at the first or second box; frameworks earn their place only when a concrete need appears.">
-            <Flow
-              direction="col"
-              numbered
-              steps={[
-                { title: "Single model call or fixed workflow?", note: "Use plain SDK code and ordinary functions.", tone: "lime" },
-                { title: "One agent with a few tools?", note: "Plain loop (about 30 lines) is usually enough.", tone: "lime" },
-                { title: "Durable state, approvals or graph-shaped flows needed?", note: "Evaluate a framework against the criteria above.", tone: "amber" },
-                { title: "Customer already standardised on one?", note: "Follow their standard unless it blocks the requirement.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="choosing-agentic-framework" panel={2} />
         </>
       ),
     },

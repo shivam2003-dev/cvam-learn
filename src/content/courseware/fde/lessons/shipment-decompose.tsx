@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -45,17 +46,7 @@ export const lesson: Lesson = {
             Shadow two planners through a disruption. Write down the real steps, the data touched,
             and the time spent. A typical result:
           </p>
-          <Figure caption="The current planner workflow for one delayed shipment. Times are from shadowing; the right-hand column notes the kind of work each step is.">
-            <Timeline
-              phases={[
-                { label: "Detect", when: "5 min", tone: "sky", items: ["Alert from carrier or customer", "Check shipment record", "Deterministic lookup"] },
-                { label: "Assess", when: "10 min", tone: "sky", items: ["How late? Which customers?", "Contract deadlines and penalties", "Mostly rules and data"] },
-                { label: "Find options", when: "20 min", tone: "lime", weight: 1.5, items: ["Query carriers, check schedules", "Compare routes and modes", "Tool calls with judgment"] },
-                { label: "Evaluate", when: "10 min", tone: "amber", items: ["Cost, time, risk, customer impact", "Arithmetic plus trade-offs"] },
-                { label: "Decide and act", when: "10 min", tone: "rose", items: ["Approval by senior planner", "Rebook, notify customer", "Irreversible actions"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="shipment-decompose" panel={1} />
           <Table
             head={["Step", "Kind of work", "Best implemented as"]}
             rows={[
@@ -80,31 +71,7 @@ export const lesson: Lesson = {
             Apply the test from the orchestration lesson. Only the middle of the process is open-ended;
             the rest is rules or approvals. A candidate decomposition:
           </p>
-          <Figure caption="Candidate decomposition. Most of the system is deterministic code; two bounded agents handle the open-ended parts, and people approve the actions.">
-            <Graph
-              label="Decomposition: event handler and impact rules as code, a route-search agent and a ranking agent, then human approval and execution"
-              cellW={190}
-              cellH={104}
-              nodeW={154}
-              nodes={[
-                { id: "ev", label: "Disruption event", sub: "Carrier alert, customer call", col: 0, row: 0, tone: "sky", shape: "pill" },
-                { id: "imp", label: "Impact rules", sub: "Code: deadlines, penalties", col: 1, row: 0, tone: "plain" },
-                { id: "search", label: "Route-search agent", sub: "Tools: carriers, schedules", col: 2, row: 0, tone: "lime" },
-                { id: "cost", label: "Cost engine", sub: "Code: rates and time", col: 3, row: 0, tone: "plain" },
-                { id: "rank", label: "Ranking agent", sub: "Weigh options, explain", col: 3, row: 1, tone: "lime" },
-                { id: "human", label: "Planner approval", sub: "Accept, edit or reject", col: 2, row: 1, tone: "amber", shape: "pill" },
-                { id: "exec", label: "Execute + notify", sub: "Booking APIs, draft email", col: 1, row: 1, tone: "rose" },
-              ]}
-              edges={[
-                { from: "ev", to: "imp" },
-                { from: "imp", to: "search" },
-                { from: "search", to: "cost" },
-                { from: "cost", to: "rank" },
-                { from: "rank", to: "human" },
-                { from: "human", to: "exec", label: "approved" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="shipment-decompose" panel={2} />
           <p>Justification for two agents rather than one:</p>
           <ul>
             <li>
@@ -179,16 +146,7 @@ export const lesson: Lesson = {
               actions are added.
             </p>
           </Exercise>
-          <Figure caption="Rollout stages for a system that could rebook cargo: advise, recommend, then act on low-risk lanes.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Pilot 1: advise", note: "Drafts options; planners compare with their own", tone: "sky" },
-                { title: "Pilot 2: recommend", note: "Ranked plan with reasons; one-click approval", tone: "lime" },
-                { title: "Pilot 3: act", note: "Executes approved plans; low-risk lanes first", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="shipment-decompose" panel={3} />
         </>
       ),
     },

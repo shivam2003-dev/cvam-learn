@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -22,18 +23,7 @@ export const lesson: Lesson = {
             question, answer aloud for two minutes, then compare. The aim is to cover the same ground
             in your own words, with your own examples.
           </p>
-          <Figure caption="A reliable shape for answering any design follow-up. It keeps answers short while still showing judgment.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Restate", note: "Show you understood", tone: "sky" },
-                { title: "Position", note: "Give your answer first", tone: "lime" },
-                { title: "Reason", note: "Why, with a trade-off", tone: "lime" },
-                { title: "Risk", note: "What could go wrong", tone: "amber" },
-                { title: "Measure", note: "How you would know", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="financial-interview" panel={1} />
         </>
       ),
     },

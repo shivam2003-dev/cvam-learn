@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -46,17 +47,7 @@ export const lesson: Lesson = {
       title: "Designing a review screen",
       body: (
         <>
-          <Figure caption="Anatomy of a review screen. Evidence beside the answer lets the user verify in seconds, and the controls make the common decision one click.">
-            <Layers
-              layers={[
-                { title: "Header: progress and filters", note: "'12 of 40 reviewed'; filter to show only flagged or low-confidence items first.", tone: "amber" },
-                { title: "Left pane: the source", note: "The original document or message with the relevant passages highlighted.", tone: "sky" },
-                { title: "Right pane: the result", note: "Extracted fields or suggested answer, each with a confidence cue and an edit box.", tone: "lime" },
-                { title: "Why this result", note: "A short reason or the evidence text, so the user does not have to hunt.", tone: "lime" },
-                { title: "Actions", note: "Accept, edit and accept, flag for later; keyboard shortcuts for speed.", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-interface" panel={1} />
           <pre>
             <code>{`# app.py (Streamlit sketch: a review queue in about 30 lines)
 import json, streamlit as st
@@ -96,18 +87,7 @@ if c2.button("Flag"):
               ["Success", "Confirmation and the next item", "Keeps flow"],
             ]}
           />
-          <Figure caption="The lifecycle of one item in the review queue. Every item ends in a recorded decision, which also becomes feedback data.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Queued", note: "Sorted by confidence", tone: "sky" },
-                { title: "Shown", note: "Source and suggestion side by side", tone: "lime" },
-                { title: "Decided", note: "Accept, edit or flag", tone: "amber" },
-                { title: "Recorded", note: "Stored with who and when", tone: "amber" },
-                { title: "Learned from", note: "Edits feed the next evaluation", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-interface" panel={2} />
           <Exercise
             title="Spot the time sinks"
             task={

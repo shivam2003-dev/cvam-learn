@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Layers, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -31,31 +32,7 @@ export const lesson: Lesson = {
             than week six.
           </p>
 
-          <Figure caption="The six families of enterprise constraint. Most blockers you will meet belong to one of them.">
-            <Graph
-              label="Six families of enterprise constraint around the project: security, data, network, procurement, change and legacy"
-              cellW={200}
-              cellH={104}
-              nodeW={162}
-              nodes={[
-                { id: "sec", label: "Security and access", sub: "SSO, least privilege, review", col: 0, row: 0, tone: "rose" },
-                { id: "data", label: "Data and privacy", sub: "Residency, retention, PII", col: 1, row: 0, tone: "rose" },
-                { id: "net", label: "Network", sub: "Private, no outbound, allow-lists", col: 2, row: 0, tone: "rose" },
-                { id: "proj", label: "Your project", col: 1, row: 1, tone: "lime", shape: "pill", w: 170 },
-                { id: "proc", label: "Procurement and legal", sub: "Vendors, contracts, terms", col: 0, row: 2, tone: "amber" },
-                { id: "chg", label: "Change control", sub: "Release windows, CAB", col: 1, row: 2, tone: "amber" },
-                { id: "leg", label: "Legacy systems", sub: "Old APIs, batch jobs", col: 2, row: 2, tone: "amber" },
-              ]}
-              edges={[
-                { from: "sec", to: "proj", dashed: true },
-                { from: "data", to: "proj", dashed: true },
-                { from: "net", to: "proj", dashed: true },
-                { from: "proc", to: "proj", dashed: true },
-                { from: "chg", to: "proj", dashed: true },
-                { from: "leg", to: "proj", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="enterprise-constraints" panel={1} />
         </>
       ),
     },
@@ -81,17 +58,7 @@ export const lesson: Lesson = {
             ]}
           />
 
-          <Figure caption="Typical approval lead times vary enormously. Start every long one on day one; they run alongside your build.">
-            <Timeline
-              phases={[
-                { label: "Account and VPN access", when: "2 to 5 days", tone: "sky", weight: 1 },
-                { label: "Data extract approval", when: "1 to 2 weeks", tone: "sky", weight: 1.6 },
-                { label: "Firewall / allow-list change", when: "1 to 3 weeks", tone: "amber", weight: 2 },
-                { label: "Security architecture review", when: "2 to 6 weeks", tone: "rose", weight: 3 },
-                { label: "Vendor / legal onboarding", when: "4 to 12 weeks", tone: "rose", weight: 5 },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="enterprise-constraints" panel={2} />
 
           <Callout tone="tip" title="Make a critical-path list on day one">
             List every approval, its owner, and how long it takes. The longest chain, not the amount of
@@ -111,18 +78,7 @@ export const lesson: Lesson = {
             access. A short, honest package answers most of the reviewer&apos;s questions in advance.
           </p>
 
-          <Figure caption="What a security reviewer wants to see. Preparing these in advance usually cuts weeks from the review.">
-            <Layers
-              layers={[
-                { title: "Architecture and data-flow diagram", note: "Components, trust boundaries, and exactly what data crosses each.", tone: "sky" },
-                { title: "Data inventory", note: "What data is processed, its classification, where it is stored and for how long.", tone: "sky" },
-                { title: "Access model", note: "Who can do what, how authentication works, how access is granted and revoked.", tone: "lime" },
-                { title: "Third parties and sub-processors", note: "Each external service, what it receives, its certifications and retention terms.", tone: "lime" },
-                { title: "Controls and evidence", note: "Encryption, logging, vulnerability scanning, incident response, and relevant certifications.", tone: "amber" },
-                { title: "Risks and mitigations", note: "Known risks, owners and how they are handled, including prompt injection for AI features.", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="enterprise-constraints" panel={3} />
 
           <ul>
             <li>
@@ -156,18 +112,7 @@ export const lesson: Lesson = {
             <strong>air-gapped</strong> environments. The same product has to work there.
           </p>
 
-          <Figure caption="Deployment options for a model-backed feature, ordered from least to most restricted. Each step trades convenience for control.">
-            <Flow
-              direction="col"
-              steps={[
-                { title: "Vendor-hosted SaaS", note: "Easiest to run. Data leaves the customer; often unacceptable for sensitive data.", tone: "lime" },
-                { title: "Single-tenant in vendor cloud", note: "Isolated resources and a dedicated environment; data still leaves the customer's account.", tone: "sky" },
-                { title: "Customer's cloud account (VPC)", note: "Runs in their account with their controls; models via their cloud's private endpoints.", tone: "amber" },
-                { title: "On-premises", note: "Runs in their data centre; you ship installable artifacts and self-hosted models.", tone: "rose" },
-                { title: "Air-gapped", note: "No internet at all: offline updates, mirrored registries, signed bundles, local models.", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="enterprise-constraints" panel={4} />
 
           <p>Practical design habits for restricted settings:</p>
           <ul>

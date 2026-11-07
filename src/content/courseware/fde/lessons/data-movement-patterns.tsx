@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -42,57 +43,9 @@ export const lesson: Lesson = {
       title: "How each looks in practice",
       body: (
         <>
-          <Figure caption="Pull versus push. Polling puts the effort on the consumer and risks gaps; webhooks push events but need a reliable receiver.">
-            <Graph
-              label="Polling: consumer repeatedly asks the source. Webhook: the source pushes events to the consumer through a queue."
-              cellW={190}
-              cellH={96}
-              nodeW={150}
-              nodes={[
-                { id: "pa", label: "Source A", col: 0, row: 0, tone: "sky", shape: "db" },
-                { id: "pb", label: "Consumer B", sub: "Polls every minute", col: 2, row: 0, tone: "lime" },
-                { id: "wa", label: "Source A", col: 0, row: 1, tone: "sky", shape: "db" },
-                { id: "wq", label: "Receiver + queue", sub: "Verify, enqueue, ack fast", col: 1, row: 1, tone: "amber" },
-                { id: "wb", label: "Consumer B", sub: "Processes at its own pace", col: 2, row: 1, tone: "lime" },
-              ]}
-              groups={[
-                { label: "Polling (pull)", c1: 0, r1: 0, c2: 2, r2: 0, tone: "plain" },
-                { label: "Webhook (push)", c1: 0, r1: 1, c2: 2, r2: 1, tone: "plain" },
-              ]}
-              edges={[
-                { from: "pb", to: "pa", label: "GET changes since cursor" },
-                { from: "wa", to: "wq", label: "POST event" },
-                { from: "wq", to: "wb" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="data-movement-patterns" panel={1} />
 
-          <Figure caption="Change data capture and file batches. CDC reads the database log for every change; batch drops a file on a schedule.">
-            <Graph
-              label="CDC reads a database log into a stream; batch moves a nightly file through SFTP to a loader"
-              cellW={190}
-              cellH={96}
-              nodeW={150}
-              nodes={[
-                { id: "db", label: "Source DB", sub: "Write-ahead log", col: 0, row: 0, tone: "sky", shape: "db" },
-                { id: "cdc", label: "CDC reader", sub: "Row changes as events", col: 1, row: 0, tone: "amber" },
-                { id: "st", label: "Stream", sub: "Ordered per key", col: 2, row: 0, tone: "lime", shape: "db" },
-                { id: "legacy", label: "Legacy system", sub: "Nightly export", col: 0, row: 1, tone: "sky" },
-                { id: "sftp", label: "SFTP drop", sub: "orders_20260312.csv", col: 1, row: 1, tone: "amber", shape: "db" },
-                { id: "load", label: "Batch loader", sub: "Validate, load, archive", col: 2, row: 1, tone: "lime" },
-              ]}
-              groups={[
-                { label: "Change data capture", c1: 0, r1: 0, c2: 2, r2: 0, tone: "plain" },
-                { label: "File batch", c1: 0, r1: 1, c2: 2, r2: 1, tone: "plain" },
-              ]}
-              edges={[
-                { from: "db", to: "cdc" },
-                { from: "cdc", to: "st" },
-                { from: "legacy", to: "sftp", label: "02:00" },
-                { from: "sftp", to: "load" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="data-movement-patterns" panel={2} />
         </>
       ),
     },
@@ -106,36 +59,9 @@ export const lesson: Lesson = {
             can the source system actually do, and how much can you afford to operate.
           </p>
 
-          <Figure caption="A map of patterns by freshness need and operational complexity. Pick the simplest one that meets the freshness requirement.">
-            <Quadrant
-              label="Data movement patterns plotted by operational complexity and freshness they provide"
-              xLabel="Operational complexity"
-              yLabel="Freshness"
-              corners={["Fast and simple: use if available", "Fast, but heavy", "Slow and simple", "Avoid: slow and complex"]}
-              items={[
-                { label: "Webhook", x: 0.36, y: 0.8, tone: "lime" },
-                { label: "Event stream", x: 0.7, y: 0.86, tone: "sky" },
-                { label: "CDC", x: 0.84, y: 0.7, tone: "sky" },
-                { label: "Polling", x: 0.2, y: 0.5, tone: "amber" },
-                { label: "File batch", x: 0.3, y: 0.18, tone: "plain" },
-                { label: "Direct API call", x: 0.1, y: 0.92, tone: "lime" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="data-movement-patterns" panel={3} />
 
-          <Figure caption="A decision path for choosing how data moves. Take the first option that meets the real freshness need.">
-            <Flow
-              direction="col"
-              numbered
-              steps={[
-                { title: "Does B need the data only at the moment a user acts?", note: "Call the API on demand; cache if needed.", tone: "lime" },
-                { title: "Is a day-old copy acceptable?", note: "Use a nightly batch. It is the simplest and most robust.", tone: "lime" },
-                { title: "Does A support webhooks or events?", note: "Use them, with a queue in front and a reconciliation job behind.", tone: "amber" },
-                { title: "Only an API with no push?", note: "Poll with a change cursor or updated-since filter.", tone: "amber" },
-                { title: "No API but database access is allowed?", note: "Consider CDC, with the owner's approval and care for schema changes.", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="data-movement-patterns" panel={4} />
 
           <Callout tone="tip" title="Real time is expensive">
             Customers say &ldquo;real time&rdquo; when they mean &ldquo;not a day old&rdquo;. Ask what

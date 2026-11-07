@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ChapterVisual, LessonVisual } from "@/components/FdeVisuals";
 import { notFound } from "next/navigation";
 import { CourseBar } from "@/components/CourseBar";
 import { CurriculumNav } from "@/components/CurriculumNav";
@@ -39,10 +41,14 @@ export default async function CoursewareLessonPage({ params }: Props) {
   const meta = ordered[position];
   const prev = ordered[position - 1] ?? null;
   const next = ordered[position + 1] ?? null;
+  const isFde = courseSlug === "fde";
+  const isChapterEnd = !next || next.module.id !== meta.module.id;
   const tocItems = [
     { id: "goals", title: "What you'll learn" },
+    ...(isFde ? [{ id: "visual-guide", title: "Visual study sheet" }] : []),
     ...lesson.tasks.map(({ id, title }) => ({ id, title })),
     { id: "takeaways", title: "Key takeaways" },
+    ...(isFde && isChapterEnd ? [{ id: `recap-${meta.module.id}`, title: "Chapter visual recap" }] : []),
     { id: "check", title: "Quiz" },
   ];
 
@@ -88,6 +94,8 @@ export default async function CoursewareLessonPage({ params }: Props) {
               </ul>
             </section>
 
+            {isFde && <LessonVisual slug={slug} />}
+
             {lesson.tasks.map((task) => (
               <section key={task.id} id={task.id} className="mt-12 scroll-mt-20">
                 <h2 className="border-b border-line pb-2 font-display text-2xl font-bold tracking-tight">
@@ -108,6 +116,13 @@ export default async function CoursewareLessonPage({ params }: Props) {
                 ))}
               </ul>
             </section>
+
+            {isFde && isChapterEnd && <ChapterVisual chapterId={meta.module.id} />}
+            {isFde && (
+              <Link href="/courseware/fde/visual-summary" className="mt-6 block rounded-xl border border-line bg-panel p-4 text-sm font-semibold text-lime hover:border-lime/50">
+                Review all 17 chapters in diagrams →
+              </Link>
+            )}
 
             <LessonTail
               base="courseware"

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -33,44 +34,7 @@ export const lesson: Lesson = {
             teaches you about every layer immediately.
           </p>
 
-          <Figure caption="Layers versus slices for the same project. Slice 1 touches every layer for a narrow case and is demonstrable in the first sprint.">
-            <Graph
-              label="Comparison of layer-by-layer planning with vertical slice planning"
-              cellW={172}
-              cellH={92}
-              nodeW={142}
-              nodes={[
-                { id: "l1", label: "Data pipeline", col: 0, row: 0, tone: "rose" },
-                { id: "l2", label: "Model", col: 0, row: 1, tone: "rose" },
-                { id: "l3", label: "Interface", col: 0, row: 2, tone: "rose" },
-                { id: "s1d", label: "Data: 1 source", col: 1, row: 0, tone: "lime" },
-                { id: "s1m", label: "Model: 1 task", col: 2, row: 0, tone: "lime" },
-                { id: "s1i", label: "UI: 1 screen", col: 3, row: 0, tone: "lime" },
-                { id: "s2d", label: "Data: 3 sources", col: 1, row: 1, tone: "sky" },
-                { id: "s2m", label: "Model: tuned", col: 2, row: 1, tone: "sky" },
-                { id: "s2i", label: "UI: review queue", col: 3, row: 1, tone: "sky" },
-                { id: "s3d", label: "Data: all feeds", col: 1, row: 2, tone: "plain" },
-                { id: "s3m", label: "Model: at scale", col: 2, row: 2, tone: "plain" },
-                { id: "s3i", label: "UI: rollout", col: 3, row: 2, tone: "plain" },
-              ]}
-              groups={[
-                { label: "By layers (risky)", c1: 0, r1: 0, c2: 0, r2: 2, tone: "rose" },
-                { label: "Slice 1: works in sprint 1", c1: 1, r1: 0, c2: 3, r2: 0, tone: "lime" },
-                { label: "Slice 2: grows it", c1: 1, r1: 1, c2: 3, r2: 1, tone: "sky" },
-                { label: "Slice 3: scale out", c1: 1, r1: 2, c2: 3, r2: 2, tone: "plain" },
-              ]}
-              edges={[
-                { from: "l1", to: "l2" },
-                { from: "l2", to: "l3" },
-                { from: "s1d", to: "s1m" },
-                { from: "s1m", to: "s1i" },
-                { from: "s2d", to: "s2m" },
-                { from: "s2m", to: "s2i" },
-                { from: "s3d", to: "s3m" },
-                { from: "s3m", to: "s3i" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="scoping-solution-architecture" panel={1} />
 
           <p>Good slices share a few properties:</p>
           <ul>
@@ -92,23 +56,7 @@ export const lesson: Lesson = {
             deliver, how much effort they take, how risky they are, and what depends on them.
           </p>
 
-          <Figure caption="Value against effort for candidate work items. Start in the top left (high value, low effort); start risky items early even if they sit elsewhere.">
-            <Quadrant
-              label="Candidate work items plotted by effort and value"
-              xLabel="Effort"
-              yLabel="Value"
-              corners={["Do first", "Plan carefully", "Quick extras", "Avoid for now"]}
-              items={[
-                { label: "Search one policy set", x: 0.2, y: 0.86, tone: "lime" },
-                { label: "Show source citations", x: 0.28, y: 0.7, tone: "lime" },
-                { label: "SSO login", x: 0.42, y: 0.45, tone: "amber" },
-                { label: "Roll out to all agents", x: 0.7, y: 0.9, tone: "sky" },
-                { label: "Auto-draft replies", x: 0.88, y: 0.62, tone: "sky" },
-                { label: "Analytics dashboard", x: 0.55, y: 0.18, tone: "plain" },
-                { label: "Custom theme", x: 0.12, y: 0.12, tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="scoping-solution-architecture" panel={2} />
 
           <p>Then adjust the order for two things the chart does not show:</p>
           <ul>
@@ -148,31 +96,7 @@ export const lesson: Lesson = {
             that data or credentials must not cross freely.
           </p>
 
-          <Figure caption="Context diagram for the policy assistant. The dashed zone is the customer's network; every arrow crossing it is something security will want to review.">
-            <Graph
-              label="Context diagram: agents use a search service which reads from policy storage and calls a language model across a trust boundary"
-              cellW={205}
-              cellH={112}
-              nodes={[
-                { id: "agent", label: "Support agents", sub: "Ticketing tool plugin", col: 0, row: 1, tone: "amber", shape: "pill" },
-                { id: "api", label: "Assistant API", sub: "Auth, logging, rate limits", col: 1.5, row: 1, tone: "lime" },
-                { id: "index", label: "Search index", sub: "Chunks + embeddings", col: 1.5, row: 0, tone: "lime", shape: "db" },
-                { id: "sp", label: "SharePoint", sub: "Policy PDFs (read only)", col: 3, row: 0, tone: "sky", shape: "db" },
-                { id: "sso", label: "Company SSO", sub: "Identity provider", col: 0, row: 2, tone: "sky" },
-                { id: "llm", label: "Model API", sub: "Region-locked, no retention", col: 3, row: 2, tone: "plain" },
-              ]}
-              groups={[
-                { label: "Customer network", c1: 0, r1: 0, c2: 2, r2: 2, tone: "sky" },
-              ]}
-              edges={[
-                { from: "agent", to: "api", label: "HTTPS" },
-                { from: "api", to: "index", label: "query" },
-                { from: "sp", to: "index", label: "nightly sync", dashed: true },
-                { from: "agent", to: "sso", label: "login", dashed: true },
-                { from: "api", to: "llm", label: "prompt + chunks" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="scoping-solution-architecture" panel={3} />
 
           <p>
             In that picture the interesting security question is the arrow from the Assistant API to the
@@ -206,17 +130,7 @@ export const lesson: Lesson = {
             capability decide how to obtain it:
           </p>
 
-          <Figure caption="A decision path for each capability. Favour the cheapest option that meets the requirement, and build only where you add real value.">
-            <Flow
-              direction="col"
-              steps={[
-                { title: "Does the product already do it?", note: "Use it, configure it, and stop.", tone: "lime" },
-                { title: "Does a managed service or open-source library do it?", note: "Integrate it behind a thin interface.", tone: "sky" },
-                { title: "Does the customer already own a tool for it?", note: "Plug into it rather than adding another system.", tone: "sky" },
-                { title: "Is it core to the value and not available elsewhere?", note: "Build it, and plan to hand it over.", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="scoping-solution-architecture" panel={4} />
 
           <p>
             Every line of custom code is a line that someone must maintain after you leave. Before

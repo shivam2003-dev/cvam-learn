@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Quadrant, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -46,24 +47,7 @@ export const lesson: Lesson = {
       title: "Rank by value and cost",
       body: (
         <>
-          <Figure caption="Value versus build cost for candidate features. Build the top left, consider the top right, skip the bottom right, and describe rather than build the rest.">
-            <Quadrant
-              label="Candidate features plotted by build cost and value to the user"
-              xLabel="Build cost"
-              yLabel="Value to the user"
-              corners={["Build now", "Build if time", "Skip", "Describe in README"]}
-              items={[
-                { label: "Core extraction", x: 0.3, y: 0.92, tone: "lime" },
-                { label: "PO matching", x: 0.36, y: 0.82, tone: "lime" },
-                { label: "Review table UI", x: 0.4, y: 0.7, tone: "lime" },
-                { label: "Evaluation report", x: 0.32, y: 0.62, tone: "lime" },
-                { label: "OCR fallback", x: 0.68, y: 0.56, tone: "amber" },
-                { label: "Login", x: 0.62, y: 0.16, tone: "rose" },
-                { label: "Cloud deploy", x: 0.86, y: 0.2, tone: "rose" },
-                { label: "Dark mode", x: 0.14, y: 0.08, tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-mvp" panel={1} />
           <p>
             Then check <strong>risk</strong>. If something might break the whole project (can I read
             these PDFs at all?), test it in the first hour, even if it is not the most valuable item.
@@ -76,18 +60,7 @@ export const lesson: Lesson = {
       title: "Plan the hours with a cut line",
       body: (
         <>
-          <Figure caption="A six-hour plan with checkpoints. If you are behind at a checkpoint, you cut from the 'if time' list rather than squeezing the final hour.">
-            <Timeline
-              phases={[
-                { label: "0:00 to 0:45", when: "Read and plan", tone: "sky", items: ["Checklist", "Assumptions", "Open every input file"] },
-                { label: "0:45 to 1:30", when: "Spike the risk", tone: "amber", items: ["Prove extraction on 5 files", "Pick the approach", "Repo and environment"] },
-                { label: "1:30 to 3:30", when: "Core build", tone: "lime", weight: 1.6, items: ["Main path end to end", "Result view", "Commit often"] },
-                { label: "3:30 to 4:30", when: "Evaluate and fix", tone: "lime", items: ["Labelled set", "Error analysis", "Top two fixes"] },
-                { label: "4:30 to 5:15", when: "Harden", tone: "amber", items: ["Edge cases", "Tests", "Cleanup"] },
-                { label: "5:15 to 6:00", when: "Package", tone: "rose", items: ["README", "Demo video", "Clean-checkout run"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-mvp" panel={2} />
           <ul>
             <li>Write the <strong>cut line</strong> in advance: &ldquo;If at 3:30 the core is not working, drop OCR and the extra report.&rdquo;</li>
             <li>Commit working states often. A final state you can always return to is your safety net.</li>

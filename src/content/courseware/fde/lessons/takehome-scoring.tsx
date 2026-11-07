@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -22,19 +23,7 @@ export const lesson: Lesson = {
             minutes per candidate, a scorecard, and a question in mind: <em>would I trust this person
             to own a customer deployment?</em> They are looking for evidence, quickly.
           </p>
-          <Figure caption="A typical reviewer's path through a submission. Most decisions form in the first few minutes, so what they see first matters most.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Read the README", note: "What is this and how do I run it?", tone: "sky" },
-                { title: "Run it", note: "Does it work on a clean machine?", tone: "sky" },
-                { title: "Try the demo or video", note: "Does it solve the problem?", tone: "lime" },
-                { title: "Skim the code and tests", note: "Is it clear and sensible?", tone: "lime" },
-                { title: "Read the trade-offs", note: "Did they understand the limits?", tone: "amber" },
-                { title: "Score and compare", note: "Against the scorecard and other candidates", tone: "amber" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-scoring" panel={1} />
           <p>
             Two consequences follow. A submission that fails to run in the first five minutes loses
             most of its credibility, however good the code. And a clear README and a short demo are
@@ -63,17 +52,7 @@ export const lesson: Lesson = {
               ["Communication", "15%", "README, diagram, walk-through and defence of decisions"],
             ]}
           />
-          <Figure caption="The same submission seen in layers. Reviewers reward the whole stack, and a missing layer is more costly than a polished top one.">
-            <Layers
-              layers={[
-                { title: "Communication", note: "README, trade-offs, demo, walk-through", tone: "amber" },
-                { title: "Judgment", note: "Scope, assumptions, limits, what you chose not to build", tone: "amber" },
-                { title: "Quality", note: "Tests, structure, errors, reproducibility", tone: "lime" },
-                { title: "Function", note: "It works on realistic inputs", tone: "lime" },
-                { title: "Understanding", note: "It solves the actual problem", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="takehome-scoring" panel={2} />
         </>
       ),
     },

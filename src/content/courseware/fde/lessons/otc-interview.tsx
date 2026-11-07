@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -97,19 +98,7 @@ export const lesson: Lesson = {
             title="Question 5: Debugging"
             task={<p>&ldquo;Finance says 40 orders from last Tuesday are missing in the ERP. How do you investigate?&rdquo;</p>}
           >
-            <Figure caption="Investigation path for missing orders. Work from the source forward, narrowing to the first point where events stop appearing.">
-              <Flow
-                numbered
-                steps={[
-                  { title: "Confirm scope", note: "Which orders, what in common (time, product, region)?", tone: "sky" },
-                  { title: "Check source", note: "Did the CRM emit events for them?", tone: "sky" },
-                  { title: "Check receiver and queue", note: "Stored? Dead-lettered? Consumer lag?", tone: "lime" },
-                  { title: "Check order service", note: "Rejected by validation or state rules?", tone: "lime" },
-                  { title: "Check ERP calls", note: "Failures, timeouts, partial writes?", tone: "amber" },
-                  { title: "Fix and replay", note: "Idempotent replay; confirm via reconciliation", tone: "amber" },
-                ]}
-              />
-            </Figure>
+            <DiagramReference lesson="otc-interview" panel={1} />
             <p>
               A time cluster suggests a deployment or outage window; a product cluster suggests a
               mapping error. After fixing, replay the affected events (safe because processing is

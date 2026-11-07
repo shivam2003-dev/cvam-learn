@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -127,31 +128,7 @@ export const lesson: Lesson = {
       title: "The answer map",
       body: (
         <>
-          <Figure caption="Map of topics an interviewer may probe in a fine-tuning case, and the two or three ideas to reach for in each.">
-            <Graph
-              label="Topic map for the fine-tuning case: whether to tune, data, evaluation, privacy and operations, each with key ideas"
-              cellW={206}
-              cellH={104}
-              nodeW={172}
-              nodes={[
-                { id: "c", label: "Fine-tuning case", col: 1.5, row: 1, tone: "lime", shape: "pill", w: 180 },
-                { id: "w", label: "Whether to tune", sub: "Behaviour vs knowledge; baselines first", col: 0, row: 0, tone: "sky" },
-                { id: "d", label: "Data", sub: "Label audit, splits, leakage, long tail", col: 1.5, row: 0, tone: "sky" },
-                { id: "e", label: "Evaluation", sub: "Per-code metrics, slices, coder study", col: 3, row: 0, tone: "amber" },
-                { id: "p", label: "Privacy and risk", sub: "Secure env, memorisation, audit", col: 0, row: 2, tone: "rose" },
-                { id: "o", label: "Operations", sub: "Versions, drift, yearly update, rollback", col: 1.5, row: 2, tone: "amber" },
-                { id: "h", label: "People", sub: "Coders in loop; thresholds agreed", col: 3, row: 2, tone: "lime" },
-              ]}
-              edges={[
-                { from: "c", to: "w" },
-                { from: "c", to: "d" },
-                { from: "c", to: "e" },
-                { from: "c", to: "p" },
-                { from: "c", to: "o" },
-                { from: "c", to: "h" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="billing-interview" panel={1} />
           <Table
             head={["Follow-up", "Good direction"]}
             rows={[

@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Layers, Sequence, Timeline } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -31,16 +32,7 @@ export const lesson: Lesson = {
             handoff as a thread that runs through the whole project.
           </p>
 
-          <Figure caption="The handoff thread. Preparation starts in the pilot, and ownership shifts gradually, so there is no cliff edge at the end.">
-            <Timeline
-              phases={[
-                { label: "From day one", when: "Design for handover", tone: "sky", items: ["Prefer tools the customer's team knows", "Keep config separate from code", "Write decisions down as you go"] },
-                { label: "During the pilot", when: "Shadow", tone: "lime", items: ["Customer engineer shadows you", "Runbook drafted from real incidents", "Access set up for their team"] },
-                { label: "Before go-live", when: "Reverse shadow", tone: "amber", items: ["They operate, you watch", "Fix gaps in docs", "Practise a failure drill"] },
-                { label: "After go-live", when: "Support window", tone: "plain", items: ["Agreed hypercare period", "Escalation path", "Planned exit date"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="project-handoff" panel={1} />
         </>
       ),
     },
@@ -55,19 +47,7 @@ export const lesson: Lesson = {
             current.
           </p>
 
-          <Figure caption="What goes into a handoff package, from understanding down to the practical details of keeping the system alive.">
-            <Layers
-              layers={[
-                { title: "Overview and purpose", note: "What the system does, who uses it, what outcome it serves, and a one-page architecture diagram.", tone: "sky" },
-                { title: "Design decisions", note: "The decision log: why key choices were made, and what was rejected.", tone: "sky" },
-                { title: "Operations runbook", note: "How to deploy, monitor, scale, back up and roll back; the top failure modes with exact commands.", tone: "lime" },
-                { title: "Access and secrets", note: "Who has access to what, how credentials are rotated, where secrets live, and how to revoke people.", tone: "lime" },
-                { title: "Data and quality", note: "Schemas, data sources, test sets, how quality is measured and what triggers a review.", tone: "amber" },
-                { title: "Known issues and backlog", note: "Open bugs, shortcuts taken, planned improvements, and honest limitations.", tone: "amber" },
-                { title: "Contacts and escalation", note: "Who to call for what, with response times, including the vendor and your own team.", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="project-handoff" panel={2} />
 
           <p>A minimal runbook entry shows the level of detail that is actually useful:</p>
           <pre>
@@ -103,17 +83,7 @@ Last verified: 2026-10-20 by J. Okafor`}</code>
             gradually shifting who holds the keyboard.
           </p>
 
-          <Figure caption="Staged handoff. Responsibility moves from the FDE to the customer team one step at a time, with a checkpoint between each.">
-            <Flow
-              numbered
-              steps={[
-                { title: "I do, you watch", note: "FDE operates; customer engineers observe and ask questions", tone: "sky" },
-                { title: "We do together", note: "Pair on deploys and incidents; customer drives when ready", tone: "lime" },
-                { title: "You do, I watch", note: "Customer operates; FDE reviews and corrects", tone: "amber" },
-                { title: "You do", note: "Customer owns it; FDE available on request", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="project-handoff" panel={3} />
 
           <p>
             Between stages, run a <strong>failure drill</strong>: deliberately break something in a
@@ -122,26 +92,7 @@ Last verified: 2026-10-20 by J. Okafor`}</code>
             you are still around to help.
           </p>
 
-          <Figure caption="A handoff session in which the customer team runs a deployment while the FDE observes.">
-            <Sequence
-              label="Sequence of a handoff drill: customer engineer deploys, hits a problem, finds the runbook step, and fixes it with the FDE observing"
-              actors={[
-                { id: "eng", label: "Customer engineer" },
-                { id: "doc", label: "Runbook" },
-                { id: "sys", label: "System" },
-                { id: "fde", label: "FDE (observing)" },
-              ]}
-              messages={[
-                { from: "eng", to: "doc", text: "Open the deploy section" },
-                { from: "eng", to: "sys", text: "Run deploy steps" },
-                { from: "sys", to: "eng", text: "Fails: missing config value", dashed: true },
-                { from: "eng", to: "doc", text: "Search for the error" },
-                { note: "Gap found: the config value is not documented. FDE notes it; does not intervene.", over: ["doc", "fde"] },
-                { from: "eng", to: "fde", text: "Ask for help only after trying" },
-                { from: "fde", to: "doc", text: "Update the runbook with the missing step" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="project-handoff" panel={4} />
         </>
       ),
     },

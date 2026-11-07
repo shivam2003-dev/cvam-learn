@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Quadrant } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -46,26 +47,7 @@ export const lesson: Lesson = {
       title: "Which hurt most",
       body: (
         <>
-          <Figure caption="The twelve mistakes by damage and how avoidable they are. Start your final checks with the top right: severe and easy to avoid.">
-            <Quadrant
-              label="Common take-home mistakes plotted by ease of avoidance and damage"
-              xLabel="Ease of avoiding"
-              yLabel="Damage to your score"
-              corners={["Hard and severe: plan early", "Fix first", "Hard, minor", "Easy, minor"]}
-              items={[
-                { label: "Won't run", x: 0.8, y: 0.94, tone: "rose" },
-                { label: "No README", x: 0.88, y: 0.82, tone: "rose" },
-                { label: "Secrets committed", x: 0.82, y: 0.76, tone: "rose" },
-                { label: "No evidence", x: 0.6, y: 0.8, tone: "amber" },
-                { label: "Ignores the user", x: 0.4, y: 0.72, tone: "amber" },
-                { label: "Over-engineering", x: 0.34, y: 0.62, tone: "amber" },
-                { label: "Silent data handling", x: 0.52, y: 0.6, tone: "amber" },
-                { label: "Hidden assumptions", x: 0.76, y: 0.46, tone: "sky" },
-                { label: "Overclaiming", x: 0.7, y: 0.36, tone: "sky" },
-                { label: "Weak video", x: 0.62, y: 0.22, tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-mistakes" panel={1} />
           <Callout tone="note" title="A pattern">
             The most damaging mistakes (not running, no README, secrets) are also the easiest to
             avoid with a clean-clone check and a checklist. The harder ones (no evidence, ignoring the

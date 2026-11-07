@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph, Layers, Sequence } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -23,33 +24,7 @@ export const lesson: Lesson = {
             agent, decides what happens next. Agents are called as steps and return structured
             results.
           </p>
-          <Figure caption="The orchestrated design. A durable workflow coordinates deterministic steps, two agents and a human approval, with state persisted at every step.">
-            <Graph
-              label="Workflow engine coordinating impact rules, a search agent with carrier tools, a cost engine, a ranking agent, an approval step and an executor, with a state store and audit log"
-              cellW={200}
-              cellH={104}
-              nodeW={162}
-              nodes={[
-                { id: "wf", label: "Workflow engine", sub: "Durable state, retries, timeouts", col: 1.5, row: 0, tone: "lime", w: 190 },
-                { id: "state", label: "State store + audit", sub: "Every step and decision", col: 3, row: 0, tone: "rose", shape: "db" },
-                { id: "rules", label: "Impact rules", sub: "Code", col: 0, row: 1, tone: "plain" },
-                { id: "search", label: "Search agent", sub: "Read-only carrier tools", col: 1, row: 1, tone: "lime" },
-                { id: "cost", label: "Cost engine", sub: "Code: rates, time, penalties", col: 2, row: 1, tone: "plain" },
-                { id: "rank", label: "Ranking agent", sub: "Contracts + cost, no write", col: 3, row: 1, tone: "lime" },
-                { id: "appr", label: "Planner approval", sub: "Review UI", col: 1.5, row: 2, tone: "amber", shape: "pill" },
-                { id: "exec", label: "Executor", sub: "Booking APIs, idempotent", col: 3, row: 2, tone: "rose" },
-              ]}
-              edges={[
-                { from: "wf", to: "state", both: true },
-                { from: "wf", to: "rules", dashed: true },
-                { from: "wf", to: "search", dashed: true },
-                { from: "wf", to: "cost", dashed: true },
-                { from: "wf", to: "rank", dashed: true },
-                { from: "wf", to: "appr", dashed: true },
-                { from: "appr", to: "exec", label: "approved plan" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="shipment-design" panel={1} />
         </>
       ),
     },
@@ -58,31 +33,7 @@ export const lesson: Lesson = {
       title: "One disruption end to end",
       body: (
         <>
-          <Figure caption="Sequence for one delayed shipment. Note where code, agents and a person each act, and that the executor only ever receives an approved plan.">
-            <Sequence
-              label="Sequence: carrier alert triggers workflow; rules compute impact; search agent queries carriers in parallel; cost engine prices options; ranking agent recommends; planner approves; executor books and drafts customer notice"
-              actors={[
-                { id: "wf", label: "Workflow" },
-                { id: "sa", label: "Search agent" },
-                { id: "ce", label: "Cost engine" },
-                { id: "ra", label: "Ranking agent" },
-                { id: "pl", label: "Planner" },
-              ]}
-              gap={150}
-              messages={[
-                { from: "wf", to: "wf", text: "Alert received; load shipment; compute impact" },
-                { from: "wf", to: "sa", text: "Find routes (constraints, deadline)" },
-                { from: "sa", to: "wf", text: "Structured options with evidence", dashed: true },
-                { from: "wf", to: "ce", text: "Price each option" },
-                { from: "ce", to: "wf", text: "Cost, time, penalty exposure", dashed: true },
-                { from: "wf", to: "ra", text: "Options + contracts + costs" },
-                { from: "ra", to: "wf", text: "Ranked list with reasons", dashed: true },
-                { from: "wf", to: "pl", text: "Request approval" },
-                { from: "pl", to: "wf", text: "Approve option 2 (edited note)", dashed: true },
-                { note: "Executor books idempotently, then drafts the customer notice for human review.", over: ["wf", "pl"] },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="shipment-design" panel={2} />
           <p>
             The hand-off between agents is a validated structure, never free text. The search agent
             returns:
@@ -114,18 +65,7 @@ export const lesson: Lesson = {
       title: "Safety around write actions",
       body: (
         <>
-          <Figure caption="Safety layers around write actions, from approval through to audit.">
-            <Layers
-              layers={[
-                { title: "Approval", note: "No write without an approved plan tied to a specific option ID, planner and timestamp.", tone: "rose" },
-                { title: "Limits", note: "Cost ceiling and cargo-value ceiling per plan; rebooking only on lanes enabled for automation.", tone: "rose" },
-                { title: "Idempotent execution", note: "Booking requests carry an idempotency key from the plan ID, so retries cannot double-book.", tone: "amber" },
-                { title: "Re-validation before execution", note: "Recheck capacity and price just before booking; if changed beyond a tolerance, return to the planner.", tone: "amber" },
-                { title: "Compensation", note: "A defined cancel-and-restore path if a later step fails after an earlier booking succeeded.", tone: "lime" },
-                { title: "Audit", note: "Immutable record of inputs, options, reasoning, approval and actions.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="shipment-design" panel={3} />
           <Callout tone="warn" title="Untrusted text in carrier data">
             Carrier responses and customer emails can contain text that looks like instructions. The
             search agent has no write tools, and the executor consumes only validated structured
@@ -151,19 +91,7 @@ export const lesson: Lesson = {
               ["Spike of events from a regional outage", "Queue with priority by customer tier and deadline; rate limit carrier calls; batch similar shipments"],
             ]}
           />
-          <Figure caption="State of one disruption workflow. Persisting state at every step makes the process resumable and auditable.">
-            <Flow
-              steps={[
-                { title: "Detected", tone: "sky" },
-                { title: "Assessed", tone: "sky" },
-                { title: "Options found", tone: "lime" },
-                { title: "Ranked", tone: "lime" },
-                { title: "Awaiting approval", tone: "amber" },
-                { title: "Executing", tone: "rose" },
-                { title: "Closed", tone: "plain" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="shipment-design" panel={4} />
         </>
       ),
     },

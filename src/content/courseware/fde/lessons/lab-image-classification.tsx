@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -25,19 +26,7 @@ export const lesson: Lesson = {
             which adapts a model that already understands generic visual features to your classes
             with far less data and time.
           </p>
-          <Figure caption="The lab pipeline. Each stage is a place something can go wrong, and each has a check.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Prepare data", note: "Folder per class; train / validation / test split", tone: "sky" },
-                { title: "Upload to S3", note: "Private bucket in your region", tone: "sky" },
-                { title: "Fine-tune", note: "JumpStart estimator on a GPU instance", tone: "lime" },
-                { title: "Deploy", note: "Real-time endpoint", tone: "lime" },
-                { title: "Evaluate", note: "Confusion matrix on the untouched test set", tone: "amber" },
-                { title: "Clean up", note: "Delete endpoint and resources", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="lab-image-classification" panel={1} />
           <Callout tone="warn" title="This lab costs real money and needs your own account">
             Use a personal or sandbox AWS account, never a company or customer account. GPU training
             and always-on endpoints are billed by the hour. Set a budget alert first, choose the
@@ -178,27 +167,7 @@ with open("data/test/dent/img501.jpg", "rb") as f:
 resp = predictor.predict(body, {"ContentType": "application/x-image", "Accept": "application/json;verbose"})
 print(json.loads(resp))      # class probabilities; response format depends on the model`}</code>
           </pre>
-          <Figure caption="What the deployed endpoint looks like to the rest of the system. A real customer deployment would add authentication, a queue for bursts and monitoring around it.">
-            <Graph
-              label="Camera or app sends an image to an API layer which calls the SageMaker endpoint, with S3 for model artefacts and CloudWatch for metrics"
-              cellW={196}
-              cellH={100}
-              nodeW={160}
-              nodes={[
-                { id: "cam", label: "Line camera", sub: "Captures part image", col: 0, row: 0, tone: "amber", shape: "pill" },
-                { id: "api", label: "API layer", sub: "Auth, resize, validate", col: 1, row: 0, tone: "lime" },
-                { id: "ep", label: "SageMaker endpoint", sub: "Fine-tuned classifier", col: 2, row: 0, tone: "lime" },
-                { id: "s3", label: "S3", sub: "Model artefacts, images", col: 2, row: 1, tone: "sky", shape: "db" },
-                { id: "cw", label: "CloudWatch", sub: "Latency, errors, invocations", col: 1, row: 1, tone: "plain" },
-              ]}
-              edges={[
-                { from: "cam", to: "api", label: "image" },
-                { from: "api", to: "ep", label: "invoke" },
-                { from: "ep", to: "s3", dashed: true },
-                { from: "ep", to: "cw", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="lab-image-classification" panel={2} />
         </>
       ),
     },

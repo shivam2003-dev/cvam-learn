@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Flow, Graph } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -22,17 +23,7 @@ export const lesson: Lesson = {
             were deliberate. A trade-off section turns shortcuts into evidence of judgment: you knew
             what you were giving up, why, and what would change your mind.
           </p>
-          <Figure caption="The four parts of a documented trade-off. Skipping the 'revisit' part is the most common gap.">
-            <Flow
-              numbered
-              steps={[
-                { title: "Choice", note: "What you did", tone: "lime" },
-                { title: "Alternative", note: "What you considered instead", tone: "sky" },
-                { title: "Reason", note: "Why this fit the brief and time", tone: "amber" },
-                { title: "Revisit", note: "What would make you change it", tone: "rose" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-tradeoffs" panel={1} />
         </>
       ),
     },
@@ -51,26 +42,7 @@ export const lesson: Lesson = {
               ["Synchronous processing in a script", "A queue and workers", "40 files finish in under a minute", "Throughput requirements exceed a few hundred documents per run"],
             ]}
           />
-          <Figure caption="The same idea as a map. Each box on the left is something you chose to leave out and what would bring it in; this is the honest scope of a take-home.">
-            <Graph
-              label="Left side shows what was built; right side shows production additions triggered by growth conditions"
-              cellW={206}
-              cellH={96}
-              nodeW={170}
-              nodes={[
-                { id: "b1", label: "Script + JSON files", sub: "Built", col: 0, row: 0, tone: "lime" },
-                { id: "b2", label: "Review page", sub: "Built", col: 0, row: 1, tone: "lime" },
-                { id: "p1", label: "Database + queue", sub: "When volume or users grow", col: 2, row: 0, tone: "amber" },
-                { id: "p2", label: "Auth + audit log", sub: "When used on real data", col: 2, row: 1, tone: "amber" },
-                { id: "p3", label: "Monitoring + drift alerts", sub: "When in production", col: 2, row: 2, tone: "amber" },
-              ]}
-              edges={[
-                { from: "b1", to: "p1", dashed: true },
-                { from: "b2", to: "p2", dashed: true },
-                { from: "b2", to: "p3", dashed: true },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="delivery-tradeoffs" panel={2} />
         </>
       ),
     },

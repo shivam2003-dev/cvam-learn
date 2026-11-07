@@ -1,5 +1,6 @@
+import { DiagramReference } from "@/components/FdeVisuals";
 import { Callout, Table } from "@/components/Lesson";
-import { Exercise, Figure, Graph, Layers } from "@/components/Diagram";
+import { Exercise } from "@/components/Diagram";
 import type { Lesson } from "@/lib/types";
 
 export const lesson: Lesson = {
@@ -40,18 +41,7 @@ export const lesson: Lesson = {
       title: "Themes to prepare",
       body: (
         <>
-          <Figure caption="Themes worth preparing for applied roles at a safety-conscious AI company. The upper layers are less about code and more about judgment.">
-            <Layers
-              layers={[
-                { title: "Honest communication", note: "Calibrated claims, clear about limits and uncertainty, no hype; able to say what a system cannot do.", tone: "amber" },
-                { title: "Responsible deployment", note: "Misuse and failure analysis, guardrails, human oversight, privacy and data handling, escalation paths.", tone: "amber" },
-                { title: "Evaluation rigour", note: "Datasets, graders, sample sizes, error analysis, avoiding overfitting to your tests.", tone: "lime" },
-                { title: "Agents and tool use", note: "Designing harnesses, tools, context and permissions; debugging long-running tasks.", tone: "lime" },
-                { title: "Production engineering", note: "Reliability, latency, cost, observability, deployment in customer environments.", tone: "sky" },
-                { title: "Teaching and enablement", note: "Writing clear guides and examples that help other engineers succeed.", tone: "sky" },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="guide-anthropic" panel={1} />
           <Table
             head={["Theme", "Preparation activity"]}
             rows={[
@@ -71,27 +61,7 @@ export const lesson: Lesson = {
       title: "How the pieces connect in an applied role",
       body: (
         <>
-          <Figure caption="An applied AI engineer's position. Value comes from moving information in both directions: customer needs inward, validated patterns outward.">
-            <Graph
-              label="Applied AI engineer between customers, product and research teams, and documentation and examples that help the wider community of developers"
-              cellW={210}
-              cellH={104}
-              nodeW={172}
-              nodes={[
-                { id: "cust", label: "Customers", sub: "Problems, constraints, data", col: 0, row: 1, tone: "amber", shape: "pill" },
-                { id: "me", label: "Applied AI engineer", sub: "Build, evaluate, advise", col: 1.5, row: 1, tone: "lime", w: 180 },
-                { id: "prod", label: "Product and research", sub: "Models, features, safety", col: 3, row: 0, tone: "sky" },
-                { id: "docs", label: "Docs, guides, examples", sub: "Reusable patterns", col: 3, row: 2, tone: "sky" },
-              ]}
-              edges={[
-                { from: "cust", to: "me", label: "needs" },
-                { from: "me", to: "cust", dashed: true, bend: 30, label: "solutions" },
-                { from: "me", to: "prod", label: "feedback" },
-                { from: "me", to: "docs", label: "patterns" },
-                { from: "prod", to: "me", dashed: true, bend: 24 },
-              ]}
-            />
-          </Figure>
+          <DiagramReference lesson="guide-anthropic" panel={2} />
         </>
       ),
     },
