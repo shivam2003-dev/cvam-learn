@@ -10,6 +10,7 @@ const links = [
   { href: "/courseware", label: "Courseware", match: (p: string) => p.startsWith("/courseware") },
   { href: "/paths", label: "Paths", match: (p: string) => p.startsWith("/paths") },
   { href: "/practice", label: "Practice", match: (p: string) => p.startsWith("/practice") },
+  { href: "/exams", label: "Exams", match: (p: string) => p.startsWith("/exams") },
 ];
 
 export function Brand() {
