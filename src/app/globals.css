@@ -200,3 +200,28 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Navigation feedback: top progress bar, spinner and pending cursor. */
+@keyframes nav-bar-grow {
+  0% { width: 0; }
+  20% { width: 35%; }
+  60% { width: 70%; }
+  100% { width: 92%; }
+}
+@keyframes nav-bar-finish {
+  from { width: 92%; opacity: 1; }
+  60% { width: 100%; opacity: 1; }
+  to { width: 100%; opacity: 0; }
+}
+@keyframes nav-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.nav-bar-loading { animation: nav-bar-grow 12s cubic-bezier(0.1, 0.6, 0.2, 1) forwards; }
+.nav-bar-done { animation: nav-bar-finish 0.45s ease-out forwards; }
+.nav-spinner { animation: nav-spin 0.7s linear infinite; }
+.skeleton { animation: skeleton-pulse 1.4s ease-in-out infinite; }
+html[data-nav-pending], html[data-nav-pending] a, html[data-nav-pending] button { cursor: progress; }
