@@ -2,6 +2,8 @@ import { fde } from "@/content/courseware/fde/curriculum";
 import { lessons as fdeLessons } from "@/content/courseware/fde/lessons";
 import { ansC01 } from "@/content/courseware/aws-ans-c01/curriculum";
 import { lessons as ansC01Lessons } from "@/content/courseware/aws-ans-c01/lessons";
+import { gcpPca } from "@/content/courseware/gcp-pca/curriculum";
+import { lessons as gcpPcaLessons } from "@/content/courseware/gcp-pca/lessons";
 import type { Course, Lesson, NavCourse } from "@/lib/types";
 
 /**
@@ -12,6 +14,7 @@ import type { Course, Lesson, NavCourse } from "@/lib/types";
 const registry: { course: Course; lessons: Record<string, Lesson> }[] = [
   { course: fde, lessons: fdeLessons },
   { course: ansC01, lessons: ansC01Lessons },
+  { course: gcpPca, lessons: gcpPcaLessons },
 ];
 
 export const coursewares = registry.map((entry) => entry.course);
