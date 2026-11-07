@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ExamRunner } from "@/components/ExamRunner";
+import { ExamLoader } from "@/components/ExamLoader";
 import { TopNav } from "@/components/TopNav";
-import { getCourseware } from "@/lib/courseware";
+import { lessonTitles } from "@/lib/courseMeta";
 import { exams, getExam } from "@/lib/exams";
 
 type Props = { params: Promise<{ exam: string }> };
@@ -23,12 +23,6 @@ export default async function ExamPage({ params }: Props) {
   const exam = getExam(slug);
   if (!exam) notFound();
 
-  const course = getCourseware(exam.courseSlug)?.course;
-  const lessonTitles: Record<string, string> = {};
-  for (const chapter of course?.modules ?? []) {
-    for (const lesson of chapter.lessons) lessonTitles[lesson.slug] = lesson.title;
-  }
-
   return (
     <>
       <TopNav />
@@ -42,7 +36,7 @@ export default async function ExamPage({ params }: Props) {
             <p className="mt-2 max-w-2xl text-soft">{exam.description}</p>
           </div>
         </section>
-        <ExamRunner exam={exam} lessonTitles={lessonTitles} />
+        <ExamLoader slug={exam.slug} lessonTitles={lessonTitles(exam.courseSlug)} />
       </main>
     </>
   );

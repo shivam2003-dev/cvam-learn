@@ -1,6 +1,6 @@
 "use client";
 
-import { createClient, type SupabaseClient, type User } from "@supabase/supabase-js";
+import type { SupabaseClient, User } from "@supabase/supabase-js";
 import { useSyncExternalStore } from "react";
 import {
   clearProgress,
@@ -52,10 +52,50 @@ async function pull(userId: string) {
   await push(userId);
 }
 
+let clientPromise: Promise<SupabaseClient> | null = null;
+
+/** Only visitors who may already be signed in (or are returning from Google) need the SDK up front. */
+function mayBeSignedIn() {
+  try {
+    if (new URLSearchParams(window.location.search).has("code")) return true;
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key?.startsWith("sb-") && key.includes("auth-token")) return true;
+    }
+  } catch {
+    // Storage can be blocked; treat as signed out.
+  }
+  return false;
+}
+
+/** The Supabase SDK is large, so it is fetched on demand instead of with every page. */
+function ensureClient(): Promise<SupabaseClient> {
+  if (clientPromise) return clientPromise;
+  clientPromise = import("@supabase/supabase-js").then(({ createClient }) => {
+    const created = createClient(URL!, KEY!, { auth: { flowType: "pkce" } });
+    client = created;
+
+    created.auth.onAuthStateChange((_event, session) => {
+      const user = session?.user ?? null;
+      update({ user });
+      // Supabase deadlocks if its own client is awaited inside this callback.
+      if (user) setTimeout(() => void pull(user.id));
+    });
+
+    subscribeProgress(() => {
+      const user = account.user;
+      if (!user || syncedUser !== user.id) return;
+      clearTimeout(pushTimer);
+      pushTimer = setTimeout(() => void push(user.id), PUSH_DELAY_MS);
+    });
+    return created;
+  });
+  return clientPromise;
+}
+
 export function startAccount() {
   if (started || !URL || !KEY) return;
   started = true;
-  client = createClient(URL, KEY, { auth: { flowType: "pkce" } });
 
   // The button only appears once Google is switched on in Supabase.
   fetch(`${URL}/auth/v1/settings`, { headers: { apikey: KEY } })
@@ -63,23 +103,12 @@ export function startAccount() {
     .then((settings) => update({ googleEnabled: settings?.external?.google === true }))
     .catch(() => {});
 
-  client.auth.onAuthStateChange((_event, session) => {
-    const user = session?.user ?? null;
-    update({ user });
-    // Supabase deadlocks if its own client is awaited inside this callback.
-    if (user) setTimeout(() => void pull(user.id));
-  });
-
-  subscribeProgress(() => {
-    const user = account.user;
-    if (!user || syncedUser !== user.id) return;
-    clearTimeout(pushTimer);
-    pushTimer = setTimeout(() => void push(user.id), PUSH_DELAY_MS);
-  });
+  if (mayBeSignedIn()) void ensureClient();
 }
 
-export function signInWithGoogle() {
-  return client?.auth.signInWithOAuth({
+export async function signInWithGoogle() {
+  const ready = await ensureClient();
+  return ready.auth.signInWithOAuth({
     provider: "google",
     options: { redirectTo: window.location.href },
   });
