@@ -10,6 +10,11 @@ export type ExamQuestion = {
   /** Indexes into options that are correct. */
   answer: number[];
   explain: string;
+  source?: "pdf";
+  sourceQuestion?: number;
+  updatedAt?: string;
+  references?: { title: string; url: string }[];
+  diagram?: { src: string; alt: string; caption: string; placement: "question" | "explanation" };
 };
 
 export type ExamSection = {

@@ -1,0 +1,9 @@
+Generated with the built-in imagegen tool on 7 November 2026. Both images were inspected for label spelling, direction, topology, and answer leakage. Images are stored alongside this file.
+
+Migration throughput (`migration-throughput.png`):
+
+Use case: infographic-diagram. Asset type: architecture diagram for a Google Cloud exam study website. Create one wide crisp educational architecture diagram on an off-white background with dark navy typography and teal arrows, generous whitespace and large legible labels. Title "Migration throughput". Diagram left to right: box "Data center" containing "24 source VMs"; arrow from it to box "Internet path"; arrow to box "Single VPN tunnel"; arrow to box "Google Cloud" containing "4 destination VMs", then arrow to "Cloud Storage". Show one simple neutral connector between each box. No bottleneck warnings, no check marks, no answer indicators. This is a question stimulus for identifying throughput constraints, do not supply the answer. Flat technical infographic, no 3D, no decorative symbols. Spell all quoted labels exactly.
+
+Fleet analytics (`fleet-analytics.png`):
+
+Use case: infographic-diagram. Asset type: accessible technical study illustration for a Google Cloud architect quiz. Create one wide horizontal diagram with off-white background, dark navy labels, teal arrows, generous space, flat technical style. Title "Fleet analytics and predictive maintenance". Main left-to-right chain: box "Vehicles", arrow to "Pub/Sub", arrow to "Dataflow", arrow to "BigQuery", arrow to "Vertex AI". Additional lower branch from Dataflow down to "Cloud Storage", with small caption "Raw history". Arrow from Cloud Storage to Vertex AI labeled "Training data". Use simple neutral icons in each box, no logos needed. All arrows point in the stated direction. Keep labels large and exactly spelled. No gradients, no unrelated services, no check marks.

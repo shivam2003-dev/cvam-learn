@@ -12,9 +12,9 @@ export default function ExamsIndex() {
       <main className="mx-auto max-w-6xl px-4 py-10">
         <h1 className="font-display text-4xl font-extrabold tracking-tight">Practice exams</h1>
         <p className="mt-3 mb-8 max-w-2xl text-soft">
-          Timed exam simulations and untimed practice with instant explanations. Every attempt gives you a
-          score, a breakdown by exam section and topic, and lessons to revisit. Questions are original and
-          mapped to the official exam guides.
+          Learn with revealable answers, practise with instant explanations, or take a timed exam.
+          Scored attempts include section and topic reports, answer review, and lessons to revisit.
+          Choose original course questions or the modernized November 2026 PDF question bank.
         </p>
         <div className="grid gap-4 md:grid-cols-2">
           {exams.map((exam) => (

@@ -1,5 +1,22 @@
-import type { CheatSection, Exam, ExamSection } from "@/lib/exams";
+import type { CheatSection, Exam, ExamQuestion, ExamSection } from "@/lib/exams";
 import { questions } from "./questions";
+import questionBank from "./question-bank.json";
+
+const modernizedQuestions: ExamQuestion[] = questionBank.map((question) => ({
+  ...question,
+  source: "pdf",
+  diagram: question.sourceQuestion === 227 ? {
+    src: "/images/exams/gcp-pca/migration-throughput.png",
+    alt: "24 data-center source VMs send data over an internet path and one VPN tunnel to 4 Google Cloud destination VMs, which write to Cloud Storage.",
+    caption: "Reconstructed migration scenario. All topology details are also stated in the question.",
+    placement: "question",
+  } : question.sourceQuestion === 157 ? {
+    src: "/images/exams/gcp-pca/fleet-analytics.png",
+    alt: "Vehicles send events through Pub/Sub and Dataflow to BigQuery and Vertex AI. Dataflow also archives raw history in Cloud Storage, which supplies training data to Vertex AI.",
+    caption: "Study architecture: streaming ingestion, analytical queries, raw history, and model training.",
+    placement: "explanation",
+  } : undefined,
+}));
 
 const sections: ExamSection[] = [
   { id: 1, name: "Designing and planning a cloud solution architecture", weight: 25, lessons: ["business-requirements-wellarchitected", "ha-dr-scalability", "compute-choices", "storage-database-choices", "data-processing-analytics", "networking-design", "hybrid-multicloud-connectivity", "migration-planning", "ai-ml-solution-design"] },
@@ -35,7 +52,7 @@ const cheatsheet: CheatSection[] = [
         ["Cache", "Memorystore"],
         ["Warehouse analytics", "BigQuery (partition + cluster)"],
         ["Stream ingest → transform → analyze", "Pub/Sub → Dataflow → BigQuery"],
-        ["Existing Spark/Hadoop", "Dataproc (ephemeral clusters)"],
+        ["Existing Spark/Hadoop", "Managed Service for Apache Spark (ephemeral clusters)"],
         ["Cloud Storage classes", "Standard, Nearline 30d, Coldline 90d, Archive 365d, Autoclass"],
       ],
     },
@@ -131,7 +148,7 @@ const cheatsheet: CheatSection[] = [
       "Apigee = full API lifecycle (portal, quotas, OAuth, analytics, monetization); API Gateway/Endpoints = lightweight. Spike Arrest = burst, Quota = period limit.",
       "Application Default Credentials; impersonation for testing; restrict API keys; retry 429/503 with backoff + jitter; paginate.",
       "Emulators: Bigtable, Spanner, Pub/Sub, Firestore/Datastore.",
-      "gcloud, bq, gcloud storage (gsutil legacy), Cloud Shell/Editor, Cloud Code, client libraries.",
+      "gcloud, bq, gcloud storage, Cloud Shell/Editor, Cloud Code, client libraries.",
     ],
   },
   {
@@ -149,19 +166,20 @@ const cheatsheet: CheatSection[] = [
 export const gcpPcaExam: Exam = {
   slug: "gcp-pca",
   title: "Professional Cloud Architect Practice Exam",
-  subtitle: "60 original questions mapped to the six sections of the PCA exam guide",
+  subtitle: "313 questions: 253 modernized PDF questions + 60 original questions · November 2026 edition",
   description:
-    "Original practice questions written for this course and aligned to the current Professional Cloud Architect exam guide. Practice mode gives instant feedback with explanations; exam mode simulates timed conditions and produces a performance report by section and topic.",
+    "Study 253 questions adapted from your PDF and 60 original course questions. Learn with revealable answers, practise with instant explanations, or take a timed exam with a performance report. The PDF scenarios and answers were revised on 7 November 2026 to replace outdated terminology and repair incomplete questions.",
   courseSlug: "gcp-pca",
   sections,
-  questions,
+  questions: [...questions, ...modernizedQuestions],
   minutesPerQuestion: 2,
   target: 70,
   officialFormat: [
     "Real exam: 2 hours, 50 to 60 multiple choice and multiple select questions, $200.",
     "Two case studies make up about 20 to 30 percent of the real exam.",
     "Google does not publish a passing score, so 70% is used here as a practice readiness target.",
-    "These questions are original and are not taken from the real exam.",
+    "Choose the modernized PDF bank, the original course bank, or both. Each question includes an explanation.",
+    "This is independent study material, not official exam content. Adapted PDF questions retain their source numbers; wording and answers may differ from the PDF.",
   ],
   cheatsheet,
 };

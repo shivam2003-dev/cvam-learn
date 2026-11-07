@@ -5,7 +5,7 @@ import type { Exam, ExamQuestion } from "@/lib/exams";
 
 const KEY = "cvam-learn:exams:v1";
 
-export type Mode = "practice" | "exam";
+export type Mode = "learn" | "practice" | "exam";
 
 /** An attempt that is still being taken. */
 export type Active = {
@@ -35,6 +35,8 @@ export type Attempt = {
   startedAt: number;
   finishedAt: number;
   limitSec: number | null;
+  /** Revealed study cards, separate from scored answers. */
+  revealed?: string[];
 };
 
 type Store = {

@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { ExamReferences } from "@/components/ExamReferences";
 import type { Exam, ExamQuestion } from "@/lib/exams";
+import { referencesFor } from "@/lib/examReferences";
 import {
   addAttempt,
   clearHistory,
@@ -18,6 +21,39 @@ import {
 } from "@/lib/examStore";
 
 const LETTERS = "ABCDEFGH";
+type Bank = "all" | "pdf" | "original";
+const modeLabel = (mode: Mode) => mode === "learn" ? "Learning" : mode === "practice" ? "Practice" : "Exam simulation";
+
+function matchesBank(q: ExamQuestion, bank: Bank, search: string) {
+  if (bank === "pdf" && q.source !== "pdf") return false;
+  if (bank === "original" && q.source === "pdf") return false;
+  const query = search.trim().toLowerCase();
+  if (/^#?\d+$/.test(query)) return q.sourceQuestion === Number(query.replace("#", ""));
+  return `${q.stem} ${q.topic} ${q.options.join(" ")}`.toLowerCase().includes(query);
+}
+
+function QuestionDiagram({ question, placement }: { question: ExamQuestion; placement: "question" | "explanation" }) {
+  const diagram = question.diagram;
+  if (!diagram || diagram.placement !== placement) return null;
+  return (
+    <figure className="my-4 overflow-hidden rounded-xl border border-line bg-white">
+      <a href={diagram.src} target="_blank" rel="noreferrer" aria-label="Open architecture diagram at full size">
+        <Image src={diagram.src} alt={diagram.alt} width={2048} height={1024} className="h-auto w-full" />
+      </a>
+      <figcaption className="bg-raised px-3 py-2 text-xs text-soft">{diagram.caption} · Open image for full size.</figcaption>
+    </figure>
+  );
+}
+
+function Explanation({ question }: { question: ExamQuestion }) {
+  return (
+    <div className="mt-2 space-y-2">
+      <p className="leading-relaxed text-soft">{question.explain}</p>
+      <QuestionDiagram question={question} placement="explanation" />
+      <ExamReferences items={referencesFor(question)} />
+    </div>
+  );
+}
 
 type View =
   | { name: "home" }
@@ -48,10 +84,11 @@ export function ExamRunner({
   const history = useMemo(() => store.attempts.filter((a) => a.exam === exam.slug), [store.attempts, exam.slug]);
   const byId = useMemo(() => new Map(exam.questions.map((q) => [q.id, q])), [exam.questions]);
 
-  function start(mode: Mode, count: number, sections: number[]) {
-    const pool = exam.questions.filter((q) => sections.includes(q.section));
+  function start(mode: Mode, count: number, sections: number[], bank: Bank, search: string) {
+    const pool = exam.questions.filter((q) => sections.includes(q.section) && matchesBank(q, bank, search));
     const seed = Math.floor(Math.random() * 2 ** 31);
-    const picked = shuffled(pool, seed).slice(0, Math.min(count, pool.length));
+    const picked = (mode === "learn" ? pool : shuffled(pool, seed)).slice(0, Math.min(count, pool.length));
+    if (!picked.length) return;
     const run: Active = {
       id: `${Date.now()}`,
       mode,
@@ -82,6 +119,7 @@ export function ExamRunner({
       startedAt: run.startedAt,
       finishedAt: Date.now(),
       limitSec: run.limitSec,
+      revealed: run.mode === "learn" ? run.checked : undefined,
     };
     addAttempt(attempt);
     saveActive(exam.slug, null);
@@ -134,16 +172,18 @@ function Home({
   exam: Exam;
   active: Active | undefined;
   history: Attempt[];
-  onStart: (mode: Mode, count: number, sections: number[]) => void;
+  onStart: (mode: Mode, count: number, sections: number[], bank: Bank, search: string) => void;
   onResume: () => void;
   onOpen: (id: string) => void;
 }) {
-  const [mode, setMode] = useState<Mode>("exam");
-  const [count, setCount] = useState(Math.min(40, exam.questions.length));
+  const [mode, setMode] = useState<Mode>("learn");
+  const [bank, setBank] = useState<Bank>("pdf");
+  const [search, setSearch] = useState("");
+  const [count, setCount] = useState(60);
   const [sections, setSections] = useState<number[]>(exam.sections.map((s) => s.id));
-  const pool = exam.questions.filter((q) => sections.includes(q.section)).length;
+  const pool = exam.questions.filter((q) => sections.includes(q.section) && matchesBank(q, bank, search)).length;
   const effective = Math.min(count, pool);
-  const counts = [20, 40, exam.questions.length].filter((n, i, arr) => arr.indexOf(n) === i && n <= exam.questions.length);
+  const counts = [10, 20, 40, 60, exam.questions.length].filter((n, i, arr) => arr.indexOf(n) === i && n <= exam.questions.length);
 
   function toggleSection(id: number) {
     setSections((current) => (current.includes(id) ? current.filter((s) => s !== id) : [...current, id]));
@@ -156,7 +196,7 @@ function Home({
           <div className="rounded-2xl border border-amber/50 bg-amber/10 p-5">
             <p className="font-mono text-xs tracking-wider text-amber uppercase">Attempt in progress</p>
             <p className="mt-2 text-soft">
-              {active.qids.length} questions · {active.mode === "exam" ? "exam mode" : "practice mode"} ·{" "}
+              {active.qids.length} questions · {modeLabel(active.mode)} ·{" "}
               {Object.values(active.answers).filter((a) => a.length > 0).length} answered
             </p>
             <button type="button" onClick={onResume} className="mt-3 rounded-lg bg-amber px-4 py-2 font-semibold text-ink">
@@ -170,9 +210,10 @@ function Home({
 
           <fieldset className="mt-4">
             <legend className="font-mono text-xs tracking-wider text-faint uppercase">Mode</legend>
-            <div className="mt-2 grid gap-2 sm:grid-cols-2">
+            <div className="mt-2 grid gap-2 sm:grid-cols-3">
               {(
                 [
+                  ["learn", "Learning", "Study in source order. Reveal answers and explanations without a timer or readiness score."],
                   ["exam", "Exam simulation", `Timed (${exam.minutesPerQuestion} min per question). No feedback until you submit. Flag and review.`],
                   ["practice", "Practice", "Untimed. Check each answer and read the explanation straight away."],
                 ] as const
@@ -181,13 +222,27 @@ function Home({
                   key={id}
                   className={`cursor-pointer rounded-xl border p-3 ${mode === id ? "border-lime bg-lime/10" : "border-line bg-raised"}`}
                 >
-                  <input type="radio" name="mode" className="sr-only" checked={mode === id} onChange={() => setMode(id)} />
+                  <input type="radio" name="mode" className="mr-2 accent-[#c6f24e]" checked={mode === id} onChange={() => setMode(id)} />
                   <span className="font-semibold">{title}</span>
                   <span className="mt-1 block text-sm text-soft">{text}</span>
                 </label>
               ))}
             </div>
           </fieldset>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <label className="text-sm text-soft">Question bank
+              <select value={bank} onChange={(event) => setBank(event.target.value as Bank)} className="mt-1 block w-full rounded-lg border border-line bg-raised p-2 text-text">
+                <option value="pdf">PDF · 253 modernized questions</option>
+                <option value="original">Original course · 60 questions</option>
+                <option value="all">Combined · {exam.questions.length} questions</option>
+              </select>
+            </label>
+            <label className="text-sm text-soft">Find a topic or PDF question
+              <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="e.g. BigQuery or #227" type="search" className="mt-1 block w-full rounded-lg border border-line bg-raised p-2 text-text" />
+            </label>
+          </div>
+          <p className="mt-2 text-xs text-faint">November 2026 edition · PDF wording and keys revised for current guidance. Source question numbers retained.</p>
 
           <fieldset className="mt-4">
             <legend className="font-mono text-xs tracking-wider text-faint uppercase">Questions</legend>
@@ -199,7 +254,7 @@ function Home({
                   onClick={() => setCount(n)}
                   className={`rounded-lg border px-3 py-1.5 font-mono text-sm ${count === n ? "border-lime bg-lime/10 text-lime" : "border-line text-soft hover:text-text"}`}
                 >
-                  {n === exam.questions.length ? `All ${n}` : n}
+                  {n === exam.questions.length ? `All matching (${pool})` : n}
                 </button>
               ))}
             </div>
@@ -221,7 +276,7 @@ function Home({
                       {section.id}. {section.name}
                     </span>{" "}
                     <span className="font-mono text-xs text-faint">
-                      ~{section.weight}% · {exam.questions.filter((q) => q.section === section.id).length} q
+                      ~{section.weight}% · {exam.questions.filter((q) => q.section === section.id && matchesBank(q, bank, search)).length} matching
                     </span>
                   </span>
                 </label>
@@ -233,7 +288,7 @@ function Home({
             <button
               type="button"
               disabled={effective === 0}
-              onClick={() => onStart(mode, count, sections)}
+              onClick={() => onStart(mode, count, sections, bank, search)}
               className="rounded-lg bg-lime px-5 py-2.5 font-semibold text-ink disabled:opacity-40"
             >
               Start {effective} question{effective === 1 ? "" : "s"}
@@ -268,12 +323,12 @@ function Home({
                 const result = scoreAttempt(exam, attempt);
                 return (
                   <li key={attempt.id} className="flex flex-wrap items-center gap-3 py-2.5">
-                    <span className={`w-14 font-mono text-lg font-bold ${result.percent >= exam.target ? "text-lime" : "text-amber"}`}>
-                      {result.percent}%
+                    <span className={`w-14 font-mono text-lg font-bold ${attempt.mode === "learn" || result.percent >= exam.target ? "text-lime" : "text-amber"}`}>
+                      {attempt.mode === "learn" ? "Study" : `${result.percent}%`}
                     </span>
                     <span className="flex-1 text-sm text-soft">
-                      {new Date(attempt.finishedAt).toLocaleString()} · {attempt.mode === "exam" ? "exam" : "practice"} ·{" "}
-                      {result.correct}/{result.total} · {fmt(result.durationSec)}
+                      {new Date(attempt.finishedAt).toLocaleString()} · {modeLabel(attempt.mode)} ·{" "}
+                      {attempt.mode === "learn" ? `${attempt.revealed?.length ?? 0}/${result.total} revealed` : `${result.correct}/${result.total}`} · {fmt(result.durationSec)}
                     </span>
                     <button type="button" onClick={() => onOpen(attempt.id)} className="font-mono text-xs text-lime hover:underline">
                       report →
@@ -342,6 +397,7 @@ function Run({
   }, [active]);
 
   const exam_mode = active.mode === "exam";
+  const learning = active.mode === "learn";
   const qid = active.qids[active.index];
   const question = byId.get(qid)!;
   const order = useMemo(() => optionOrder(question, active.seed), [question, active.seed]);
@@ -390,14 +446,14 @@ function Run({
   }
 
   function check() {
-    if (picked.length === 0 || checked) return;
+    if ((!learning && picked.length === 0) || checked) return;
     update({ checked: [...active.checked, qid] });
   }
 
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
       const target = event.target as HTMLElement;
-      if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") return;
+      if (["INPUT", "TEXTAREA", "SELECT", "BUTTON", "A"].includes(target.tagName)) return;
       const current = activeRef.current;
       if (event.key === "ArrowRight") update({ index: Math.min(current.index + 1, current.qids.length - 1) });
       else if (event.key === "ArrowLeft") update({ index: Math.max(current.index - 1, 0) });
@@ -436,6 +492,7 @@ function Run({
         </span>
         <span className="font-mono text-xs text-faint">
           Section {question.section} · {question.topic}
+          {question.sourceQuestion && ` · PDF Q${question.sourceQuestion} · Nov 2026`}
         </span>
         <span className="ml-auto flex items-center gap-3">
           {remaining !== null && (
@@ -446,9 +503,9 @@ function Run({
             onClick={() => setConfirming(true)}
             className="rounded-lg bg-lime px-4 py-1.5 text-sm font-semibold text-ink"
           >
-            Submit
+            {learning ? "Finish study" : "Submit"}
           </button>
-          <button type="button" onClick={onExit} className="font-mono text-xs text-faint hover:text-text">
+          <button type="button" onClick={() => { update({}); onExit(); }} className="font-mono text-xs text-faint hover:text-text">
             save & exit
           </button>
         </span>
@@ -456,9 +513,9 @@ function Run({
 
       {confirming && (
         <div role="alertdialog" aria-label="Submit attempt" className="mb-4 rounded-xl border border-amber/50 bg-amber/10 p-4">
-          <p className="font-semibold">Submit this attempt?</p>
+          <p className="font-semibold">{learning ? "Finish this study session?" : "Submit this attempt?"}</p>
           <p className="mt-1 text-sm text-soft">
-            {answeredCount} answered, {unanswered} unanswered, {active.flagged.length} flagged. Unanswered questions score zero.
+            {learning ? `${active.checked.length} of ${active.qids.length} explanations revealed. Study sessions do not count as readiness scores.` : `${answeredCount} answered, ${unanswered} unanswered, ${active.flagged.length} flagged. Unanswered questions score zero.`}
           </p>
           <div className="mt-3 flex gap-2">
             <button
@@ -478,6 +535,7 @@ function Run({
       <div className="grid gap-5 lg:grid-cols-[1fr_16rem]">
         <section className="rounded-2xl border border-line bg-panel p-5 sm:p-6">
           <p className="text-[1.05rem] leading-relaxed">{question.stem}</p>
+          <QuestionDiagram question={question} placement="question" />
           <p className="mt-2 font-mono text-xs text-faint">
             {question.multi ? `Select ${need} answers.` : "Select one answer."}
           </p>
@@ -498,6 +556,7 @@ function Run({
                     type="button"
                     onClick={() => toggle(optionIndex)}
                     aria-pressed={isPicked}
+                    disabled={checked}
                     className={`flex w-full items-start gap-3 rounded-xl border px-4 py-3 text-left ${style}`}
                   >
                     <span className="grid size-6 shrink-0 place-items-center rounded-full border border-current font-mono text-xs">
@@ -516,19 +575,21 @@ function Run({
                 <button
                   type="button"
                   onClick={check}
-                  disabled={picked.length === 0}
+                  disabled={!learning && picked.length === 0}
                   className="rounded-lg bg-lime px-4 py-2 font-semibold text-ink disabled:opacity-40"
                 >
-                  Check answer
+                  {learning ? "Reveal answer & explanation" : "Check answer"}
                 </button>
               ) : (
                 <div
-                  className={`rounded-xl border p-4 ${isCorrect(question, picked) ? "border-lime/50 bg-lime/10" : "border-rose/50 bg-rose/10"}`}
+                  aria-live="polite"
+                  className={`rounded-xl border p-4 ${learning || isCorrect(question, picked) ? "border-lime/50 bg-lime/10" : "border-rose/50 bg-rose/10"}`}
                 >
-                  <p className={`font-semibold ${isCorrect(question, picked) ? "text-lime" : "text-rose"}`}>
-                    {isCorrect(question, picked) ? "Correct" : "Not quite"}
+                  <p className={`font-semibold ${learning || isCorrect(question, picked) ? "text-lime" : "text-rose"}`}>
+                    {learning ? "Answer & explanation" : isCorrect(question, picked) ? "Correct" : "Not quite"}
                   </p>
-                  <p className="mt-1 leading-relaxed text-soft">{question.explain}</p>
+                  <ul className="mt-2 space-y-1 text-sm text-lime">{question.answer.map((i) => <li key={i}>✓ {question.options[i]}</li>)}</ul>
+                  <Explanation question={question} />
                 </div>
               )}
             </div>
@@ -560,12 +621,12 @@ function Run({
               {flagged ? "⚑ Flagged" : "⚐ Flag for review"}
             </button>
           </div>
-          <p className="mt-3 font-mono text-[11px] text-faint">Keys: 1–5 choose · ← → navigate · F flag</p>
+          <p className="mt-3 font-mono text-[11px] text-faint">Keys: 1–8 choose · ← → navigate · F flag</p>
         </section>
 
         <aside className="rounded-2xl border border-line bg-panel p-4">
           <h3 className="font-mono text-xs tracking-wider text-faint uppercase">Question palette</h3>
-          <div className="mt-3 grid grid-cols-6 gap-1.5 lg:grid-cols-5">
+          <div className="mt-3 grid max-h-96 grid-cols-6 gap-1.5 overflow-y-auto p-1 lg:grid-cols-5">
             {active.qids.map((id, i) => {
               const has = (active.answers[id] ?? []).length > 0;
               const isCurrent = i === active.index;
@@ -574,7 +635,7 @@ function Run({
               if (has) style = "border-sky bg-sky/20 text-text";
               if (!exam_mode && active.checked.includes(id)) {
                 const q = byId.get(id)!;
-                style = isCorrect(q, active.answers[id]) ? "border-lime bg-lime/20 text-lime" : "border-rose bg-rose/20 text-rose";
+                style = learning || isCorrect(q, active.answers[id]) ? "border-lime bg-lime/20 text-lime" : "border-rose bg-rose/20 text-rose";
               }
               if (isCurrent) style = "border-lime bg-lime text-ink";
               return (
@@ -637,7 +698,27 @@ function Results({
     .filter((t) => t.correct < t.total)
     .sort((a, b) => a.correct / a.total - b.correct / b.total)
     .slice(0, 8);
-  const trend = history.slice(0, 8).reverse().map((a) => ({ id: a.id, percent: scoreAttempt(exam, a).percent }));
+  const trend = history.filter((a) => a.mode !== "learn").slice(0, 8).reverse().map((a) => ({ id: a.id, percent: scoreAttempt(exam, a).percent }));
+
+  if (attempt.mode === "learn") {
+    const revealed = attempt.revealed ?? [];
+    return <div className="mx-auto max-w-5xl space-y-5 px-4 py-8">
+      <section className="rounded-2xl border border-line bg-panel p-6">
+        <p className="font-mono text-xs text-lime">Learning session</p>
+        <h2 className="mt-2 font-display text-3xl font-bold">{revealed.length} of {attempt.qids.length} explanations studied</h2>
+        <p className="mt-3 text-soft">Time spent: {fmt(result.durationSec)}. Learning sessions track exposure and are excluded from exam readiness scores and score trends.</p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <button type="button" onClick={onReview} className="rounded-lg bg-lime px-4 py-2 font-semibold text-ink">Review study cards</button>
+          <button type="button" onClick={onHome} className="rounded-lg border border-line px-4 py-2">New session</button>
+          <Link href={`/exams/${exam.slug}/cheatsheet`} className="px-3 py-2 text-sky">Cheat sheet →</Link>
+        </div>
+      </section>
+      <section className="rounded-2xl border border-line bg-panel p-6">
+        <h3 className="font-display text-xl font-bold">Topics explored</h3>
+        <ul className="mt-3 space-y-2 text-sm text-soft">{result.byTopic.map((t) => <li key={`${t.section}-${t.topic}`}>{t.topic} · {attempt.qids.filter((id) => revealed.includes(id) && exam.questions.some((q) => q.id === id && q.topic === t.topic)).length}/{t.total} revealed</li>)}</ul>
+      </section>
+    </div>;
+  }
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
@@ -652,7 +733,7 @@ function Results({
         </div>
         <div className="min-w-0 flex-1">
           <p className="font-mono text-xs tracking-wider text-faint uppercase">
-            {attempt.mode === "exam" ? "Exam simulation" : "Practice"} · {new Date(attempt.finishedAt).toLocaleString()}
+            {modeLabel(attempt.mode)} · {new Date(attempt.finishedAt).toLocaleString()}
           </p>
           <h2 className={`mt-1 font-display text-3xl font-extrabold ${v.tone}`}>{v.label}</h2>
           <p className="mt-2 text-soft">{v.note}</p>
@@ -798,7 +879,7 @@ function Review({
   onBack: () => void;
 }) {
   type Filter = "all" | "incorrect" | "unanswered" | "flagged";
-  const [filter, setFilter] = useState<Filter>("incorrect");
+  const [filter, setFilter] = useState<Filter>(attempt.mode === "learn" ? "all" : "incorrect");
   const items = attempt.qids.map((id, index) => ({ id, index, question: byId.get(id)! })).filter((x) => x.question);
 
   const status = (id: string, question: ExamQuestion) => {
@@ -827,14 +908,14 @@ function Review({
         <button type="button" onClick={onBack} className="font-mono text-sm text-lime">
           ← Report
         </button>
-        <h2 className="font-display text-2xl font-bold">Answer review</h2>
+        <h2 className="font-display text-2xl font-bold">{attempt.mode === "learn" ? "Study review" : "Answer review"}</h2>
         <button type="button" onClick={() => window.print()} className="ml-auto rounded-lg border border-line px-3 py-1.5 text-sm print:hidden">
           Print
         </button>
       </div>
 
       <div role="tablist" className="mt-4 flex flex-wrap gap-2 print:hidden">
-        {(["incorrect", "unanswered", "flagged", "all"] as Filter[]).map((f) => (
+        {((attempt.mode === "learn" ? ["all", "flagged"] : ["incorrect", "unanswered", "flagged", "all"]) as Filter[]).map((f) => (
           <button
             key={f}
             type="button"
@@ -857,15 +938,16 @@ function Review({
           return (
             <li key={id} className="rounded-2xl border border-line bg-panel p-5">
               <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
-                <span className="text-faint">Q{index + 1}</span>
+                <span className="text-faint">Q{index + 1}{question.sourceQuestion ? ` · PDF Q${question.sourceQuestion}` : " · Original"}</span>
                 <span className="text-faint">· S{question.section} · {question.topic}</span>
-                <span className={s === "correct" ? "text-lime" : s === "incorrect" ? "text-rose" : "text-amber"}>
-                  · {s}
+                <span className={attempt.mode === "learn" || s === "correct" ? "text-lime" : s === "incorrect" ? "text-rose" : "text-amber"}>
+                  · {attempt.mode === "learn" ? attempt.revealed?.includes(id) ? "studied" : "not revealed" : s}
                 </span>
                 {attempt.flagged.includes(id) && <span className="text-amber">· flagged</span>}
                 {attempt.spent[id] !== undefined && <span className="ml-auto text-faint">{attempt.spent[id]}s</span>}
               </div>
               <p className="mt-2 leading-relaxed">{question.stem}</p>
+              <QuestionDiagram question={question} placement="question" />
               <ul className="mt-3 space-y-1.5">
                 {order.map((optionIndex, position) => {
                   const isPicked = picked.includes(optionIndex);
@@ -885,10 +967,10 @@ function Review({
                   );
                 })}
               </ul>
-              <p className="mt-3 rounded-lg bg-raised p-3 text-sm leading-relaxed text-soft">
-                <span className="font-semibold text-text">Why: </span>
-                {question.explain}
-              </p>
+              <div className="mt-3 rounded-lg bg-raised p-3 text-sm">
+                <span className="font-semibold text-text">Why this answer</span>
+                <Explanation question={question} />
+              </div>
             </li>
           );
         })}
