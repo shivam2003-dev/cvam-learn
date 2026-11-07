@@ -11,6 +11,7 @@ from PIL import Image
 
 ROOT = "public/images/courseware/fde"
 NOTES = json.load(open("src/content/courseware/fde/visuals/diagram-notes.json"))
+REVIEWED = json.load(open("src/content/courseware/fde/visuals/manual-panels.json"))
 MIN_GAP = 6          # px of empty gutter that separates two regions
 INK = 38             # per-channel difference from the paper colour that counts as ink
 EDGE = 0.004         # a row/column with less ink than this fraction is empty
@@ -137,6 +138,17 @@ RELAXED = []
 def main():
     result, skipped = {}, {}
     for lesson, data in NOTES.items():
+        # Visually reviewed bounds take precedence for tightly packed layouts.
+        # These are display coordinates; the generated image stays unchanged.
+        if lesson in REVIEWED:
+            boxes = REVIEWED[lesson]
+            assert len(boxes) == len(data["panels"]), lesson
+            assert all(0 <= b["x"] < 1 and 0 <= b["y"] < 1
+                       and b["w"] > 0 and b["h"] > 0
+                       and b["x"] + b["w"] <= 1.0001
+                       and b["y"] + b["h"] <= 1.0001 for b in boxes), lesson
+            result[lesson] = boxes
+            continue
         path = f"{ROOT}/{lesson}.webp"
         if not os.path.exists(path):
             skipped[lesson] = "no image"
