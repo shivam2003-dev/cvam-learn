@@ -1,0 +1,34 @@
+{
+  "gcp-pca-clean-vector": {
+    "width": 1752,
+    "height": 897
+  },
+  "gcp-pca-whiteboard": {
+    "width": 1536,
+    "height": 1024
+  },
+  "gcp-pca-blueprint": {
+    "width": 1536,
+    "height": 1024
+  },
+  "gcp-pca-illustrated": {
+    "width": 1536,
+    "height": 1024
+  },
+  "aws-ans-c01-clean-vector": {
+    "width": 1752,
+    "height": 897
+  },
+  "aws-ans-c01-whiteboard": {
+    "width": 1536,
+    "height": 1024
+  },
+  "aws-ans-c01-blueprint": {
+    "width": 1752,
+    "height": 897
+  },
+  "aws-ans-c01-illustrated": {
+    "width": 1672,
+    "height": 941
+  }
+}
