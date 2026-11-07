@@ -2,7 +2,36 @@ import Image from "next/image";
 import Link from "next/link";
 import assets from "@/content/courseware/fde/visuals/assets.json";
 import diagramNotes from "@/content/courseware/fde/visuals/diagram-notes.json";
+import panelBoxes from "@/content/courseware/fde/visuals/panels.json";
 import { fde } from "@/content/courseware/fde/curriculum";
+
+type Box = { x: number; y: number; w: number; h: number };
+const panels = panelBoxes as Record<string, Box[]>;
+
+/** One numbered panel of a lesson's study sheet, shown where the original diagram used to sit. */
+function PanelImage({ lesson, panel, alt }: { lesson: string; panel: number; alt: string }) {
+  const box = panels[lesson]?.[panel - 1];
+  const size = (assets as Record<string, { width: number; height: number }>)[lesson] ?? { width: 1536, height: 1024 };
+  if (!box) return null;
+  const src = `/images/courseware/fde/${lesson}.webp`;
+  const ratio = (box.w * size.width) / (box.h * size.height);
+  const scale = 100 / box.w;
+  return (
+    <figure className="overflow-hidden rounded-xl border border-line bg-[#fffdf6]">
+      <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Open the full study sheet for diagram ${panel}`} className="relative block w-full overflow-hidden" style={{ aspectRatio: ratio }}>
+        <Image
+          src={src}
+          alt={alt}
+          width={size.width}
+          height={size.height}
+          sizes={`(max-width: 768px) ${Math.round(scale)}vw, ${Math.round(768 * (scale / 100))}px`}
+          className="absolute h-auto max-w-none"
+          style={{ width: `${scale}%`, left: `${(-box.x / box.w) * 100}%`, top: `${(-box.y / box.h) * 100}%` }}
+        />
+      </a>
+    </figure>
+  );
+}
 
 const notebooks: Record<string, { title: string; panels: { section: string; caption: string; notes: string[] }[] }> = diagramNotes;
 
@@ -47,16 +76,22 @@ export function LessonVisual({ slug }: { slug: string }) {
 export function DiagramReference({ lesson, panel }: { lesson: string; panel: number }) {
   const data = notebooks[lesson]?.panels[panel - 1];
   if (!data) return null;
+  const hasCrop = !!panels[lesson]?.[panel - 1];
   return (
-    <aside id={`diagram-${panel}`} className="scroll-mt-20 rounded-xl border border-line bg-panel p-4">
-      <p className="m-0 text-sm leading-relaxed text-soft"><a href="#visual-guide" className="font-semibold text-lime">Diagram {panel} ↗</a> · {data.caption}</p>
-      <details className="mt-3">
-        <summary className="cursor-pointer text-sm font-semibold text-sky">Read the diagram notes</summary>
-        <ol className="mt-3 space-y-2 text-sm text-soft">
-          {data.notes.map((note, i) => <li key={i}>{note}</li>)}
-        </ol>
-      </details>
-    </aside>
+    <div id={`diagram-${panel}`} className="scroll-mt-20 space-y-3">
+      {hasCrop && <PanelImage lesson={lesson} panel={panel} alt={`Diagram ${panel}: ${data.section}. ${data.caption}`} />}
+      <aside className="rounded-xl border border-line bg-panel p-4">
+        <p className="m-0 text-sm leading-relaxed text-soft">
+          <a href="#visual-guide" className="font-semibold text-lime">Diagram {panel} ↗</a> · {data.caption}
+        </p>
+        <details className="mt-3">
+          <summary className="cursor-pointer text-sm font-semibold text-sky">Read the diagram notes</summary>
+          <ol className="mt-3 space-y-2 text-sm text-soft">
+            {data.notes.map((note, i) => <li key={i}>{note}</li>)}
+          </ol>
+        </details>
+      </aside>
+    </div>
   );
 }
 
@@ -80,3 +115,4 @@ export function ChapterVisual({ chapterId }: { chapterId: string }) {
     </section>
   );
 }
+
