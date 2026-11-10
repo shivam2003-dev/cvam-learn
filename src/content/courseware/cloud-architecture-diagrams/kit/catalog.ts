@@ -1,4 +1,5 @@
 import type { Provider } from "@/lib/cloud";
+import icons from "./icons.json";
 
 type Names = [aws: string, azure: string, gcp: string, oci: string];
 
@@ -82,7 +83,11 @@ export function svcName(svc: Svc, provider: Provider) {
   return catalog[svc].names[order.indexOf(provider)];
 }
 
+/** Per-provider file extension overrides written by scripts/cloud-icons/import-official.py. */
+const extensions = icons as Record<string, Record<string, string>>;
+
 export function svcIcon(svc: Svc, provider: Provider) {
   const entry = catalog[svc] as { common?: boolean };
-  return `/images/cloud-icons/${entry.common ? "common" : provider}/${svc}.png`;
+  if (entry.common) return `/images/cloud-icons/common/${svc}.png`;
+  return `/images/cloud-icons/${provider}/${svc}.${extensions[provider]?.[svc] ?? "png"}`;
 }

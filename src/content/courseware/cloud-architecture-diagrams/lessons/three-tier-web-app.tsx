@@ -1,10 +1,12 @@
 import { ArchDiagram, ForCloud, ServiceMap, Term } from "@/components/CloudArch";
 import { Exercise } from "@/components/Diagram";
 import { Callout, Table } from "@/components/Lesson";
+import type { Sheet } from "@/lib/cloud";
 import type { Lesson } from "@/lib/types";
 import { threeTierSpecs } from "../specs/three-tier";
 
-export const lesson: Lesson = {
+export const lesson: Lesson & { sheet: Sheet } = {
+  sheet: { diagramTitle: "Highly available three-tier web application", specs: threeTierSpecs, takeaways: [] },
   minutes: 30,
   difficulty: "Easy",
   objectives: [
@@ -204,3 +206,5 @@ export const lesson: Lesson = {
     },
   ],
 };
+
+lesson.sheet.takeaways = lesson.takeaways;

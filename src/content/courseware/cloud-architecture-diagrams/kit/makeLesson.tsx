@@ -1,7 +1,7 @@
 import { ArchDiagram, ForCloud, ServiceMap, type ServiceRow } from "@/components/CloudArch";
 import { Exercise } from "@/components/Diagram";
 import { Callout } from "@/components/Lesson";
-import { providers, type Provider } from "@/lib/cloud";
+import { providers, type Provider, type Sheet } from "@/lib/cloud";
 import type { Difficulty, Lesson, QuizQuestion } from "@/lib/types";
 import { defineArch, usedSvcs, type Arch } from "./builder";
 import { catalog, svcName } from "./catalog";
@@ -25,7 +25,7 @@ export type LessonSpec = {
   quiz: QuizQuestion[];
 };
 
-export function makeLesson(spec: LessonSpec): Lesson {
+export function makeLesson(spec: LessonSpec): Lesson & { sheet: Sheet } {
   const specs = defineArch(spec.arch);
   const rows: ServiceRow[] = usedSvcs(spec.arch).map((svc) => ({
     role: catalog[svc].role,
@@ -36,6 +36,7 @@ export function makeLesson(spec: LessonSpec): Lesson {
   }));
   void providers;
   return {
+    sheet: { diagramTitle: spec.diagramTitle, specs, takeaways: spec.takeaways },
     minutes: spec.minutes,
     difficulty: spec.difficulty,
     objectives: spec.objectives,

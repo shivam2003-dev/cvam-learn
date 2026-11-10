@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ChapterVisual, LessonVisual } from "@/components/FdeVisuals";
 import { CloudChapterVisual, hasCloudVisuals } from "@/components/CloudVisuals";
 import { notFound } from "next/navigation";
-import { CloudSwitch } from "@/components/CloudArch";
+import { CloudSwitch, StudySheetLink } from "@/components/CloudArch";
 import { CourseBar } from "@/components/CourseBar";
 import { CurriculumNav } from "@/components/CurriculumNav";
 import { DifficultyBadge } from "@/components/Lesson";
@@ -84,6 +84,11 @@ export default async function CoursewareLessonPage({ params }: Props) {
             <div className="mt-4 max-w-xs">
               <CourseBar course={courseSlug} slugs={ordered.map((l) => l.slug)} />
             </div>
+            {courseSlug === "cloud-architecture-diagrams" && (
+              <div className="mt-3">
+                <StudySheetLink course={courseSlug} lesson={slug} />
+              </div>
+            )}
 
             <section id="goals" className="mt-7 scroll-mt-20 rounded-2xl border border-line bg-panel p-5">
               <h2 className="font-mono text-xs uppercase tracking-wider text-faint">What you&apos;ll learn</h2>

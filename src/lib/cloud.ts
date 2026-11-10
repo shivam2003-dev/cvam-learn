@@ -74,3 +74,11 @@ export type ArchSpec = {
 };
 
 export type ArchSpecs = Record<Provider, ArchSpec>;
+
+/** What a printable study sheet needs from a lesson. */
+export type Sheet = { diagramTitle: string; specs: ArchSpecs; takeaways: string[] };
+
+export function sheetOf(lesson: unknown): Sheet | undefined {
+  const sheet = (lesson as { sheet?: Sheet } | undefined)?.sheet;
+  return sheet && sheet.specs ? sheet : undefined;
+}

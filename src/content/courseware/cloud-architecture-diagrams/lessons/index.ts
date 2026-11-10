@@ -1,4 +1,6 @@
 import type { Lesson } from "@/lib/types";
+import { lesson as aiRagPlatform } from "./ai-rag-platform";
+import { lesson as bankingCore } from "./banking-core";
 import { lesson as cicdPipeline } from "./cicd-pipeline";
 import { lesson as containerPlatform } from "./container-platform";
 import { lesson as dataLakeAnalytics } from "./data-lake-analytics";
@@ -6,6 +8,7 @@ import { lesson as ecommercePlatform } from "./ecommerce-platform";
 import { lesson as eventDrivenPipeline } from "./event-driven-pipeline";
 import { lesson as fintechPayments } from "./fintech-payments";
 import { lesson as gamingBackend } from "./gaming-backend";
+import { lesson as governmentPortal } from "./government-portal";
 import { lesson as healthcareDataPlatform } from "./healthcare-data-platform";
 import { lesson as hubAndSpoke } from "./hub-and-spoke";
 import { lesson as identityAndAccess } from "./identity-and-access";
@@ -15,9 +18,11 @@ import { lesson as mediaStreaming } from "./media-streaming";
 import { lesson as multiRegionFailover } from "./multi-region-failover";
 import { lesson as networkAndSubnetDesign } from "./network-and-subnet-design";
 import { lesson as observabilityStack } from "./observability-stack";
+import { lesson as rideHailing } from "./ride-hailing";
 import { lesson as saasMultitenant } from "./saas-multitenant";
 import { lesson as securePerimeter } from "./secure-perimeter";
 import { lesson as serverlessApi } from "./serverless-api";
+import { lesson as telecomPlatform } from "./telecom-platform";
 import { lesson as threeTierWebApp } from "./three-tier-web-app";
 
 export const lessons: Record<string, Lesson> = {
@@ -41,4 +46,9 @@ export const lessons: Record<string, Lesson> = {
   "media-streaming": mediaStreaming,
   "gaming-backend": gamingBackend,
   "logistics-tracking": logisticsTracking,
+  "ai-rag-platform": aiRagPlatform,
+  "banking-core": bankingCore,
+  "government-portal": governmentPortal,
+  "telecom-platform": telecomPlatform,
+  "ride-hailing": rideHailing,
 };
