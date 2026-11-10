@@ -21,7 +21,7 @@ export const lesson = makeLesson({
     height: 480,
     groups: [
       { id: "acct", kind: "region", x: 250, y: 20, w: 690, h: 440, label: ACCOUNT, step: 1 },
-      { id: "svc", kind: "scaling", x: 420, y: 55, w: 140, h: 370, label: "Autoscaled services", step: 3 },
+      { id: "svc", kind: "scaling", x: 420, y: 55, w: 140, h: 385, label: "Autoscaled services", step: 3 },
     ],
     nodes: [
       { id: "users", svc: "users", x: 55, y: 235, step: 1, label: "Shoppers" },
@@ -45,7 +45,7 @@ export const lesson = makeLesson({
       { from: "catalog", to: "products", step: 4 },
       { from: "cart", to: "cartcache", step: 4, num: 4 },
       { from: "checkout", to: "orders", step: 5, num: 5 },
-      { from: "checkout", to: "queue", step: 6, via: [[560, 440], [800, 440]], dashed: true },
+      { from: "checkout", to: "queue", step: 6, via: [[490, 452], [800, 452]], dashed: true },
       { from: "queue", to: "fulfil", step: 6, num: 6, via: [[800, 235]] },
     ],
     steps: [

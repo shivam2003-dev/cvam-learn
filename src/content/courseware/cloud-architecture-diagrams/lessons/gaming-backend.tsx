@@ -1,0 +1,137 @@
+import { makeLesson } from "../kit/makeLesson";
+
+export const lesson = makeLesson({
+  minutes: 25,
+  difficulty: "Hard",
+  context: "Online multiplayer games, esports platforms and live-service mobile games with matchmaking, leaderboards and player accounts.",
+  objectives: [
+    "Separate the request/response game services from real-time game servers",
+    "Design matchmaking, a game-server fleet and fleet autoscaling",
+    "Choose stores for profiles, leaderboards and session state",
+    "Collect telemetry for balancing and live operations",
+  ],
+  problem: [
+    "A studio launches a multiplayer game. Millions log in on launch day, matchmaking must pair players in seconds, each match needs a dedicated server with sub-50-millisecond latency and every player expects their progress and rank to be correct.",
+    "Normal web APIs handle accounts and matchmaking, but the match itself runs on a fleet of game servers that clients talk to directly over UDP. Capacity must follow the player count by the hour.",
+  ],
+  diagramTitle: "Multiplayer game backend with matchmaking and a server fleet",
+  arch: {
+    width: 960,
+    height: 480,
+    groups: [{ id: "fleet", kind: "scaling", x: 330, y: 280, w: 150, h: 165, label: "Fleet scaled by player demand", step: 3 }],
+    nodes: [
+      { id: "players", svc: "mobile", x: 55, y: 230, step: 1, label: "Players" },
+      { id: "auth", svc: "auth", x: 230, y: 90, step: 1, label: "Player sign-in" },
+      { id: "api", svc: "apigw", x: 230, y: 230, step: 1, label: "Game API" },
+      { id: "match", svc: "container", x: 405, y: 130, step: 2, label: "Matchmaking" },
+      { id: "servers", svc: "vm", x: 405, y: 350, step: 3, label: "Game servers", sub: "one match per process" },
+      { id: "board", svc: "cache", x: 620, y: 130, step: 4, label: "Leaderboards" },
+      { id: "profile", svc: "nosql", x: 620, y: 240, step: 4, label: "Player profiles" },
+      { id: "stream", svc: "stream", x: 620, y: 350, step: 5, label: "Telemetry stream" },
+      { id: "dwh", svc: "dwh", x: 810, y: 350, step: 5, label: "Analytics warehouse" },
+    ],
+    edges: [
+      { from: "players", to: "api", step: 1, num: 1, label: "HTTPS" },
+      { from: "api", to: "auth", step: 1, both: true },
+      { from: "api", to: "match", step: 2, num: 2, elbow: "vh" },
+      { from: "match", to: "servers", step: 3, num: 3, label: "allocate server" },
+      { from: "players", to: "servers", step: 3, num: 4, elbow: "vh", via: [[55, 350]], label: "UDP gameplay" },
+      { from: "match", to: "board", step: 4 },
+      { from: "match", to: "profile", step: 4, via: [[510, 130], [510, 240]] },
+      { from: "servers", to: "stream", step: 5, num: 5 },
+      { from: "stream", to: "dwh", step: 5 },
+    ],
+    steps: [
+      {
+        title: "Players, sign-in and a game API",
+        body: "Players authenticate once and then call a normal HTTPS API for everything outside a match: profile, inventory, friends and the store.",
+        points: ["Link platform accounts (console, mobile, PC) to one player ID.", "Rate-limit and validate everything: clients cannot be trusted, and cheaters will probe the API."],
+        per: {
+          aws: "AWS: Cognito for sign-in, API Gateway and Lambda or containers for the API.",
+          azure: "Azure: PlayFab provides login, inventory and economy services; or Entra External ID with API Management.",
+          gcp: "Google Cloud: Identity Platform and Cloud Run behind API Gateway.",
+          oci: "OCI: IAM identity domains and API Gateway with containers or Functions.",
+        },
+      },
+      {
+        title: "Match players",
+        body: "A matchmaking service groups players by skill, latency and mode within seconds, then requests a game server for the group.",
+        points: ["Trade off wait time against match quality: widen skill ranges the longer someone waits.", "Place matches in the Region with the lowest latency for the whole group."],
+        per: {
+          aws: "AWS: GameLift FlexMatch provides managed rule-based matchmaking.",
+          azure: "Azure: PlayFab Matchmaking offers queues and rules.",
+          gcp: "Google Cloud: Open Match, an open-source matchmaking framework, usually runs on GKE.",
+          oci: "OCI: run Open Match or a custom service on OKE.",
+        },
+      },
+      {
+        title: "Run a fleet of game servers",
+        body: "Each match runs on a dedicated server process that holds the authoritative game state. Players connect straight to it over UDP for low latency; it does not go through the API.",
+        points: ["Keep a buffer of idle ready servers so matches start instantly.", "Scale the fleet on current and predicted player count, which follows time zones and events.", "Use Spot or preemptible capacity for sessions that tolerate restarts, and drain servers gracefully at the end of a match."],
+        per: {
+          aws: "AWS: Amazon GameLift manages fleets, placement and scaling, including Spot and multi-Region.",
+          azure: "Azure: PlayFab Multiplayer Servers run containers or VMs across Regions.",
+          gcp: "Google Cloud: Agones on GKE manages game-server fleets and allocation.",
+          oci: "OCI: Agones on OKE or compute instance pools, including bare metal for performance.",
+        },
+      },
+      {
+        title: "Keep state in the right store",
+        body: "Rankings need very fast sorted reads and writes; profiles and inventory need durable, scalable storage with strong correctness around purchases.",
+        points: ["Sorted sets in an in-memory store make leaderboards trivial and fast.", "Make purchases and currency changes transactional and idempotent; duplicated rewards are a classic exploit.", "Back up and keep an audit trail of economy changes."],
+        per: {
+          aws: "AWS: ElastiCache for Redis (sorted sets) for leaderboards; DynamoDB for profiles with transactions.",
+          azure: "Azure: Azure Cache for Redis for leaderboards; Cosmos DB for profiles (or PlayFab data).",
+          gcp: "Google Cloud: Memorystore for Redis for leaderboards; Firestore or Spanner for profiles.",
+          oci: "OCI: OCI Cache with Redis for leaderboards; NoSQL Database or Autonomous JSON for profiles.",
+        },
+      },
+      {
+        title: "Stream telemetry for live operations",
+        body: "Servers and clients emit events: match results, latency, crashes, purchases. Analytics drives balancing, detects cheating and shows whether an event is landing.",
+        points: ["Capture a consistent event schema from day one; retrofitting it is painful.", "Alert on matchmaking time, server start time and crash rate during launches."],
+        per: {
+          aws: "AWS: Kinesis Data Streams and Firehose into S3 and Redshift or Athena.",
+          azure: "Azure: Event Hubs into Synapse or Fabric; PlayFab events also export to Data Explorer.",
+          gcp: "Google Cloud: Pub/Sub into BigQuery.",
+          oci: "OCI: Streaming into Object Storage and Autonomous Data Warehouse.",
+        },
+      },
+    ],
+  },
+  notes: {
+    aws: ["GameLift supports FleetIQ for game servers on Spot and a managed Realtime Servers option for simple games.", "Use Global Accelerator or Local Zones to cut latency for distant players."],
+    azure: ["PlayFab is a full live-ops backend (economy, leaderboards, experiments) that many studios adopt instead of building from scratch.", "Azure Front Door can accelerate the HTTP APIs, but UDP gameplay goes straight to the server."],
+    gcp: ["Agones is a Kubernetes-native open-source project originated at Google and Ubisoft, widely used for game servers.", "Check the status of any managed game-server service before depending on it, as offerings have changed."],
+    oci: ["Bare-metal shapes suit servers that need predictable CPU performance and low jitter.", "OCI's global footprint and network pricing make it a candidate for large, steady multiplayer fleets."],
+  },
+  decisions: [
+    { title: "Authoritative servers", text: "The server decides what happened; clients only send input. Trusting the client invites cheating." },
+    { title: "Regions near players", text: "Latency decides feel. Deploy fleets in more Regions rather than a bigger fleet in one." },
+    { title: "Buffer versus cost", text: "Idle ready servers make matches start instantly but cost money. Size the buffer from launch-hour data." },
+    { title: "Plan for launch day", text: "Load-test matchmaking and fleet scaling with simulated players, and stagger launches by Region." },
+  ],
+  exercise: {
+    title: "Launch-day queue",
+    task: "Matchmaking times jump from 5 seconds to 90 seconds at launch while servers sit idle. What could be wrong and how do you check?",
+    answer: [
+      "The matchmaker may be the bottleneck: check its CPU, queue depth and rule-evaluation time, and scale it out.",
+      "The allocation path may be slow or throttled: look at the latency of requesting a game server and any API limits in the fleet service.",
+      "Rules may be too strict for the player pool: widen skill and latency ranges as wait time grows.",
+      "Idle servers in the wrong Region do not help; verify fleet placement matches where players are queuing.",
+    ],
+  },
+  takeaways: [
+    "Use ordinary web APIs for accounts and matchmaking, and dedicated game servers for the match itself.",
+    "Players connect directly to game servers over UDP for low latency.",
+    "Scale the server fleet on player demand and keep a ready buffer.",
+    "Use an in-memory sorted store for leaderboards and transactional storage for economy.",
+    "Stream telemetry from the first release to balance and operate the live game.",
+  ],
+  quiz: [
+    { kind: "mcq", q: "Why do players connect directly to game servers instead of through the API?", options: ["Lower latency for real-time play", "To avoid sign-in", "To store profiles", "To reduce DNS"], answer: 0, explain: "Real-time play needs the shortest network path, typically over UDP." },
+    { kind: "mcq", q: "Which data structure suits leaderboards in an in-memory store?", options: ["Sorted set", "Image file", "Backup tape", "DNS zone"], answer: 0, explain: "Sorted sets provide fast ranked reads and updates." },
+    { kind: "mcq", q: "What does an authoritative server mean?", options: ["The server decides what happened; clients only send input", "The client decides outcomes", "Players vote", "The CDN decides"], answer: 0, explain: "Authoritative servers prevent clients from cheating by owning game state." },
+    { kind: "text", q: "Name the open-source Kubernetes game-server project mentioned here (starts with A, six letters).", format: "******", accept: ["agones"], explain: "Agones manages dedicated game-server fleets on Kubernetes." },
+  ],
+});

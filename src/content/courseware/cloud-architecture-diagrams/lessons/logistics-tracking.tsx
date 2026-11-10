@@ -1,0 +1,137 @@
+import { makeLesson } from "../kit/makeLesson";
+
+export const lesson = makeLesson({
+  minutes: 25,
+  difficulty: "Hard",
+  context: "Ride-hailing, food and parcel delivery, fleet tracking and field-service dispatch: anything where moving things must be matched and followed on a live map.",
+  objectives: [
+    "Design a real-time location pipeline for thousands of moving devices",
+    "Use WebSockets and a stream to fan updates out to customers",
+    "Store live positions in a geo-indexed in-memory store and orders in a transactional database",
+    "Separate the hot real-time path from durable history",
+  ],
+  problem: [
+    "A delivery company has 50,000 drivers each reporting a location every four seconds, and half a million customers watching a map. A new order must be matched to the nearest free driver within a second, and the customer's map dot must move smoothly.",
+    "That is about 12,500 writes per second of locations, plus fan-out to viewers, plus transactional order handling. Position data is useful for seconds, so it lives in memory; orders and history must be exact and durable.",
+  ],
+  diagramTitle: "Real-time dispatch and live location tracking",
+  arch: {
+    width: 960,
+    height: 470,
+    groups: [{ id: "acct", kind: "region", x: 160, y: 20, w: 780, h: 430, label: "Real-time platform", step: 2 }],
+    nodes: [
+      { id: "drivers", svc: "mobile", x: 55, y: 110, step: 1, label: "Driver apps" },
+      { id: "customers", svc: "mobile", x: 55, y: 340, step: 1, label: "Customer apps" },
+      { id: "gw", svc: "apigw", x: 230, y: 225, step: 2, label: "Real-time gateway", sub: "WebSocket and HTTPS" },
+      { id: "stream", svc: "stream", x: 400, y: 110, step: 3, label: "Location stream" },
+      { id: "dispatch", svc: "container", x: 400, y: 340, step: 4, label: "Dispatch service" },
+      { id: "geo", svc: "cache", x: 580, y: 225, step: 4, label: "Live location index", sub: "geo-spatial, in memory" },
+      { id: "orders", svc: "db", x: 760, y: 340, step: 4, label: "Orders database" },
+      { id: "notify", svc: "notify", x: 760, y: 110, step: 5, label: "ETA and arrival alerts" },
+      { id: "hist", svc: "lake", x: 880, y: 225, step: 5, label: "Trip history" },
+    ],
+    edges: [
+      { from: "drivers", to: "gw", step: 2, num: 1, elbow: "vh", via: [[55, 225]], label: "GPS ping" },
+      { from: "customers", to: "gw", step: 2, via: [[55, 225]] },
+      { from: "gw", to: "stream", step: 3, num: 2, elbow: "vh" },
+      { from: "gw", to: "dispatch", step: 4, elbow: "vh" },
+      { from: "stream", to: "geo", step: 4, num: 3, elbow: "hv", via: [[580, 110]] },
+      { from: "dispatch", to: "geo", step: 4, num: 4, via: [[580, 340]] },
+      { from: "dispatch", to: "orders", step: 4, num: 5 },
+      { from: "stream", to: "notify", step: 5, dashed: true },
+      { from: "orders", to: "hist", step: 5, dashed: true, via: [[880, 340]] },
+    ],
+    steps: [
+      {
+        title: "Two kinds of app, one platform",
+        body: "Drivers send positions and receive jobs; customers place orders and watch a map. Both need a live, two-way connection, not polling.",
+        points: ["Send a ping every few seconds while moving and back off when stationary, to save battery and cost.", "Include accuracy, speed and heading, and drop obviously bad GPS readings."],
+        per: {
+          aws: "AWS: Amazon Location Service provides maps and geofencing; the apps use WebSockets or AWS AppSync subscriptions.",
+          azure: "Azure: Azure Maps for maps and routing; Azure Web PubSub or SignalR Service for live connections.",
+          gcp: "Google Cloud: Google Maps Platform for maps and routing; Firebase or Cloud Run WebSockets for live updates.",
+          oci: "OCI: bring a maps provider such as HERE or Mapbox; use API Gateway and WebSocket services you run.",
+        },
+      },
+      {
+        title: "Terminate connections at a real-time gateway",
+        body: "A gateway holds hundreds of thousands of long-lived connections and authenticates each. It converts pings into events and pushes updates back out.",
+        points: ["WebSocket connections are stateful: size connection limits and plan reconnect storms after a deploy.", "Authenticate on connect and authorise every subscription: a customer may follow only their own driver."],
+        per: {
+          aws: "AWS: API Gateway WebSocket APIs or AppSync, or an NLB in front of your own gateway.",
+          azure: "Azure: Web PubSub or SignalR Service manage connections at scale.",
+          gcp: "Google Cloud: Cloud Run with WebSockets behind the global load balancer, or Firebase Realtime Database.",
+          oci: "OCI: your own gateway on OKE behind a Load Balancer or Network Load Balancer, with API Gateway for HTTP.",
+        },
+      },
+      {
+        title: "Stream the locations",
+        body: "Every ping becomes an event on a stream. Consumers read it independently: update the live index, drive notifications and archive history.",
+        points: ["Partition by driver ID so each driver's updates stay in order.", "Absorb bursts: a stream decouples ping rate from processing capacity."],
+        per: {
+          aws: "AWS: Kinesis Data Streams or MSK (Kafka).",
+          azure: "Azure: Event Hubs.",
+          gcp: "Google Cloud: Pub/Sub, or Dataflow for stream processing.",
+          oci: "OCI: Streaming (Kafka-compatible).",
+        },
+      },
+      {
+        title: "Index live positions and match jobs",
+        body: "The newest position of each driver lives in an in-memory geo-spatial index, so 'find the nearest free driver' takes milliseconds. The dispatch service reads it, assigns the job and records the order durably.",
+        points: ["Positions expire: a driver who stopped pinging drops out of matching.", "Assigning a driver must be atomic so two orders cannot grab the same driver.", "Keep the order in a transactional database, not in the cache."],
+        per: {
+          aws: "AWS: ElastiCache for Redis (GEOSEARCH) for positions; Aurora for orders; use conditional updates to claim a driver.",
+          azure: "Azure: Azure Cache for Redis (geo commands) for positions; Azure SQL or PostgreSQL for orders.",
+          gcp: "Google Cloud: Memorystore for Redis for positions; Cloud SQL or Spanner for orders.",
+          oci: "OCI: OCI Cache with Redis for positions; Autonomous Transaction Processing or MySQL HeatWave for orders.",
+        },
+      },
+      {
+        title: "Notify customers and keep history",
+        body: "Consumers of the same stream send arrival alerts and ETAs, and a cheaper path archives every trip for analytics, billing disputes and route optimisation.",
+        points: ["Compute ETA from live traffic and recent speeds, and recompute on change.", "Keep raw pings only as long as you need; aggregate for the long term."],
+        per: {
+          aws: "AWS: Lambda reads the stream and publishes through SNS or Pinpoint; Firehose archives to S3.",
+          azure: "Azure: Functions read Event Hubs and notify through Notification Hubs; Capture archives to storage.",
+          gcp: "Google Cloud: Cloud Functions or Dataflow notify through Firebase Cloud Messaging; archive to BigQuery.",
+          oci: "OCI: Functions read the stream and notify; a connector archives to Object Storage.",
+        },
+      },
+    ],
+  },
+  notes: {
+    aws: ["Amazon Location Service gives maps, routing, geofences and trackers without a third-party maps contract.", "Redis GEOSEARCH finds neighbours within a radius in logarithmic time."],
+    azure: ["Azure Maps includes routing with live traffic and geofencing APIs.", "Web PubSub offers serverless WebSocket handling with built-in scaling."],
+    gcp: ["Google Maps Platform pricing is per request, so cache and batch calls carefully.", "Firebase can serve small-scale live tracking with very little back-end code."],
+    oci: ["Third-party maps are a typical choice on OCI; keep the provider behind an interface so you can switch.", "OCI Streaming's Kafka compatibility lets existing Kafka clients work unchanged."],
+  },
+  decisions: [
+    { title: "Memory for hot data", text: "A position is stale in seconds. Keep it in memory with a TTL, and send only meaningful updates to history." },
+    { title: "Push, not poll", text: "WebSockets cost far less than millions of polling requests, but need connection capacity planning." },
+    { title: "Atomic assignment", text: "Claiming a driver must be a single atomic step; races create double-booked drivers and unhappy customers." },
+    { title: "Degrade gracefully", text: "If the live path is overloaded, slow the update rate rather than dropping matching. A coarser map beats no dispatch." },
+  ],
+  exercise: {
+    title: "The double-booked driver",
+    task: "Two customers are assigned the same nearby driver within the same second. Where is the bug and how do you fix it?",
+    answer: [
+      "Two dispatch workers read the driver as free from the index and both assigned them: a read-then-write race.",
+      "Make the claim atomic: a conditional update or a compare-and-set in the store (or a single-writer queue per area) so only one assignment succeeds.",
+      "The loser re-runs matching with the next candidate; keep the assignment record in the transactional database as the source of truth.",
+      "Add a test that fires concurrent assignments at the same driver and alarm on duplicate assignments in production.",
+    ],
+  },
+  takeaways: [
+    "Use persistent connections and a stream for real-time location data.",
+    "Keep the newest position in a geo-indexed in-memory store with expiry.",
+    "Store orders in a transactional database and make driver assignment atomic.",
+    "Fan the same stream out to the live index, notifications and history.",
+    "Back off ping rates and degrade gracefully under load.",
+  ],
+  quiz: [
+    { kind: "mcq", q: "Why keep live driver positions in memory?", options: ["They are only useful for seconds and need millisecond lookups", "Memory is permanent", "Databases cannot store numbers", "It avoids encryption"], answer: 0, explain: "Fast geo queries over short-lived data suit an in-memory store with expiry." },
+    { kind: "mcq", q: "How do you prevent two orders claiming one driver?", options: ["An atomic conditional claim", "A larger server", "More DNS records", "A CDN"], answer: 0, explain: "An atomic compare-and-set guarantees only one assignment succeeds." },
+    { kind: "mcq", q: "Why partition the location stream by driver ID?", options: ["Keeps each driver's updates in order", "Makes messages smaller", "Removes the need for a gateway", "Encrypts the data"], answer: 0, explain: "Partitioning by key preserves per-key ordering." },
+    { kind: "text", q: "Which web protocol keeps a persistent two-way connection between app and server? (one word, starts with Web)", format: "*********", accept: ["websocket", "websockets"], explain: "WebSocket." },
+  ],
+});

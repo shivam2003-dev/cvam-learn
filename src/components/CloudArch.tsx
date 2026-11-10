@@ -264,7 +264,7 @@ function Group({ group, style, fresh }: { group: ArchGroup; style: GroupStyle; f
         strokeDasharray={style.dash}
       />
       {group.icon && <image href={group.icon} x={group.x} y={group.y} width={24} height={24} />}
-      <text x={textX} y={group.y + 16} fontSize={11.5} fontWeight={600} fill={style.stroke} textAnchor={centred ? "middle" : "start"}>
+      <text x={textX} y={centred ? group.y + group.h - 8 : group.y + 16} fontSize={11.5} fontWeight={600} fill={style.stroke} textAnchor={centred ? "middle" : "start"}>
         {group.label}
       </text>
       {group.sub && (
@@ -312,6 +312,8 @@ export function ArchDiagram({ specs, title }: { specs: ArchSpecs; title: string 
   const [provider] = useCloud();
   const [step, setStep] = useState(0);
   const figureRef = useRef<HTMLElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [busy, setBusy] = useState(false);
   const [full, setFull] = useState(false);
   const canFull = useSyncExternalStore(
     () => () => {},
@@ -324,6 +326,79 @@ export function ArchDiagram({ specs, title }: { specs: ArchSpecs; title: string 
     document.addEventListener("fullscreenchange", sync);
     return () => document.removeEventListener("fullscreenchange", sync);
   }, []);
+
+  /** A standalone copy of the diagram: icons embedded, white background, no site CSS needed. */
+  async function standaloneSvg() {
+    const source = svgRef.current;
+    if (!source) throw new Error("diagram not ready");
+    const clone = source.cloneNode(true) as SVGSVGElement;
+    clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    clone.setAttribute("width", String(spec.width));
+    clone.setAttribute("height", String(spec.height));
+    clone.removeAttribute("style");
+    clone.setAttribute("font-family", "system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif");
+    clone.querySelectorAll("[class]").forEach((el) => el.removeAttribute("class"));
+    const background = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    background.setAttribute("width", "100%");
+    background.setAttribute("height", "100%");
+    background.setAttribute("fill", "#ffffff");
+    clone.insertBefore(background, clone.firstChild);
+    await Promise.all(
+      [...clone.querySelectorAll("image")].map(async (image) => {
+        const href = image.getAttribute("href");
+        if (!href || href.startsWith("data:")) return;
+        const blob = await (await fetch(href)).blob();
+        const data = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result));
+          reader.onerror = () => reject(reader.error);
+          reader.readAsDataURL(blob);
+        });
+        image.setAttribute("href", data);
+      }),
+    );
+    return new XMLSerializer().serializeToString(clone);
+  }
+
+  function save(blob: Blob, extension: string) {
+    const name = `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}-${provider}-step-${current + 1}.${extension}`;
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = name;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  async function exportDiagram(kind: "svg" | "png") {
+    setBusy(true);
+    try {
+      const markup = await standaloneSvg();
+      if (kind === "svg") {
+        save(new Blob([markup], { type: "image/svg+xml;charset=utf-8" }), "svg");
+        return;
+      }
+      const image = new Image();
+      await new Promise<void>((resolve, reject) => {
+        image.onload = () => resolve();
+        image.onerror = () => reject(new Error("could not render the diagram"));
+        image.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(markup)}`;
+      });
+      const scale = 2;
+      const canvas = document.createElement("canvas");
+      canvas.width = spec.width * scale;
+      canvas.height = spec.height * scale;
+      const context = canvas.getContext("2d");
+      if (!context) throw new Error("canvas unavailable");
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      const png = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/png"));
+      if (png) save(png, "png");
+    } catch {
+      // Export is a convenience; a failure leaves the diagram untouched.
+    } finally {
+      setBusy(false);
+    }
+  }
 
   function toggleFull() {
     // Browsers reject this without a real user gesture; ignore that quietly.
@@ -363,6 +438,24 @@ export function ArchDiagram({ specs, title }: { specs: ArchSpecs; title: string 
         <p className="m-0 text-sm font-semibold text-text">{title}</p>
         <div className="flex flex-wrap items-center gap-2">
           <CloudSwitch />
+          <button
+            type="button"
+            onClick={() => void exportDiagram("svg")}
+            disabled={busy}
+            title="Download this step as an SVG image"
+            className="rounded-lg border border-line px-3 py-1.5 font-mono text-xs font-semibold text-soft hover:text-text disabled:opacity-50"
+          >
+            ⬇ SVG
+          </button>
+          <button
+            type="button"
+            onClick={() => void exportDiagram("png")}
+            disabled={busy}
+            title="Download this step as a PNG image"
+            className="rounded-lg border border-line px-3 py-1.5 font-mono text-xs font-semibold text-soft hover:text-text disabled:opacity-50"
+          >
+            ⬇ PNG
+          </button>
           {canFull && (
             <button
               type="button"
@@ -378,6 +471,7 @@ export function ArchDiagram({ specs, title }: { specs: ArchSpecs; title: string 
 
       <div className={`bg-white ${full ? "min-h-0 flex-1 overflow-auto" : "overflow-x-auto"}`}>
         <svg
+          ref={svgRef}
           key={provider}
           role="img"
           aria-label={`${title}, ${meta.short}, step ${current + 1} of ${last + 1}: ${info.title}`}

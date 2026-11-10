@@ -25,6 +25,8 @@ type E = {
   via?: [number, number][];
   fromShift?: number;
   toShift?: number;
+  /** Clouds on which this edge is not drawn (for example, no internet gateway object). */
+  skip?: Provider[];
 };
 type S = {
   title: string;
@@ -69,7 +71,7 @@ export function defineArch(arch: Arch): ArchSpecs {
       step: g.step,
     }));
     const edges: ArchEdge[] = arch.edges
-      .filter((e) => ids.has(e.from) && ids.has(e.to))
+      .filter((e) => ids.has(e.from) && ids.has(e.to) && !e.skip?.includes(provider))
       .map((e) => {
         const a = ids.get(e.from)!;
         const b = ids.get(e.to)!;
