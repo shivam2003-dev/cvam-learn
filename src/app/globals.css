@@ -225,3 +225,21 @@ body {
 .nav-spinner { animation: nav-spin 0.7s linear infinite; }
 .skeleton { animation: skeleton-pulse 1.4s ease-in-out infinite; }
 html[data-nav-pending], html[data-nav-pending] a, html[data-nav-pending] button { cursor: progress; }
+
+/* Interactive cloud diagrams: new layers fade in as the reader steps forward */
+@keyframes arch-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.arch-in {
+  animation: arch-in 0.45s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .arch-in {
+    animation: none;
+  }
+}

@@ -4,6 +4,8 @@ import { ansC01 } from "@/content/courseware/aws-ans-c01/curriculum";
 import { lessons as ansC01Lessons } from "@/content/courseware/aws-ans-c01/lessons";
 import { gcpPca } from "@/content/courseware/gcp-pca/curriculum";
 import { lessons as gcpPcaLessons } from "@/content/courseware/gcp-pca/lessons";
+import { cloudArchitectureDiagrams } from "@/content/courseware/cloud-architecture-diagrams/curriculum";
+import { lessons as cloudArchitectureDiagramsLessons } from "@/content/courseware/cloud-architecture-diagrams/lessons";
 import type { Course, Lesson, NavCourse } from "@/lib/types";
 
 /**
@@ -12,6 +14,7 @@ import type { Course, Lesson, NavCourse } from "@/lib/types";
  * not collide with learning-path slugs, because progress is keyed by slug.
  */
 const registry: { course: Course; lessons: Record<string, Lesson> }[] = [
+  { course: cloudArchitectureDiagrams, lessons: cloudArchitectureDiagramsLessons },
   { course: fde, lessons: fdeLessons },
   { course: ansC01, lessons: ansC01Lessons },
   { course: gcpPca, lessons: gcpPcaLessons },

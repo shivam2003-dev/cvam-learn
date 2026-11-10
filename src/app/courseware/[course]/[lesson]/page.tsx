@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChapterVisual, LessonVisual } from "@/components/FdeVisuals";
 import { CloudChapterVisual, hasCloudVisuals } from "@/components/CloudVisuals";
 import { notFound } from "next/navigation";
+import { CloudSwitch } from "@/components/CloudArch";
 import { CourseBar } from "@/components/CourseBar";
 import { CurriculumNav } from "@/components/CurriculumNav";
 import { DifficultyBadge } from "@/components/Lesson";
@@ -139,6 +140,7 @@ export default async function CoursewareLessonPage({ params }: Props) {
         </main>
 
         <OnThisPage items={tocItems} />
+        {courseSlug === "cloud-architecture-diagrams" && <CloudSwitch floating />}
       </div>
     </>
   );
