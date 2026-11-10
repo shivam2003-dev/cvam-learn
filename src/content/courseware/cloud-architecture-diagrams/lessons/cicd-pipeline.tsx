@@ -1,0 +1,152 @@
+import { makeLesson } from "../kit/makeLesson";
+
+export const lesson = makeLesson({
+  minutes: 24,
+  difficulty: "Medium",
+  context: "Every software team. A pipeline is the factory line that turns a commit into a running release.",
+  objectives: [
+    "Describe the stages from commit to production",
+    "Place security scanning, artifact storage and approvals in the pipeline",
+    "Explain environment promotion and rollback",
+    "Map pipeline services across the four clouds",
+  ],
+  problem: [
+    "A team deploys by hand on Friday afternoons. Each release is a big, scary event, bugs reach production before anyone sees them, and nobody remembers what exactly is running.",
+    "A pipeline builds, tests, scans and deploys every change the same way, so releases become small, frequent and boring. A bad release can be rolled back in minutes.",
+  ],
+  diagramTitle: "CI/CD pipeline with scanning, artifacts and staged environments",
+  arch: {
+    width: 960,
+    height: 460,
+    groups: [
+      { id: "acct", kind: "region", x: 125, y: 20, w: 600, h: 420, label: "CI/CD account (shared tooling)", step: 1 },
+      { id: "dev", kind: "public", x: 750, y: 40, w: 190, h: 110, label: "Dev environment", step: 5 },
+      { id: "stage", kind: "private", x: 750, y: 170, w: 190, h: 110, label: "Staging", step: 5 },
+      { id: "prod", kind: "network", x: 750, y: 300, w: 190, h: 120, label: "Production (after approval)", step: 6 },
+    ],
+    nodes: [
+      { id: "client", svc: "client", x: 55, y: 225, step: 1, label: "Developer" },
+      { id: "repo", svc: "repo", x: 190, y: 225, step: 1 },
+      { id: "build", svc: "build", x: 330, y: 225, step: 2, label: "Build and unit tests" },
+      { id: "scan", svc: "scan", x: 470, y: 225, step: 3, label: "Security scans" },
+      { id: "artifact", svc: "artifact", x: 610, y: 225, step: 4 },
+      { id: "secrets", svc: "secrets", x: 330, y: 360, step: 2 },
+      { id: "d", svc: "container", x: 845, y: 100, step: 5, label: "Dev" },
+      { id: "s", svc: "container", x: 845, y: 225, step: 5, label: "Staging" },
+      { id: "p", svc: "container", x: 845, y: 360, step: 6, label: "Production" },
+    ],
+    edges: [
+      { from: "client", to: "repo", step: 1, num: 1, label: "git push" },
+      { from: "repo", to: "build", step: 2, num: 2, label: "webhook" },
+      { from: "build", to: "scan", step: 3, num: 3 },
+      { from: "scan", to: "artifact", step: 4, num: 4 },
+      { from: "secrets", to: "build", step: 2, dashed: true, label: "short-lived" },
+      { from: "artifact", to: "d", step: 5, via: [[690, 225], [690, 100]] },
+      { from: "artifact", to: "s", step: 5, num: 5 },
+      { from: "artifact", to: "p", step: 6, num: 6, via: [[690, 225], [690, 360]] },
+    ],
+    steps: [
+      {
+        title: "Commit to source control",
+        body: "Everything that defines the system, application code, infrastructure code and pipeline definitions, lives in version control. A push starts the pipeline.",
+        points: ["Protect the main branch: require review and passing checks before merge.", "Keep the pipeline definition in the repository so it is reviewed like code."],
+        per: {
+          aws: "AWS: CodeCommit (check its current availability for new accounts) or GitHub and GitLab connected through CodeConnections.",
+          azure: "Azure: Azure Repos or GitHub, with branch policies.",
+          gcp: "Google Cloud: GitHub or GitLab connected to Cloud Build; Cloud Source Repositories is closed to new customers.",
+          oci: "OCI: DevOps service code repositories, or an external GitHub or GitLab connection.",
+        },
+      },
+      {
+        title: "Build and test automatically",
+        body: "A build service checks out the code, compiles it, runs unit tests and builds a container or package. Every change gets the same clean build environment.",
+        points: ["Run builds in ephemeral workers so one build cannot poison the next.", "Fail fast: put the quickest tests first."],
+        per: {
+          aws: "AWS: CodeBuild runs buildspec.yml in managed containers; GitHub Actions is a common alternative.",
+          azure: "Azure: Azure Pipelines agents (Microsoft-hosted or self-hosted).",
+          gcp: "Google Cloud: Cloud Build runs steps as containers from cloudbuild.yaml.",
+          oci: "OCI: DevOps build pipelines run stages in managed build runners.",
+        },
+      },
+      {
+        title: "Scan before you ship",
+        body: "Automated checks catch problems while they are cheap to fix: static code analysis, dependency vulnerabilities, secrets committed by mistake, container image scanning and infrastructure-as-code policy checks.",
+        points: ["Block on critical findings; warn on lower ones so teams are not trained to ignore the gate.", "Generate a software bill of materials (SBOM) for each build."],
+        per: {
+          aws: "AWS: Amazon Inspector scans images in ECR; CodeGuru and third-party tools cover code.",
+          azure: "Azure: Microsoft Defender for Cloud and GitHub Advanced Security.",
+          gcp: "Google Cloud: Artifact Analysis scans images; Binary Authorization enforces attested builds.",
+          oci: "OCI: Vulnerability Scanning Service plus third-party code scanners.",
+        },
+      },
+      {
+        title: "Publish an immutable artifact",
+        body: "The build produces one versioned artifact, tagged with the commit ID, that is promoted through every environment. You test the exact thing you ship.",
+        points: ["Never rebuild between environments; promote the same artifact.", "Sign artifacts and verify the signature at deploy time."],
+        per: {
+          aws: "AWS: ECR for images and CodeArtifact for packages.",
+          azure: "Azure: Azure Container Registry and Azure Artifacts.",
+          gcp: "Google Cloud: Artifact Registry for images and packages.",
+          oci: "OCI: Container Registry and the Artifact Registry.",
+        },
+      },
+      {
+        title: "Deploy to dev and staging",
+        body: "The pipeline deploys automatically to development, runs integration tests and then to staging, which mirrors production as closely as possible.",
+        points: ["Run smoke tests after every deploy and stop the pipeline on failure.", "Use separate accounts or subscriptions per environment, with the pipeline assuming a role in each."],
+        per: {
+          aws: "AWS: CodePipeline and CodeDeploy, assuming a cross-account IAM role per environment.",
+          azure: "Azure: Azure Pipelines environments with service connections using workload identity federation.",
+          gcp: "Google Cloud: Cloud Deploy delivery pipelines across projects, using service account impersonation.",
+          oci: "OCI: DevOps deployment pipelines to OKE, instances or Functions using dynamic groups and policies.",
+        },
+      },
+      {
+        title: "Approve and release to production",
+        body: "Production needs a gate: an automated check, a manual approval or both. Release gradually and keep the previous version ready for an instant rollback.",
+        points: ["Use canary or blue-green releases so only a small share of users see a new version first.", "Define rollback criteria in advance: error rate, latency and business metrics.", "Tie every deployment to a ticket or change record for audit."],
+        per: {
+          aws: "AWS: CodeDeploy blue/green or canary with CloudWatch alarms that trigger automatic rollback.",
+          azure: "Azure: deployment slots swap staging into production, with approvals on the production environment.",
+          gcp: "Google Cloud: Cloud Deploy canary strategy with approval and automated verification.",
+          oci: "OCI: DevOps blue-green and canary strategies with an approval stage.",
+        },
+      },
+    ],
+  },
+  notes: {
+    aws: ["AWS has changed CodeCommit's availability for new customers more than once, so check the current status before choosing it over GitHub or GitLab.", "Use OIDC federation from your CI system to an IAM role instead of long-lived access keys."],
+    azure: ["Workload identity federation lets pipelines authenticate to Azure without storing a client secret.", "Many teams use GitHub Actions with Azure rather than Azure Pipelines; the architecture is the same."],
+    gcp: ["Workload Identity Federation lets GitHub Actions deploy to Google Cloud with no service account keys.", "Cloud Deploy adds promotion, approvals and rollbacks on top of Cloud Build's builds."],
+    oci: ["OCI DevOps is integrated with OKE, Functions and compute and can mirror external repositories.", "Pipelines get OCI access through dynamic groups and policies, not user keys."],
+  },
+  decisions: [
+    { title: "Build once, promote many", text: "Rebuilding for each environment means production runs something nobody tested. Promote one artifact." },
+    { title: "Trunk-based or branches", text: "Short-lived branches and frequent merges keep releases small. Long-lived branches create big, risky merges." },
+    { title: "Infrastructure as code in the same pipeline", text: "Plan, review and apply infrastructure changes through the pipeline too, so environments cannot drift." },
+    { title: "Protect the pipeline", text: "The pipeline can deploy to production, so it is a prime target. Use short-lived credentials, least privilege, protected branches and audited approvals." },
+  ],
+  exercise: {
+    title: "Roll back safely",
+    task: "A release raises the error rate from 0.1% to 4% ten minutes after going to production. Describe what the pipeline should have done and what you do now.",
+    answer: [
+      "A canary release would have exposed only a small share of users and tripped an automatic alarm-based rollback before the rest were affected.",
+      "Now: roll back by redeploying the previous immutable artifact (or switching traffic back in blue-green) and confirm the error rate recovers.",
+      "Then investigate in staging with the failing artifact: reproduce, fix and add a test that would have caught it.",
+      "Review the gate: add the missing check or a tighter error-rate threshold to the pipeline.",
+    ],
+  },
+  takeaways: [
+    "Commit, build, test, scan, publish an immutable artifact, deploy to dev and staging, approve, release to production.",
+    "Promote the same artifact everywhere; never rebuild per environment.",
+    "Scan code, dependencies, images and infrastructure code before the artifact is accepted.",
+    "Use short-lived federated credentials for the pipeline, not stored keys.",
+    "Canary or blue-green releases with automatic rollback make failure cheap.",
+  ],
+  quiz: [
+    { kind: "mcq", q: "Why promote one artifact through all environments?", options: ["You test exactly what you ship", "It saves disk space", "It avoids code review", "It removes the need for staging"], answer: 0, explain: "Rebuilding per environment can produce a different artifact from the one you tested." },
+    { kind: "mcq", q: "What is the safest way for a pipeline to authenticate to a cloud account?", options: ["Federated short-lived credentials", "A shared admin password in the repo", "A long-lived access key in a wiki", "No authentication"], answer: 0, explain: "OIDC or workload identity federation issues temporary credentials without stored secrets." },
+    { kind: "mcq", q: "What does a canary release do?", options: ["Sends a small share of traffic to the new version first", "Deletes the old version", "Skips tests", "Doubles the cost"], answer: 0, explain: "Canary limits blast radius and lets metrics decide whether to continue." },
+    { kind: "text", q: "What does the 'I' in CI stand for? (one word)", format: "***********", accept: ["integration"], explain: "Continuous integration." },
+  ],
+});

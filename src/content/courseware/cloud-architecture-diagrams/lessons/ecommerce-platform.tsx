@@ -1,0 +1,155 @@
+import { ACCOUNT } from "../kit/builder";
+import { makeLesson } from "../kit/makeLesson";
+
+export const lesson = makeLesson({
+  minutes: 27,
+  difficulty: "Medium",
+  context: "Online retail, marketplaces, ticketing and any storefront with sharp traffic peaks such as sales and product drops.",
+  objectives: [
+    "Design a storefront that survives a flash-sale traffic spike",
+    "Split catalogue, cart and checkout into services with the right data stores",
+    "Decouple order fulfilment with events",
+    "Place a CDN, cache and queue where they cut load most",
+  ],
+  problem: [
+    "A retailer's Black Friday traffic is thirty times a normal day. Browsing dominates, but a failure in checkout loses money directly. Product pages must be fast everywhere, carts must survive a server restart and an order must never be charged twice.",
+    "The architecture caches everything that can be cached, scales stateless services independently, keeps carts in a fast store, writes orders to a transactional database and hands fulfilment to a queue.",
+  ],
+  diagramTitle: "E-commerce platform built for peak traffic",
+  arch: {
+    width: 960,
+    height: 480,
+    groups: [
+      { id: "acct", kind: "region", x: 250, y: 20, w: 690, h: 440, label: ACCOUNT, step: 1 },
+      { id: "svc", kind: "scaling", x: 420, y: 55, w: 140, h: 370, label: "Autoscaled services", step: 3 },
+    ],
+    nodes: [
+      { id: "users", svc: "users", x: 55, y: 235, step: 1, label: "Shoppers" },
+      { id: "cdn", svc: "cdn", x: 170, y: 235, step: 1, label: "CDN and WAF" },
+      { id: "lb", svc: "lb", x: 330, y: 235, step: 2 },
+      { id: "catalog", svc: "container", x: 490, y: 110, step: 3, label: "Catalogue service" },
+      { id: "cart", svc: "container", x: 490, y: 235, step: 3, label: "Cart service" },
+      { id: "checkout", svc: "container", x: 490, y: 365, step: 3, label: "Checkout service" },
+      { id: "products", svc: "nosql", x: 660, y: 110, step: 4, label: "Product catalogue" },
+      { id: "cartcache", svc: "cache", x: 660, y: 235, step: 4, label: "Cart store" },
+      { id: "orders", svc: "db", x: 660, y: 365, step: 5, label: "Orders database" },
+      { id: "queue", svc: "queue", x: 800, y: 365, step: 6, label: "Order events" },
+      { id: "fulfil", svc: "fn", x: 880, y: 235, step: 6, label: "Fulfilment worker" },
+    ],
+    edges: [
+      { from: "users", to: "cdn", step: 1, num: 1 },
+      { from: "cdn", to: "lb", step: 2, num: 2, label: "cache miss" },
+      { from: "lb", to: "catalog", step: 3, via: [[330, 110]] },
+      { from: "lb", to: "cart", step: 3, num: 3 },
+      { from: "lb", to: "checkout", step: 3, via: [[330, 365]] },
+      { from: "catalog", to: "products", step: 4 },
+      { from: "cart", to: "cartcache", step: 4, num: 4 },
+      { from: "checkout", to: "orders", step: 5, num: 5 },
+      { from: "checkout", to: "queue", step: 6, via: [[560, 440], [800, 440]], dashed: true },
+      { from: "queue", to: "fulfil", step: 6, num: 6, via: [[800, 235]] },
+    ],
+    steps: [
+      {
+        title: "Put a CDN and WAF in front",
+        body: "Product images, scripts and even catalogue pages are the same for everyone. A CDN serves them from the edge, so most traffic never reaches your servers, and a WAF blocks bots and attacks.",
+        points: ["Cache static assets for a long time with versioned file names.", "Cache product pages for a short time (seconds to minutes) to flatten spikes.", "Use bot controls: scalper bots dominate product drops."],
+        per: {
+          aws: "AWS: CloudFront with AWS WAF and Bot Control.",
+          azure: "Azure: Front Door Premium with WAF and bot protection.",
+          gcp: "Google Cloud: Cloud CDN behind the global external load balancer, with Cloud Armor.",
+          oci: "OCI: WAF with an edge CDN partner in front of the load balancer.",
+        },
+      },
+      {
+        title: "Add a load balancer",
+        body: "Requests that miss the cache reach a layer-7 load balancer that routes by path to the right service and spreads load across zones.",
+        points: ["Route /catalog, /cart and /checkout to separate services so each scales on its own.", "Pre-warm or reserve capacity ahead of a planned sale; autoscaling reacts in minutes."],
+        per: {
+          aws: "AWS: ALB with path-based rules; ask AWS about load balancer capacity for planned peaks.",
+          azure: "Azure: Application Gateway v2 with autoscaling and path-based routing.",
+          gcp: "Google Cloud: the global external Application Load Balancer with a URL map.",
+          oci: "OCI: Load Balancer with flexible shape bandwidth set high enough for the peak.",
+        },
+      },
+      {
+        title: "Split into small services",
+        body: "Catalogue, cart and checkout have different load and different consequences of failure. Separate services scale and fail independently: a slow recommendation engine must never block payment.",
+        points: ["Browsing is read-heavy and tolerant; checkout is write-heavy and must be correct.", "Give checkout reserved capacity and the strictest timeouts."],
+        per: {
+          aws: "AWS: containers on ECS Fargate or EKS, each service in its own target group.",
+          azure: "Azure: Container Apps or AKS, with each service scaled by KEDA rules.",
+          gcp: "Google Cloud: Cloud Run services or GKE deployments, each autoscaled separately.",
+          oci: "OCI: Container Instances or OKE deployments behind the load balancer.",
+        },
+      },
+      {
+        title: "Choose the right store for each service",
+        body: "Catalogue data is read constantly and changes rarely: a document store plus caching suits it. Carts are temporary and need very fast reads and writes: an in-memory store with expiry suits them.",
+        points: ["Cache hot product lookups in memory; the database serves the long tail.", "Expire abandoned carts automatically, and persist them if you want to recover abandoned sales."],
+        per: {
+          aws: "AWS: DynamoDB for products with DAX or ElastiCache; ElastiCache for Redis for carts.",
+          azure: "Azure: Cosmos DB for products; Azure Cache for Redis for carts.",
+          gcp: "Google Cloud: Firestore or Spanner for products; Memorystore for carts.",
+          oci: "OCI: NoSQL Database or Autonomous JSON for products; OCI Cache for carts.",
+        },
+      },
+      {
+        title: "Write orders to a transactional database",
+        body: "An order must be exact: stock decremented once, payment recorded once. This needs a relational database with transactions and unique constraints.",
+        points: ["Use an idempotency key per checkout attempt so a retried click cannot create two orders.", "Reserve stock inside the transaction to prevent overselling.", "Hand card details straight to the payment provider; never store them yourself."],
+        per: {
+          aws: "AWS: Aurora (PostgreSQL or MySQL) Multi-AZ with a read replica for reports.",
+          azure: "Azure: Azure SQL or PostgreSQL Flexible Server with zone-redundant HA.",
+          gcp: "Google Cloud: Cloud SQL with HA, or Spanner for global scale and strong consistency.",
+          oci: "OCI: Autonomous Transaction Processing or MySQL HeatWave with HA.",
+        },
+      },
+      {
+        title: "Fulfil asynchronously with events",
+        body: "Once the order is saved, an event goes onto a queue. Workers send confirmation emails, notify the warehouse and update analytics. A slow warehouse system never delays the customer's confirmation page.",
+        points: ["Use the outbox pattern: write the order and the event in one transaction, then publish.", "Make each worker idempotent and add a dead-letter queue."],
+        per: {
+          aws: "AWS: SQS (or SNS to several SQS queues) feeding Lambda workers.",
+          azure: "Azure: Service Bus queues and topics feeding Functions.",
+          gcp: "Google Cloud: Pub/Sub feeding Cloud Run or Cloud Functions workers.",
+          oci: "OCI: Queue or Streaming feeding Functions.",
+        },
+      },
+    ],
+  },
+  notes: {
+    aws: ["Aurora Serverless v2 and DynamoDB on-demand help with spiky load, but warm capacity for a planned sale is still safer.", "Use Route 53 weighted or failover records if you run a second Region for the sale."],
+    azure: ["Front Door's global edge also accelerates dynamic requests, not only static content.", "Azure Cache for Redis tiers differ greatly in throughput and clustering; size for peak."],
+    gcp: ["Google's global load balancer uses one anycast IP worldwide, which simplifies multi-region storefronts.", "Spanner removes most sharding work but is priced for serious workloads; Cloud SQL is cheaper for a single region."],
+    oci: ["OCI's flat network pricing and Arm shapes can reduce cost for large, steady storefronts.", "Autonomous databases scale compute automatically, which helps with peak-day sizing."],
+  },
+  decisions: [
+    { title: "Cache aggressively, invalidate precisely", text: "Most of a storefront is cacheable. Version asset names and use short TTLs for pages so you never need to purge everything during a sale." },
+    { title: "Never oversell", text: "Decide whether stock is reserved at add-to-cart or at checkout, and enforce it in a transaction, not in application memory." },
+    { title: "Degrade gracefully", text: "Under pressure, turn off recommendations and reviews before you turn off checkout. Use feature flags for this." },
+    { title: "Load test before the event", text: "Rehearse the peak with realistic traffic, including a failing dependency, and fix what breaks." },
+  ],
+  exercise: {
+    title: "Product drop at noon",
+    task: "A limited sneaker releases at noon and the cart service slows to a crawl. Name three actions, in order of impact.",
+    answer: [
+      "Serve the product page from the CDN with a short TTL and move stock display to a cached counter so reads stop hitting the database.",
+      "Add a virtual waiting room or rate limits at the edge so checkout receives only the traffic it can process, and use bot controls to stop scalper scripts.",
+      "Scale the cart store and checkout service ahead of time and keep recommendations off for the event.",
+      "Afterwards, review stock reservation logic and add load tests that simulate a drop.",
+    ],
+  },
+  takeaways: [
+    "A CDN and cache absorb most browsing traffic before it reaches the origin.",
+    "Split catalogue, cart and checkout so each scales and fails alone.",
+    "Match the store to the access pattern: documents for catalogue, in-memory for carts, relational for orders.",
+    "Use idempotency keys and transactions so an order is created and charged exactly once.",
+    "Fulfil through events so slow back-office systems never slow the customer.",
+  ],
+  quiz: [
+    { kind: "mcq", q: "Which data store suits temporary shopping carts best?", options: ["An in-memory store with expiry", "A data warehouse", "A tape archive", "A DNS zone"], answer: 0, explain: "Carts need very fast reads and writes and expire naturally." },
+    { kind: "mcq", q: "What prevents a double-click from creating two orders?", options: ["An idempotency key", "A bigger server", "A CDN", "A longer timeout"], answer: 0, explain: "The key lets the server recognise and ignore a repeated attempt." },
+    { kind: "mcq", q: "During a spike, which feature should you disable first?", options: ["Recommendations", "Checkout", "Payment", "Order storage"], answer: 0, explain: "Degrade non-essential features so revenue-critical paths keep working." },
+    { kind: "mcq", q: "Why send fulfilment through a queue?", options: ["Slow back-office systems do not delay the customer", "Queues are free", "It removes the need for a database", "It encrypts orders"], answer: 0, explain: "Asynchronous handling decouples customer-facing latency from back-office speed." },
+  ],
+});

@@ -1,0 +1,170 @@
+import { ACCOUNT } from "../kit/builder";
+import { makeLesson } from "../kit/makeLesson";
+
+export const lesson = makeLesson({
+  minutes: 25,
+  difficulty: "Medium",
+  context: "Mobile and web back ends, internal tools, SaaS APIs, webhooks and any workload with spiky or unpredictable traffic.",
+  objectives: [
+    "Explain why a serverless API suits spiky traffic and where it does not",
+    "Place an API gateway, authentication, functions, a NoSQL table and an async queue in the right order",
+    "Name the equivalent services on AWS, Azure, Google Cloud and OCI",
+    "Decide what to do synchronously and what to push to a queue",
+  ],
+  problem: [
+    "A start-up ships a mobile app. On a quiet night the API handles ten requests a minute; after a marketing email it handles ten thousand a second. Running servers for the peak wastes money all week, and running them for the average falls over on launch day.",
+    "A serverless API lets the platform add and remove capacity per request, and you pay only while code runs. The cost is that you design for statelessness, cold starts and eventual consistency from the start.",
+  ],
+  diagramTitle: "Serverless REST API with authentication and background work",
+  arch: {
+    width: 960,
+    height: 440,
+    groups: [{ id: "acct", kind: "region", x: 150, y: 20, w: 790, h: 400, label: ACCOUNT, step: 1 }],
+    nodes: [
+      { id: "users", svc: "mobile", x: 60, y: 230, step: 1, label: "Mobile and web apps" },
+      { id: "apigw", svc: "apigw", x: 260, y: 230, step: 2 },
+      { id: "auth", svc: "auth", x: 260, y: 90, step: 3 },
+      { id: "fn", svc: "fn", x: 430, y: 230, step: 4, label: "API functions" },
+      { id: "db", svc: "nosql", x: 610, y: 130, step: 5 },
+      { id: "queue", svc: "queue", x: 610, y: 330, step: 6 },
+      { id: "worker", svc: "fn", x: 760, y: 330, step: 6, label: "Worker function" },
+      { id: "notify", svc: "notify", x: 890, y: 330, step: 6 },
+      { id: "logs", svc: "logs", x: 890, y: 130, step: 7 },
+    ],
+    edges: [
+      { from: "users", to: "apigw", step: 2, num: 1, label: "HTTPS" },
+      { from: "apigw", to: "auth", step: 3, num: 2, both: true },
+      { from: "apigw", to: "fn", step: 4, num: 3 },
+      { from: "fn", to: "db", step: 5, num: 4, elbow: "hv" },
+      { from: "fn", to: "queue", step: 6, num: 5, elbow: "vh" },
+      { from: "queue", to: "worker", step: 6, num: 6 },
+      { from: "worker", to: "notify", step: 6, num: 7 },
+      { from: "fn", to: "logs", step: 7, dashed: true, via: [[430, 55], [890, 55]], label: "logs and metrics" },
+    ],
+    steps: [
+      {
+        title: "Draw the account boundary and the clients",
+        body: "Start with who calls you and where your resources live. The cloud account is the first security and billing boundary.",
+        points: ["Use one account per environment (dev, test, prod) so a mistake in test cannot touch production data.", "Choose the Region by user latency, data-residency rules and which services you need."],
+        per: {
+          aws: "AWS: one account per environment under AWS Organizations; the account is the strongest isolation boundary.",
+          azure: "Azure: one subscription per environment inside a management group; resource groups hold a workload's resources.",
+          gcp: "Google Cloud: one project per environment; the project is the unit of billing, quotas and IAM.",
+          oci: "OCI: one compartment per environment; IAM policies are written against compartments.",
+        },
+      },
+      {
+        title: "Put an API gateway in front",
+        body: "Clients never call functions directly. The gateway is the single entry point for TLS, throttling, request validation and logging.",
+        points: ["Throttle per client so one noisy caller cannot exhaust the back end.", "Version the API in the path (/v1/) from day one."],
+        per: {
+          aws: "AWS: API Gateway HTTP APIs are cheaper and faster; REST APIs add usage plans, API keys and request validation.",
+          azure: "Azure: API Management's Consumption tier is serverless and billed per call; policies handle rate limits and transformations.",
+          gcp: "Google Cloud: API Gateway fronts Cloud Run and Cloud Functions; use Apigee for developer portals and monetisation.",
+          oci: "OCI: API Gateway routes to Functions or HTTP back ends with rate limiting and authorisation functions.",
+        },
+      },
+      {
+        title: "Authenticate at the edge",
+        body: "A sign-in service issues signed tokens. The gateway checks the token so unauthenticated traffic never wakes a function.",
+        points: ["Authenticate at the gateway; authorise again inside the function (may this user touch this record?).", "Keep tokens short-lived and refresh them with a refresh token."],
+        per: {
+          aws: "AWS: Cognito user pools issue JWTs; API Gateway validates them natively.",
+          azure: "Azure: Entra External ID handles customer sign-in; API Management's validate-jwt policy checks the token.",
+          gcp: "Google Cloud: Identity Platform (Firebase Auth) issues tokens; API Gateway validates JWTs from an OpenAPI security definition.",
+          oci: "OCI: IAM identity domains issue OAuth tokens; API Gateway authorisation validates the JWT.",
+        },
+      },
+      {
+        title: "Run the business logic in functions",
+        body: "Each request invokes a function. Instances appear and disappear with load, so functions must be stateless.",
+        points: ["Keep state in the database, not in memory: any instance may serve any request.", "Initialise SDK clients outside the handler and keep packages small to shorten cold starts.", "Cap concurrency to protect the database from a traffic spike."],
+        per: {
+          aws: "AWS: Lambda bills per millisecond; set reserved concurrency to protect downstream systems.",
+          azure: "Azure: Functions on Flex Consumption scale to zero; the Premium plan keeps instances warm to avoid cold starts.",
+          gcp: "Google Cloud: Cloud Functions 2nd gen runs on Cloud Run; set max instances to cap spend and protect the database.",
+          oci: "OCI: Functions runs containers built with the Fn Project; use provisioned concurrency for latency-sensitive paths.",
+        },
+      },
+      {
+        title: "Store data in a managed NoSQL table",
+        body: "A key-value or document store scales horizontally without capacity planning. You model the table around your queries.",
+        points: ["Model around the questions you ask: there are no joins to rescue a bad key.", "Pick a partition key with many distinct values to avoid hot partitions.", "Turn on point-in-time recovery and encrypt with a customer-managed key if policy requires it."],
+        per: {
+          aws: "AWS: DynamoDB on-demand mode suits spiky traffic; design the partition and sort keys around access patterns.",
+          azure: "Azure: Cosmos DB serverless or autoscale throughput; choose a high-cardinality partition key.",
+          gcp: "Google Cloud: Firestore scales automatically; avoid sequential document IDs that create hot spots.",
+          oci: "OCI: NoSQL Database Cloud Service offers on-demand capacity with a primary key you design for access.",
+        },
+      },
+      {
+        title: "Move slow work to a queue",
+        body: "Answer the caller quickly and do heavy work later: send emails, build reports, resize images. A queue decouples the two and absorbs bursts.",
+        points: ["Messages are delivered at least once, so handlers must be idempotent.", "Always configure a dead-letter queue for messages that keep failing.", "Alarm on the age of the oldest message, not just queue depth."],
+        per: {
+          aws: "AWS: SQS with a visibility timeout longer than the function's runtime and a dead-letter queue.",
+          azure: "Azure: Service Bus queues add sessions, duplicate detection and dead-lettering; Storage queues are simpler and cheaper.",
+          gcp: "Google Cloud: Pub/Sub subscriptions with a dead-letter topic; Cloud Tasks suits per-task rate control.",
+          oci: "OCI: Queue service gives at-least-once delivery, visibility timeouts and a dead-letter queue.",
+        },
+      },
+      {
+        title: "Make it observable",
+        body: "You cannot SSH into a function, so logs, metrics and traces are your only window. Set them up before the first incident.",
+        points: ["Generate a request ID at the gateway and pass it through every hop.", "Alarm on error rate, throttles and queue age rather than CPU."],
+        per: {
+          aws: "AWS: CloudWatch Logs and metrics are automatic for Lambda; add X-Ray for distributed traces.",
+          azure: "Azure: Application Insights, backed by Log Analytics, collects traces, failures and dependency calls.",
+          gcp: "Google Cloud: Cloud Logging and Cloud Trace are on by default for Cloud Functions and Cloud Run.",
+          oci: "OCI: Logging and Monitoring capture function logs and metrics; alarms notify through the Notifications service.",
+        },
+      },
+      {
+        title: "Trace a request end to end",
+        body: "Follow the numbers: the client calls the API, the gateway checks the token, a function reads or writes data, slow work is queued, a worker handles it and the user is notified.",
+        points: ["When something breaks, walk the same path in order and check each hop's logs.", "Cost to watch: gateway requests, function duration and database read and write units."],
+        per: {
+          aws: "AWS: check API Gateway access logs, then Lambda logs and throttles, then DynamoDB throttled requests.",
+          azure: "Azure: check the API Management trace, then Function invocation logs, then Cosmos DB 429 (throttled) responses.",
+          gcp: "Google Cloud: check API Gateway logs, then Cloud Functions logs and instance count, then Firestore error rate.",
+          oci: "OCI: check API Gateway logs, then function invocation logs, then database and queue metrics.",
+        },
+      },
+    ],
+  },
+  notes: {
+    aws: ["Lambda's 15-minute limit and 6 MB synchronous payload limit shape the design: move long jobs to Step Functions or containers.", "API Gateway has a 29-second default integration timeout, so anything slower must be asynchronous."],
+    azure: ["Functions plans differ sharply: Consumption scales to zero but cold-starts; Premium and Dedicated avoid that at a fixed cost.", "Durable Functions gives you orchestration and fan-out without extra infrastructure."],
+    gcp: ["Cloud Run is often a better home than Cloud Functions once you want a custom container, concurrency per instance or longer requests.", "Cloud Tasks and Pub/Sub overlap: Tasks gives per-task scheduling and rate control, Pub/Sub gives fan-out."],
+    oci: ["OCI Functions bills per invocation and GB-second and is built on open-source Fn, so functions are portable containers.", "API Gateway deployments reference function OCIDs, and the function's dynamic group needs IAM policies to reach other services."],
+  },
+  decisions: [
+    { title: "Synchronous or queued", text: "If the user needs the answer to continue, do it in the request. If they only need to know it was accepted, queue it and return 202." },
+    { title: "Functions versus containers", text: "Functions suit short, bursty work. Steady high traffic, long requests or special runtimes are cheaper and simpler on containers." },
+    { title: "Idempotency", text: "Retries are normal. Use an idempotency key so a retried payment or email is not applied twice." },
+    { title: "Throttle the database, not just the API", text: "Unbounded function concurrency can overwhelm a database that scaled fine for servers. Set concurrency limits deliberately." },
+  ],
+  exercise: {
+    title: "Fix the timeout",
+    task: "Users generate a PDF report. The function takes 50 seconds and the gateway times out at 29. Redesign it using only the blocks in the diagram.",
+    answer: [
+      "The API function validates the request, writes a job record to the table and puts a message on the queue, then returns 202 Accepted with a job ID.",
+      "The worker function reads the queue, builds the PDF, stores it in object storage and updates the job record.",
+      "The client polls GET /jobs/{id} or receives a notification when the report is ready.",
+      "Add a dead-letter queue and an alarm so a failing job is noticed, and make the worker idempotent so a retry does not produce two reports.",
+    ],
+  },
+  takeaways: [
+    "Gateway, authentication, functions, managed NoSQL, queue and logs are the standard serverless API stack on every cloud.",
+    "Authenticate at the gateway, authorise in the function and keep functions stateless.",
+    "Push slow work to a queue and make handlers idempotent because delivery is at least once.",
+    "Cap concurrency so a traffic spike does not overwhelm the database.",
+    "Observability must exist before the first incident: request IDs, error-rate alarms and queue-age alarms.",
+  ],
+  quiz: [
+    { kind: "mcq", q: "Why is a queue placed between the API function and the worker?", options: ["To answer the caller quickly and absorb bursts of slow work", "To encrypt the data", "To replace the database", "To authenticate users"], answer: 0, explain: "A queue decouples fast request handling from slow background work and smooths traffic spikes." },
+    { kind: "mcq", q: "A message may be delivered twice. What property must the worker have?", options: ["Idempotency", "Statefulness", "Public IP", "A larger timeout"], answer: 0, explain: "At-least-once delivery means handlers must produce the same result if they see a message again." },
+    { kind: "mcq", q: "Where should the token be validated first?", options: ["At the API gateway", "Inside the database", "In the browser only", "At the queue"], answer: 0, explain: "Validating at the gateway keeps unauthenticated traffic from invoking functions." },
+    { kind: "text", q: "What do you configure so messages that keep failing are set aside for inspection? (abbreviation, three letters)", format: "***", accept: ["dlq"], explain: "A dead-letter queue (DLQ) holds messages that exceed the retry limit." },
+  ],
+});

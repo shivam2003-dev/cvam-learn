@@ -1,0 +1,176 @@
+import { NET } from "../kit/builder";
+import { makeLesson } from "../kit/makeLesson";
+
+export const lesson = makeLesson({
+  minutes: 28,
+  difficulty: "Hard",
+  context: "Any internet-facing application, and the baseline a security review will ask for: edge protection, private tiers, encrypted data and detection.",
+  objectives: [
+    "Layer defences from the internet edge to the data store",
+    "Place DDoS protection, a web application firewall, private tiers, keys and secrets",
+    "Explain what each layer stops and what it does not",
+    "Add audit logging and threat detection",
+  ],
+  problem: [
+    "A public web application will be scanned within minutes of going live. Attackers try floods, injection, stolen credentials and misconfigured storage. No single control stops all of them, so one mistake must never be enough to lose the data.",
+    "Defence in depth puts independent controls at every layer: absorb floods at the edge, filter malicious requests, keep back ends unreachable, encrypt data with keys you control and watch everything.",
+  ],
+  diagramTitle: "Defence in depth for an internet-facing application",
+  arch: {
+    width: 960,
+    height: 540,
+    groups: [
+      { id: "net", kind: "network", x: 410, y: 40, w: 520, h: 300, label: NET, step: 1 },
+      { id: "pub", kind: "public", x: 430, y: 80, w: 150, h: 240, label: "Public subnet", step: 1 },
+      { id: "app", kind: "private", x: 600, y: 80, w: 150, h: 240, label: "Private app subnet", step: 1 },
+      { id: "data", kind: "private", x: 770, y: 80, w: 140, h: 240, label: "Private data subnet", step: 1 },
+    ],
+    nodes: [
+      { id: "users", svc: "users", x: 55, y: 200, step: 2, label: "Users and attackers" },
+      { id: "ddos", svc: "ddos", x: 190, y: 200, step: 2, label: { aws: "Shield", azure: "DDoS Protection", gcp: "Cloud Armor (DDoS)", oci: "DDoS protection" } },
+      { id: "waf", svc: "waf", x: 320, y: 200, step: 3, label: { aws: "AWS WAF", azure: "Front Door WAF", gcp: "Cloud Armor (WAF rules)", oci: "OCI WAF" } },
+      { id: "lb", svc: "lb", x: 505, y: 200, step: 4 },
+      { id: "vm", svc: "vm", x: 675, y: 200, step: 5, label: "App servers", sub: "no public IP" },
+      { id: "db", svc: "db", x: 840, y: 200, step: 6, label: "Database", sub: "encrypted" },
+      { id: "secrets", svc: "secrets", x: 675, y: 430, step: 7 },
+      { id: "kms", svc: "kms", x: 840, y: 430, step: 7, label: "Customer-managed key" },
+      { id: "audit", svc: "audit", x: 190, y: 430, step: 8 },
+      { id: "siem", svc: "siem", x: 360, y: 430, step: 8 },
+    ],
+    edges: [
+      { from: "users", to: "ddos", step: 2, num: 1 },
+      { from: "ddos", to: "waf", step: 3, num: 2 },
+      { from: "waf", to: "lb", step: 4, num: 3 },
+      { from: "lb", to: "vm", step: 5, num: 4 },
+      { from: "vm", to: "db", step: 6, num: 5 },
+      { from: "secrets", to: "vm", step: 7, dashed: true, label: "fetch at runtime" },
+      { from: "kms", to: "db", step: 7, dashed: true, label: "encrypts" },
+      { from: "audit", to: "siem", step: 8, dashed: true, label: "analyse" },
+    ],
+    steps: [
+      {
+        title: "Segment the network",
+        body: "Three subnets, three trust levels. Only the public subnet is reachable from the internet; the app and data subnets have no inbound route from it.",
+        points: ["Deny by default and open only the exact ports each tier needs.", "Never put databases or admin interfaces in a public subnet."],
+        per: {
+          aws: "AWS: security groups (stateful) per tier plus network ACLs (stateless) as a coarse backstop.",
+          azure: "Azure: network security groups on each subnet, with application security groups to describe roles.",
+          gcp: "Google Cloud: VPC firewall rules with service-account targets; hierarchical policies set organisation-wide guardrails.",
+          oci: "OCI: network security groups per tier, with security lists as a subnet-level baseline.",
+        },
+      },
+      {
+        title: "Absorb floods at the edge",
+        body: "Volumetric attacks aim to exhaust bandwidth or connections. Mitigation has to happen at the provider's edge, long before traffic reaches your servers.",
+        points: ["Always-on protection beats activating it after an attack starts.", "Put a CDN in front of static content so most requests never reach your origin."],
+        per: {
+          aws: "AWS: Shield Standard is automatic; Shield Advanced adds response support and cost protection, with CloudFront and Route 53 in front.",
+          azure: "Azure: DDoS Network Protection (or IP Protection) adapts to your traffic profile; Front Door absorbs at the edge.",
+          gcp: "Google Cloud: Cloud Armor with Adaptive Protection, behind Google's global load balancer, absorbs at Google's edge.",
+          oci: "OCI: DDoS protection is built in for public IPs and load balancers, with WAF in front.",
+        },
+      },
+      {
+        title: "Filter malicious requests with a WAF",
+        body: "A web application firewall inspects HTTP requests for SQL injection, cross-site scripting, bad bots and known exploit patterns, and can rate-limit abusive clients.",
+        points: ["Start in count or log mode, review false positives, then block.", "A WAF reduces risk but does not fix vulnerable code: keep patching and testing the app."],
+        per: {
+          aws: "AWS: AWS WAF web ACLs with managed rule groups, attached to CloudFront, ALB or API Gateway.",
+          azure: "Azure: WAF policies on Front Door or Application Gateway using OWASP core rule sets.",
+          gcp: "Google Cloud: Cloud Armor security policies with preconfigured OWASP rules and rate limiting.",
+          oci: "OCI: Web Application Firewall policies with protection rules, access control and bot management.",
+        },
+      },
+      {
+        title: "Terminate TLS on a load balancer",
+        body: "The load balancer is the only thing in the public subnet. It terminates TLS with modern ciphers, forwards clean traffic inward and hides the servers' addresses.",
+        points: ["Enforce HTTPS, redirect HTTP and set HSTS.", "Re-encrypt to the back end if policy requires end-to-end TLS.", "Use certificates that rotate automatically."],
+        per: {
+          aws: "AWS: ALB with ACM certificates; security policy TLS 1.2 or newer.",
+          azure: "Azure: Application Gateway or Front Door with Key Vault certificates.",
+          gcp: "Google Cloud: Google-managed certificates on the external Application Load Balancer.",
+          oci: "OCI: Load Balancer with certificates from the Certificates service.",
+        },
+      },
+      {
+        title: "Keep the application servers private",
+        body: "Servers have no public IP and accept connections only from the load balancer. Administration goes through an audited, identity-based path instead of open SSH.",
+        points: ["Allow the app port only from the load balancer's group.", "Replace SSH keys with session-based access that is logged.", "Patch through immutable images: rebuild and replace rather than log in and fix."],
+        per: {
+          aws: "AWS: Systems Manager Session Manager gives shell access with no inbound ports, logged to CloudTrail.",
+          azure: "Azure: Azure Bastion, or just-in-time VM access in Defender for Cloud.",
+          gcp: "Google Cloud: Identity-Aware Proxy TCP forwarding and OS Login, logged in Cloud Audit Logs.",
+          oci: "OCI: the Bastion service creates time-limited sessions to private resources.",
+        },
+      },
+      {
+        title: "Protect the data tier",
+        body: "The database is the prize, so it gets the strictest rules: no internet route, connections only from the app tier, encryption in transit and at rest, and backups.",
+        points: ["Use private endpoints; disable public access on every data service.", "Grant the app a least-privilege database role, not an admin account.", "Test restores; an untested backup is a hope, not a control."],
+        per: {
+          aws: "AWS: RDS in private subnets with a security group that admits only the app tier; storage encryption with KMS.",
+          azure: "Azure: Private Endpoint to Azure SQL or PostgreSQL, public network access disabled, TDE with customer-managed keys.",
+          gcp: "Google Cloud: Cloud SQL private IP via private services access; CMEK for encryption.",
+          oci: "OCI: DB system in a private subnet, admitting only the app NSG; encryption with Vault keys.",
+        },
+      },
+      {
+        title: "Manage keys and secrets",
+        body: "Keys encrypt data and secrets hold passwords and tokens. Both live in dedicated services with access control and audit, never in code or images.",
+        points: ["Rotate secrets automatically and keep them short-lived where possible.", "Use customer-managed keys when you must control and revoke access to your data.", "Separate who can use a key from who can administer it."],
+        per: {
+          aws: "AWS: KMS keys with key policies; Secrets Manager rotates database credentials automatically.",
+          azure: "Azure: Key Vault (or Managed HSM) for keys and secrets, accessed through managed identities.",
+          gcp: "Google Cloud: Cloud KMS (with HSM or External Key Manager options) and Secret Manager with versions.",
+          oci: "OCI: Vault with software or HSM-protected keys and secrets.",
+        },
+      },
+      {
+        title: "Log everything and detect threats",
+        body: "Audit logs record who did what, and threat detection analyses them for suspicious behaviour. Prevention fails eventually; detection tells you when.",
+        points: ["Send logs to a separate, locked-down account so an intruder cannot erase them.", "Define who is paged, and rehearse the response before you need it."],
+        per: {
+          aws: "AWS: CloudTrail and VPC Flow Logs feed GuardDuty and Security Hub.",
+          azure: "Azure: Activity log and NSG flow logs feed Microsoft Defender for Cloud and Sentinel.",
+          gcp: "Google Cloud: Cloud Audit Logs and VPC Flow Logs feed Security Command Center.",
+          oci: "OCI: the Audit service and VCN flow logs feed Cloud Guard.",
+        },
+      },
+    ],
+  },
+  notes: {
+    aws: ["Security groups are stateful and attach to ENIs; network ACLs are stateless and attach to subnets. Most designs lean on security groups and keep NACLs simple.", "Organisation-level service control policies (SCPs) cap what any account, even an administrator, can do."],
+    azure: ["Azure Policy and management-group assignments enforce guardrails, such as denying public IPs on databases, across every subscription.", "Private Endpoints put a service on a private IP inside your VNet; pair them with private DNS zones or names will not resolve."],
+    gcp: ["VPC Service Controls draw a perimeter around Google-managed services such as BigQuery and Cloud Storage to stop data exfiltration, even with stolen credentials.", "Organisation Policy constraints, such as disabling external IPs, apply across all projects."],
+    oci: ["Security Zones enforce policies on a compartment, for example blocking public buckets, so a misconfiguration is rejected at creation.", "Cloud Guard watches for risky configuration and activity and can auto-remediate."],
+  },
+  decisions: [
+    { title: "Layers must be independent", text: "A WAF and a firewall that share one rule mistake are not two layers. Choose controls that fail differently." },
+    { title: "Prevent, detect, respond", text: "Spend on all three. Teams that only prevent have no answer on the day something gets through." },
+    { title: "Identity is the new perimeter", text: "Network controls matter less if a stolen token reaches the API. Use short-lived credentials, MFA and least privilege everywhere." },
+    { title: "Secure defaults through policy", text: "Do not rely on people remembering. Use guardrails that make the insecure option impossible, such as 'no public databases'." },
+  ],
+  exercise: {
+    title: "Which layer stopped it?",
+    task: "An attacker sends 2 million requests per second, then SQL injection strings, then uses a leaked developer token. For each, name the layer that should stop or reveal it.",
+    answer: [
+      "The flood: DDoS protection and the CDN at the edge absorb it before it reaches the load balancer.",
+      "SQL injection: the WAF blocks known patterns; parameterised queries in the app are the real fix, and the database role limits the damage.",
+      "The leaked token: least-privilege roles and short token lifetimes limit what it can do; audit logs and threat detection (GuardDuty, Sentinel, Security Command Center or Cloud Guard) reveal unusual use so it can be revoked.",
+      "No single layer covered all three, which is the point of defence in depth.",
+    ],
+  },
+  takeaways: [
+    "Layer independent controls: edge, WAF, load balancer, private app tier, private encrypted data tier.",
+    "DDoS mitigation belongs at the provider's edge; a WAF filters malicious requests but does not fix vulnerable code.",
+    "Servers and databases have no public addresses; admin access goes through audited, identity-based sessions.",
+    "Keys and secrets live in dedicated services with rotation and audit.",
+    "Prevention fails eventually: log centrally and detect threats.",
+  ],
+  quiz: [
+    { kind: "mcq", q: "Which layer should absorb a volumetric DDoS attack?", options: ["The provider's edge DDoS protection", "The database", "The application code", "The backup job"], answer: 0, explain: "Volumetric floods must be absorbed before they reach your network." },
+    { kind: "mcq", q: "A WAF blocks SQL injection strings. What is still required?", options: ["Parameterised queries in the application", "Nothing, the WAF is enough", "A public database", "Disabling logs"], answer: 0, explain: "A WAF reduces risk but cannot fix vulnerable code." },
+    { kind: "mcq", q: "Where should database passwords live?", options: ["A secrets service with rotation", "The source repository", "A container image", "A wiki page"], answer: 0, explain: "Secrets services control access, rotate credentials and audit use." },
+    { kind: "mcq", q: "Why send logs to a separate, locked-down account?", options: ["An intruder in the workload account cannot erase them", "It makes queries faster", "It removes the need for alerts", "It encrypts the database"], answer: 0, explain: "Isolated log storage preserves evidence if the workload account is compromised." },
+  ],
+});

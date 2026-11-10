@@ -1,0 +1,151 @@
+import { makeLesson } from "../kit/makeLesson";
+
+export const lesson = makeLesson({
+  minutes: 28,
+  difficulty: "Hard",
+  context: "Payment gateways, wallets, lending apps and any system that touches card numbers. This is a design pattern for reducing PCI DSS scope, not compliance advice: confirm requirements with a qualified assessor.",
+  objectives: [
+    "Explain scope reduction: isolating card data in a small, locked-down environment",
+    "Place a firewall boundary, tokenisation service, token vault and HSM-backed keys",
+    "Describe how the rest of the application works with tokens instead of card numbers",
+    "Design immutable audit trails and detection for a regulated workload",
+  ],
+  problem: [
+    "A payments start-up must accept cards. Every system that stores, processes or transmits card numbers falls under the PCI DSS audit, with hundreds of requirements. If card numbers flow through the whole platform, the whole platform is in scope: audits become huge and every engineer is a risk.",
+    "The fix is architectural. Isolate card handling in one small network segment, convert card numbers to tokens immediately and let the rest of the application use only tokens.",
+  ],
+  diagramTitle: "Isolated cardholder data environment with tokenisation",
+  arch: {
+    width: 960,
+    height: 500,
+    groups: [
+      { id: "app", kind: "network", x: 330, y: 60, w: 180, h: 270, label: "Application network", sub: "no card data", step: 2 },
+      { id: "cde", kind: "private", x: 600, y: 40, w: 340, h: 410, label: "Cardholder data environment", sub: "isolated, minimal, audited", step: 4 },
+    ],
+    nodes: [
+      { id: "users", svc: "users", x: 50, y: 195, step: 1, label: "Customers" },
+      { id: "waf", svc: "waf", x: 160, y: 195, step: 1 },
+      { id: "api", svc: "apigw", x: 265, y: 195, step: 1, label: "Payment API" },
+      { id: "order", svc: "container", x: 420, y: 195, step: 2, label: "Order service", sub: "tokens only" },
+      { id: "fw", svc: "firewall", x: 555, y: 195, step: 3, label: "Segmentation firewall" },
+      { id: "token", svc: "container", x: 690, y: 150, step: 4, label: "Tokenisation service" },
+      { id: "vault", svc: "db", x: 690, y: 330, step: 5, label: "Token vault", sub: "encrypted card data" },
+      { id: "kms", svc: "kms", x: 850, y: 150, step: 5, label: "HSM-backed keys" },
+      { id: "audit", svc: "audit", x: 850, y: 330, step: 6, label: "Immutable audit log" },
+      { id: "siem", svc: "siem", x: 420, y: 410, step: 6 },
+    ],
+    edges: [
+      { from: "users", to: "waf", step: 1, num: 1 },
+      { from: "waf", to: "api", step: 1 },
+      { from: "api", to: "order", step: 2, num: 2 },
+      { from: "order", to: "fw", step: 3, num: 3, label: "card data only" },
+      { from: "fw", to: "token", step: 4, num: 4, via: [[690, 195]] },
+      { from: "token", to: "vault", step: 5, num: 5 },
+      { from: "kms", to: "token", step: 5, dashed: true, label: "wrap / unwrap" },
+      { from: "audit", to: "siem", step: 6, dashed: true, via: [[850, 410]] },
+    ],
+    steps: [
+      {
+        title: "Expose a hardened payment API",
+        body: "Customers reach a public API behind a WAF. Better still, collect card numbers in a payment provider's hosted fields or iframe so they never touch your servers at all.",
+        points: ["Hosted fields or redirects can cut PCI scope dramatically; consider them first.", "TLS 1.2 or newer everywhere, with strict transport security."],
+        per: {
+          aws: "AWS: CloudFront with WAF and API Gateway, TLS certificates from ACM.",
+          azure: "Azure: Front Door WAF and API Management.",
+          gcp: "Google Cloud: global external load balancer with Cloud Armor and API Gateway.",
+          oci: "OCI: WAF in front of API Gateway.",
+        },
+      },
+      {
+        title: "Keep the application network card-free",
+        body: "Order, account and reporting services run in their own network. They accept tokens, never card numbers, so they are out of the cardholder scope if segmentation is proven.",
+        points: ["Log and test that card numbers cannot appear: scan logs and databases for card patterns.", "Use separate accounts, subscriptions or projects for the card environment to reinforce the boundary."],
+        per: {
+          aws: "AWS: a separate VPC in a separate account, joined to the app VPC only through controlled endpoints.",
+          azure: "Azure: a separate VNet in a separate subscription with no peering except through the firewall.",
+          gcp: "Google Cloud: a separate VPC in a separate project, with VPC Service Controls around data services.",
+          oci: "OCI: a separate VCN in its own compartment with its own policies.",
+        },
+      },
+      {
+        title: "Enforce the boundary with a firewall",
+        body: "The only path from the application network to the card environment is through a firewall that allows exactly one service on one port, and logs every connection.",
+        points: ["Default deny in both directions; the card environment cannot initiate connections out except to the payment provider.", "Review firewall rules on a schedule and alert on any change."],
+        per: {
+          aws: "AWS: Network Firewall plus security groups that reference only the tokenisation service; use PrivateLink for the service endpoint.",
+          azure: "Azure: Azure Firewall and NSGs, with Private Link for the service.",
+          gcp: "Google Cloud: Cloud NGFW and firewall policies, with Private Service Connect for the endpoint.",
+          oci: "OCI: Network Firewall and NSGs with a service gateway or private endpoint.",
+        },
+      },
+      {
+        title: "Tokenise at the boundary",
+        body: "The tokenisation service is the one place that handles real card numbers. It swaps each number for a random token that is useless to an attacker and returns only the token.",
+        points: ["Keep this service tiny, with minimal dependencies and a short list of people who can deploy to it.", "No debugging tools, no shell access, no shared logging of request bodies."],
+        per: {
+          aws: "AWS: a small container or Lambda in the isolated VPC; no internet gateway, only endpoints it needs.",
+          azure: "Azure: a minimal container app or App Service Environment in the isolated VNet.",
+          gcp: "Google Cloud: a minimal Cloud Run or GKE service with no external IP.",
+          oci: "OCI: a minimal container instance in the private subnet.",
+        },
+      },
+      {
+        title: "Vault the data and guard the keys",
+        body: "Card data, if you must keep it, sits in an encrypted vault. The keys that protect it live in hardware security modules, so even a database administrator cannot read card numbers.",
+        points: ["Use envelope encryption: the HSM-held key wraps data keys that encrypt each record.", "Rotate keys, split duties and require dual control for key administration."],
+        per: {
+          aws: "AWS: KMS keys backed by CloudHSM or a custom key store; RDS or DynamoDB encrypted with them.",
+          azure: "Azure: Managed HSM or Key Vault Premium (HSM-backed) with customer-managed keys.",
+          gcp: "Google Cloud: Cloud KMS with Cloud HSM protection level, or Cloud External Key Manager.",
+          oci: "OCI: Vault with a virtual private vault (HSM-backed) and customer-managed keys.",
+        },
+      },
+      {
+        title: "Audit and detect",
+        body: "Regulators expect proof. Every access to card data, every administrator action and every configuration change is logged somewhere tamper-evident, and analysed for anomalies.",
+        points: ["Ship logs to a separate write-once store; retain them for the period your regulations require.", "Alert on: new firewall rules, key policy changes, bulk vault reads and logins outside working patterns."],
+        per: {
+          aws: "AWS: CloudTrail with log file validation to an S3 bucket with Object Lock; GuardDuty and Security Hub for detection.",
+          azure: "Azure: Activity log and Key Vault diagnostics to immutable Storage, analysed in Microsoft Sentinel.",
+          gcp: "Google Cloud: Cloud Audit Logs (including Data Access) to a locked log bucket, analysed in Security Command Center.",
+          oci: "OCI: Audit and Logging to Object Storage with retention rules, analysed with Cloud Guard.",
+        },
+      },
+    ],
+  },
+  notes: {
+    aws: ["AWS publishes compliance reports for its services in AWS Artifact; your assessor will want them. Responsibility is shared: AWS secures the cloud, you secure what you build in it.", "Nitro Enclaves can protect sensitive processing even from your own administrators."],
+    azure: ["Azure confidential computing (confidential VMs and containers) protects data in use, which helps for tokenisation workloads.", "Microsoft's compliance documentation and the Service Trust Portal list the attestations you can inherit."],
+    gcp: ["Confidential VMs and Confidential GKE nodes encrypt memory; Assured Workloads applies compliance-related controls to a folder.", "Cloud Audit Logs Data Access logs are off by default for most services: enable them for the card environment."],
+    oci: ["OCI Security Zones and Cloud Guard recipes can enforce controls such as encrypted volumes and no public buckets in the card compartment.", "Oracle's compliance documentation lists the attestations available for inheritance."],
+  },
+  decisions: [
+    { title: "Reduce scope first", text: "The cheapest control is not holding card data. Hosted payment fields, redirects and network tokens beat any amount of hardening." },
+    { title: "Tokens must be meaningless", text: "A token that can be reversed without the vault, or that preserves the card's digits, is just encrypted data and keeps systems in scope." },
+    { title: "Small and boring", text: "The card environment should have few services, few humans and no experiments. Every added component adds audit evidence to produce." },
+    { title: "Evidence is a feature", text: "Design for the audit: diagrams, access reviews and logs should be producible automatically, not assembled the week before." },
+  ],
+  exercise: {
+    title: "A card number in the logs",
+    task: "A developer finds a full card number in an application log in the order service. What does this imply and what do you do?",
+    answer: [
+      "The order service is handling card data, so it and the logging system may be in scope; the segmentation assumption has failed.",
+      "Contain: restrict access to those logs, stop further logging of request bodies and purge the data under your incident process.",
+      "Find how the number reached the service (a form field, a stack trace, a proxy) and fix it so only tokens cross the boundary.",
+      "Add automated detection: scan logs and datastores for card-number patterns and alert, and review with your assessor whether notification is required.",
+    ],
+  },
+  takeaways: [
+    "Isolate card handling in a small, separate, firewalled environment so the rest of the platform is out of scope.",
+    "Convert card numbers to tokens at the boundary; downstream systems see only tokens.",
+    "Protect stored data with HSM-backed keys and split duties.",
+    "Log all access to tamper-evident storage and alert on anomalies.",
+    "Prefer hosted payment fields, which can keep card data off your systems entirely.",
+  ],
+  quiz: [
+    { kind: "mcq", q: "What is the main purpose of tokenisation in this design?", options: ["Keep real card numbers out of most systems", "Speed up the CDN", "Replace the firewall", "Compress logs"], answer: 0, explain: "Tokens let most systems operate without ever seeing card numbers, reducing scope." },
+    { kind: "mcq", q: "What should be the only path from the application network to the card environment?", options: ["A firewall allowing one service on one port", "A public IP address", "A shared admin account", "An open security group"], answer: 0, explain: "A narrow, logged boundary is how segmentation is proven." },
+    { kind: "mcq", q: "Where should encryption keys for stored card data live?", options: ["Hardware security modules", "In the source repository", "In the application config file", "In an email"], answer: 0, explain: "HSM-backed key services keep key material out of reach of administrators." },
+    { kind: "text", q: "What is the card industry's data security standard called? (acronym, four letters, followed by DSS)", format: "****", accept: ["pci", "pci dss"], explain: "PCI DSS: Payment Card Industry Data Security Standard." },
+  ],
+});
